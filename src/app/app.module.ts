@@ -4,22 +4,43 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { EnergiaStore } from './app.component';
+
+// Pages
+import { Introduction } from '../pages/introduction/introduction';
+import { Login } from '../pages/login/login';
+import { Register } from '../pages/register/register';
+import { Sizing } from '../pages/sizing/sizing';
+import { Welcome } from '../pages/welcome/welcome';
+import { Dashboard } from '../pages/dashboard/dashboard';
+import { FactorPenalty } from '../pages/factor-penalty/factor-penalty';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    EnergiaStore,
+    Introduction,
+    Login,
+    Register,
+    Sizing,
+    Welcome,
+    Dashboard,
+    FactorPenalty,
+
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(EnergiaStore)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    EnergiaStore,
+    Introduction,
+    Login,
+    Register,
+    Sizing,
+    Welcome,
+    Dashboard,
+    FactorPenalty,
   ],
   providers: [
     StatusBar,
