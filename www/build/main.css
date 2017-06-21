@@ -24729,3 +24729,155 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+.swiper-pagination-bullet-active {
+  background: white !important;
+}
+
+.swiper-pagination-bullet {
+  border-radius: 100%;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: rgba(255, 255, 255, 0);
+  opacity: 1;
+  border: 2px solid white !important;
+  pointer-events: auto;
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
+  left: 0;
+  bottom: 60px;
+  width: 100%;
+}
+
+page-introduction .background {
+  background-image: url("../assets/images/background-intro.jpg");
+  background-size: cover;
+  background-origin: content-box;
+}
+
+page-introduction .background .background-special {
+  background-color: rgba(71, 138, 255, 0.53);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+page-introduction .background .logo {
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 40vw;
+  top: 20vh;
+  display: block;
+  position: relative;
+}
+
+page-introduction .background .reciclapp-bottom {
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 20px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+page-introduction .background .reciclapp-bottom .sk-folding-cube {
+  bottom: 20px;
+}
+
+page-introduction .background .reciclapp-bottom h1 {
+  font-size: 40px;
+}
+
+page-introduction .background .reciclapp-bottom p {
+  font-size: 15px;
+  margin-top: 0px;
+}
+
+page-introduction .background .btn-welcome {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5vh;
+  font-weight: 400;
+  font-size: 1.4em;
+}
+
+page-introduction .background .sign-in {
+  border-color: white;
+  color: white;
+}
+
+page-introduction .background .sign-up {
+  color: white;
+}
+
+page-introduction .background .reciclapp-logo {
+  top: 20vh;
+  background-image: url("../assets/images/reciclapp_logo.png");
+}
+
+page-walkthrough .background-special {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/images/backgrounds/map.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  position: absolute;
+}
+
+page-walkthrough .background-special .ghost-button {
+  background-color: transparent;
+  color: #113d14;
+  font-weight: 500;
+  right: 0px;
+  z-index: 999;
+  position: absolute;
+}
+
+page-walkthrough .background-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(49, 179, 58, 0.69);
+  position: absolute;
+}
+
+page-walkthrough .slide-content {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  display: block;
+  background-color: white;
+  position: relative;
+}
+
+page-walkthrough .slide-content .skip {
+  top: calc(70vh - 70px);
+  position: relative;
+  font-size: larger;
+  font-weight: 500;
+  color: #7e7e7e;
+  display: block;
+}
+
+page-walkthrough .slide-content .final {
+  float: right;
+}
+
+page-walkthrough .slide-2 {
+  color: red;
+}
+
+page-walkthrough .slide-3 {
+  color: blue;
+}
+
+page-walkthrough ion-fab {
+  bottom: 1em;
+  right: 1em;
+}

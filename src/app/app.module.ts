@@ -14,6 +14,7 @@ import { Sizing } from '../pages/sizing/sizing';
 import { Welcome } from '../pages/welcome/welcome';
 import { Dashboard } from '../pages/dashboard/dashboard';
 import { FactorPenalty } from '../pages/factor-penalty/factor-penalty';
+import { Walkthrough } from '../pages/walkthrough/walkthrough';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FactorPenalty } from '../pages/factor-penalty/factor-penalty';
     Welcome,
     Dashboard,
     FactorPenalty,
+    Walkthrough
 
   ],
   imports: [
@@ -41,6 +43,7 @@ import { FactorPenalty } from '../pages/factor-penalty/factor-penalty';
     Welcome,
     Dashboard,
     FactorPenalty,
+    Walkthrough
   ],
   providers: [
     StatusBar,

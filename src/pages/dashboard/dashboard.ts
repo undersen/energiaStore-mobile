@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Sizing } from '../sizing/sizing';
+import { FactorPenalty } from '../factor-penalty/factor-penalty';
 
 /**
  * Generated class for the Dashboard page.
@@ -13,6 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'dashboard.html',
 })
 export class Dashboard {
+
+  factoryPenaltyPage = FactorPenalty;
+  sizingPage = Sizing;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
