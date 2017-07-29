@@ -1,1 +1,104 @@
 /* Empty. Add your own CSS if you like */
+
+
+html, body ,h1, h2, h3, h4, h5, h6, p{
+  font-family: 'Varela Round', sans-serif;
+
+}
+
+.special-color{
+background-color: #8bcb71 !important;
+}
+
+.background-tutorial{
+  width: 100%;
+  position: absolute;
+  transform: translate(0,50%);
+}
+
+.color-1{
+  background-color: rgba(58, 167, 13, 0.59);
+}
+
+.title-slider{
+  color: white;
+  font-weight: 400;
+  text-align: center;
+  font-size:6vw;
+}
+
+.slider{
+  height: 100vh;
+  top:0px;
+}
+
+.slider-box{
+  padding:30px;
+}
+
+.icon-intro{
+  color: white;
+  font-size: 30vw !important;
+  display: block !important;
+  text-align: center;
+  margin: 20vw;
+}
+
+.button-init{
+  padding: 10px 20px;
+  margin: 30px auto 0 auto;
+  display: block;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  border-radius: 51px;
+}
+
+/*Login*/
+.login-title{
+  color: black;
+  text-align: center;
+}
+
+.card-login{
+  padding: 20px 20px 20px 20px;
+}
+
+
+/* Register */
+.back-color1{
+  background-color:#8bcb71;
+  transition:1s;
+}
+
+.back-color2{
+  background-color:#5bc9d4;
+  transition:1s;
+}
+
+.back-color3{
+  background-color:#d5b554;
+  transition:1s;
+}
+
+.register-float-button{
+  position: relative !important;
+  top: -40px !important;
+  left: 70vw !important;
+  background-color:#51c4f3 !important;
+}
+
+.card-register{
+padding: 0px 0px 26px 0px !important;
+}
+
+
+
+
+
+/* Dashboard */
+
+.image-quotation{
+
+}

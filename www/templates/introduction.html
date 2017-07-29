@@ -1,0 +1,61 @@
+<ion-view >
+  <ion-view title="Title" >
+    <ion-content class="color-1" has-bouncing="false">
+      <img id="image-logo" src="img/map.svg"  class="background-tutorial" >
+
+
+      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+        <ion-slide class="slider-box">
+
+          <i class="fa fa-bolt icon-intro" aria-hidden="true"></i>
+
+
+          <h4 class="title-slider" >
+
+
+            Los recursos naturales se estan terminando ¡la eficiencia energetica es el camino para un mundo mejor!
+          </h4>
+
+        </ion-slide>
+
+        <ion-slide class="slider-box">
+
+          <i class="fa fa-lightbulb-o icon-intro" aria-hidden="true"></i>
+
+          <h4 class="title-slider">
+            El cambio esta en ti ¡comienza a hacer la diferencia y ahorra energia electrica!
+          </h4>
+
+
+        </ion-slide>
+
+
+        <ion-slide class="slider-box">
+
+          <i class="fa fa-globe icon-intro" aria-hidden="true"></i>
+          <h4 class="title-slider">
+            ! Comienza hoy & contagia la eficiencia energetica ¡
+            nuestro planeta lo agradecera
+          </h4>
+
+          <button type="button" class="button-init" name="button" ng-click="goToLogin();">Comenzar con el cambio</button>
+
+        </ion-slide>
+
+
+
+      </ion-slide-box>
+    </ion-content>
+  </ion-view>
+
+
+  <style media="screen">
+  .slider-pager .slider-pager-page {
+    display: inline-block;
+    margin: 0px 3px;
+    width: 15px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.3;
+  }
+  </style>

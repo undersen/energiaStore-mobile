@@ -1,0 +1,102 @@
+<ion-view>
+  <ion-content class="back-color1" id="content-register">
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+      <ion-slide>
+
+        <div class="row" style="margin-top: 10vw;">
+          <div class="col s12 m6">
+            <div class="card card-register" style="padding:0px;">
+              <div class="card-content white-text">
+                <span class="card-title login-title">Comencemos con tu informacion pesonal</span>
+
+                <div class="input-field col s12">
+                  <input id="email" type="text" class="validate" ng-model="user.email">
+                  <label for="email">Nombre</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
+                  <label for="password">Telefono</label>
+                </div>
+              </div>
+            </div>
+            <a class="btn-floating btn-large waves-effect waves-light register-float-button" ng-click="nextButton(0);"><i class="ion-android-arrow-forward"></i></a>
+          </div>
+        </div>
+
+      </ion-slide>
+
+      <ion-slide>
+
+        <div class="row" style="margin-top: 10vw;">
+          <div class="col s12 m6">
+            <div class="card card-register">
+              <div class="card-content white-text">
+                <span class="card-title login-title">Informacion de cuenta</span>
+
+                <div class="input-field col s12">
+                  <input id="email" type="text" class="validate" ng-model="user.email">
+                  <label for="email">Correo</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
+                  <label for="password">Contraseña</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
+                  <label for="password">Repetir contraseña</label>
+                </div>
+
+              </div>
+
+            </div>
+            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward"></i></a>
+          </div>
+        </div>
+
+
+      </ion-slide>
+
+
+      <ion-slide>
+
+
+        <div class="row" style="margin-top: 10vw;">
+          <div class="col s12 m6">
+            <div class="card card-register">
+              <div class="card-content white-text">
+                <span class="card-title login-title">Informacion de contacto</span>
+
+                <div class="input-field col s12">
+                  <input id="email" type="text" class="validate" ng-model="user.email">
+                  <label for="email">Correo</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
+                  <label for="password">Contraseña</label>
+                </div>
+
+                <br />
+                <a class="waves-effect waves-light btn" ng-click="login()" style="width: 100%;">Iniciar sesión</a>
+
+
+                <p ng-click="goToRegister();" style="color:black;margin-top:30px;"> aun no tienes una cuenta? <strong style="font-weight:600;color:#8bcb71">Registrate</strong></p>
+
+
+              </div>
+
+            </div>
+            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward"></i></a>
+          </div>
+        </div>
+
+
+      </ion-slide>
+
+
+
+    </ion-slide-box>
+
+  </ion-content>
+</ion-view>
