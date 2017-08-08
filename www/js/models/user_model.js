@@ -4,19 +4,19 @@
 (function() {
   this.app.service('StorageUserModel', ['$q', '$localStorage', function($q, $localStorage) {
 
-    var courses;
+    var user;
 
     return {
 
       getCurrentUser: function() {
-        return courses = $localStorage.courses;
+        return user = $localStorage.user;
       },
       setCurrentUser: function(data) {
 
-        $localStorage.courses = data;
+        $localStorage.user = data;
       },
       destroyCurrentUser: function() {
-        delete $localStorage.courses;
+        delete $localStorage.user;
         return true;
       }
     };

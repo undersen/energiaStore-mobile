@@ -6,19 +6,27 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform",
-  function($scope, $state,$ionicPlatform) {
+  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope",
+  function($scope, $state,$ionicPlatform,$rootScope) {
 
   $ionicPlatform.ready(function() {
 
-    $scope.goToLogin = function(){
-
-      $state.go("login");
+    $scope.updateUser = function(){
 
     }
 
+    $scope.changeLanguage = function(){
+
+    }
+
+    $scope.backButton = function(){
+        $state.go("dashboard");
+    }
+
     $ionicPlatform.registerBackButtonAction(function () {
+      $scope.backButton();
     }, 100);
+
 
 
     });

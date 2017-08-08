@@ -28,6 +28,14 @@ ROUTES CONFIGURATION
       controller: "BaseController"
     })
 
+    .state("welcome", {
+      url: "/welcome",
+      cache: false,
+      abstract: false,
+      templateUrl: "templates/welcome.html",
+      controller: "WelcomeController"
+    })
+
     .state("introduction", {
       url: "/introduction",
       cache: false,
@@ -66,6 +74,22 @@ ROUTES CONFIGURATION
       abstract: false,
       templateUrl: "templates/quotation.html",
       controller: "QuotationController"
+    })
+
+    .state("factor", {
+      url: "/factor",
+      cache: false,
+      abstract: false,
+      templateUrl: "templates/factor.html",
+      controller: "FactorController"
+    })
+
+    .state("settings", {
+      url: "/settings",
+      cache: false,
+      abstract: false,
+      templateUrl: "templates/settings.html",
+      controller: "SettingsController"
     })
 
 

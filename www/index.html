@@ -21,6 +21,7 @@
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 <link href="css/materialize.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
 <link href="css/ionic.app.css" rel="stylesheet">
@@ -54,11 +55,14 @@
 
 <!-- Config -->
 <script src="js/controllers/base_controller.js"></script>
+<script src="js/controllers/welcome_controller.js"></script>
 <script src="js/controllers/introduction_controller.js"></script>
 <script src="js/controllers/login_controller.js"></script>
 <script src="js/controllers/register_controller.js"></script>
 <script src="js/controllers/dashboard_controller.js"></script>
 <script src="js/controllers/quotation_controller.js"></script>
+<script src="js/controllers/factor_controller.js"></script>
+<script src="js/controllers/settings_controller.js"></script>
 
 
 
@@ -67,11 +71,12 @@
 <!-- service -->
 <script src="js/services/session_service.js"></script>
 <script src="js/services/user_service.js"></script>
+<script src="js/services/calculation_service.js"></script>
 
 
 <!-- models -->
 <script src="js/models/user_model.js"></script>
-
+<script src="js/models/quotation_model.js"></script>
 
 
 
@@ -84,4 +89,94 @@
   </ion-nav-view>
 
 </body>
+
+<script id="modal-help" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="special-color">
+      <h1 class="title" style="color:white">¿Factor de mala potencia?</h1>
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalHelp();">
+        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+      <div style="padding:20px;">
+        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos
+        de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias
+        desde el año 1500, cuando un impresor
+        (N. del T. persona que se dedica a la imprenta) desconocido usó una galería
+        de textos y los mezcló de tal manera que logró hacer un libro de textos especimen
+
+
+        <img src="./img/enel.jpeg" />
+
+        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos
+        de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias
+        desde el año 1500, cuando un impresor
+        (N. del T. persona que se dedica a la imprenta) desconocido usó una galería
+        de textos y los mezcló de tal manera que logró hacer un libro de textos especimen
+      </div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+
+<script id="modal-factor" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="special-color">
+      <h1 class="title" style="color:white">Cotizacion Factor de potencia</h1>
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalFactor();">
+        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
+      </div>
+    </ion-header-bar>
+    <ion-content style="height:calc(100vh - 44px)">
+
+
+
+
+      <div style="margin-top:30px;padding:15px;">
+        <p>
+          <input type="radio" name="group1" class="filled-in" id="manual-checkbox" ng-click="chooseManual();"/>
+          <label for="manual-checkbox">Ingresa multa manual</label>
+        </p>
+
+        <div class="input-field col s6">
+          <input id="input-penalty" disabled="true" type="text" class="validate">
+          <label for="input-penalty">Monto de multa</label>
+        </div>
+
+
+        <p>
+          <input type="radio" name="group1" class="filled-in" id="image-checkbox"  ng-click="chooseImage();"/>
+          <label for="image-checkbox">Utilizar fotografia de la multa</label>
+        </p>
+
+
+
+        <div class="row">
+          <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">Cámara</a>
+          <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">Galeria</a>
+
+        </div>
+
+        <div style="width:100%;">
+          <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
+        </div>
+
+        <a class="waves-effect waves-light btn factor-send-button" ng-click="openCamera();" style="">Enviar</a>
+      </div>
+
+
+
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="loading.html" type="text/ng-template">
+           <img  src="./img/logo_transparent.png" class="rotating" style="width:100px;" />
+           <br />
+           <span>Registrando cuenta...</span>
+         </script>
+
 </html>

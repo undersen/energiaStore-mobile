@@ -6,25 +6,47 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform",
-  function($scope, $state,$ionicPlatform) {
+  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session",
+  function($scope, $state,$ionicPlatform,StorageUserModel,Session) {
 
-  $ionicPlatform.ready(function() {
+    $scope.user ={};
 
-    $scope.goToRegister = function(){
+    $ionicPlatform.ready(function() {
 
-      $state.go("register");
+      $scope.goToRegister = function(){
 
-    }
+        $state.go("register");
 
-
-$scope.login= function (){
-
-  $state.go("dashboard");
-
-}
+      }
 
 
+      $scope.login= function (){
+
+        if($scope.user.email == undefined || $scope.user.email == ""){
+
+          return;
+        }
+
+        if($scope.user.password == undefined || $scope.user.password == ""){
+
+          return;
+        }
+
+        Session.login($scope.user).then(function(_response){
+          debugger;
+          StorageUserModel.setCurrentUser(_response.data);
+          $state.go("dashboard")
+        },function(_error){
+          Materialize.toast("",4000);
+          return;
+
+        })
+
+      }
+
+      $ionicPlatform.registerBackButtonAction(function () {
+        
+      }, 100);
 
 
     });

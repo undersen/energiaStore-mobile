@@ -17,11 +17,18 @@
     //////////////////////////////////////////
 
     // SESSION_MODEL
-    LOGIN_API : "api/session/create",
+    SIGN_UP : "api/signup",
+    SIGN_IN : "api/login",
+    LOG_OUT : "api/logout",
 
     // USER_MODEL
-    REGISTER_USER_API : "api/user/create",
-    UPDATE_USER_API : "api/user/update",
+    UPDATE_USER_API : "api/users/",
+
+
+    //CALCULATIONS_MODEL
+    CREATE_CALCULATION: "api/calculations",
+    SHOW_CALCULATION: "api/calculations/",
+    DESTROY_CALCULATION: "api/calculations",
 
 
 

@@ -10,21 +10,15 @@ CONTROLLER DEFINITION
   function($scope, $state,$ionicPlatform,StorageUserModel) {
 
     $ionicPlatform.ready(function() {
-
-      // Platform stuff here.
-      // if(StorageUserModel.getCurrentUser()){
-      //   if(StorageUserModel.getCurrentUser().token == undefined){
-      //     // utilService.deleteStorageData();
-      //   }else{
-      //     debugger;
-      //     $state.go("introduction",{},{ reload: true })
-      //   }
-      // }else{
-      //   // utilService.deleteStorageData();
-      // }
-
-      $state.go("introduction",{},{ reload: true })
+      if(StorageUserModel.getCurrentUser()){
+        if(StorageUserModel.getCurrentUser().authentication_token == undefined){
+          $state.go("introduction",{},{ reload: true })
+        }else{
+          $state.go("dashboard",{},{ reload: true })
+        }
+      }else{
+        $state.go("introduction",{},{ reload: true })
+      }
     });
-
   }]);
 }).call(this);

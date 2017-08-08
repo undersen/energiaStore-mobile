@@ -102,3 +102,77 @@ padding: 0px 0px 26px 0px !important;
 .image-quotation{
 
 }
+
+
+.factor-send-button{
+  width: 70%;
+  margin: 0 auto !important;
+  display: block !important;
+  bottom: -5vh;
+  position: relative;
+}
+
+
+.loading-container.active {
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.loading-container .loading {
+
+    background-color: #ffffff !important;
+    color: #383838 !important;
+
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+.hide{
+display:none;
+}
+
+.logo-welcome{
+  width: 30vw;
+  margin: 25vh auto 5vh auto;
+  display: block;
+  position: relative;
+}
+
+.welcome-button{
+margin:auto !important;
+margin: 5vw !important;
+}

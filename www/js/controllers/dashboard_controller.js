@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate) {
+  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","Session","StorageUserModel",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,Session,StorageUserModel) {
 
     $ionicPlatform.ready(function() {
 
@@ -18,13 +18,36 @@ CONTROLLER DEFINITION
       }
 
 
-      $scope.logOut = function (){
+      $scope.goToFactor = function(){
 
+        $state.go("factor");
 
-
-        $state.go("login")
       }
 
+      $scope.goToSettings = function(){
+
+        $state.go("settings");
+
+      }
+
+
+
+
+      $scope.logOut = function (){
+        Session.logout().then(function(){
+
+          debugger;
+          StorageUserModel.destroyCurrentUser();
+
+        },function(){
+
+        })
+      }
+
+
+      $ionicPlatform.registerBackButtonAction(function () {
+        // ionic.Platform.exitApp();
+      }, 100);
 
 
     });

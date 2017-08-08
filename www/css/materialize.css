@@ -5116,7 +5116,7 @@ small {
   visibility: hidden;
 }
 
-.backdrop {
+/*.backdrop {
   position: absolute;
   opacity: 0;
   height: 7px;
@@ -5127,7 +5127,7 @@ small {
   -webkit-transform-origin: 50% 0%;
           transform-origin: 50% 0%;
   visibility: hidden;
-}
+}*/
 
 .btn, .btn-large,
 .btn-flat {
@@ -5624,7 +5624,7 @@ button.btn-floating {
   z-index: -1;
 }
 
-.modal {
+/*.modal {
   display: none;
   position: fixed;
   left: 0;
@@ -5637,15 +5637,15 @@ button.btn-floating {
   overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
-}
+}*/
 
-@media only screen and (max-width: 992px) {
+/*@media only screen and (max-width: 992px) {
   .modal {
     width: 80%;
   }
-}
+}*/
 
-.modal h1, .modal h2, .modal h3, .modal h4 {
+/*.modal h1, .modal h2, .modal h3, .modal h4 {
   margin-top: 0;
 }
 
@@ -5711,7 +5711,7 @@ button.btn-floating {
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity;
-}
+}*/
 
 .collapsible {
   border-top: 1px solid #ddd;

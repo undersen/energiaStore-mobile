@@ -8,15 +8,19 @@
           <div class="col s12 m6">
             <div class="card card-register" style="padding:0px;">
               <div class="card-content white-text">
-                <span class="card-title login-title">Comencemos con tu informacion pesonal</span>
+                <span class="card-title login-title">Comencemos con tu cuenta</span>
 
                 <div class="input-field col s12">
                   <input id="email" type="text" class="validate" ng-model="user.email">
-                  <label for="email">Nombre</label>
+                  <label for="email">Email</label>
                 </div>
                 <div class="input-field col s12">
                   <input id="passowrd" type="text" class="validate" ng-model="user.password">
-                  <label for="password">Telefono</label>
+                  <label for="password">Password</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="password_confirmation" type="text" class="validate" ng-model="user.password_confirmation">
+                  <label for="password_confirmation">Confirmacion password</label>
                 </div>
               </div>
             </div>
@@ -32,20 +36,25 @@
           <div class="col s12 m6">
             <div class="card card-register">
               <div class="card-content white-text">
-                <span class="card-title login-title">Informacion de cuenta</span>
+                <span class="card-title login-title">ahora tu informacion personal</span>
 
                 <div class="input-field col s12">
-                  <input id="email" type="text" class="validate" ng-model="user.email">
-                  <label for="email">Correo</label>
+                  <input id="email" type="text" class="validate" ng-model="user.name">
+                  <label for="email">Nombre</label>
                 </div>
                 <div class="input-field col s12">
-                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
-                  <label for="password">Contraseña</label>
+                  <input id="passowrd" type="text" class="validate" ng-model="user.last_name">
+                  <label for="password">Apellido</label>
                 </div>
 
                 <div class="input-field col s12">
-                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
-                  <label for="password">Repetir contraseña</label>
+                  <input id="passowrd" type="text" class="validate" ng-model="user.phone">
+                  <label for="password">Telefono</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <input id="passowrd" type="text" class="validate" ng-model="user.address">
+                  <label for="password">Direccion</label>
                 </div>
 
               </div>
@@ -54,45 +63,10 @@
             <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward"></i></a>
           </div>
         </div>
-
-
       </ion-slide>
 
 
-      <ion-slide>
 
-
-        <div class="row" style="margin-top: 10vw;">
-          <div class="col s12 m6">
-            <div class="card card-register">
-              <div class="card-content white-text">
-                <span class="card-title login-title">Informacion de contacto</span>
-
-                <div class="input-field col s12">
-                  <input id="email" type="text" class="validate" ng-model="user.email">
-                  <label for="email">Correo</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
-                  <label for="password">Contraseña</label>
-                </div>
-
-                <br />
-                <a class="waves-effect waves-light btn" ng-click="login()" style="width: 100%;">Iniciar sesión</a>
-
-
-                <p ng-click="goToRegister();" style="color:black;margin-top:30px;"> aun no tienes una cuenta? <strong style="font-weight:600;color:#8bcb71">Registrate</strong></p>
-
-
-              </div>
-
-            </div>
-            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward"></i></a>
-          </div>
-        </div>
-
-
-      </ion-slide>
 
 
 
