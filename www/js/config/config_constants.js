@@ -9,7 +9,7 @@
     //****************+SERVERS**************//
     //////////////////////////////////////////
 
-    LOCAL : "http://localhost:3000/",
+    LOCAL : "//localhost:3000/",
     // LOCAL : "http://54.183.224.40/", //Servidor produccion
 
     //////////////////////////////////////////
@@ -28,6 +28,7 @@
     //CALCULATIONS_MODEL
     CREATE_CALCULATION: "api/calculations",
     SHOW_CALCULATION: "api/calculations/",
+    INDEX_CALCULATION: "api/calculations/",
     DESTROY_CALCULATION: "api/calculations",
 
 

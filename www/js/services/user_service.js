@@ -2,7 +2,7 @@
 
 (function() {
   this.app.factory('User', ['$http', '$q', 'ENV','StorageUserModel',
-  function($http, $q, ENV,StorageUserService){
+  function($http, $q, ENV, StorageUserService){
 
 
     return {
@@ -27,24 +27,25 @@
         return defer.promise;
       },
 
-      updateUser: function(_user) {
+      updateUser: function(_user,_info) {
+debugger;
         var defer = $q.defer();
         $http({
-          url: ENV.LOCAL + ENV.SIGN_UP+"/"+_user.id,
-          method: 'POST',
+          url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
+          method: 'PATCH',
           headers:{
-            username:StorageUserModel.getCurrentUser().username,
-            token:StorageUserModel.getCurrentUser().authentication_token
+            username:_user.username,
+            token:_user.authentication_token
           },
           data:{
             user:{
-              email:_user.email,
-              phone:_user.phone,
-              address:_user.address,
-              name:_user.name,
-              last_name:_user.last_name,
-              city:_user.city,
-              country:_user.country
+              email:_info.email,
+              phone:_info.phone,
+              address:_info.address,
+              name:_info.name,
+              last_name:_info.last_name,
+              city:_info.city,
+              country:_info.country
             }
           }
         }).then(function(_response) {

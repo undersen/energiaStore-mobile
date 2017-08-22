@@ -6,14 +6,14 @@
 
 
     return {
-      create: function(_calculation) {
+      create: function(_calculation,_user_info) {
         var defer = $q.defer();
         $http({
-          url: ENV.LOCAL + ENV.SIGN_UP,
+          url: ENV.LOCAL + ENV.CREATE_CALCULATION,
           method: 'POST',
           headers:{
-              username:StorageUserModel.getCurrentUser().username,
-              token:StorageUserModel.getCurrentUser().authentication_token
+            username:_user_info.username,
+            token:_user_info.authentication_token
           },
           data:{
             calculation:{
@@ -29,14 +29,14 @@
         return defer.promise;
       },
 
-      show: function(_calculation) {
+      getByIndex: function(_calculation_id,_user_info) {
         var defer = $q.defer();
         $http({
-          url: ENV.LOCAL + ENV.SIGN_UP+_calculation.id,
+          url: ENV.LOCAL + ENV.INDEX_CALCULATION+_calculation_id,
           method: 'GET',
           headers:{
-              username:StorageUserModel.getCurrentUser().username,
-              token:StorageUserModel.getCurrentUser().authentication_token
+              username:_user_info.username,
+              token:_user_info.authentication_token
           }
         }).then(function(_response) {
           defer.resolve(_response);
@@ -46,6 +46,27 @@
         });
         return defer.promise;
       },
+
+      getAll: function(_user_info) {
+        var defer = $q.defer();
+        $http({
+          url: ENV.LOCAL + ENV.INDEX_CALCULATION,
+          method: 'GET',
+          headers:{
+              username:_user_info.username,
+              token:_user_info.authentication_token
+          }
+        }).then(function(_response) {
+          defer.resolve(_response);
+
+        }, function(_error) {
+          defer.reject(_error);
+        });
+        return defer.promise;
+      },
+
+
+
 
       delete: function(_user) {
         var defer = $q.defer();

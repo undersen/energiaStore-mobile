@@ -1,25 +1,29 @@
 <ion-view>
+  <div class="bar bar-header bar-light" style="background-color:transparent;">
+<i class="ion-ios-arrow-back" style="margin-left:10px;font-size:30px;color:white;" ng-click="onBack();"></i>
+  </div>
+
   <ion-content class="back-color1" id="content-register">
 
-    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
       <ion-slide>
 
         <div class="row" style="margin-top: 10vw;">
           <div class="col s12 m6">
             <div class="card card-register" style="padding:0px;">
               <div class="card-content white-text">
-                <span class="card-title login-title">Comencemos con tu cuenta</span>
+                <span class="card-title login-title">Registremos tu cuenta ...</span>
 
                 <div class="input-field col s12">
                   <input id="email" type="text" class="validate" ng-model="user.email">
                   <label for="email">Email</label>
                 </div>
                 <div class="input-field col s12">
-                  <input id="passowrd" type="text" class="validate" ng-model="user.password">
+                  <input id="passowrd" type="password" class="validate" ng-model="user.password">
                   <label for="password">Password</label>
                 </div>
                 <div class="input-field col s12">
-                  <input id="password_confirmation" type="text" class="validate" ng-model="user.password_confirmation">
+                  <input id="password_confirmation" type="password" class="validate" ng-model="user.password_confirmation">
                   <label for="password_confirmation">Confirmacion password</label>
                 </div>
               </div>
@@ -31,42 +35,27 @@
       </ion-slide>
 
       <ion-slide>
-
         <div class="row" style="margin-top: 10vw;">
           <div class="col s12 m6">
             <div class="card card-register">
               <div class="card-content white-text">
-                <span class="card-title login-title">ahora tu informacion personal</span>
+                <span class="card-title login-title">! Felicitaciones ¡</span>
+                <br>
+                <img class="logo-register" src="img/logo_white.png" alt="">
+                <br>
+                <span class="card-title login-subtitle">! ya eres parte de energiaStore ¡</span>
 
-                <div class="input-field col s12">
-                  <input id="email" type="text" class="validate" ng-model="user.name">
-                  <label for="email">Nombre</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="passowrd" type="text" class="validate" ng-model="user.last_name">
-                  <label for="password">Apellido</label>
-                </div>
 
-                <div class="input-field col s12">
-                  <input id="passowrd" type="text" class="validate" ng-model="user.phone">
-                  <label for="password">Telefono</label>
-                </div>
 
-                <div class="input-field col s12">
-                  <input id="passowrd" type="text" class="validate" ng-model="user.address">
-                  <label for="password">Direccion</label>
-                </div>
 
               </div>
 
             </div>
-            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward"></i></a>
+            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward" ng-click="finish()"></i></a>
           </div>
         </div>
+
       </ion-slide>
-
-
-
 
 
 

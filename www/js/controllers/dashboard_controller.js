@@ -33,16 +33,6 @@ CONTROLLER DEFINITION
 
 
 
-      $scope.logOut = function (){
-        Session.logout().then(function(){
-
-          debugger;
-          StorageUserModel.destroyCurrentUser();
-
-        },function(){
-
-        })
-      }
 
 
       $ionicPlatform.registerBackButtonAction(function () {

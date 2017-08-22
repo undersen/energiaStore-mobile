@@ -27,6 +27,20 @@ background-color: #8bcb71 !important;
   font-size:6vw;
 }
 
+ .login-subtitle{
+   color: rgb(150, 150, 150);
+   font-weight: 300;
+   text-align: center;
+   font-size:4.5vw !important;
+}
+
+.logo-register{
+  width: 20vw;
+  margin:  0  auto;
+  display: block;
+  position: relative;
+}
+
 .slider{
   height: 100vh;
   top:0px;

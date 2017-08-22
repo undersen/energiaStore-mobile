@@ -12,9 +12,9 @@ ROUTES CONFIGURATION
     $ionicConfigProvider.navBar.alignTitle('center');
     $ionicConfigProvider.platform.android.scrolling.jsScrolling(false);
 
-    $httpProvider.defaults.headers.put["Content-Type"] = "application/json; charset=UTF-8";
-    $httpProvider.defaults.headers.post["Content-Type"] = "application/json; charset=UTF-8";
-    $httpProvider.defaults.headers.patch["Content-Type"] = "application/json; charset=UTF-8";
+    // $httpProvider.defaults.headers.put["Content-Type"] = "application/json; charset=UTF-8";
+    // $httpProvider.defaults.headers.post["Content-Type"] = "application/json; charset=UTF-8";
+    // $httpProvider.defaults.headers.patch["Content-Type"] = "application/json; charset=UTF-8";
 
 
     // $stateProvider
@@ -74,6 +74,14 @@ ROUTES CONFIGURATION
       abstract: false,
       templateUrl: "templates/quotation.html",
       controller: "QuotationController"
+    })
+
+    .state("motors", {
+      url: "/quotation/:id_quotation/motors",
+      cache: false,
+      abstract: false,
+      templateUrl: "templates/motor.html",
+      controller: "MotorsController"
     })
 
     .state("factor", {

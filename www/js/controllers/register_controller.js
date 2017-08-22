@@ -134,53 +134,64 @@ CONTROLLER DEFINITION
         })
       }
 
-      $scope.validateSlider2 = function (){
+      // $scope.validateSlider2 = function (){
+      //
+      //
+      //   if($scope.user.name == undefined || $scope.user.name == ''){
+      //     Materialize.toast("",4000)
+      //     return;
+      //   }
+      //
+      //   if($scope.user.last_name == undefined || $scope.user.last_name == ''){
+      //     Materialize.toast("",4000)
+      //     return;
+      //   }
+      //
+      //   if($scope.user.phone == undefined || $scope.user.phone == ''){
+      //     Materialize.toast("",4000)
+      //     return;
+      //   }
+      //
+      //   if($scope.user.address == undefined || $scope.user.address == ''){
+      //     Materialize.toast("",4000)
+      //     return;
+      //   }
+      //
+      //
+      //
+      //
+      //
+      //   $ionicSlideBoxDelegate.slide(2)
+      // }
+
+      // $scope.validateSlider2 = function (){
+      //
+      // }
+      //
+      //
+      // $scope.completeUserInfo = function (){
+      //
+      // }
 
 
-        if($scope.user.name == undefined || $scope.user.name == ''){
-          Materialize.toast("",4000)
-          return;
-        }
-
-        if($scope.user.last_name == undefined || $scope.user.last_name == ''){
-          Materialize.toast("",4000)
-          return;
-        }
-
-        if($scope.user.phone == undefined || $scope.user.phone == ''){
-          Materialize.toast("",4000)
-          return;
-        }
-
-        if($scope.user.address == undefined || $scope.user.address == ''){
-          Materialize.toast("",4000)
-          return;
-        }
-
-
-
-
-
-        $ionicSlideBoxDelegate.slide(2)
+      $scope.finish= function(){
+        $state.go("dashboard")
       }
-
-      $scope.validateSlider2 = function (){
-
-      }
-
-
-      $scope.completeUserInfo = function (){
-
-      }
-
-
-
 
       $ionicPlatform.registerBackButtonAction(function () {
-        console.log("backbutton pressed");
+        $scope.onBack();
       }, 100);
 
+      $scope.disableSwipe = function() {
+        $ionicSlideBoxDelegate.enableSlide(false);
+      };
 
+
+      $scope.onBack = function (){
+
+      if ($ionicSlideBoxDelegate.currentIndex() == 0 ){ $state.go("login")}
+
+      }
 
 
     });
