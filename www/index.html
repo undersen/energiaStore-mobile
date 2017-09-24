@@ -74,6 +74,8 @@
 <script src="js/services/session_service.js"></script>
 <script src="js/services/user_service.js"></script>
 <script src="js/services/calculation_service.js"></script>
+<script src="js/services/motors_service.js"></script>
+<script src="js/services/powerFactory_service.js"></script>
 
 
 <!-- models -->
@@ -102,7 +104,37 @@
     </ion-header-bar>
     <ion-content>
       <div style="padding:20px;">
-        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos
+
+
+  <h5> ¿Por qué me cobran las compañías de electricidad esta multa?</h5>
+La legislalación chilena permite que las empresas distribuidoras de energía eléctrica, cobren a cada cliente un recargo de un 1% sobre la facturación de energía por cada centésima (0,01) en que el Factor de Potencia (F.P.) de una instalación sea inferior a 0,93.
+ Eso significa que sí el factor de potencia de un empalme es de 0,86, la distribuidora cobrará un recargo de 8% (0,93-0,85=0,08=8/100).
+¿Por qué genero ésta Multa?
+Consumo eléctrico de máquinas rotativas ( motores),
+Lámparas de descarga no compensadas
+Iluminación fluorescente no compensada
+Multiples otros factores
+
+<br />
+
+<h5>¿Como leer mi multa por mal factor de potencia?</h5>
+Por ejemplo, en el recibo de electricidad de un establecimiento escolar, donde se registran las energías activa y reactiva por medio de dos medidores de energía, aparecen los siguientes cargos:
+
+<img src="./img/factura.png" style="width:100%;" />
+
+El consumo de energía activa es de 4238 kWh y el de energía reactiva es de 3102 kVArh. Por lo tanto, el factor de potencia mensual es:  
+Entonces, el recargo por factor de potencia que aparece en el recibo se obtiene de: 0,93-0,8069 = 0,1231 x 358466 =  $44.127.- 
+
+
+
+<br />
+
+<h5>¿Cómo me pueden ayudar a no pagar más esta multa?</h5>
+En energíastore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE FACTOR DE POTENCIA, OPTIMIZANDO SU INSTALACIÓN ELÉCTRICA”. Los invitamos a cotizar su proyecto AQUÍ o con nosotros al correo energía@energiastore.cl o al fono: +569-999999
+
+
+
+        <!-- Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos
         de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias
         desde el año 1500, cuando un impresor
         (N. del T. persona que se dedica a la imprenta) desconocido usó una galería
@@ -115,7 +147,9 @@
         de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias
         desde el año 1500, cuando un impresor
         (N. del T. persona que se dedica a la imprenta) desconocido usó una galería
-        de textos y los mezcló de tal manera que logró hacer un libro de textos especimen
+        de textos y los mezcló de tal manera que logró hacer un libro de textos especimen -->
+
+
       </div>
 
     </ion-content>
@@ -143,7 +177,7 @@
         </p>
 
         <div class="input-field col s6">
-          <input id="input-penalty" disabled="true" type="text" class="validate">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="factorType.power_factor">
           <label for="input-penalty">Monto de multa</label>
         </div>
 
@@ -152,6 +186,14 @@
           <input type="radio" name="group1" class="filled-in" id="image-checkbox"  ng-click="chooseImage();"/>
           <label for="image-checkbox">Utilizar fotografia de la multa</label>
         </p>
+
+
+</br></br>
+  <p>
+          <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="si deseas aqui puedes agregar un comentario">
+            </textarea>
+  </p>
+
 
 
 
@@ -165,7 +207,61 @@
           <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
         </div>
 
-        <a class="waves-effect waves-light btn factor-send-button" ng-click="openCamera();" style="">Enviar</a>
+        <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">Enviar</a>
+      </div>
+
+
+
+
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+
+<script id="modal-motor" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="special-color">
+      <h1 class="title" style="color:white">Cotizacion Factor de potencia</h1>
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalMotor();">
+        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
+      </div>
+    </ion-header-bar>
+    <ion-content style="height:calc(100vh - 44px)">
+
+
+
+
+      <div style="margin-top:30px;padding:15px;">
+
+
+        <div class="input-field col s6">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.rated_power">
+          <label for="input-penalty">Monto de multa</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.average_time">
+          <label for="input-penalty">Monto de multa</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.volts">
+          <label for="input-penalty">Monto de multa</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.amp">
+          <label for="input-penalty">Monto de multa</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.efficiency">
+          <label for="input-penalty">Monto de multa</label>
+        </div>
+
+
+
+        <a class="waves-effect waves-light btn factor-send-button" ng-click="createMotor();" style="">Enviar</a>
       </div>
 
 

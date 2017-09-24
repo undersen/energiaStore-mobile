@@ -23,12 +23,12 @@ CONTROLLER DEFINITION
       $scope.login= function (){
 
         if($scope.user.email == undefined || $scope.user.email == ""){
-
+          Materialize.toast("Complete correo",4000);
           return;
         }
 
         if($scope.user.password == undefined || $scope.user.password == ""){
-
+          Materialize.toast("Complete contraseña",4000);
           return;
         }
 
@@ -37,7 +37,7 @@ CONTROLLER DEFINITION
           StorageUserModel.setCurrentUser(_response.data);
           $state.go("dashboard")
         },function(_error){
-          Materialize.toast("",4000);
+          Materialize.toast("Usuario incorrecto",4000);
           return;
 
         })
@@ -45,7 +45,7 @@ CONTROLLER DEFINITION
       }
 
       $ionicPlatform.registerBackButtonAction(function () {
-        
+
       }, 100);
 
 

@@ -67,10 +67,14 @@ CONTROLLER DEFINITION
 
       $scope.craeteCalculation= function (name){
         Calculation.create(name,StorageUserModel.getCurrentUser()).then(function(_response){
-          debugger;
+
+        Materialize.toast("Cotizacion creada", 4000);
+        $scope.calculations ={};
+        $scope.getCalculation();
 
         },function(_error){
-          debugger;
+          Materialize.toast("Error al crear la cotizacion");
+          console.log(_error);
         })
 
       }
@@ -79,10 +83,7 @@ CONTROLLER DEFINITION
       $scope.getCalculation =  function (){
 
         Calculation.getAll(StorageUserModel.getCurrentUser()).then(function(_response){
-
           $scope.calculations = _response.data;
-          debugger;
-
         },function(_error){
 
         })
@@ -91,8 +92,6 @@ CONTROLLER DEFINITION
 
       $scope.goToCalculation = function(_index){
         $state.go("motors",{id_quotation: _index},{ reload: true });
-
-
       }
 
 

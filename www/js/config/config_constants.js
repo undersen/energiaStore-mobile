@@ -9,8 +9,8 @@
     //****************+SERVERS**************//
     //////////////////////////////////////////
 
-    LOCAL : "//localhost:3000/",
-    // LOCAL : "http://54.183.224.40/", //Servidor produccion
+    LOCAL : "http://kvar.herokuapp.com/",
+    //  LOCAL : "http://localhost:3000/", //Servidor produccion
 
     //////////////////////////////////////////
     //**************+EndPoinst**************//
@@ -29,7 +29,10 @@
     CREATE_CALCULATION: "api/calculations",
     SHOW_CALCULATION: "api/calculations/",
     INDEX_CALCULATION: "api/calculations/",
+    // INDEX_MOTORS_BY_CALCULATION: "api/calculations/",
     DESTROY_CALCULATION: "api/calculations",
+
+    CREATE_PF_QUOATATION : "/api/pf_quotation"
 
 
 
