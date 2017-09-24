@@ -190,3 +190,30 @@ display:none;
 margin:auto !important;
 margin: 5vw !important;
 }
+
+
+.modal-img-config{
+  width:100px;top:-55px;position:relative
+}
+
+.popup{
+    border-radius: 20px !important;
+    width: 75% !important;
+}
+
+.popup-head{
+    margin-bottom: 0px;
+}
+.modal-body-config{
+  top:-40px;
+  position:relative;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.button-special{
+  background-color: #8bcb71;
+  color: white;
+  border-radius: 10px;
+
+}

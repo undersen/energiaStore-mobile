@@ -106,48 +106,29 @@
       <div style="padding:20px;">
 
 
-  <h5> ¿Por qué me cobran las compañías de electricidad esta multa?</h5>
-La legislalación chilena permite que las empresas distribuidoras de energía eléctrica, cobren a cada cliente un recargo de un 1% sobre la facturación de energía por cada centésima (0,01) en que el Factor de Potencia (F.P.) de una instalación sea inferior a 0,93.
- Eso significa que sí el factor de potencia de un empalme es de 0,86, la distribuidora cobrará un recargo de 8% (0,93-0,85=0,08=8/100).
-¿Por qué genero ésta Multa?
-Consumo eléctrico de máquinas rotativas ( motores),
-Lámparas de descarga no compensadas
-Iluminación fluorescente no compensada
-Multiples otros factores
+        <h5> ¿Por qué me cobran las compañías de electricidad esta multa?</h5>
+        La legislalación chilena permite que las empresas distribuidoras de energía eléctrica, cobren a cada cliente un recargo de un 1% sobre la facturación de energía por cada centésima (0,01) en que el Factor de Potencia (F.P.) de una instalación sea inferior a 0,93.
+        Eso significa que sí el factor de potencia de un empalme es de 0,86, la distribuidora cobrará un recargo de 8% (0,93-0,85=0,08=8/100).
+        ¿Por qué genero ésta Multa?
+        Consumo eléctrico de máquinas rotativas ( motores),
+        Lámparas de descarga no compensadas
+        Iluminación fluorescente no compensada
+        Multiples otros factores
 
-<br />
+        <br />
 
-<h5>¿Como leer mi multa por mal factor de potencia?</h5>
-Por ejemplo, en el recibo de electricidad de un establecimiento escolar, donde se registran las energías activa y reactiva por medio de dos medidores de energía, aparecen los siguientes cargos:
+        <h5>¿Como leer mi multa por mal factor de potencia?</h5>
+        Por ejemplo, en el recibo de electricidad de un establecimiento escolar, donde se registran las energías activa y reactiva por medio de dos medidores de energía, aparecen los siguientes cargos:
 
-<img src="./img/factura.png" style="width:100%;" />
+        <img src="./img/factura.png" style="width:100%;" />
 
-El consumo de energía activa es de 4238 kWh y el de energía reactiva es de 3102 kVArh. Por lo tanto, el factor de potencia mensual es:  
-Entonces, el recargo por factor de potencia que aparece en el recibo se obtiene de: 0,93-0,8069 = 0,1231 x 358466 =  $44.127.- 
+        El consumo de energía activa es de 4238 kWh y el de energía reactiva es de 3102 kVArh. Por lo tanto, el factor de potencia mensual es:  
+        Entonces, el recargo por factor de potencia que aparece en el recibo se obtiene de: 0,93-0,8069 = 0,1231 x 358466 =  $44.127.- 
 
+        <br />
 
-
-<br />
-
-<h5>¿Cómo me pueden ayudar a no pagar más esta multa?</h5>
-En energíastore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE FACTOR DE POTENCIA, OPTIMIZANDO SU INSTALACIÓN ELÉCTRICA”. Los invitamos a cotizar su proyecto AQUÍ o con nosotros al correo energía@energiastore.cl o al fono: +569-999999
-
-
-
-        <!-- Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos
-        de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias
-        desde el año 1500, cuando un impresor
-        (N. del T. persona que se dedica a la imprenta) desconocido usó una galería
-        de textos y los mezcló de tal manera que logró hacer un libro de textos especimen
-
-
-        <img src="./img/enel.jpeg" />
-
-        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos
-        de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias
-        desde el año 1500, cuando un impresor
-        (N. del T. persona que se dedica a la imprenta) desconocido usó una galería
-        de textos y los mezcló de tal manera que logró hacer un libro de textos especimen -->
+        <h5>¿Cómo me pueden ayudar a no pagar más esta multa?</h5>
+        En energíastore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE FACTOR DE POTENCIA, OPTIMIZANDO SU INSTALACIÓN ELÉCTRICA”. Los invitamos a cotizar su proyecto AQUÍ o con nosotros al correo energía@energiastore.cl o al fono: +569-999999
 
 
       </div>
@@ -188,33 +169,29 @@ En energíastore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE 
         </p>
 
 
-</br></br>
-  <p>
-          <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="si deseas aqui puedes agregar un comentario">
-            </textarea>
-  </p>
+      </br></br>
+      <p>
+        <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="si deseas aqui puedes agregar un comentario">
+        </textarea>
+      </p>
 
 
 
 
-        <div class="row">
-          <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">Cámara</a>
-          <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">Galeria</a>
-
-        </div>
-
-        <div style="width:100%;">
-          <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
-        </div>
-
-        <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">Enviar</a>
+      <div class="row">
+        <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">Cámara</a>
+        <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">Galeria</a>
       </div>
 
+      <div style="width:100%;">
+        <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
+      </div>
 
+      <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">Enviar</a>
+    </div>
 
-
-    </ion-content>
-  </ion-modal-view>
+  </ion-content>
+</ion-modal-view>
 </script>
 
 
@@ -272,9 +249,9 @@ En energíastore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE 
 </script>
 
 <script id="loading.html" type="text/ng-template">
-           <img  src="./img/logo_transparent.png" class="rotating" style="width:100px;" />
-           <br />
-           <span>Registrando cuenta...</span>
-         </script>
+  <img  src="./img/logo_transparent.png" class="rotating" style="width:100px;" />
+  <br />
+  <span>Registrando cuenta...</span>
+</script>
 
 </html>
