@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User",
-	function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User) {
+	this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User","$ionicPopup",
+	function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$ionicPopup) {
 
 		$ionicPlatform.ready(function() {
 
@@ -15,10 +15,22 @@ CONTROLLER DEFINITION
 			$scope.placeholder = {};
 			$scope.user = {};
 
-			$scope.placeholder.name = "nombre";
-			$scope.placeholder.last_name = "apellido";
-			$scope.placeholder.phone = "telefono";
-			$scope.placeholder.address = "direccion";
+			$scope.init = function(){
+
+			let user  = StorageUserModel.getCurrentUser();
+			debugger;
+
+				$scope.placeholder.name = "Nombre";
+				$scope.placeholder.last_name = "Apellido";
+				$scope.placeholder.phone = "Telefono";
+				$scope.placeholder.address = "Direccion";
+
+				if(user.name!= undefined){$scope.placeholder.name = user.name;}
+				if(user.last_name!= undefined){$scope.placeholder.name = user.last_name;}
+				if(user.phone!= undefined){$scope.placeholder.name = user.phone;}
+				if(user.address!= undefined){$scope.placeholder.name = user.address;}
+
+			}
 
 
 			$scope.$on("$ionicView.beforeEnter", function(event) {
@@ -54,14 +66,14 @@ CONTROLLER DEFINITION
 			$scope.logOut = function (_response){
 				try{
 					Session.logout().then(function(){
-						StorageUserModel.destroyCurrentUser();
-						$state.go("login")
+						$scope.deleteData();
+
 					},function(_error){
+						$scope.deleteData();
 
 					})
 				}catch(_error){
-					StorageUserModel.destroyCurrentUser();
-					$state.go("login")
+					$scope.deleteData();
 				}
 			}
 
@@ -88,17 +100,84 @@ CONTROLLER DEFINITION
 
 
 				User.updateUser(StorageUserModel.getCurrentUser(),$scope.user).then(function(_response){
+				debugger;
+					StorageUserModel.setCurrentUser(_response.data)
 
-					debugger;
+					$scope.showpopUpProfileOK();
 				},function(_error){
+					$scope.showpopUpProfileFail();
 
-
-					debugger;
 				})
 
 
 
 			}
+
+			$scope.deleteData= function (){
+				StorageUserModel.destroyCurrentUser();
+				$state.go("login")
+			}
+
+
+
+			$scope.showpopUpProfileOK = function(){
+
+				let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
+					return true;
+				}}]
+
+
+				$ionicPopup.show({
+					title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
+					subTitle: '<br><span class="modal-body-config">Perfil completado.</span>',
+					cssClass: 'successClass',
+					buttons:button_exit_lesson,
+				})
+			}
+
+
+
+			$scope.showpopUpProfileFail = function(){
+
+				let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
+					return true;
+				}}]
+
+
+				$ionicPopup.show({
+					title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+					subTitle: '<br><span class="modal-body-config">Problemas al completar tu perfil, intentalo más tarde</span>',
+					cssClass: 'successClass',
+					buttons:button_exit_lesson,
+				})
+			}
+
+
+
+			$scope.showpopUpLogOut = function(){
+
+				let button_exit_lesson = [{ text: 'Cancelar',  type: 'button-special',onTap: function(e) {
+return true;
+				}},{ text: 'Salir',  type: 'button-special',onTap: function(e) {
+
+$scope.logOut();	}}]
+
+
+				$ionicPopup.show({
+					title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+					subTitle: '<br><span class="modal-body-config">¿Estas seguro que desea cerrar session?</span>',
+					cssClass: 'successClass',
+					buttons:button_exit_lesson,
+				})
+			}
+
+
+			//TO-DO : validate only 1 change
+
+
+
+
+
 
 
 

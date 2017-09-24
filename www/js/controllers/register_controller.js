@@ -134,47 +134,9 @@ CONTROLLER DEFINITION
         })
       }
 
-      // $scope.validateSlider2 = function (){
-      //
-      //
-      //   if($scope.user.name == undefined || $scope.user.name == ''){
-      //     Materialize.toast("",4000)
-      //     return;
-      //   }
-      //
-      //   if($scope.user.last_name == undefined || $scope.user.last_name == ''){
-      //     Materialize.toast("",4000)
-      //     return;
-      //   }
-      //
-      //   if($scope.user.phone == undefined || $scope.user.phone == ''){
-      //     Materialize.toast("",4000)
-      //     return;
-      //   }
-      //
-      //   if($scope.user.address == undefined || $scope.user.address == ''){
-      //     Materialize.toast("",4000)
-      //     return;
-      //   }
-      //
-      //
-      //
-      //
-      //
-      //   $ionicSlideBoxDelegate.slide(2)
-      // }
-
-      // $scope.validateSlider2 = function (){
-      //
-      // }
-      //
-      //
-      // $scope.completeUserInfo = function (){
-      //
-      // }
-
 
       $scope.finish= function(){
+      debugger;
         $state.go("dashboard")
       }
 

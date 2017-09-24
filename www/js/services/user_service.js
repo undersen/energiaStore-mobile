@@ -39,7 +39,7 @@ debugger;
           },
           data:{
             user:{
-              email:_info.email,
+              email:_user.username,
               phone:_info.phone,
               address:_info.address,
               name:_info.name,
