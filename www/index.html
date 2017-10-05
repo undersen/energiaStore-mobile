@@ -198,7 +198,7 @@
 <script id="modal-motor" type="text/ng-template">
   <ion-modal-view>
     <ion-header-bar class="special-color">
-      <h1 class="title" style="color:white">Cotizacion Factor de potencia</h1>
+      <h1 class="title" style="color:white">Creacion de motor</h1>
       <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalMotor();">
         <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
       </div>
@@ -208,32 +208,70 @@
 
 
 
-      <div style="margin-top:30px;padding:15px;">
+      <div style="margin-top:30px;padding:15px 15px 15px 20px">
 
 
-        <div class="input-field col s6">
+        <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.rated_power">
-          <label for="input-penalty">Monto de multa</label>
+          <label for="input-penalty">Nombre de equipo / motor</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(1)"></i>
         </div>
 
-        <div class="input-field col s6">
+        <div class="input-field" >
+
+          <div class="" style="width:80%; display: -webkit-box;">
+            <label for="input-penalty" >Fase</label>
+            <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(2)"></i>
+          </div>
+<br   />
+
+          <p>
+               <input name="group1" type="radio" id="phase" />
+               <label for="test1">2</label>
+             </p>
+             <p>
+               <input name="group1" type="radio" id="phase" />
+               <label for="test2">3</label>
+             </p>
+
+        </div>
+
+
+        <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.average_time">
-          <label for="input-penalty">Monto de multa</label>
+          <label for="input-penalty">Voltaje</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(3)"></i>
         </div>
 
-        <div class="input-field col s6">
+        <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.volts">
-          <label for="input-penalty">Monto de multa</label>
+          <label for="input-penalty">Tipo de medición</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
         </div>
 
-        <div class="input-field col s6">
+        <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.amp">
-          <label for="input-penalty">Monto de multa</label>
+          <label for="input-penalty">Amperaje</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
         </div>
 
-        <div class="input-field col s6">
+        <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.efficiency">
-          <label for="input-penalty">Monto de multa</label>
+          <label for="input-penalty">Factor de potencia</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(6)"></i>
+        </div>
+
+
+        <div class="input-field" style="width:80%; display: -webkit-box;">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.efficiency">
+          <label for="input-penalty">Horas al dia</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(7)"></i>
+        </div>
+
+        <div class="input-field" style="width:80%; display: -webkit-box;">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="motor.efficiency">
+          <label for="input-penalty">Dias al mes</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(8)"></i>
         </div>
 
 

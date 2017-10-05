@@ -6,7 +6,7 @@
 
 
     return {
-      create: function(_calculation,_user_info) {
+      create: function(_data,_user_info) {
         var defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.CREATE_CALCULATION,
@@ -17,7 +17,8 @@
           },
           data:{
             calculation:{
-              energy_cost:_calculation
+              name:_data.name,
+              energy_cost:_data.price
             }
           }
         }).then(function(_response) {

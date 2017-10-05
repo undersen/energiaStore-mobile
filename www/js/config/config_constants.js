@@ -9,8 +9,9 @@
     //****************+SERVERS**************//
     //////////////////////////////////////////
 
-    LOCAL : "http://kvar.herokuapp.com/",
-    //  LOCAL : "http://localhost:3000/", //Servidor produccion
+    // LOCAL : "http://kvar.herokuapp.com/",
+     LOCAL : "http://localhost:3000/",
+     
 
     //////////////////////////////////////////
     //**************+EndPoinst**************//

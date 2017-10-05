@@ -211,9 +211,25 @@ margin: 5vw !important;
   line-height: 1.4;
 }
 
+
+.modal-title-config{
+  top:-40px;
+  position:relative;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
 .button-special{
   background-color: #8bcb71;
   color: white;
   border-radius: 10px;
+}
 
+
+.help-icon{
+  font-size: 25px;
+  position: relative;
+  display: block;
+  margin: auto 0;
+  margin-left: 10vw;
 }

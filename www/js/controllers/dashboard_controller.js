@@ -54,7 +54,7 @@ CONTROLLER DEFINITION
 
           $ionicPopup.show({
             title: '<div class="congrats"></div><img src="img/special_icons/bandera1.png" class="modal-img-config">',
-            subTitle: '<br><span class="modal-body-config">Bienvendio a EnergiaStore, comencemos completando tu perfil con tu infromacion basica.</span>',
+            subTitle: '<br><span class="modal-body-config">Bienvendio a EnergiaStore, comencemos completando tu perfil con tu información basica.</span>',
             cssClass: 'successClass',
             buttons:button_exit_lesson,
           })

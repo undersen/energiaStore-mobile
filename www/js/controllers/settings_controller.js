@@ -140,7 +140,7 @@ CONTROLLER DEFINITION
 			$scope.showpopUpProfileFail = function(){
 
 				let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
-					return true;
+					$state.go("dashboard");
 				}}]
 
 
