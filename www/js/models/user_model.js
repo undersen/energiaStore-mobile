@@ -4,7 +4,7 @@
 (function() {
   this.app.service('StorageUserModel', ['$q', '$localStorage', function($q, $localStorage) {
 
-    var user;
+    let user;
 
     return {
 

@@ -7,7 +7,7 @@
 
     return {
       create: function(_data,_user_info) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.CREATE_CALCULATION,
           method: 'POST',
@@ -31,7 +31,7 @@
       },
 
       getByIndex: function(_calculation_id,_user_info) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.INDEX_CALCULATION+_calculation_id,
           method: 'GET',
@@ -49,7 +49,7 @@
       },
 
       getAll: function(_user_info) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.INDEX_CALCULATION,
           method: 'GET',
@@ -70,7 +70,7 @@
 
 
       delete: function(_user) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.SIGN_UP+"/"+_user.id,
           method: 'DELETE',

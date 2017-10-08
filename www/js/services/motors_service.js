@@ -7,7 +7,7 @@
 
     return {
       create: function(_calculation,_user_info) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.CREATE_CALCULATION,
           method: 'POST',
@@ -30,7 +30,7 @@
       },
 
       getByCalculation: function(_calculation_id,_user_info) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + "api/calculations/"+_calculation_id+"/motors",
           method: 'GET',

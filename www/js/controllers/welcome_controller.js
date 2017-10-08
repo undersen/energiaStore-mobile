@@ -14,17 +14,17 @@ CONTROLLER DEFINITION
     $scope.spanish = function(){
       $rootScope.lang = "en";
       $scope.goToSlide()
-    }
+    };
 
     $scope.english = function(){
       $rootScope.lang = "es";
         $scope.goToSlide()
-    }
+    };
 
 
     $scope.goToSlide = function(){
       $state.go('introduction',{reload:true})
-    }
+    };
 
     $ionicPlatform.registerBackButtonAction(function () {
       ionic.Platform.exitApp();

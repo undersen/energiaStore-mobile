@@ -16,26 +16,26 @@ CONTROLLER DEFINITION
 
       $scope.back = function(){
         $state.go("dashboard");
-      }
+      };
 
       $scope.init = function(){
 
         $scope.getCalculation();
 
-      }
+      };
 
       $scope.doRefreshQuotation = function(){
 
         $scope.getCalculation();
-      }
+      };
 
       $scope.addQuotationPopUp = function (){
 
 
-        $scope.data = {}
+        $scope.data = {};
 
         // Custom popup
-        var myPopup = $ionicPopup.show({
+        let myPopup = $ionicPopup.show({
           template: ` <div class="input-field col s12">
           <input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">Nombre cotizacion</label></div>
           <div class="input-field col s12">
@@ -53,11 +53,11 @@ CONTROLLER DEFINITION
               onTap: function(e) {
 
                 if (!$scope.data.name ) {
-                  Materialize.toast("Ingrese nombre cotizacion",4000)
+                  Materialize.toast("Ingrese nombre cotizacion",4000);
                   //don't allow the user to close unless he enters model...
                   e.preventDefault();
                 } else if (!$scope.data.price){
-                  Materialize.toast("Ingrese precio cotizacion",4000)
+                  Materialize.toast("Ingrese precio cotizacion",4000);
                   e.preventDefault();
                 }else{
                   $scope.craeteCalculation($scope.data);
@@ -71,7 +71,7 @@ CONTROLLER DEFINITION
         myPopup.then(function(res) {
           console.log('Tapped!', res);
         });
-      }
+      };
 
       $scope.craeteCalculation= function (data){
         Calculation.create(data,StorageUserModel.getCurrentUser()).then(function(_response){
@@ -79,27 +79,29 @@ CONTROLLER DEFINITION
         Materialize.toast("Cotizacion creada", 4000);
         $scope.calculations ={};
         $scope.getCalculation();
+        console.log(_response);
 
         },function(_error){
           Materialize.toast("Error al crear la cotizacion");
           console.log(_error);
         })
 
-      }
+      };
 
 
       $scope.getCalculation =  function (){
 
         Calculation.getAll(StorageUserModel.getCurrentUser()).then(function(_response){
           $scope.calculations = _response.data;
-          console.log($scope.calculations);
           $scope.$broadcast('scroll.refreshComplete');
+          console.log(_response);
         },function(_error){
-          Materialize.toast("Error al descargar las cotizaciones",4000)
+          Materialize.toast("Error al descargar las cotizaciones",4000);
           $scope.$broadcast('scroll.refreshComplete');
+          console.error(_error);
         })
 
-      }
+      };
 
       $scope.goToCalculation = function(_index){
         $state.go("motors",{id_quotation: _index},{ reload: true });

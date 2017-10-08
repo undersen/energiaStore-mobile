@@ -7,7 +7,7 @@
 
     return {
       login: function(_user) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.SIGN_IN,
           method: 'POST',
@@ -26,7 +26,7 @@
         return defer.promise;
       },
       logout: function() {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.LOG_OUT,
           method: 'POST',

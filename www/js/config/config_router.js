@@ -98,7 +98,7 @@ ROUTES CONFIGURATION
       abstract: false,
       templateUrl: "templates/settings.html",
       controller: "SettingsController"
-    })
+    });
 
 
     // if none of the above states are matched, use this as the fallback

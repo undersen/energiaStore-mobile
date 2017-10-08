@@ -11,7 +11,7 @@ CONTROLLER DEFINITION
 
     $ionicPlatform.ready(function() {
       if(StorageUserModel.getCurrentUser()){
-        if(StorageUserModel.getCurrentUser().authentication_token == undefined){
+        if(StorageUserModel.getCurrentUser().authentication_token === undefined){
           $state.go("introduction",{},{ reload: true })
         }else{
           $state.go("dashboard",{},{ reload: true })

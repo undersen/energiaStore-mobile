@@ -7,7 +7,7 @@
 
     return {
       registerUser: function(_user) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.SIGN_UP,
           method: 'POST',
@@ -29,7 +29,7 @@
 
       updateUser: function(_user,_info) {
 debugger;
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
           method: 'PATCH',

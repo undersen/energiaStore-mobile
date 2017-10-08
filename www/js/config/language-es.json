@@ -5,27 +5,40 @@
 "slider_button":"Comenzar con el cambio",
 
 
-"login_header":"",
-"login_email_placeholder":"",
-"login_password_placeholder":"",
-"login_button":"",
-"login_signup_text":"",
-"login_signup_button":"",
+"login_header":"Iniciar en EnergiaStore",
+"login_email_placeholder":"Correo",
+"login_password_placeholder":"Contraseña",
+"login_button":"Inicia sesión",
+"login_signup_text":"Aún no tienes una cuenta?",
+"login_signup_button":"Registrate",
+"login_email_empty_error":"Complete Correo",
+"login_password_empty_error":"Complete contraseña",
+"login_error":"Usuario incorrecto.",
 
 
-"register_slider_1_header":"",
-"register_slider_1_placeholder_email":"",
-"register_slider_1_placeholder_password":"",
-"register_slider_1_confirmacion_password":"",
-"register_slider_1_spinner":"",
-"register_slider_1_error":"",
 
-"register_slider_2_header":"",
-"register_slider_2_placeholder_name":"",
-"register_slider_2_placeholder_last_name":"",
-"register_slider_2_confirmacion_phone":"",
-"register_slider_2_address":"",
-"register_slider_2_error":"",
+"register_slider_1_header":"Registremos tu cuenta...",
+"register_slider_1_placeholder_email":"Correo",
+"register_slider_1_placeholder_password":"Contraseña",
+"register_slider_1_confirmacion_password":"Confirmación contraseña",
+"register_email_empty_error":"Complete Correo",
+"register_password_empty_error":"Complete contraseña",
+"register_password_confirmation_empty_error":"Complete confirmación contraseña",
+"register_slider_1_spinner":"Registrando cuenta",
+"register_slider_1_error":"Intente con otra cuenta",
+"register_slider_2_header":"! Felicitaciones ¡",
+"register_slider_2_subtitle":"! Ya eres parte de EnergiaStore¡",
+
+"popup_welcome_body":"Bienvenido a EnergiaStore, comencemos completando tu perfil con tu información basica.",
+"popup_welcome_body":" vamos alla",
+
+
+
+"settings_title":"Configuración",
+"settings_placeholder_name":"Nombre",
+"settings_placeholder_lastname":"Apellido",
+"settings_placeholder_phone":"Teléfono",
+"settings_placeholder_address":"Dirección",
 
 
 "quotation_header":"Cotizaciones",

@@ -7,7 +7,7 @@
 
     return {
       create: function(_calculation,_user_info) {
-        var defer = $q.defer();
+        let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.CREATE_PF_QUOATATION,
           method: 'POST',

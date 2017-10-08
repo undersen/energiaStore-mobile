@@ -15,7 +15,7 @@
     <ion-refresher  on-refresh="doRefreshQuotation()">
     		</ion-refresher>
 
-    <div class="row">
+
       <div class="col s12 m6" ng-hide="calculations.length != 0">
         <div class="card special-color">
           <div class="card-content white-text">
@@ -27,10 +27,11 @@
 
       </div>
 
-      <div class="col s12 m6" ng-repeat="calculation in calculations" ng-click="goToCalculation({{calculation.id}})">
+      <div class="col s12" ng-repeat="calculation in calculations" ng-click="goToCalculation({{calculation.id}})">
         <div class="card special-color">
           <div class="card-content white-text">
-            <span class="card-title">Costo de KW: {{calculation.energy_cost}}<strong style="font-weight:600"></strong></span>
+            <span class="card-title">Nombre cotización: {{calculation.name}}<strong style="font-weight:600"></strong></span>
+            <p style="font-weight:600">Costo de KW: {{calculation.energy_cost}}</p>
             <p>Id: {{calculation.id}}</p>
             <p>Fecha de creacion: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
             <!-- <p>Haz click en  <i class="ion-ios-plus-outline" style=""> para agregar tu primera cotizacion</i> -->
@@ -38,9 +39,6 @@
         </div>
 
       </div>
-
-
-    </div>
   </div>
 
 

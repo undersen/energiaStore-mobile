@@ -17,11 +17,11 @@ CONTROLLER DEFINITION
 
       $scope.back = function(){
         $state.go("dashboard");
-      }
+      };
 
       $scope.help = function(){
         $state.go("dashboard");
-      }
+      };
 
 
       $ionicModal.fromTemplateUrl('modal-help', {
@@ -93,7 +93,7 @@ CONTROLLER DEFINITION
         $('#button-gallery').attr('disabled', false);
         $('#input-penalty').attr('disabled', true);
         $scope.factorType.type="image";
-      }
+      };
 
 
       $scope.openCamera = function (){
@@ -118,11 +118,11 @@ CONTROLLER DEFINITION
           console.log(_err);
         });
 
-      }
+      };
 
       $scope.openGallery = function (){
 
-        var options = {
+        let options = {
           quality: 50,
           destinationType: Camera.DestinationType.DATA_URL,
           sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
@@ -141,12 +141,12 @@ CONTROLLER DEFINITION
           console.log(_err);
 
         });
-      }
+      };
 
 
       $scope.createFactorPenalty =  function (){
 
-      if($scope.factorType.photo != undefined){
+      if($scope.factorType.photo !== undefined){
         $scope.factorType.power_factor = '';
       }
 
@@ -155,16 +155,17 @@ CONTROLLER DEFINITION
         FactorPenalty.create(calculation,$scope.user).then(function(_response){
         $scope.showpopUpCreate();
         },function(_error){
+          console.error(_error);
         $scope.showpopUpFail();
         })
-      }
+      };
 
 
       $scope.showpopUpCreate = function(){
 
           let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
             $state.go("dashboard");
-          }}]
+          }}];
 
           $ionicPopup.show({
             title: '<div class="congrats"></div><img src="img/special_icons/check1.png" class="modal-img-config">',
@@ -172,13 +173,13 @@ CONTROLLER DEFINITION
             cssClass: 'successClass',
             buttons:button_exit_lesson,
           })
-    }
+    };
 
     $scope.showpopUpFail = function(){
 
         let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
           $state.go("dashboard");
-        }}]
+        }}];
 
 
         $ionicPopup.show({

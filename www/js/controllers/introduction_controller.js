@@ -15,7 +15,7 @@ CONTROLLER DEFINITION
 
       $state.go("login");
 
-    }
+    };
 
     $ionicPlatform.registerBackButtonAction(function () {
     }, 100);

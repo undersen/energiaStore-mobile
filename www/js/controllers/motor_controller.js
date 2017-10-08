@@ -18,7 +18,7 @@ CONTROLLER DEFINITION
       $scope.init = function(){
         $scope.getMotors();
 
-      }
+      };
 
       $ionicModal.fromTemplateUrl('modal-motor', {
         scope: $scope,
@@ -51,20 +51,59 @@ CONTROLLER DEFINITION
 
       $scope.back = function(){
         $state.go("quotation");
-      }
+      };
+
+
 
 
       $scope.createMotor = function (){
 
-        debugger;
+        if($scope.motor.name === undefined || $scope.motor.name === '') {
+          Materialize.toast("Complete nombre del motor",4000);
+          return;
+        }
 
-        Motor.create().then(function(_response){
+        if($scope.motor.voltaje === undefined || $scope.motor.voltaje === 0) {
+          Materialize.toast("Complete voltaje del motor",4000);
+          return;
+        }
 
-          Materialize.toast("Motor agregado",4000)
+        if($scope.motor.amp === undefined || $scope.motor.amp === 0) {
+          Materialize.toast("Complete aperaje del motor",4000);
+          return;
+        }
+
+
+        if($scope.motor.power_factor === undefined || $scope.motor.power_factor === 0) {
+          Materialize.toast("Complete factor de potencia",4000);
+          return;
+        }
+
+        if($scope.motor.hours === undefined || $scope.motor.hours === 0) {
+          Materialize.toast("Complete horas al dia del motor",4000);
+          return;
+        }
+
+        if($scope.motor.days === undefined || $scope.motor.days === 0) {
+          Materialize.toast("Complete dias del mes del motor",4000);
+          return;
+        }
+
+
+
+
+
+
+
+        Motor.create($scope.motor).then(function(_response){
+          Materialize.toast("Motor agregado",4000);
+          console.log(_response);
+
         },function(_error){
           Materialize.toast("Problemas al agregar motor",4000);
+            console.error(_error);
         })
-      }
+      };
 
 
       $scope.getMotors = function(){
@@ -77,11 +116,11 @@ CONTROLLER DEFINITION
           console.log(_error);
           $scope.$broadcast('scroll.refreshComplete');
         })
-      }
+      };
 
       $scope.doRefreshMotors = function(){
         $scope.getMotors();
-      }
+      };
 
 
       $scope.chooseShowpopUpHelp = function (_index){
@@ -91,37 +130,32 @@ CONTROLLER DEFINITION
           break;
 
           case 2:
-          $scope.showpopUpHelp("Fase","")
+          $scope.showpopUpHelp("Voltaje","");
           break;
 
           case 3:
-          $scope.showpopUpHelp("Voltaje","")
+          $scope.showpopUpHelp("Amperaje","");
           break;
 
 
           case 4:
-          $scope.showpopUpHelp("Tipo de medición","")
+          $scope.showpopUpHelp("Factor de potencia","");
           break;
 
           case 5:
-          $scope.showpopUpHelp("Amperaje","")
+          $scope.showpopUpHelp("Horas al día","");
           break;
 
           case 6:
-          $scope.showpopUpHelp("Factor de potencia","")
+          $scope.showpopUpHelp("Días al mes","");
           break;
 
-          case 7:
-          $scope.showpopUpHelp("Horas al día","")
-          break;
 
-          case 8:
-          $scope.showpopUpHelp("Días al mes","")
-          break;
           default:
+          break;
 
         }
-      }
+      };
 
 
 
@@ -130,13 +164,13 @@ CONTROLLER DEFINITION
 
         let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
           return true;
-        }}]
+        }}];
 
 
         $ionicPopup.show({
           title: '<div class="congrats"></div><img src="img/special_icons/Growth_Badge_Color.png" class="modal-img-config">',
           subTitle: `<br><span class="modal-title-config">${_title}</span>
-                    <br><span class="modal-body-config">${_body}</span>`,
+          <br><span class="modal-body-config">${_body}</span>`,
           cssClass: 'successClass',
           buttons:button_exit_lesson,
         })

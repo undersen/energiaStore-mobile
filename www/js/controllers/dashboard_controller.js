@@ -15,33 +15,33 @@ CONTROLLER DEFINITION
 
       $scope.init = function (){
 
-        if(user.email == undefined){
+        if(user.email === undefined){
 
           $scope.showpopUpAccount();
 
 
         }
 
-      }
+      };
 
       $scope.goToQuotation = function(){
 
         $state.go("quotation");
 
-      }
+      };
 
 
       $scope.goToFactor = function(){
 
         $state.go("factor");
 
-      }
+      };
 
       $scope.goToSettings = function(){
 
         $state.go("settings");
 
-      }
+      };
 
 
 
@@ -58,7 +58,7 @@ CONTROLLER DEFINITION
             cssClass: 'successClass',
             buttons:button_exit_lesson,
           })
-    }
+    };
 
 
 

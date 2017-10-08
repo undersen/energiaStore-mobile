@@ -17,17 +17,17 @@ CONTROLLER DEFINITION
 
         $state.go("register");
 
-      }
+      };
 
 
       $scope.login= function (){
 
-        if($scope.user.email == undefined || $scope.user.email == ""){
+        if($scope.user.email === undefined || $scope.user.email === ""){
           Materialize.toast("Complete correo",4000);
           return;
         }
 
-        if($scope.user.password == undefined || $scope.user.password == ""){
+        if($scope.user.password === undefined || $scope.user.password === ""){
           Materialize.toast("Complete contraseña",4000);
           return;
         }
@@ -38,11 +38,11 @@ CONTROLLER DEFINITION
           $state.go("dashboard")
         },function(_error){
           Materialize.toast("Usuario incorrecto",4000);
-          return;
+
 
         })
 
-      }
+      };
 
       $ionicPlatform.registerBackButtonAction(function () {
 

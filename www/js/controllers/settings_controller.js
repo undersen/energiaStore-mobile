@@ -25,39 +25,39 @@ CONTROLLER DEFINITION
 				$scope.placeholder.phone = "Telefono";
 				$scope.placeholder.address = "Direccion";
 
-				if(user.name!= undefined){$scope.placeholder.name = user.name;}
-				if(user.last_name!= undefined){$scope.placeholder.name = user.last_name;}
-				if(user.phone!= undefined){$scope.placeholder.name = user.phone;}
-				if(user.address!= undefined){$scope.placeholder.name = user.address;}
+				if(user.name!== undefined){$scope.placeholder.name = user.name;}
+				if(user.last_name!== undefined){$scope.placeholder.name = user.last_name;}
+				if(user.phone!== undefined){$scope.placeholder.name = user.phone;}
+				if(user.address!== undefined){$scope.placeholder.name = user.address;}
 
-			}
+			};
 
 
 			$scope.$on("$ionicView.beforeEnter", function(event) {
 				let user = Object.assign({}, StorageUserModel.getCurrentUser());
 
-				if (user.name != undefined)
+				if (user.name !== undefined)
 				$scope.placeholder.name = user.name;
 
-				if (user.last_name != undefined)
+				if (user.last_name !== undefined)
 				$scope.placeholder.last_name = user.last_name;
 
-				if (user.phone != undefined)
+				if (user.phone !== undefined)
 				$scope.placeholder.phone = user.phone;
 
-				if (user.address != undefined)
+				if (user.address !== undefined)
 				$scope.placeholder.address = user.address;
 
-			})
+			});
 
 
 			$scope.changeLanguage = function(){
 
-			}
+			};
 
 			$scope.backButton = function(){
 				$state.go("dashboard");
-			}
+			};
 
 			$ionicPlatform.registerBackButtonAction(function () {
 				$scope.backButton();
@@ -79,21 +79,21 @@ CONTROLLER DEFINITION
 
 			$scope.updateInfo = function(){
 
-				if($scope.user.name == undefined || $scope.user.name  == ''){
-					Materialize.toast("Complete nombre",4000)
+				if($scope.user.name === undefined || $scope.user.name  === ''){
+					Materialize.toast("Complete nombre",4000);
 					return;
 				}
 
-				if($scope.user.last_name == undefined || $scope.user.last_name  == ''){
-					Materialize.toast("Complete apellido",4000)
+				if($scope.user.last_name === undefined || $scope.user.last_name  === ''){
+					Materialize.toast("Complete apellido",4000);
 					return;
 				}
-				if($scope.user.phone == undefined || $scope.user.phone  == ''){
-					Materialize.toast("Complete telefono",4000)
+				if($scope.user.phone === undefined || $scope.user.phone  === ''){
+					Materialize.toast("Complete telefono",4000);
 					return;
 				}
-				if($scope.user.address == undefined || $scope.user.address  == ''){
-					Materialize.toast("Complete dirección",4000)
+				if($scope.user.address === undefined || $scope.user.address  === ''){
+					Materialize.toast("Complete dirección",4000);
 					return;
 				}
 
@@ -101,22 +101,23 @@ CONTROLLER DEFINITION
 
 				User.updateUser(StorageUserModel.getCurrentUser(),$scope.user).then(function(_response){
 				debugger;
-					StorageUserModel.setCurrentUser(_response.data)
-
+					StorageUserModel.setCurrentUser(_response.data);
 					$scope.showpopUpProfileOK();
+                    console.log(_response);
 				},function(_error){
 					$scope.showpopUpProfileFail();
+                    console.error(_error);
 
 				})
 
 
 
-			}
+			};
 
 			$scope.deleteData= function (){
 				StorageUserModel.destroyCurrentUser();
 				$state.go("login")
-			}
+			};
 
 
 
@@ -124,7 +125,7 @@ CONTROLLER DEFINITION
 
 				let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
 					return true;
-				}}]
+				}}];
 
 
 				$ionicPopup.show({
@@ -133,7 +134,7 @@ CONTROLLER DEFINITION
 					cssClass: 'successClass',
 					buttons:button_exit_lesson,
 				})
-			}
+			};
 
 
 
@@ -141,7 +142,7 @@ CONTROLLER DEFINITION
 
 				let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
 					$state.go("dashboard");
-				}}]
+				}}];
 
 
 				$ionicPopup.show({
@@ -150,7 +151,7 @@ CONTROLLER DEFINITION
 					cssClass: 'successClass',
 					buttons:button_exit_lesson,
 				})
-			}
+			};
 
 
 
@@ -160,7 +161,7 @@ CONTROLLER DEFINITION
 return true;
 				}},{ text: 'Salir',  type: 'button-special',onTap: function(e) {
 
-$scope.logOut();	}}]
+$scope.logOut();	}}];
 
 
 				$ionicPopup.show({
