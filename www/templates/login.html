@@ -5,29 +5,33 @@
       <div class="col s12 m6">
         <div class="card card-login">
           <div class="card-content white-text">
-            <span class="card-title login-title">Iniciar en EnergiaStore</span>
+            <!--<span class="card-title login-title">Iniciar en EnergiaStore</span>-->
+
+            <span class="card-title login-title">{{translation.login_header}}</span>
 
             <div class="input-field col s12">
               <input id="email" type="text" class="validate" ng-model="user.email">
-              <label for="email">Correo</label>
+              <!--<label for="email">Correo</label>-->
+              <label for="email">{{translation.login_email_placeholder}}</label>
             </div>
             <div class="input-field col s12">
               <input id="password" type="password" class="validate" ng-model="user.password">
-              <label for="password">Contraseña</label>
+              <!--<label for="password">Contraseña</label>-->
+              <label for="password">{{translation.login_password_placeholder}}</label>
             </div>
 
             <br />
-            <a class="waves-effect waves-light btn" ng-click="login()" style="width: 100%;">Iniciar sesión</a>
+            <!--<a class="waves-effect waves-light btn" ng-click="login()" style="width: 100%;">Iniciar sesión</a>-->
+            <a class="waves-effect waves-light btn" ng-click="login()" style="width: 100%;">{{translation.login_button}}</a>
 
-
-            <p ng-click="goToRegister();" style="color:black;margin-top:30px;"> aun no tienes una cuenta? <strong style="font-weight:600;color:#8bcb71">Registrate</strong></p>
-
+            <!--<p ng-click="goToRegister();" style="color:black;margin-top:30px;"> aun no tienes una cuenta? <strong style="font-weight:600;color:#8bcb71">Registrate</strong></p>-->
+            <p ng-click="goToRegister();" style="color:black;margin-top:30px;"> {{translation.login_signup_text}} <strong style="font-weight:600;color:#8bcb71">{{translation.login_signup_button}}</strong></p>
 
           </div>
-
         </div>
       </div>
     </div>
-
   </ion-content>
-</ion-vi
+</ion-view>
+
+

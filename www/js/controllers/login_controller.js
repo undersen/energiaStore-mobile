@@ -29,22 +29,22 @@ CONTROLLER DEFINITION
       $scope.login= function (){
 
         if($scope.user.email === undefined || $scope.user.email === ""){
-          Materialize.toast("Complete correo",4000);
+          Materialize.toast($scope.translations.login_email_empty_error,4000);
           return;
         }
 
         if($scope.user.password === undefined || $scope.user.password === ""){
-          Materialize.toast("Complete contraseña",4000);
+          Materialize.toast($scope.translations.login_password_empty_error,4000);
           return;
         }
 
         Session.login($scope.user).then(function(_response){
-          debugger;
           StorageUserModel.setCurrentUser(_response.data);
           $state.go("dashboard")
+          console.log(_response)
         },function(_error){
-          Materialize.toast("Usuario incorrecto",4000);
-
+          Materialize.toast($scope.translations.login_error,4000);
+          console.log(_error)
 
         })
 
