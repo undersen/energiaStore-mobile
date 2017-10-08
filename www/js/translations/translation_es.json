@@ -29,8 +29,7 @@
 "register_slider_2_header":"! Felicitaciones ¡",
 "register_slider_2_subtitle":"! Ya eres parte de EnergiaStore¡",
 
-"popup_welcome_body":"Bienvenido a EnergiaStore, comencemos completando tu perfil con tu información basica.",
-"popup_welcome_body":" vamos alla",
+
 
 
 
@@ -60,12 +59,23 @@
 "FMP_modal_first_text":"",
 "FMP_modal_second_text":"",
 
-"FMP_card_title":"",
-"FMP_header_modal":"",
-"FMP_header_modal":"",
-"FMP_header_modal":"",
-"FMP_header_modal":"",
 
+
+
+
+
+
+
+
+
+  "MODAL_WELCOME_BUTTON":"Vamos alla",
+  "MODAL_WELCOME_TEXT":"Bienvendio a EnergiaStore, comencemos completando tu perfil con tu información basica.",
+
+  "MODAL_CREATE_FACTOR_BUTTON":"Entendido",
+  "MODAL_CREATE_FACTOR_TEXT":"Cotización realizada de manera exitosa, EnergiaStore se pondra en contacto con usted para enviar su cotización.",
+
+  "MODAL_FAIL_CREATE_FACTOR_BUTTON":"Entendido",
+  "MODAL_FAIL_CREATE_FACTOR_TEXT":"Ups no hemos podido realizar tu cotizacion, porfavor intentalo mas tarde."
 
 
 

@@ -6,59 +6,36 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","Session","StorageUserModel","$ionicPopup",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,Session,StorageUserModel,$ionicPopup) {
+  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","Session","StorageUserModel","popUpService","translationService","$resource",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,Session,StorageUserModel,popUpService,translationService,$resource) {
 
     $ionicPlatform.ready(function() {
+
+
+        const languageFilePath = translationService.getTranslation();
+        $resource(languageFilePath).get(function (data) {
+            $scope.translations = data;
+        });
+
 
       let user = StorageUserModel.getCurrentUser();
 
       $scope.init = function (){
 
         if(user.email === undefined){
-
-          $scope.showpopUpAccount();
-
-
+            popUpService.showPopUpWelcome();
         }
-
       };
 
-      $scope.goToQuotation = function(){
+      $scope.goToQuotation = function(){$state.go("quotation");};
 
-        $state.go("quotation");
+      $scope.goToFactor = function(){$state.go("factor");};
 
-      };
-
-
-      $scope.goToFactor = function(){
-
-        $state.go("factor");
-
-      };
-
-      $scope.goToSettings = function(){
-
-        $state.go("settings");
-
-      };
+      $scope.goToSettings = function(){$state.go("settings");};
 
 
 
-      $scope.showpopUpAccount = function(){
 
-          let button_exit_lesson = [{ text: 'Vamos alla',  type: 'button-special',onTap: function(e) {
-            $state.go("settings");
-          }}]
-
-
-          $ionicPopup.show({
-            title: '<div class="congrats"></div><img src="img/special_icons/bandera1.png" class="modal-img-config">',
-            subTitle: '<br><span class="modal-body-config">Bienvendio a EnergiaStore, comencemos completando tu perfil con tu información basica.</span>',
-            cssClass: 'successClass',
-            buttons:button_exit_lesson,
-          })
-    };
 
 
 

@@ -6,10 +6,21 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","$ionicPopup",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,$ionicPopup) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService) {
 
     $ionicPlatform.ready(function() {
+
+        const languageFilePath = translationService.getTranslation();
+        $resource(languageFilePath).get(function (data) {
+            $scope.translations = data;
+        });
+
+        const _input_penalty = $('#input-penalty');
+        const _button_camera = $('#button-camera');
+        const _button_galley = $('#button-gallery');
+
+
 
       $scope.user =  StorageUserModel.getCurrentUser();
 
@@ -79,26 +90,23 @@ CONTROLLER DEFINITION
         // Execute action
       });
 
-
-
-
       $scope.chooseManual = function(){
-        $('#input-penalty').attr('disabled', false);
-        $('#button-camera').attr('disabled', true);
-        $('#button-gallery').attr('disabled', true);
+          _input_penalty.attr('disabled', false);
+          _button_camera.attr('disabled', true);
+          _button_galley.attr('disabled', true);
         $scope.factorType.type="manual";
-      }
+      };
       $scope.chooseImage = function(){
-        $('#button-camera').attr('disabled', false);
-        $('#button-gallery').attr('disabled', false);
-        $('#input-penalty').attr('disabled', true);
+          _button_camera.attr('disabled', false);
+          _button_galley.attr('disabled', false);
+          _input_penalty.attr('disabled', true);
         $scope.factorType.type="image";
       };
 
 
       $scope.openCamera = function (){
 
-        var options = {
+        let options = {
           quality: 50,
           destinationType: Camera.DestinationType.DATA_URL,
           sourceType: Camera.PictureSourceType.CAMERA,
@@ -138,7 +146,7 @@ CONTROLLER DEFINITION
           // isPictureChanged=true;
         }, function(_err) {
           Materialize.toast("Problemas con la galeria",4000);
-          console.log(_err);
+          console.errorº(_err);
 
         });
       };
@@ -151,44 +159,17 @@ CONTROLLER DEFINITION
       }
 
         let calculation = $scope.factorType;
-        $scope.showpopUpFail();
+
         FactorPenalty.create(calculation,$scope.user).then(function(_response){
-        $scope.showpopUpCreate();
+        // $scope.showpopUpCreate();
+            popUpService.showPopUpCreateFactor($scope.translations);
         },function(_error){
           console.error(_error);
-        $scope.showpopUpFail();
+            popUpService.showPopUpFailCreateFactor($scope.translations);
         })
       };
 
 
-      $scope.showpopUpCreate = function(){
-
-          let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
-            $state.go("dashboard");
-          }}];
-
-          $ionicPopup.show({
-            title: '<div class="congrats"></div><img src="img/special_icons/check1.png" class="modal-img-config">',
-            subTitle: '<br><span class="modal-body-config">Cotizacion realizada de manera exitosa, EnergiaStore se pondra en contacto con usted para enviar su cotización.</span>',
-            cssClass: 'successClass',
-            buttons:button_exit_lesson,
-          })
-    };
-
-    $scope.showpopUpFail = function(){
-
-        let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
-          $state.go("dashboard");
-        }}];
-
-
-        $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-          subTitle: '<br><span class="modal-body-config">Ups no hemos podido realizar tu cotizacion, porfavor intentalo mas tarde.</span>',
-          cssClass: 'successClass',
-          buttons:button_exit_lesson,
-        })
-  }
 
     });
   }]);
