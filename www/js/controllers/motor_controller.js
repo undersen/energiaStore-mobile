@@ -6,14 +6,21 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("MotorsController", ["$scope", "$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","$ionicPopup",
-  function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,$ionicPopup) {
+  this.app.controller("MotorsController", ["$scope", "$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService",
+  function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService) {
     $ionicPlatform.ready(function() {
+
+        const languageFilePath = translationService.getTranslation();
+        $resource(languageFilePath).get(function (data) {
+            $scope.translations = data;
+        });
+
 
       $scope.motors =[];
       $scope.motor = {};
-
       $scope.user = StorageUserModel.getCurrentUser();
+
+
 
       $scope.init = function(){
         $scope.getMotors();
@@ -92,9 +99,6 @@ CONTROLLER DEFINITION
 
 
 
-
-
-
         Motor.create($scope.motor).then(function(_response){
           Materialize.toast("Motor agregado",4000);
           console.log(_response);
@@ -126,28 +130,29 @@ CONTROLLER DEFINITION
       $scope.chooseShowpopUpHelp = function (_index){
         switch (_index) {
           case 1:
-          $scope.showpopUpHelp("Nombre de equipo / motor","Corresponde al nombre ficticio con el cual sera identificado el equipo.");
+          popUpService.showPopUpHelpMotor("Nombre de equipo / motor","Corresponde al nombre ficticio con el cual sera identificado el equipo.");
+
           break;
 
           case 2:
-          $scope.showpopUpHelp("Voltaje","");
+          popUpService.showPopUpHelpMotor("Voltaje","");
           break;
 
           case 3:
-          $scope.showpopUpHelp("Amperaje","");
+          popUpService.showPopUpHelpMotor("Amperaje","");
           break;
 
 
           case 4:
-          $scope.showpopUpHelp("Factor de potencia","");
+          popUpService.showPopUpHelpMotor("Factor de potencia","");
           break;
 
           case 5:
-          $scope.showpopUpHelp("Horas al día","");
+          popUpService.showPopUpHelpMotor("Horas al día","");
           break;
 
           case 6:
-          $scope.showpopUpHelp("Días al mes","");
+          popUpService.showPopUpHelpMotor("Días al mes","");
           break;
 
 
@@ -160,22 +165,6 @@ CONTROLLER DEFINITION
 
 
 
-      $scope.showpopUpHelp = function(_title,_body){
-
-        let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
-          return true;
-        }}];
-
-
-        $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/Growth_Badge_Color.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-title-config">${_title}</span>
-          <br><span class="modal-body-config">${_body}</span>`,
-          cssClass: 'successClass',
-          buttons:button_exit_lesson,
-        })
-
-      }
 
 
 

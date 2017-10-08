@@ -6,8 +6,14 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session",
-  function($scope, $state,$ionicPlatform,StorageUserModel,Session) {
+  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource",
+  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource) {
+
+
+      const languageFilePath = translationService.getTranslation();
+      $resource(languageFilePath).get(function (data) {
+          $scope.translations = data;
+      });
 
     $scope.user ={};
 

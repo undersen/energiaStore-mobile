@@ -6,10 +6,14 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform",
-  function($scope, $state,$ionicPlatform) {
-
+  this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService",
+  function($scope, $state,$ionicPlatform,$resource,translationService) {
   $ionicPlatform.ready(function() {
+
+      const languageFilePath = translationService.getTranslation();
+      $resource(languageFilePath).get(function (data) {
+          $scope.translations = data;
+      });
 
     $scope.goToLogin = function(){
 

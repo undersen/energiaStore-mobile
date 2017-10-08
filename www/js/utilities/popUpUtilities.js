@@ -4,7 +4,6 @@
   this.app.service('popUpService', ['$q', '$ionicPopup','$rootScope','ENV',  function($q, $ionicPopup,$rootScope,ENV) {
 
 
-
     return{
 
        showPopUpWelcome: function(_translation){
@@ -16,53 +15,106 @@
 
                $ionicPopup.show({
                    title: '<div class="congrats"></div><img src="img/special_icons/bandera1.png" class="modal-img-config">',
-                   subTitle: '<br><span class="modal-body-config">${_translation.MODAL_WELCOME_BUTTON}</span>',
+                   subTitle: '<br><span class="modal-body-config">${_translation.MODAL_WELCOME_TEXT}</span>',
                    cssClass: 'successClass',
                    buttons:button_exit_lesson,
                },).then(function(_res){
-                   deferred.resolve(res);
-
+                   deferred.resolve(_res);
                });
            return deferred.promise;
        },
 
 
 
-      showPopUpCreateFactor : function(){
+      showPopUpCreateFactor : function(_translation){
           let deferred = $q.defer();
-              let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
+              let button_exit_lesson = [{ text: _translation.MODAL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
                   $state.go("dashboard");
               }}];
 
               $ionicPopup.show({
                   title: '<div class="congrats"></div><img src="img/special_icons/check1.png" class="modal-img-config">',
-                  subTitle: '<br><span class="modal-body-config">Cotizacion realizada de manera exitosa, EnergiaStore se pondra en contacto con usted para enviar su cotización.</span>',
+                  subTitle: '<br><span class="modal-body-config">${_translation.MODAL_CREATE_FACTOR_TEXT}.</span>',
                   cssClass: 'successClass',
                   buttons:button_exit_lesson,
-              })
-
+              },).then(function(_res){
+                  deferred.resolve(_res);
+              });
+          return deferred.promise;
       },
 
 
-        showPopUpFailCreateFactor : function(a){
+        showPopUpFailCreateFactor : function(_translation){
             let deferred = $q.defer();
-            let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
+            let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
                 $state.go("dashboard");
             }}];
 
             $ionicPopup.show({
                 title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-                subTitle: '<br><span class="modal-body-config">Ups no hemos podido realizar tu cotizacion, porfavor intentalo mas tarde.</span>',
+                subTitle: '<br><span class="modal-body-config">${_translation.MODAL_FAIL_CREATE_FACTOR_TEXT}</span>',
                 cssClass: 'successClass',
                 buttons:button_exit_lesson,
-            },).then(function(_response){
-                deferred.resolve(res);
+            },).then(function(_res){
+                deferred.resolve(_res);
 
-            })
+            });
             return deferred.promise;
-
-
         },
+
+
+        showPopUpHelpMotor : function(_title,_body){
+            let deferred = $q.defer();
+            let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
+                $state.go("dashboard");
+            }}];
+
+            $ionicPopup.show({
+                title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+                subTitle: `<br><span class="modal-title-config">${_title}</span>
+                <br><span class="modal-body-config">${_body}</span>`,
+                cssClass: 'successClass',
+                buttons:button_exit_lesson,
+            },).then(function(_res){
+                deferred.resolve(_res);
+
+            });
+            return deferred.promise;
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //     $scope.showpopUpHelp = function(_title,_body){
+    //
+    //     let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
+    //         return true;
+    //     }}];
+    //
+    //
+    //     $ionicPopup.show({
+    //         title: '<div class="congrats"></div><img src="img/special_icons/Growth_Badge_Color.png" class="modal-img-config">',
+    //         subTitle: `<br><span class="modal-title-config">${_title}</span>
+    //       <br><span class="modal-body-config">${_body}</span>`,
+    //         cssClass: 'successClass',
+    //         buttons:button_exit_lesson,
+    //     })
+    //
+    // }
+
+
+
+
 
 
 

@@ -6,10 +6,15 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User","$ionicPopup",
-	function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$ionicPopup) {
+	this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User","$resource","translationService",
+	function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$resource,translationService) {
 
 		$ionicPlatform.ready(function() {
+
+            const languageFilePath = translationService.getTranslation();
+            $resource(languageFilePath).get(function (data) {
+                $scope.translations = data;
+            });
 
 
 			$scope.placeholder = {};

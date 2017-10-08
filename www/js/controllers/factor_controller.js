@@ -146,7 +146,7 @@ CONTROLLER DEFINITION
           // isPictureChanged=true;
         }, function(_err) {
           Materialize.toast("Problemas con la galeria",4000);
-          console.errorº(_err);
+          console.error(_err);
 
         });
       };
@@ -161,8 +161,8 @@ CONTROLLER DEFINITION
         let calculation = $scope.factorType;
 
         FactorPenalty.create(calculation,$scope.user).then(function(_response){
-        // $scope.showpopUpCreate();
             popUpService.showPopUpCreateFactor($scope.translations);
+            console.log(_response)
         },function(_error){
           console.error(_error);
             popUpService.showPopUpFailCreateFactor($scope.translations);

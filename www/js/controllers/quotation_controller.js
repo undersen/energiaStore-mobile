@@ -6,10 +6,15 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("QuotationController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation) {
+  this.app.controller("QuotationController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation","translationService","$resource",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation,translationService,$resource) {
 
     $ionicPlatform.ready(function() {
+
+        const languageFilePath = translationService.getTranslation();
+        $resource(languageFilePath).get(function (data) {
+            $scope.translations = data;
+        });
 
       $scope.has_quotation=false;
       $scope.calculations ={};
