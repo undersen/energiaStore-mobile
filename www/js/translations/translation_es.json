@@ -102,6 +102,22 @@
   "FMP_MODAL_THIRD_TEXT_HEADER":"¿Cómo me pueden ayudar a no pagar más esta multa?",
   "FMP_MODAL_THIRD_TEXT_SECOND_LINE":"En energíastore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE FACTOR DE POTENCIA, OPTIMIZANDO SU INSTALACIÓN ELÉCTRICA”. Los invitamos a cotizar su proyecto AQUÍ o con nosotros al correo energía@energiastore.cl o al fono: +569-999999",
 
+  "FMP_MODAL_QUOTATION_HEADER":"Cotizacion Factor de potencia",
+  "FMP_MODAL_QUOTATION_OPTION_MANUAL":"Ingresa multa manual",
+  "FMP_MODAL_QUOTATION_AMOUNT":"Monto de multa",
+  "FMP_MODAL_QUOTATION_USE_PHOTO":"Utilizar fotografia de la multa",
+  "FMP_MODAL_QUOTATION_COMMENT":"Si deseas aqui puedes agregar un comentario",
+
+  "FMP_MODAL_QUOTATION_OPTION:CAMERA":"Cámara",
+  "FMP_MODAL_QUOTATION_OPTION_GALLERY":"Galeria",
+
+  "FMP_MODAL_QUOTATION_SEND_BUTTON":"Enviar",
+
+
+
+
+
+
 
 
 
@@ -135,22 +151,25 @@
   "MODAL_PROFILE_UPDATE_BODY": "¿Estas seguro que desea cerrar session?",
 
   "MODAL_HELPER_MOTOR_TITLE":"Nombre de equipo / motor",
-  "MODAL_HELPER_MOTOR_BODY":"Nombre de equipo / motor",
+  "MODAL_HELPER_MOTOR_BODY":"",
 
   "MODAL_HELPER_VOLTAJE_TITLE":"Voltaje",
-  "MODAL_HELPER_VOLTAJE_BODY":"Nombre de equipo / motor",
+  "MODAL_HELPER_VOLTAJE_BODY":"",
 
-  "MODAL_HELPER_AMP_TITLE":"Nombre de equipo / motor",
-  "MODAL_HELPER_AMP_BODY":"Nombre de equipo / motor",
+  "MODAL_HELPER_AMP_TITLE":"Amperaje",
+  "MODAL_HELPER_AMP_BODY":"",
 
   "MODAL_HELPER_POWER_FACTOR_TITLE":"Factor de potencia",
-  "MODAL_HELPER_POWER_FACTOR_BODY":"Nombre de equipo / motor",
+  "MODAL_HELPER_POWER_FACTOR_BODY":"",
 
   "MODAL_HELPER_HOURS_DAY_TITLE":"Horas al día",
-  "MODAL_HELPER_HOURS_DAY_BODY":"Nombre de equipo / motor",
+  "MODAL_HELPER_HOURS_DAY_BODY":"",
 
   "MODAL_HELPER_DAYS_MONTH_TITLE":"Días al mes",
-  "MODAL_HELPER_DAYS_MONTH_BODY":"Nombre de equipo / motor"
+  "MODAL_HELPER_DAYS_MONTH_BODY":"",
 
+
+  "MODAL_CREATE_MOTOR_BUTTON":"Crear Motor",
+  "MODAL_CREATE_MOTOR_HEADER":"Creacion de motor"
 
 }

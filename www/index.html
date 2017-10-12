@@ -103,7 +103,7 @@
 <script id="modal-help" type="text/ng-template">
   <ion-modal-view>
     <ion-header-bar class="special-color">
-      <h1 class="title" style="color:white">{{translations.FMP_MODAL_HEADER}}</h1>
+      <h1 class="title" style="color:white;">{{translations.FMP_MODAL_HEADER}}</h1>
       <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalHelp();">
         <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
       </div>
@@ -144,37 +144,35 @@
 <script id="modal-factor" type="text/ng-template">
   <ion-modal-view>
     <ion-header-bar class="special-color">
-      <h1 class="title" style="color:white">Cotizacion Factor de potencia</h1>
+      <h1 class="title" style="color:white;">{{translations.FMP_MODAL_QUOTATION_HEADER}}</h1>
       <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalFactor();">
         <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
       </div>
     </ion-header-bar>
-    <ion-content style="height:calc(100vh - 44px)">
-
-
+    <ion-content style="height:calc(100vh - 44px);">
 
 
       <div style="margin-top:30px;padding:15px;">
         <p>
           <input type="radio" name="group1" class="filled-in" id="manual-checkbox" ng-click="chooseManual();"/>
-          <label for="manual-checkbox">Ingresa multa manual</label>
+          <label for="manual-checkbox">{{translations.FMP_MODAL_QUOTATION_OPTION_MANUAL}}</label>
         </p>
 
         <div class="input-field col s6">
           <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="factorType.power_factor">
-          <label for="input-penalty">Monto de multa</label>
+          <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
         </div>
 
 
         <p>
           <input type="radio" name="group1" class="filled-in" id="image-checkbox"  ng-click="chooseImage();"/>
-          <label for="image-checkbox">Utilizar fotografia de la multa</label>
+          <label for="image-checkbox">{{translations.FMP_MODAL_QUOTATION_USE_PHOTO}}</label>
         </p>
 
 
       <br>
       <p>
-        <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="si deseas aqui puedes agregar un comentario">
+        <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="{{translations.FMP_MODAL_QUOTATION_COMMENT}}">
         </textarea>
       </p>
 
@@ -182,15 +180,15 @@
 
 
       <div class="row">
-        <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">Cámara</a>
-        <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">Galeria</a>
+        <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION}}</a>
+        <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION_GALLERY}}</a>
       </div>
 
       <div style="width:100%;">
         <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
       </div>
 
-      <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">Enviar</a>
+      <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
     </div>
 
   </ion-content>
@@ -201,55 +199,55 @@
 <script id="modal-motor" type="text/ng-template">
   <ion-modal-view>
     <ion-header-bar class="special-color">
-      <h1 class="title" style="color:white">Creacion de motor</h1>
+      <h1 class="title" style="color:white">{{translations.MODAL_CREATE_MOTOR_HEADER}}</h1>
       <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalMotor();">
         <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
       </div>
     </ion-header-bar>
-    <ion-content style="height:calc(100vh - 44px)">
+    <ion-content style="height:calc(100vh - 44px);">
 
 
-      <div style="margin-top:30px;padding:15px 15px 15px 20px">
+      <div style="margin-top:30px;padding:15px 15px 15px 20px;">
 
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="motor-name"  type="text" class="validate" ng-model="motor.name">
-          <label for="motor-name">Nombre de equipo / motor</label>
+          <label for="motor-name">{{translations.MODAL_HELPER_MOTOR_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(1)"></i>
         </div>
 
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="motor-voltaje"  type="text" class="validate" ng-model="motor.voltaje">
-          <label for="motor-voltaje">Voltaje</label>
+          <label for="motor-voltaje">{{translations.MODAL_HELPER_VOLTAJE_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(2)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="motor-amp"  type="text" class="validate" ng-model="motor.amp">
-          <label for="motor-amp">Amperaje</label>
+          <label for="motor-amp">{{translations.MODAL_HELPER_AMP_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(3)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="power-factory" type="text" class="validate" ng-model="motor.power_factor">
-          <label for="power-factory">Factor de potencia</label>
+          <label for="power-factory">{{translations.MODAL_HELPER_POWER_FACTOR_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="hours-day" type="number" min="1" max="24" class="validate" ng-model="motor.hours">
-          <label for="hours-day">Horas al dia</label>
+          <label for="hours-day">{{translations.MODAL_HELPER_HOURS_DAY_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="days-month" type="number" min="1" max="31" class="validate" ng-model="motor.days">
-          <label for="days-month">Dias al mes</label>
+          <label for="days-month">{{translations.MODAL_HELPER_DAYS_MONTH_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(6)"></i>
         </div>
 
-        <a class="waves-effect waves-light btn factor-send-button" ng-click="createMotor();" style="">Crear Motor</a>
+        <a class="waves-effect waves-light btn factor-send-button" ng-click="createMotor();" style="">{{translations.MODAL_CREATE_MOTOR_BUTTON}}</a>
       </div>
 
 
@@ -260,7 +258,7 @@
 </script>
 
 <script id="loading.html" type="text/ng-template">
-  <img  src="./img/logo_transparent.png" class="rotating" style="width:100px;" />
+  <img  src="./img/logo_transparent.png" class="rotating" style="width:80px;" />
   <br />
   <span>{{translaions.SPINNER_REGISTER}}</span>
 </script>
