@@ -1,67 +1,88 @@
 {
-"slider_1":"Los recursos naturales se estan terminando ¡la eficiencia energetica es el camino para un mundo mejor!",
-"slider_2":"El cambio esta en ti ¡comienza a hacer la diferencia y ahorra energia electrica!",
-"slider_3":"! Comienza hoy & contagia la eficiencia energetica ¡nuestro planeta lo agradecera",
-"slider_button":"Comenzar con el cambio",
 
-
-"login_header":"Iniciar en EnergiaStore",
-"login_email_placeholder":"Correo",
-"login_password_placeholder":"Contraseña",
-"login_button":"Inicia sesión",
-"login_signup_text":"Aún no tienes una cuenta?",
-"login_signup_button":"Registrate",
-"login_email_empty_error":"Complete Correo",
-"login_password_empty_error":"Complete contraseña",
-"login_error":"Usuario incorrecto.",
+  "APP_NAME":"EnergiaStore",
 
 
 
-"register_slider_1_header":"Registremos tu cuenta...",
-"register_slider_1_placeholder_email":"Correo",
-"register_slider_1_placeholder_password":"Contraseña",
-"register_slider_1_confirmacion_password":"Confirmación contraseña",
-"register_email_empty_error":"Complete Correo",
-"register_password_empty_error":"Complete contraseña",
-"register_password_confirmation_empty_error":"Complete confirmación contraseña",
-"register_slider_1_spinner":"Registrando cuenta",
-"register_slider_1_error":"Intente con otra cuenta",
-"register_slider_2_header":"! Felicitaciones ¡",
-"register_slider_2_subtitle":"! Ya eres parte de EnergiaStore¡",
+  "SLIDER_1":"Los recursos naturales se estan terminando ¡la eficiencia energetica es el camino para un mundo mejor!",
+  "SLIDER_2":"El cambio esta en ti ¡comienza a hacer la diferencia y ahorra energia electrica!",
+  "SLIDER_3":"! Comienza hoy & contagia la eficiencia energetica ¡nuestro planeta lo agradecera",
+  "SLIDER_BUTTON":"Comenzar con el cambio",
+
+
+  "LOGIN_HEADER":"Iniciar en EnergiaStore",
+  "LOGIN_EMAIL_PLACEHOLDER":"Correo",
+  "LOGIN_PASSWORD_PLACEHOLDER":"Contraseña",
+  "LOGIN_BUTTON":"Inicia sesión",
+  "LOGIN_SIGNUP_TEXT":"Aún no tienes una cuenta?",
+  "LOGIN_SIGNUP_BUTTON":"Registrate",
+  "LOGIN_EMAIL_EMPTY_ERROR":"Complete Correo",
+  "LOGIN_PASSWORD_EMPTY_ERROR":"Complete contraseña",
+  "LOGIN_ERROR":"Usuario incorrecto.",
 
 
 
+  "REGISTER_SLIDER_1_HEADER":"Registremos tu cuenta...",
+  "REGISTER_SLIDER_1_PLACEHOLDER_EMAIL":"Correo",
+  "REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD":"Contraseña",
+  "REGISTER_SLIDER_1_CONFIRMATION_PASSWORD":"Confirmación contraseña",
+  "REGISTER_EMAIL_EMPTY_ERROR":"Complete Correo",
+  "REGISTER_PASSWORD_EMPTY_ERROR":"Complete contraseña",
+  "REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR":"Complete confirmación contraseña",
+  "REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR":"Password no coinciden",
+
+  "REGISTER_SLIDER_1_SPINNER":"Registrando cuenta",
+  "REGISTER_SLIDER_1_ERROR":"Intente con otra cuenta",
+  "REGISTER_SLIDER_2_HEADER":"! Felicitaciones ¡",
+  "REGISTER_SLIDER_2_SUBTITLE":"! Ya eres parte de EnergiaStore¡",
 
 
-"settings_title":"Configuración",
-"settings_placeholder_name":"Nombre",
-"settings_placeholder_lastname":"Apellido",
-"settings_placeholder_phone":"Teléfono",
-"settings_placeholder_address":"Dirección",
+
+  "QUOTATION_HEADER":"Cotizaciones",
 
 
-"quotation_header":"Cotizaciones",
+  "QUOTATION_POPUP_CANCEL_BUTTON":"Cancelar",
+  "QUOTATION_POPUP_ACCEPT_BUTTON":"Crear",
 
-"quotation_popup_title":"",
-"quotation_popup_body":"",
-"quotation_popup_cancel_button":"",
-"quotation_popup_accept_button":"",
+  "ADD_QUOTATION_POPUP_TITLE":"Crear cotizacion",
+  "ADD_QUOTATION_POPUP_FIRST_INPUT":"Nombre cotizacion",
+  "ADD_QUOTATION_POPUP_SECOND_INPUT":"Precio KW (clp)",
 
-"quotation_card_title":"",
-"quotation_card_title_strong":"",
-"quotation_card_body_pre":"",
-"quotation_card_body_post":"",
+  "QUOTATION_ERROR_DOWNLOAD_INFO":"Error al descargar las cotizaciones",
 
+  "QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO":"Ingrese nombre cotizacion",
+  "QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO":"Ingrese precio KWH",
 
-"FMP_header":"Cotizaciones",
-
-"FMP_modal_header":"",
-"FMP_modal_first_text":"",
-"FMP_modal_second_text":"",
+  "QUOTATION_CREATED_MESSAGE":"Cotizacion creada",
+  "QUOTATION_FAIL_MESSAGE":"Error al crear la cotizacion",
 
 
 
 
+  "QUOTATION_CARD_TITLE":"Aún no tienes ninguna",
+  "QUOTATION_CARD_TITLE_STRONG":"cotización",
+  "QUOTATION_CARD_BODY_PRE":"Haz click en  ",
+  "QUOTATION_CARD_BODY_POST":"para agregar tu primera cotización",
+
+  "QUOTATION_CARD_ELEMENT_COST_KW":"para agregar tu primera cotización",
+  "QUOTATION_CARD_ELEMENT_ID":"Id",
+  "QUOTATION_CARD_ELEMENT_CREATED_AT":"Fecha de creacion",
+
+
+
+
+
+  "FMP_HEADER":"Cotizaciones",
+
+  "FMP_MODAL_HEADER":"",
+  "FMP_MODAL_FIRST_TEXT":"",
+  "FMP_MODAL_SECOND_TEXT":"",
+
+  "SETTINGS_TITLE":"Configuración",
+  "SETTINGS_PLACEHOLDER_NAME":"Nombre",
+  "SETTINGS_PLACEHOLDER_LASTNAME":"Apellido",
+  "SETTINGS_PLACEHOLDER_PHONE":"Teléfono",
+  "SETTINGS_PLACEHOLDER_ADDRESS":"Dirección",
 
 
 
@@ -75,9 +96,33 @@
   "MODAL_CREATE_FACTOR_TEXT":"Cotización realizada de manera exitosa, EnergiaStore se pondra en contacto con usted para enviar su cotización.",
 
   "MODAL_FAIL_CREATE_FACTOR_BUTTON":"Entendido",
-  "MODAL_FAIL_CREATE_FACTOR_TEXT":"Ups no hemos podido realizar tu cotizacion, porfavor intentalo mas tarde."
+  "MODAL_FAIL_CREATE_FACTOR_TEXT":"Ups no hemos podido realizar tu cotizacion, porfavor intentalo mas tarde.",
 
+  "MODAL_LOGOUT_TITLE": "Cerrar sesión",
+  "MODAL_LOGOUT_TEXT": "¿Estas seguro que desea cerrar session?",
 
+  "MODAL_PROFILE_FAIL_BODY": "Problemas al completar tu perfil, intentalo más tarde",
+
+  "MODAL_PROFILE_UPDATE_TITLE": "Cerrar sesión",
+  "MODAL_PROFILE_UPDATE_BODY": "¿Estas seguro que desea cerrar session?",
+
+  "MODAL_HELPER_MOTOR_TITLE":"Nombre de equipo / motor",
+  "MODAL_HELPER_MOTOR_BODY":"Nombre de equipo / motor",
+
+  "MODAL_HELPER_VOLTAJE_TITLE":"Voltaje",
+  "MODAL_HELPER_VOLTAJE_BODY":"Nombre de equipo / motor",
+
+  "MODAL_HELPER_AMP_TITLE":"Nombre de equipo / motor",
+  "MODAL_HELPER_AMP_BODY":"Nombre de equipo / motor",
+
+  "MODAL_HELPER_POWER_FACTOR_TITLE":"Factor de potencia",
+  "MODAL_HELPER_POWER_FACTOR_BODY":"Nombre de equipo / motor",
+
+  "MODAL_HELPER_HOURS_DAY_TITLE":"Horas al día",
+  "MODAL_HELPER_HOURS_DAY_BODY":"Nombre de equipo / motor",
+
+  "MODAL_HELPER_DAYS_MONTH_TITLE":"Días al mes",
+  "MODAL_HELPER_DAYS_MONTH_BODY":"Nombre de equipo / motor"
 
 
 }

@@ -5,7 +5,7 @@
         <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
       </div>
     </div>
-    <h1 class="title">Cotizaciones</h1>
+    <h1 class="title">{{translations.QUOTATION_HEADER}}</h1>
     <div class="buttons" style="width: 30px;height: 30px;" ng-click="addQuotationPopUp();">
       <i class="ion-ios-plus-outline" style="    margin: auto;font-size: 25px;"></i>
     </div>
@@ -19,8 +19,8 @@
       <div class="col s12 m6" ng-hide="calculations.length != 0">
         <div class="card special-color">
           <div class="card-content white-text">
-            <span class="card-title">Aún no tienes ninguna <strong style="font-weight:600">cotización</strong></span>
-            <p>Haz click en  <i class="ion-ios-plus-outline" style=""> para agregar tu primera cotizacion</i>
+            <span class="card-title">{{translations.QUOTATION_CARD_TITLE}} <strong style="font-weight:600">{{translations.QUOTATION_CARD_TITLE_STRONG}}</strong></span>
+            <p>{{translations.QUOTATION_CARD_BODY_PRE}}  <i class="ion-ios-plus-outline" style=""> {{translations.QUOTATION_CARD_BODY_POST}}</i>
             </p>
           </div>
         </div>
@@ -31,9 +31,9 @@
         <div class="card special-color">
           <div class="card-content white-text">
             <span class="card-title">Nombre cotización: {{calculation.name}}<strong style="font-weight:600"></strong></span>
-            <p style="font-weight:600">Costo de KW: {{calculation.energy_cost}}</p>
-            <p>Id: {{calculation.id}}</p>
-            <p>Fecha de creacion: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+            <p style="font-weight:600">{{translations.QUOTATION_CARD_ELEMENT_COST_KW}} : {{calculation.energy_cost}}</p>
+            <p>{{translations.QUOTATION_CARD_ELEMENT_ID}}: {{calculation.id}}</p>
+            <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
             <!-- <p>Haz click en  <i class="ion-ios-plus-outline" style=""> para agregar tu primera cotizacion</i> -->
           </div></p>
         </div>

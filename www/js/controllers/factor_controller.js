@@ -21,7 +21,6 @@ CONTROLLER DEFINITION
         const _button_galley = $('#button-gallery');
 
 
-
       $scope.user =  StorageUserModel.getCurrentUser();
 
       $scope.factorType={};

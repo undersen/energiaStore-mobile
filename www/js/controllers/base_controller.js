@@ -24,7 +24,7 @@ CONTROLLER DEFINITION
           $state.go("dashboard",{},{ reload: true })
         }
       }else{
-        $state.go("introduction",{},{ reload: true })
+        $state.go("welcome",{},{ reload: true })
       }
     });
   }]);

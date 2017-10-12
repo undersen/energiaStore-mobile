@@ -128,36 +128,51 @@ CONTROLLER DEFINITION
 
 
       $scope.chooseShowpopUpHelp = function (_index){
+
+        let _title;
+        let _body;
+
+
         switch (_index) {
           case 1:
-          popUpService.showPopUpHelpMotor("Nombre de equipo / motor","Corresponde al nombre ficticio con el cual sera identificado el equipo.");
+              _title = $scope.translations.MODAL_HELPER_MOTOR_TITLE;
+              _body = $scope.translations.MODAL_HELPER_MOTOR_body;
+
 
           break;
 
           case 2:
-          popUpService.showPopUpHelpMotor("Voltaje","");
+              _title = $scope.translations.MODAL_HELPER_AMP_TITLE;
+              _body = $scope.translations.MODAL_HELPER_AMP_BODY;
+
           break;
 
           case 3:
-          popUpService.showPopUpHelpMotor("Amperaje","");
+              _title = $scope.translations.MODAL_HELPER_VOLTAJE_TITLE;
+              _body = $scope.translations.MODAL_HELPER_VOLTAJE_BODY;
           break;
 
 
           case 4:
-          popUpService.showPopUpHelpMotor("Factor de potencia","");
-          break;
+              _title = $scope.translations.MODAL_HELPER_POWER_FACTOR_TITLE;
+              _body = $scope.translations.MODAL_HELPER_POWER_FACTOR_BODY;
+              break;
 
           case 5:
-          popUpService.showPopUpHelpMotor("Horas al día","");
+              _title = $scope.translations.MODAL_HELPER_HOURS_DAY_TITLE;
+              _body = $scope.translations.MODAL_HELPER_HOURS_DAY_BODY;
           break;
 
           case 6:
-          popUpService.showPopUpHelpMotor("Días al mes","");
+              _title = $scope.translations.MODAL_HELPER_DAYS_MONTH_TITLE;
+              _body = $scope.translations.MODAL_HELPER_DAYS_MONTH_BODY;
           break;
 
 
           default:
           break;
+
+          popUpService.showPopUpHelpMotor(_title,_body);
 
         }
       };

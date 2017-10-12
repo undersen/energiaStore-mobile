@@ -6,42 +6,31 @@
 
       <ion-slide-box on-slide-changed="slideHasChanged($index)">
         <ion-slide class="slider-box">
-
           <i class="fa fa-bolt icon-intro" aria-hidden="true"></i>
-
-
           <h4 class="title-slider" >
-
-
-            Los recursos naturales se estan terminando ¡la eficiencia energetica es el camino para un mundo mejor!
+            {{translations.slider_1}}
           </h4>
 
+
+
         </ion-slide>
-
         <ion-slide class="slider-box">
-
           <i class="fa fa-lightbulb-o icon-intro" aria-hidden="true"></i>
-
           <h4 class="title-slider">
-            El cambio esta en ti ¡comienza a hacer la diferencia y ahorra energia electrica!
+            {{translations.slider_3}}
           </h4>
-
-
         </ion-slide>
 
 
         <ion-slide class="slider-box">
-
           <i class="fa fa-globe icon-intro" aria-hidden="true"></i>
           <h4 class="title-slider">
-            ! Comienza hoy & contagia la eficiencia energetica ¡
-            nuestro planeta lo agradecera
+            {{translations.slider_3}}
           </h4>
-
-          <button type="button" class="button-init" name="button" ng-click="goToLogin();">Comenzar con el cambio</button>
-
+          <button type="button" class="button-init" name="button" ng-click="goToLogin();">
+            {{translations.slider_button}}
+          </button>
         </ion-slide>
-
 
 
       </ion-slide-box>

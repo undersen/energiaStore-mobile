@@ -42,27 +42,26 @@ CONTROLLER DEFINITION
         // Custom popup
         let myPopup = $ionicPopup.show({
           template: ` <div class="input-field col s12">
-          <input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">Nombre cotizacion</label></div>
+          <input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope.translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
           <div class="input-field col s12">
-          <input id="quotation_kwh_price" type="number" min="0" class="validate" ng-model="data.price"><label for="quotation_kw_price">Precio KW (clp)</label></div>`,
-          title: 'Crear cotizacion',
+          <input id="quotation_kwh_price" type="number" min="0" class="validate" ng-model="data.price"><label for="quotation_kw_price">${$scope.translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label></div>`,
+          title: $scope.translations.ADD_QUOTATION_POPUP_TITLE,
           // subTitle: 'Subtitle',
           scope: $scope,
 
           buttons: [
-            { text: 'Cancelar' }, {
-              text: '<b>Crear</b>',
+            { text: $scope.translations.QUOTATION_POPUP_CANCEL_BUTTON }, {
+              text: `<b>${$scope.translations.QUOTATION_POPUP_ACCEPT_BUTTON}</b>`,
               cssClass:'special-color',
               type: 'button-positive',
 
               onTap: function(e) {
 
                 if (!$scope.data.name ) {
-                  Materialize.toast("Ingrese nombre cotizacion",4000);
-                  //don't allow the user to close unless he enters model...
+                  Materialize.toast($scope.translations.QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO,4000);
                   e.preventDefault();
                 } else if (!$scope.data.price){
-                  Materialize.toast("Ingrese precio cotizacion",4000);
+                  Materialize.toast($scope.translations.QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO,4000);
                   e.preventDefault();
                 }else{
                   $scope.craeteCalculation($scope.data);
@@ -81,13 +80,13 @@ CONTROLLER DEFINITION
       $scope.craeteCalculation= function (data){
         Calculation.create(data,StorageUserModel.getCurrentUser()).then(function(_response){
 
-        Materialize.toast("Cotizacion creada", 4000);
+        Materialize.toast($scope.translations.QUOTATION_CREATED_MESSAGE, 4000);
         $scope.calculations ={};
         $scope.getCalculation();
         console.log(_response);
 
         },function(_error){
-          Materialize.toast("Error al crear la cotizacion");
+          Materialize.toast($scope.translations.QUOTATION_FAIL_MESSAGE,4000);
           console.log(_error);
         })
 
@@ -101,7 +100,7 @@ CONTROLLER DEFINITION
           $scope.$broadcast('scroll.refreshComplete');
           console.log(_response);
         },function(_error){
-          Materialize.toast("Error al descargar las cotizaciones",4000);
+          Materialize.toast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO,4000);
           $scope.$broadcast('scroll.refreshComplete');
           console.error(_error);
         })

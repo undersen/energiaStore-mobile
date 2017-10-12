@@ -71,8 +71,83 @@
 
             $ionicPopup.show({
                 title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-                subTitle: `<br><span class="modal-title-config">${_title}</span>
-                <br><span class="modal-body-config">${_body}</span>`,
+                subTitle: `<br><span class="modal-title-config">${_title}</span><br><span class="modal-body-config">${_body}</span>`,
+                cssClass: 'successClass',
+                buttons:button_exit_lesson,
+            },).then(function(_res){
+                deferred.resolve(_res);
+
+            });
+            return deferred.promise;
+        },
+
+        showPopUpWelcomeLanguage : function(_translation){
+            let deferred = $q.defer();
+            let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
+                return true;
+            }}];
+
+            $ionicPopup.show({
+                title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+                subTitle: `<br><span class="modal-title-config">${_translation.MODAL_FAIL_CREATE_FACTOR_BUTTON}</span><br><span class="modal-body-config">${_translation.MODAL_FAIL_CREATE_FACTOR_BUTTON}</span>`,
+                cssClass: 'successClass',
+                buttons:button_exit_lesson,
+            },).then(function(_res){
+                deferred.resolve(_res);
+
+            });
+            return deferred.promise;
+        },
+
+
+        showpopUpLogOut : function(_translation){
+            let deferred = $q.defer();
+            let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
+                return true;
+            }}];
+
+            $ionicPopup.show({
+                title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+                subTitle: `<br><span class="modal-title-config">${_translation.MODAL_LOGOUT_TITLE}</span><br><span class="modal-body-config">${_translation.MODAL_LOGOUT_TEXT}</span>`,
+                cssClass: 'successClass',
+                buttons:button_exit_lesson,
+            },).then(function(_res){
+                deferred.resolve(_res);
+
+            });
+            return deferred.promise;
+        },
+
+
+
+        showpopUpProfileFail : function(_translation){
+            let deferred = $q.defer();
+            let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
+                return true;
+            }}];
+
+            $ionicPopup.show({
+                title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+                subTitle: '<br><span class="modal-body-config">_translation.MODAL_PROFILE_FAIL_BODY</span>',
+                cssClass: 'successClass',
+                buttons:button_exit_lesson,
+            },).then(function(_res){
+                deferred.resolve(_res);
+
+            });
+            return deferred.promise;
+        },
+
+
+        showpopUpProfileCreate : function(_translation){
+            let deferred = $q.defer();
+            let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
+                return true;
+            }}];
+
+            $ionicPopup.show({
+                title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
+                subTitle: '<br><span class="modal-body-config">Perfil completado.</span>',
                 cssClass: 'successClass',
                 buttons:button_exit_lesson,
             },).then(function(_res){
@@ -95,22 +170,48 @@
 
 
 
-        //     $scope.showpopUpHelp = function(_title,_body){
+
+
+
+
+
+
+
+
+
+
+        // showpopUpProfileFail
+
+    //     $scope.showpopUpLogOut = function(){
     //
-    //     let button_exit_lesson = [{ text: 'Entendido',  type: 'button-special',onTap: function(e) {
+    //     let button_exit_lesson = [{ text: 'Cancelar',  type: 'button-special',onTap: function(e) {
     //         return true;
-    //     }}];
+    //     }},{ text: 'Salir',  type: 'button-special',onTap: function(e) {
+    //
+    //         $scope.logOut();	}}];
     //
     //
     //     $ionicPopup.show({
-    //         title: '<div class="congrats"></div><img src="img/special_icons/Growth_Badge_Color.png" class="modal-img-config">',
-    //         subTitle: `<br><span class="modal-title-config">${_title}</span>
-    //       <br><span class="modal-body-config">${_body}</span>`,
+    //         title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+    //         subTitle: '<br><span class="modal-body-config">¿Estas seguro que desea cerrar session?</span>',
     //         cssClass: 'successClass',
     //         buttons:button_exit_lesson,
     //     })
-    //
     // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -135,7 +236,7 @@
           buttons:button_server_problems,
         },).then(function(res){
           deferred.resolve(res);
-        })
+        });
         return deferred.promise;
       },
 
@@ -166,7 +267,7 @@
           buttons:button_fail_test,
         },).then(function(res){
           deferred.resolve(res);
-        })
+        });
         return deferred.promise;
       },
 
@@ -174,14 +275,14 @@
         let deferred = $q.defer();
         let button_success = [{ text: 'Continuar',  type: 'button-special',onTap: function(e) {return true;}}]
 
-        let myPopup = $ionicPopup.show({
+        $ionicPopup.show({
           title: '<div class="congrats"></div><img src="img/icons/medals/pulgar1.png" class="modal-img-config">',
           subTitle: '<span class="modal-body-config">Felicitaciones aprobaste este desafío con '+_correct+ '/'+_total+'.</span><br><br><span class="modal-body-config">Acumulaste '+ _score +' puntos.</span>',
           cssClass: 'successClass',
           buttons:button_success,
         },).then(function(res){
           deferred.resolve(res);
-        })
+        });
         return deferred.promise;
       },
 
@@ -189,14 +290,14 @@
         let deferred = $q.defer();
         let button_success = [{ text: 'Regresar',  type: 'button-special',onTap: function(e) {return true;}}]
 
-        let myPopup = $ionicPopup.show({
+        $ionicPopup.show({
           title: '<div class="congrats"></div><img src="img/icons/medals/rsz_flash.png" class="modal-img-config">',
           subTitle: '<span class="modal-body-config">Felicitaciones.</span><br><br><span class="modal-body-config">Ganaste '+ _score +' puntos.</span>',
           cssClass: 'successClass',
           buttons:button_success,
         },).then(function(res){
           deferred.resolve(res);
-        })
+        });
         return deferred.promise;
       },
 
@@ -213,16 +314,16 @@
           return false;
         }
       }
-    ]
+    ];
 
-    let myPopup = $ionicPopup.show({
+    $ionicPopup.show({
       title: '<div class="congrats"></div><img src="img/icons/medals/rsz_flash.png" class="modal-img-config">',
       subTitle: '<span class="modal-body-config">Hola, '+_business_name+' te ha enviado una pregunta relámpago.</span><br><br><span class="modal-body-config">responde inmediatamente y gana '+ _score +' puntos.</span>',
       cssClass: 'successClass',
       buttons:button_success,
     },).then(function(res){
       deferred.resolve(res);
-    })
+    });
     return deferred.promise;
   },
 
@@ -236,22 +337,22 @@
         $state.go("login",{},{ reload: true })
       }
     }
-]
+];
 
-let myPopup = $ionicPopup.show({
+$ionicPopup.show({
   title: '<div class="congrats"></div><img src="img/icons/medals/rsz_flash.png" class="modal-img-config">',
   subTitle: '<span class="modal-body-config">Re-evluación.</span><br><br><span class="modal-body-config">Hola! Queremos saber cuanto de lo que has aprendido todavia te acuerdas </br> Responde a estas preguntas y sigue acumulado puntos.</span>',
   cssClass: 'successClass',
   buttons:button_success,
 },).then(function(res){
   deferred.resolve(res);
-})
+});
 return deferred.promise;
 },
 
   showPopupCloseApp:function(){
 
-    var deferred = $q.defer();
+    let deferred = $q.defer();
     let button_close_app = [
       {
         text: '<b>Quedarme</b>',
@@ -267,12 +368,9 @@ return deferred.promise;
         text: '<b>Salir</b>',
         type: 'button-positive',
         onTap: function(e) {
-          // navigator.app.exitApp();
-
-
           return 'cerrar_app';
         }
-      }]
+      }];
 
       $ionicPopup.show({
         title: '<div class="congrats"></div><img src="img/icons/exclamation.png" class="modal-img-config">',
@@ -281,7 +379,7 @@ return deferred.promise;
         buttons:button_close_app
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
 
 
       return deferred.promise;
@@ -291,16 +389,16 @@ return deferred.promise;
 
       let deferred = $q.defer();
 
-      let button_default = [{ text: "Entendido",  type: 'button-special',onTap: function(e) {return true}}]
-      let button_update_profile = [{ text: "Entendido",  type: 'button-special',onTap: function(e) {return true}}]
-      let button_ready_lesson = [{ text: 'Si, si quiero',type: 'button-course-background',onTap: function(e) {return true}},{ text: 'No, gracias',type: 'button-course-color',onTap: function(e) {return false}}]
+      let button_default = [{ text: "Entendido",  type: 'button-special',onTap: function(e) {return true}}];
+      let button_update_profile = [{ text: "Entendido",  type: 'button-special',onTap: function(e) {return true}}];
+      let button_ready_lesson = [{ text: 'Si, si quiero',type: 'button-course-background',onTap: function(e) {return true}},{ text: 'No, gracias',type: 'button-course-color',onTap: function(e) {return false}}];
       let button_pending_lesson =   [{ text: 'Entendido',type: 'button-course-color' }];
-      let button_video_lesson = [{ text: 'Comenzar Test', type: 'button-course-background',onTap: function(e) {return true}},{text: 'Ver video nuevamente',type: 'button-course-color',onTap: function(e) {return false;}}]
-      let button_continuar = [{ text: 'Continuar', type: 'button-special btn-kpi'}]
-      let button_profile_ready = [{ text: 'Continuar',onTap: function(e) {return true}}]
+      let button_video_lesson = [{ text: 'Comenzar Test', type: 'button-course-background',onTap: function(e) {return true}},{text: 'Ver video nuevamente',type: 'button-course-color',onTap: function(e) {return false;}}];
+      let button_continuar = [{ text: 'Continuar', type: 'button-special btn-kpi'}];
+      let button_profile_ready = [{ text: 'Continuar',onTap: function(e) {return true}}];
 
-      if(_button == undefined || _button == ''){_button = button_default;}
-      if(_template == undefined){_template='';}
+      if(_button === undefined || _button === ''){_button = button_default;}
+      if(_template === undefined){_template='';}
 
       switch (_button) {
         case 'button_default':
@@ -329,7 +427,7 @@ return deferred.promise;
       }
 
 
-      let generic_popup = $ionicPopup.show({
+      $ionicPopup.show({
         template: _template,
         title: _titulo,
         subTitle: _subtitulo,
@@ -337,14 +435,14 @@ return deferred.promise;
         cssClass: _cssClass,
       },).then(function(_response){
         deferred.resolve(_response);
-      })
+      });
 
       return deferred.promise;
     },
 
     showPopupCloselly:function(){
 
-      let about_us_popup = $ionicPopup.show({
+      $ionicPopup.show({
         title: '<div class="congrats"></div><img src="img/closelly-logo.png" class="modal-aboutus">',
         subTitle: '<span class="span-copyright">2017 Todos los derechos reservados a Simpler SpA. <i class="fa fa-copyright" aria-hidden="true"></i></span>',
         buttons:[]
@@ -362,32 +460,32 @@ return deferred.promise;
         buttons:button_update_profile,
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
     },
 
     showPopupPhoto:function(){
 
-      var deferred = $q.defer();
+      let deferred = $q.defer();
 
       let button_photo = [{ text: "Camara",onTap: function(e) {return 'camera'}},{ text: "Galería",onTap: function(e) {return 'gallery'}}]
 
-      let popup_photo = $ionicPopup.show({
+      $ionicPopup.show({
         title: 'Seleccione una foto de perfil',
         subTitle: '',
         template: '',
         buttons: button_photo
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
     },
 
     showPopupLogOut:function(){
 
-      var deferred = $q.defer();
+      let deferred = $q.defer();
 
-      let myPopup = $ionicPopup.show({
+      $ionicPopup.show({
         title: '<div class="congrats"></div><img src="img/icons/exclamation.png" class="modal-img-config">',
         subTitle: '<span class="modal-body-config">Cerrar Sesión</span><br><div class="subt-close-sesion" ><span class="modal-body-config" style="font-size:1px;">¿Estas seguro que deseas cerrar sesión?</span></div>',
         cssClass: 'successClass',
@@ -420,16 +518,16 @@ return deferred.promise;
       }},{ text: 'Salir', type: 'button-course-color',
       onTap: function(e) {
         return true;
-      }}]
+      }}];
 
-      let tutorial_popup = $ionicPopup.show({
+      $ionicPopup.show({
         title: "Salir",
         subTitle: "¿Estás Seguro que deseas salir del tutorial?",
         template: '',
         buttons: button_popup_tutorial
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
     },
 
@@ -439,17 +537,17 @@ return deferred.promise;
       onTap: function(e) {
         StorageUserService.destroyCurrentUser();
         $state.go("login",{},{ reload: true })
-      }}]
+      }}];
 
 
-      let generic_popup = $ionicPopup.show({
+      $ionicPopup.show({
         template: '',
         title: "Salir",
         subTitle: "¿Estas seguro que deseas salir?",
         buttons: _buttons_leave_profile
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
 
     },
@@ -458,38 +556,38 @@ return deferred.promise;
       let deferred = $q.defer();
       let buttonWarning = [{ text: 'Entendido',  type: 'button-special', onTap: function(e) {
         return 'entendido';
-      }}]
+      }}];
 
-      let pop_up_warning_kpi = $ionicPopup.show({
+      $ionicPopup.show({
         title: '<div class="congrats"></div><img src="img/icons/warning.png" class="modal-img-config">',
         subTitle: '<br><span class="modal-body-config">No es posible mostrar el desempeño del usuario.</span>',
         cssClass: 'successClass',
         buttons:buttonWarning,
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
     },
 
     showPopupWarningLesson:function(){
       let deferred = $q.defer();
-      let button_warning = [{ text: 'Entendido',  type: 'button-special', onTap: function(e) {return true;}}]
+      let button_warning = [{ text: 'Entendido',  type: 'button-special', onTap: function(e) {return true;}}];
 
-      let pop_up_warning_lesson = $ionicPopup.show({
+      $ionicPopup.show({
         title: '<div class="congrats"></div><img src="img/icons/warning.png" class="modal-img-config">',
         subTitle: '<br><span class="modal-body-config">No es posible mostrar los cursos del usuario.</span>',
         cssClass: 'successClass',
-        buttons:buttonWarning,
+        buttons:button_warning,
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
     },
 
     showPopUpDescriptionPerformance:function(_kpi,_description){
-      let button_ok = [{ text: "Entendido", type: 'button-special btn-kpi'}]
+      let button_ok = [{ text: "Entendido", type: 'button-special btn-kpi'}];
 
-      let pop_up_warning_kpi = $ionicPopup.show({
+      $ionicPopup.show({
         title: _kpi,
         subTitle: _description,
         cssClass: 'successClass',
@@ -499,7 +597,7 @@ return deferred.promise;
 
     showPopupCongratulations:function(){
       let deferred = $q.defer();
-      let button_ok = [{ text: "Continuar",onTap: function(e) {return true;}}]
+      let button_ok = [{ text: "Continuar",onTap: function(e) {return true;}}];
 
       let pop_up_warning_kpi = $ionicPopup.show({
         title: "Felicitaciones",
@@ -509,37 +607,37 @@ return deferred.promise;
         buttons:button_ok,
       },).then(function(_response){
         deferred.resolve(_response);
-      })
+      });
       return deferred.promise;
 
     },
     showPopupBusinessNotAllowed:function(){
       let deferred = $q.defer();
-      let button_warning = [{ text: 'Entendido',  type: 'button-special', onTap: function(e) {return true;}}]
+      let button_warning = [{ text: 'Entendido',  type: 'button-special', onTap: function(e) {return true;}}];
 
-      let pop_up_warning_lesson = $ionicPopup.show({
+      $ionicPopup.show({
         title: '<div class="congrats"></div><img src="img/icons/barrier.png" class="modal-img-config">',
         subTitle: '<span class="modal-body-config">Servicio bloqueado.</span><br><span class="modal-body-business">Tome contacto con el proveedor del servicio de la empresa.</span>',
         cssClass: 'successClass',
         buttons:button_warning,
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
     },
 
     showPopupTokenProblem:function(){
       let deferred = $q.defer();
-      let button_warning = [{ text: 'Entendido',  type: 'button-special', onTap: function(e) {return true;}}]
+      let button_warning = [{ text: 'Entendido',  type: 'button-special', onTap: function(e) {return true;}}];
 
-      let pop_up_warning_lesson = $ionicPopup.show({
+      $ionicPopup.show({
         title: '<div class="congrats"></div><img src="img/icons/barrier.png" class="modal-img-config">',
         subTitle: '<br><span class="modal-body-config">Se solicita que vuelva a iniciar sesión.</span>',
         cssClass: 'successClass',
         buttons:button_warning,
       },).then(function(res){
         deferred.resolve(res);
-      })
+      });
       return deferred.promise;
     }
 

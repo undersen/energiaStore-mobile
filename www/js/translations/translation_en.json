@@ -1,0 +1,85 @@
+{
+
+"POPUP_WELCOME_LANGUAGE":"WELCOME TO ENERGIASTORE",
+
+
+
+"SLIDER_1":"Los recursos naturales se estan terminando ¡la eficiencia energetica es el camino para un mundo mejor!",
+"SLIDER_2":"El cambio esta en ti ¡comienza a hacer la diferencia y ahorra energia electrica!",
+"SLIDER_3":"! Comienza hoy & contagia la eficiencia energetica ¡nuestro planeta lo agradecera",
+"SLIDER_BUTTON":"Comenzar con el cambio",
+
+
+"LOGIN_HEADER":"Iniciar en EnergiaStore",
+"LOGIN_EMAIL_PLACEHOLDER":"Correo",
+"LOGIN_PASSWORD_PLACEHOLDER":"Contraseña",
+"LOGIN_BUTTON":"Inicia sesión",
+"LOGIN_SIGNUP_TEXT":"Aún no tienes una cuenta?",
+"LOGIN_SIGNUP_BUTTON":"Registrate",
+"LOGIN_EMAIL_EMPTY_ERROR":"Complete Correo",
+"LOGIN_PASSWORD_EMPTY_ERROR":"Complete contraseña",
+"LOGIN_ERROR":"Usuario incorrecto.",
+
+
+
+"REGISTER_SLIDER_1_HEADER":"Registremos tu cuenta...",
+"REGISTER_SLIDER_1_PLACEHOLDER_EMAIL":"Correo",
+"REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD":"Contraseña",
+"REGISTER_SLIDER_1_CONFIRMATION_PASSWORD":"Confirmación contraseña",
+"REGISTER_EMAIL_EMPTY_ERROR":"Complete Correo",
+"REGISTER_PASSWORD_EMPTY_ERROR":"Complete contraseña",
+"REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR":"Complete confirmación contraseña",
+"REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR":"Password no coinciden",
+
+"REGISTER_SLIDER_1_SPINNER":"Registrando cuenta",
+"REGISTER_SLIDER_1_ERROR":"Intente con otra cuenta",
+"REGISTER_SLIDER_2_HEADER":"! Felicitaciones ¡",
+"REGISTER_SLIDER_2_SUBTITLE":"! Ya eres parte de EnergiaStore¡",
+
+
+
+
+
+
+
+
+"QUOTATION_HEADER":"Cotizaciones",
+
+"QUOTATION_POPUP_TITLE":"",
+"QUOTATION_POPUP_BODY":"",
+"QUOTATION_POPUP_CANCEL_BUTTON":"",
+"QUOTATION_POPUP_ACCEPT_BUTTON":"",
+
+"QUOTATION_CARD_TITLE":"",
+"QUOTATION_CARD_TITLE_STRONG":"",
+"QUOTATION_CARD_BODY_PRE":"",
+"QUOTATION_CARD_BODY_POST":"",
+
+
+"FMP_HEADER":"Cotizaciones",
+
+"FMP_MODAL_HEADER":"",
+"FMP_MODAL_FIRST_TEXT":"",
+"FMP_MODAL_SECOND_TEXT":"",
+
+  "SETTINGS_TITLE":"Configuración",
+  "SETTINGS_PLACEHOLDER_NAME":"Nombre",
+  "SETTINGS_PLACEHOLDER_LASTNAME":"Apellido",
+  "SETTINGS_PLACEHOLDER_PHONE":"Teléfono",
+  "SETTINGS_PLACEHOLDER_ADDRESS":"Dirección",
+
+
+
+  "MODAL_WELCOME_BUTTON":"Vamos alla",
+  "MODAL_WELCOME_TEXT":"Bienvendio a EnergiaStore, comencemos completando tu perfil con tu información basica.",
+
+  "MODAL_CREATE_FACTOR_BUTTON":"Entendido",
+  "MODAL_CREATE_FACTOR_TEXT":"Cotización realizada de manera exitosa, EnergiaStore se pondra en contacto con usted para enviar su cotización.",
+
+  "MODAL_FAIL_CREATE_FACTOR_BUTTON":"Entendido",
+  "MODAL_FAIL_CREATE_FACTOR_TEXT":"Ups no hemos podido realizar tu cotizacion, porfavor intentalo mas tarde."
+
+
+
+
+}

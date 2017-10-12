@@ -7,12 +7,12 @@ CONTROLLER DEFINITION
 */
 
 app.service('translationService',
-    function($resource) {
+    function($resource,StorageLanguageModel) {
 
         return{
-            getTranslation:function(language = 'es') {
+            getTranslation:function() {
 
-                return 'js/translations/translation_'+language+'.json';
+                return 'js/translations/translation_'+StorageLanguageModel.getCurrentLanguage()+'.json';
 
                 // return $resource(languageFilePath).get(function (data) {
                 //   return data;

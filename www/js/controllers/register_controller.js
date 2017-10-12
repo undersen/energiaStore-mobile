@@ -37,25 +37,25 @@ CONTROLLER DEFINITION
         switch (index) {
           case 0:
 
-              _content_register .addClass("back-color1");
-              _content_register .removeClass("back-color2");
+              _content_register.addClass("back-color1");
+              _content_register.removeClass("back-color2");
           break;
           case 1:
 
-              _content_register .removeClass("back-color3");
-              _content_register .removeClass("back-color1");
-              _content_register .addClass("back-color2");
+              _content_register.removeClass("back-color3");
+              _content_register.removeClass("back-color1");
+              _content_register.addClass("back-color2");
 
           break;
           case 2:
-              _content_register .removeClass("back-color2");
-              _content_register .removeClass("back-color4");
-              _content_register .addClass("back-color3");
+              _content_register.removeClass("back-color2");
+              _content_register.removeClass("back-color4");
+              _content_register.addClass("back-color3");
 
           break;
           case 3:
-              _content_register .addClass("welcome-background-4");
-              _content_register .removeClass("welcome-background-3");
+              _content_register.addClass("welcome-background-4");
+              _content_register.removeClass("welcome-background-3");
           break;
 
           default:
@@ -93,22 +93,22 @@ CONTROLLER DEFINITION
       $scope.validateSlider1 =function(){
 
         if ($scope.user.email === undefined || $scope.user.email === ''){
-          Materialize.toast("Complete email",4000);
+          Materialize.toast($scope.translations.REGISTER_EMAIL_EMPTY_ERROR,4000);
           return;
         }
 
         if ($scope.user.password === undefined || $scope.user.password === ''){
-          Materialize.toast("Complete password.",4000);
+          Materialize.toast($scope.translations.REGISTER_PASSWORD_EMPTY_ERROR,4000);
           return;
         }
 
         if ($scope.user.password_confirmation === undefined || $scope.user.password_confirmation === ''){
-          Materialize.toast("Complete confirmacion.",4000);
+          Materialize.toast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR,4000);
           return;
         }
 
         if ($scope.user.password_confirmation !== $scope.user.password){
-          Materialize.toast("Password no coinciden.",4000);
+          Materialize.toast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR,4000);
           return;
         }
 
@@ -136,7 +136,8 @@ CONTROLLER DEFINITION
         },function(_error){
 
           $ionicLoading.hide();
-          Materialize.toast("Intenta con otro email",4000)
+          Materialize.toast($scope.translations.REGISTER_SLIDER_1_ERROR,4000)
+          console.error(_error)
 
         })
       };

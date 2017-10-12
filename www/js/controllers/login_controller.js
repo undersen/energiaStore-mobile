@@ -9,15 +9,16 @@ CONTROLLER DEFINITION
   this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource",
   function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource) {
 
-
-      const languageFilePath = translationService.getTranslation();
-      $resource(languageFilePath).get(function (data) {
-          $scope.translations = data;
-      });
-
-    $scope.user ={};
-
     $ionicPlatform.ready(function() {
+
+        const languageFilePath = translationService.getTranslation();
+        $resource(languageFilePath).get(function (data) {
+
+            $scope.translations = data;
+            console.log($scope.translations);
+        });
+
+        $scope.user ={};
 
       $scope.goToRegister = function(){
 
@@ -40,7 +41,7 @@ CONTROLLER DEFINITION
 
         Session.login($scope.user).then(function(_response){
           StorageUserModel.setCurrentUser(_response.data);
-          $state.go("dashboard")
+          $state.go("dashboard");
           console.log(_response)
         },function(_error){
           Materialize.toast($scope.translations.login_error,4000);
