@@ -121,7 +121,7 @@ CONTROLLER DEFINITION
         $cordovaCamera.getPicture(options).then(function(_imageData) {
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
         }, function(_err) {
-          Materialize.toast("Problemas con la camara",4000);
+          Materialize.toast($scope.ERROR_CAMERA,4000);
           console.log(_err);
         });
 
@@ -144,7 +144,7 @@ CONTROLLER DEFINITION
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
           // isPictureChanged=true;
         }, function(_err) {
-          Materialize.toast("Problemas con la galeria",4000);
+          Materialize.toast($scope.ERROR_GALLERY,4000);
           console.error(_err);
 
         });

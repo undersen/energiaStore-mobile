@@ -5,7 +5,7 @@
         <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
       </div>
     </div>
-    <h1 class="title">Factor de mal potencia</h1>
+    <h1 class="title">{{translations.FMP_HEADER}}</h1>
     <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalHelp();">
       <i class="ion-ios-help-outline" style="    margin: auto;font-size: 25px;"></i>
     </div>
@@ -16,10 +16,10 @@
       <div class="col s12 m6">
         <div class="card special-color">
           <div class="card-content white-text">
-            <span class="card-title">Solicitar evaluacion de  <strong style="font-weight:600">Factor de mala potencia</strong></span>
+            <span class="card-title">{{translations.FMP_PRE_TEXT}}  <strong style="font-weight:600">{{translatiosn.FMP_PRE_TEXT_STRONG}}</strong></span>
           </div>
           <div class="card-action">
-            <a  style="    text-align: center;width: 100%;font-size: 19px;display: block;color:white;" ng-click="openModalFactor();">Ingresar multa</a>
+            <a  style="    text-align: center;width: 100%;font-size: 19px;display: block;color:white;" ng-click="openModalFactor();">{{translations.FMP_BUTTON}}</a>
 
           </div>
         </div>
@@ -31,5 +31,4 @@
 
 
 </ion-content>
-
 </ion-view>

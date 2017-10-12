@@ -103,7 +103,7 @@
 <script id="modal-help" type="text/ng-template">
   <ion-modal-view>
     <ion-header-bar class="special-color">
-      <h1 class="title" style="color:white">¿Factor de mala potencia?</h1>
+      <h1 class="title" style="color:white">{{translations.FMP_MODAL_HEADER}}</h1>
       <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalHelp();">
         <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
       </div>
@@ -112,31 +112,28 @@
       <div style="padding:20px;">
 
 
-        <h5> ¿Por qué me cobran las compañías de electricidad esta multa?</h5>
-        La legislalación chilena permite que las empresas distribuidoras de energía eléctrica, cobren a cada cliente un recargo de un 1% sobre la facturación de energía por cada centésima (0,01) en que el Factor de Potencia (F.P.) de una instalación sea inferior a 0,93.
-        Eso significa que sí el factor de potencia de un empalme es de 0,86, la distribuidora cobrará un recargo de 8% (0,93-0,85=0,08=8/100).
-        ¿Por qué genero ésta Multa?
-        Consumo eléctrico de máquinas rotativas ( motores),
-        Lámparas de descarga no compensadas
-        Iluminación fluorescente no compensada
-        Multiples otros factores
+        <h5> {{translations.FMP_MODAL_FIRST_TEXT_HEADER}}</h5>
 
+        {{translations.FMP_MODAL_FIRTS_TEXT_FIRST_LINE}}
+        {{translations.FMP_MODAL_FIRTS_TEXT_SECOND_LINE}}
+        {{translations.FMP_MODAL_FIRTS_TEXT_THIRD_LINE}}
+        {{translations.FMP_MODAL_FIRTS_TEXT_FOURTH_LINE}}
+        {{translations.FMP_MODAL_FIRTS_TEXT_FIFTH_LINE}}
+        {{translations.FMP_MODAL_FIRTS_TEXT_SIXTH_LINE}}
+        {{translations.FMP_MODAL_FIRTS_TEXT_SEVENTH_LINE}}
         <br />
 
-        <h5>¿Como leer mi multa por mal factor de potencia?</h5>
-        Por ejemplo, en el recibo de electricidad de un establecimiento escolar, donde se registran las energías activa y reactiva por medio de dos medidores de energía, aparecen los siguientes cargos:
+        <h5>{{translations.FMP_MODAL_SECOND_TEXT_HEADER}}</h5>
+        {{translations.FMP_MODAL_SECOND_TEXT_FIRST_LINE}}
 
         <img src="./img/factura.png" style="width:100%;" />
-
-        El consumo de energía activa es de 4238 kWh y el de energía reactiva es de 3102 kVArh. Por lo tanto, el factor de potencia mensual es:  
-        Entonces, el recargo por factor de potencia que aparece en el recibo se obtiene de: 0,93-0,8069 = 0,1231 x 358466 =  $44.127.- 
+        {{translations.FMP_MODAL_SECOND_TEXT_SECOND_LINE}}
+        {{translations.FMP_MODAL_SECOND_TEXT_THIRD_LINE}}
 
         <br />
 
-        <h5>¿Cómo me pueden ayudar a no pagar más esta multa?</h5>
-        En energíastore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE FACTOR DE POTENCIA, OPTIMIZANDO SU INSTALACIÓN ELÉCTRICA”. Los invitamos a cotizar su proyecto AQUÍ o con nosotros al correo energía@energiastore.cl o al fono: +569-999999
-
-
+        <h5>{{translations.FMP_MODAL_THIRD_TEXT_HEADER}}</h5>
+        {{translations.FMP_MODAL_THIRD_TEXT_SECOND_LINE}}
       </div>
 
     </ion-content>
@@ -175,7 +172,7 @@
         </p>
 
 
-      </br>
+      <br>
       <p>
         <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="si deseas aqui puedes agregar un comentario">
         </textarea>
@@ -265,7 +262,7 @@
 <script id="loading.html" type="text/ng-template">
   <img  src="./img/logo_transparent.png" class="rotating" style="width:100px;" />
   <br />
-  <span>Registrando cuenta...</span>
+  <span>{{translaions.SPINNER_REGISTER}}</span>
 </script>
 
 </html>
