@@ -20,85 +20,82 @@ ROUTES CONFIGURATION
     // $stateProvider
 
     $stateProvider
-
-    .state("/", {
-      url: "/",
-      cache: false,
-      abstract: false,
-      controller: "BaseController"
-    })
-
-    .state("welcome", {
-      url: "/welcome",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/welcome.html",
-      controller: "WelcomeController"
-    })
-
-    .state("introduction", {
-      url: "/introduction",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/introduction.html",
-      controller: "IntroductionController"
-    })
-
-    .state("login", {
-      url: "/login",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/login.html",
-      controller: "LoginController"
-    })
-
-    .state("register", {
-      url: "/register",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/register.html",
-      controller: "RegisterController"
-    })
-
-    .state("dashboard", {
-      url: "/dashboard",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/dashboard.html",
-      controller: "DashboardController"
-    })
-
-    .state("quotation", {
-      url: "/quotation",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/quotation.html",
-      controller: "QuotationController"
-    })
-
-    .state("motors", {
-      url: "/quotation/:id_quotation/motors",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/motor.html",
-      controller: "MotorsController"
-    })
-
-    .state("factor", {
-      url: "/factor",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/factor.html",
-      controller: "FactorController"
-    })
-
-    .state("settings", {
-      url: "/settings",
-      cache: false,
-      abstract: false,
-      templateUrl: "templates/settings.html",
-      controller: "SettingsController"
-    });
+      .state("/", {
+        url: "/",
+        cache: false,
+        abstract: false,
+        controller: "BaseController"
+      })
+      .state("welcome", {
+        url: "/welcome",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/welcome.html",
+        controller: "WelcomeController"
+      })
+      .state("introduction", {
+        url: "/introduction",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/introduction.html",
+        controller: "IntroductionController"
+      })
+      .state("login", {
+        url: "/login",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/login.html",
+        controller: "LoginController"
+      })
+      .state("register", {
+        url: "/register",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/register.html",
+        controller: "RegisterController"
+      })
+      .state("dashboard", {
+        url: "/dashboard",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/dashboard.html",
+        controller: "DashboardController"
+      })
+      .state("calculation", {
+        url: "/calculation",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/calculation.html",
+        controller: "CalculationController"
+      })
+      .state("quotation", {
+        url: "/quotation",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/quotation.html",
+        controller: "quotation"
+      })
+      .state("motors", {
+        url: "/quotation/:id_quotation/motors",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/motor.html",
+        controller: "MotorsController"
+      })
+      .state("factor", {
+        url: "/factor",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/factor.html",
+        controller: "FactorController"
+      })
+      .state("settings", {
+        url: "/settings",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/settings.html",
+        controller: "SettingsController"
+      });
 
 
     // if none of the above states are matched, use this as the fallback

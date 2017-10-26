@@ -6,18 +6,25 @@
 
 
     return {
-      create: function(_calculation,_user_info) {
+      create: function(_user_info,_calculation,calculation_id) {
+        debugger;
         let defer = $q.defer();
         $http({
-          url: ENV.LOCAL + ENV.CREATE_CALCULATION,
+          url: ENV.LOCAL + ENV.CREATE_CALCULATION+ "/"+calculation_id+"/motors",
           method: 'POST',
           headers:{
             username:_user_info.username,
             token:_user_info.authentication_token
           },
           data:{
-            calculation:{
-              energy_cost:_calculation
+            motor:{
+                calculation_id:calculation_id,
+                motor_name:_calculation.name,
+                rated_power:_calculation.rated_power, //potencia
+                average_time:_calculation.hours,
+                volts:_calculation.voltaje,
+                amp:_calculation.amp,
+                efficiency:_calculation.power_factor // power factor
             }
           }
         }).then(function(_response) {

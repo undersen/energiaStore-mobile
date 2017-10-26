@@ -34,6 +34,7 @@
 <script src="lib/ngstorage/ngStorage.min.js"></script>
 <script src="lib/jquery.min.js"></script>
 <script src="lib/materialize.js"></script>
+<script src="lib/ionic-close-popup.js"></script>
 
 
 <!-- cordova script (this will be a 404 during development) -->
@@ -65,12 +66,12 @@
 <script src="js/controllers/motor_controller.js"></script>
 <script src="js/controllers/factor_controller.js"></script>
 <script src="js/controllers/settings_controller.js"></script>
+<script src="js/controllers/calculation_controller.js"></script>
+
 
 <!-- Utilities -->
   <script src="js/utilities/translateUtilities.js"></script>
   <script src="js/utilities/popUpUtilities.js"></script>
-
-
 
 
 
@@ -80,6 +81,8 @@
 <script src="js/services/calculation_service.js"></script>
 <script src="js/services/motors_service.js"></script>
 <script src="js/services/powerFactory_service.js"></script>
+<script src="js/services/quotation_service.js"></script>
+
 
 
   <script src="js/models/language_model.js"></script>
@@ -139,6 +142,71 @@
     </ion-content>
   </ion-modal-view>
 </script>
+
+
+<script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+   <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+    <ion-item ng-click="settings();">
+      Configuraciones
+    </ion-item> 
+    <ion-item ng-click="chooseLanguage();">
+      Cambiar Idioma
+    </ion-item> 
+    </ion-list> 
+  </ion-popover-view>
+</script>
+
+<script id="modal-quotation" type="text/ng-template">
+  
+  <ion-modal-view>
+    <ion-header-bar class="special-color">
+      <h1 class="title header-title">Solicitar Cotización</h1>
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalFactor();">
+        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
+      </div>
+    </ion-header-bar>
+    <ion-content style="height:calc(100vh - 44px);">
+
+
+      <div style="margin-top:30px;padding:15px;">
+        <p>
+          <input type="radio" name="group1" class="filled-in" id="manual-checkbox" ng-click="chooseManual();"/>
+          <label for="manual-checkbox">{{translations.FMP_MODAL_QUOTATION_OPTION_MANUAL}}</label>
+        </p>
+
+        <div class="input-field col s6">
+          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="factorType.power_factor">
+          <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
+        </div>
+
+
+        <p>
+          <input type="radio" name="group1" class="filled-in" id="image-checkbox"  ng-click="chooseImage();"/>
+          <label for="image-checkbox">{{translations.FMP_MODAL_QUOTATION_USE_PHOTO}}</label>
+        </p>
+
+
+      <br>
+      <p>
+        <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="{{translations.FMP_MODAL_QUOTATION_COMMENT}}">
+        </textarea>
+      </p>
+
+      <div class="row">
+        <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION}}</a>
+        <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION_GALLERY}}</a>
+      </div>
+      <div style="width:100%;">
+        <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
+      </div>
+
+      <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
+    </div>
+  </ion-content>
+</ion-modal-view>
+
+</script>      
 
 
 <script id="modal-factor" type="text/ng-template">
@@ -218,20 +286,27 @@
 
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="motor-voltaje"  type="text" class="validate" ng-model="motor.voltaje">
+          <input id="motor-voltaje"  type="number" class="validate" ng-model="motor.voltaje">
           <label for="motor-voltaje">{{translations.MODAL_HELPER_VOLTAJE_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(2)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="motor-amp"  type="text" class="validate" ng-model="motor.amp">
+          <input id="motor-amp"  type="number" class="validate" ng-model="motor.amp">
           <label for="motor-amp">{{translations.MODAL_HELPER_AMP_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(3)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="power-factory" type="text" class="validate" ng-model="motor.power_factor">
+          <input id="power-factory" type="number" step="0.01"class="validate" ng-model="motor.power_factor">
           <label for="power-factory">{{translations.MODAL_HELPER_POWER_FACTOR_TITLE}}</label>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
+        </div>
+
+
+        <div class="input-field" style="width:80%; display: -webkit-box;">
+          <input id="rated-power" type="number" class="validate" ng-model="motor.rated_power">
+          <label for="rated-power">{{translations.MODAL_HELPER_POWER_FACTOR_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
         </div>
 

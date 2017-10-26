@@ -89,7 +89,7 @@
 
             $ionicPopup.show({
                 title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-                subTitle: `<br><span class="modal-title-config">${_translation.MODAL_FAIL_CREATE_FACTOR_BUTTON}</span><br><span class="modal-body-config">${_translation.MODAL_FAIL_CREATE_FACTOR_BUTTON}</span>`,
+                subTitle: `<br><span class="modal-title-config">${_translation.MODAL_WELCOME_LANGUAGUE_TITLE}</span><br><span class="modal-body-config">${_translation.MODAL_WELCOME_LANGUAGUE_BODY}</span>`,
                 cssClass: 'successClass',
                 buttons:button_exit_lesson,
             },).then(function(_res){
@@ -158,7 +158,7 @@
         },
 
 
-  }
+  };
 
 }]);
 

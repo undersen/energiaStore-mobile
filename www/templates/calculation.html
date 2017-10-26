@@ -1,0 +1,107 @@
+<ion-view ng-init="init();">
+  <ion-header-bar align-title="center" class="bar-positive special-color">
+    <div class="buttons">
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
+        <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
+      </div>
+    </div>
+    <h1 class="title">{{translations.QUOTATION_HEADER}}</h1>
+    <div class="buttons" style="width: 30px;height: 30px;" >
+      <i class="ion-ios-plus-outline" style="    margin: auto;font-size: 25px;"></i>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+    <ion-refresher  on-refresh="doRefreshQuotation()">
+    		</ion-refresher>
+
+
+      <div class="col s12 m6" ng-hide="calculations.length != 0">
+        <div class="card special-color">
+          <div class="card-content white-text">
+            <span class="card-title">{{translations.QUOTATION_CARD_TITLE}} <strong style="font-weight:600">{{translations.QUOTATION_CARD_TITLE_STRONG}}</strong></span>
+            <p>{{translations.QUOTATION_CARD_BODY_PRE}}  <i class="ion-ios-plus-outline" style=""> {{translations.QUOTATION_CARD_BODY_POST}}</i>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- <div class="col s12" ng-repeat="calculation in calculations" ng-click="goToCalculation({{calculation.id}})">
+        <div class="card special-color">
+          <div class="card-content white-text">
+            <span class="card-title">Nombre cotización: {{calculation.name}}<strong style="font-weight:600"></strong></span>
+            <p style="font-weight:600">{{translations.QUOTATION_CARD_ELEMENT_COST_KW}} : {{calculation.energy_cost}}</p>
+            <p>{{translations.QUOTATION_CARD_ELEMENT_ID}}: {{calculation.id}}</p>
+            <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+            
+          </div></p>
+        </div>
+
+      </div>
+  </div> -->
+
+
+
+
+
+  <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+    <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="goToCalculation({{calculation.id}})">
+  
+      <div style="width:50px;position:relative;">
+        <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
+        <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+        </div>
+
+<div class="">
+      
+      <h2>aaaa{{calculation.name}}</h2>
+      <p>{{calculation.energy_cost}}</p>
+      <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+      <ion-option-button class="button-positive" ng-click="edit(calculation.id)">
+        Editar
+      </ion-option-button>
+      <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
+        Eliminar
+      </ion-option-button>
+     
+</div>
+    </ion-item>
+  </ion-list>
+
+
+  
+</ion-content>
+<a ng-click="addQuotationPopUp();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
+    left: 75vw;
+    top: 85vh;">
+  <i style="font-size:40px;line-height: 60px;" class="ion-ios-plus-empty"></i>
+</a>
+</ion-view>
+
+
+
+<style>
+.item-content{
+display:-webkit-flex
+}
+
+.item-content-dot{
+      margin: auto;
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.popup-head{
+  height:85px;
+}
+.popup-body {
+    padding: 10px;
+    overflow: visible;
+    height:35vh;
+}
+
+</style>

@@ -18,9 +18,9 @@ PLATFORM CONFIGURATION
       }
 
 
-      if(window.StatusBar) {
-        StatusBar.overlaysWebView(true)
-      }
+      if (window.StatusBar) {
+                StatusBar.overlaysWebView(false);
+            }
 
     });
   })

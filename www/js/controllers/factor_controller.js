@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar) {
 
     $ionicPlatform.ready(function() {
 
@@ -16,6 +16,14 @@ CONTROLLER DEFINITION
             $scope.translations = data;
         });
 
+        if (window.StatusBar) {
+          $cordovaStatusbar.overlaysWebView(false);
+          $cordovaStatusbar.style(1);
+          $cordovaStatusbar.styleHex("#1AA55E");
+          $cordovaStatusbar.show();
+        }
+
+        
         const _input_penalty = $('#input-penalty');
         const _button_camera = $('#button-camera');
         const _button_galley = $('#button-gallery');

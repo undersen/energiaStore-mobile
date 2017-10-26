@@ -9,8 +9,8 @@
     //****************+SERVERS**************//
     //////////////////////////////////////////
 
-    // LOCAL : "http://kvar.herokuapp.com/",
-     LOCAL : "http://localhost:3000/",
+    LOCAL : "http://kvar.herokuapp.com/",
+    //  LOCAL : "http://localhost:3000/",
      
 
     //////////////////////////////////////////

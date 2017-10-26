@@ -6,7 +6,7 @@
       </div>
     </div>
     <h1 class="title">Motores</h1>
-    <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalMotor();">
+    <div class="buttons" style="width: 30px;height: 30px;" >
       <i class="ion-ios-plus-outline" style="    margin: auto;font-size: 25px;"></i>
     </div>
   </ion-header-bar>
@@ -17,29 +17,55 @@
     <ion-refresher  on-refresh="doRefreshMotors()">
         </ion-refresher>
 
-    <div class="row">
+ 
 
-      <div class="col s12 m6" ng-show="motors.length == 0">
+
+      <!-- <div class="col s12 m6" ng-repeat="motor in motors" >
         <div class="card special-color">
           <div class="card-content white-text">
-            <span class="card-title">{{calculation.energy_cost}}<strong style="font-weight:600"></strong></span>
-            <p>Haz click en  <i class="ion-ios-plus-outline" style=""> para agregar tu primer motor.</i></p>
+            <span class="card-title">{{motor.energy_cost}}<strong style="font-weight:600"></strong></span>
+            <p>a  </p>
           </div>
         </div>
       </div>
+    </div> -->
 
 
-      <div class="col s12 m6" ng-repeat="motor in motors" >
-        <div class="card special-color">
-          <div class="card-content white-text">
-            <span class="card-title">{{calculation.energy_cost}}<strong style="font-weight:600"></strong></span>
-            <p>Haz click en  <i class="ion-ios-plus-outline" style=""> para agregar tu primera cotizacion</i></p>
-          </div>
-        </div>
-      </div>
-    </div>
+      <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+    <ion-item ng-repeat="motor in motors"  ng-click="goToCalculation({{calculation.id}})">
+  
+
+
+<div class="">
+      
+      <h2>Nombre motor :{{motor.name}}</h2>
+      <p>Amperaje: {{motor.amp}}</p>
+      <p>Horas encendido: {{motor.average_time}}</p>
+      <p>Voltios: {{motor.volts}}</p>
+      <p>Power Factor: {{motor.efficiency}}</p>
+      <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
+      <!-- <ion-option-button class="button-positive" ng-click="edit(motor.id)">
+        Editar
+      </ion-option-button>
+      <ion-option-button class="button-danger" ng-click="delete(motor.id)">
+        Eliminar
+      </ion-option-button> -->
+     
+</div>
+    </ion-item>
+  </ion-list>
+
 
 
 </ion-content>
 
+
+  <a ng-click="validateQuotation()" class="btn-floating btn-large waves-effect waves-light red" style="position: absolute;
+      left: 75vw;
+      top: 55vh;">
+    <i class="material-icons">add</i>
+  </a>
+
 </ion-view>
+
+

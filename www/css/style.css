@@ -95,6 +95,9 @@ background-color: #8bcb71 !important;
   background-color:#d5b554;
   transition:1s;
 }
+.card-register{
+padding: 0 0 26px 0 !important;
+}
 
 .register-float-button{
   position: relative !important;
@@ -102,12 +105,6 @@ background-color: #8bcb71 !important;
   left: 70vw !important;
   background-color:#51c4f3 !important;
 }
-
-.card-register{
-padding: 0 0 26px 0 !important;
-}
-
-
 
 
 
@@ -231,4 +228,9 @@ margin: 5vw !important;
   position: relative;
   display: block;
   margin: auto 0 auto 10vw;
+}
+
+
+.popover{
+  height:0px;
 }

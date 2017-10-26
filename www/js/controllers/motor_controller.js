@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("MotorsController", ["$scope", "$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService",
-  function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService) {
+  this.app.controller("MotorsController", ["$scope", "$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService","Quotation","$cordovaStatusbar",
+  function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar) {
     $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
@@ -15,11 +15,18 @@ CONTROLLER DEFINITION
             $scope.translations = data;
         });
 
+        var user = StorageUserModel.getCurrentUser();
+
 
       $scope.motors =[];
       $scope.motor = {};
       $scope.user = StorageUserModel.getCurrentUser();
-
+      $scope.quote={
+         calculation_id:'',
+         user_id:'',
+         comment:'',
+         reference:''
+      }
 
 
       $scope.init = function(){
@@ -53,14 +60,10 @@ CONTROLLER DEFINITION
       $scope.$on('modalMotor.removed', function() {
         // Execute action
       });
-
-
-
+        
       $scope.back = function(){
-        $state.go("quotation");
+        $state.go("calculation");
       };
-
-
 
 
       $scope.createMotor = function (){
@@ -96,13 +99,10 @@ CONTROLLER DEFINITION
           return;
         }
 
-
-
-
-        Motor.create($scope.motor).then(function(_response){
+        Motors.create($scope.user,$scope.motor,$state.params.id_quotation).then(function(_response){
           Materialize.toast("Motor agregado",4000);
           console.log(_response);
-
+          $scope.getMotors();
         },function(_error){
           Materialize.toast("Problemas al agregar motor",4000);
             console.error(_error);
@@ -113,7 +113,6 @@ CONTROLLER DEFINITION
       $scope.getMotors = function(){
         Motors.getByCalculation($state.params.id_quotation,StorageUserModel.getCurrentUser()).then(function(_response){
           $scope.motors = _response.data;
-
           console.log($scope.motors);
           $scope.$broadcast('scroll.refreshComplete');
         },function(_error){
@@ -128,17 +127,13 @@ CONTROLLER DEFINITION
 
 
       $scope.chooseShowpopUpHelp = function (_index){
-
         let _title;
         let _body;
-
 
         switch (_index) {
           case 1:
               _title = $scope.translations.MODAL_HELPER_MOTOR_TITLE;
               _body = $scope.translations.MODAL_HELPER_MOTOR_body;
-
-
           break;
 
           case 2:
@@ -179,8 +174,56 @@ CONTROLLER DEFINITION
 
 
 
+      $scope.FinishQuotation = function(){
+
+        var quote={
+         calculation_id:2,
+         user_id:3,
+         comment:'efwefwef',
+         reference:''
+      }
+
+          Quotation.Create(user, quote).then(function(_response) {
+              debugger;
+            }, function(_error) {
+              debugger;
+            });
+      }
+
+      $scope.validateQuotation =  function (){
+        
+        $scope.FinishQuotation();
+      }
 
 
+
+      $ionicModal
+        .fromTemplateUrl("modal-quotation", {
+          scope: $scope,
+          animation: "slide-in-up"
+        })
+        .then(function(modal_quotation) {
+          $scope.modalQuotation = modal_quotation;
+        });
+
+      $scope.openModalMotor = function() {
+        $scope.modalQuotation.show();
+      };
+      $scope.closeModalMotor = function() {
+        $scope.modalQuotation.hide();
+      };
+      // Cleanup the modal when we're done with it!
+      $scope.$on("$destroy", function() {
+        $scope.modalQuotation.remove();
+      });
+      // Execute action on hide modal
+      $scope.$on("modalQuotation.hidden", function() {
+        // Execute action
+      });
+      // Execute action on remove modal
+      $scope.$on("modalQuotation.removed", function() {
+        // Execute action
+      });
 
 
 

@@ -27,6 +27,27 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-ios-camera-permissions": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.energia.store"
         }
     },
     "dependent_plugins": {

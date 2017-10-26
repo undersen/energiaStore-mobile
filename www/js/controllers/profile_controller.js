@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("ProfileController", ["$scope", "$state","$ionicPlatform","$resource","translationService",
-  function($scope, $state,$ionicPlatform,$resource,translationService) {
+  this.app.controller("ProfileController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar) {
     $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();

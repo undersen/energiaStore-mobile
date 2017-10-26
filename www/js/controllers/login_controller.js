@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource",
-  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource) {
+  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar",
+  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar) {
 
     $ionicPlatform.ready(function() {
 
@@ -30,12 +30,12 @@ CONTROLLER DEFINITION
       $scope.login= function (){
 
         if($scope.user.email === undefined || $scope.user.email === ""){
-          Materialize.toast($scope.translations.login_email_empty_error,4000);
+          Materialize.toast($scope.translations.LOGIN_EMAIL_EMPTY_ERROR,4000);
           return;
         }
 
         if($scope.user.password === undefined || $scope.user.password === ""){
-          Materialize.toast($scope.translations.login_password_empty_error,4000);
+          Materialize.toast($scope.translations.LOGIN_PASSWORD_EMPTY_ERROR,4000);
           return;
         }
 
@@ -44,7 +44,7 @@ CONTROLLER DEFINITION
           $state.go("dashboard");
           console.log(_response)
         },function(_error){
-          Materialize.toast($scope.translations.login_error,4000);
+          Materialize.toast($scope.translations.LOGIN_ERROR,4000);
           console.log(_error)
 
         })
