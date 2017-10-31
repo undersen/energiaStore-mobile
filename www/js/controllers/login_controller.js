@@ -6,42 +6,37 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading",
-  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading) {
+  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading","Utils",
+  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils) {
 
     $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
         $resource(languageFilePath).get(function (data) {
-
             $scope.translations = data;
-            console.log($scope.translations);
         });
 
         $scope.user ={};
 
       $scope.goToRegister = function(){
-
         $state.go("register");
-
       };
 
 
       $scope.login= function (){
-
-        $ionicLoading.show({
-          templateUrl:"loading.html",
-        });
-
         if($scope.user.email === undefined || $scope.user.email === ""){
-          Materialize.toast($scope.translations.LOGIN_EMAIL_EMPTY_ERROR,4000);
+          Utils.validateToast($scope.translations.LOGIN_EMAIL_EMPTY_ERROR);
           return;
         }
 
         if($scope.user.password === undefined || $scope.user.password === ""){
-          Materialize.toast($scope.translations.LOGIN_PASSWORD_EMPTY_ERROR,4000);
+          Utils.validateToast($scope.translations.LOGIN_PASSWORD_EMPTY_ERROR);
           return;
         }
+
+        $ionicLoading.show({
+          templateUrl:"loading.html",
+        });
 
         Session.login($scope.user).then(function(_response){
           StorageUserModel.setCurrentUser(_response.data);

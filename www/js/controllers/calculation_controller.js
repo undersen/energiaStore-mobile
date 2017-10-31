@@ -55,18 +55,10 @@ CONTROLLER DEFINITION
 
                 onTap: function(e) {
                   if (!$scope.data.name) {
-                    Materialize.toast(
-                      $scope.translations
-                        .QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO,
-                      4000
-                    );
+                    Utils.validateToast($scope.translations.QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO,);
                     e.preventDefault();
                   } else if (!$scope.data.price) {
-                    Materialize.toast(
-                      $scope.translations
-                        .QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO,
-                      4000
-                    );
+                    Utils.validateToast($scope.translations.QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO);
                     e.preventDefault();
                   } else {
                     $scope.craeteCalculation($scope.data);
@@ -84,19 +76,13 @@ CONTROLLER DEFINITION
         $scope.craeteCalculation = function(data) {
           Calculation.create(data, StorageUserModel.getCurrentUser()).then(
             function(_response) {
-              Materialize.toast(
-                $scope.translations.QUOTATION_CREATED_MESSAGE,
-                4000
-              );
+              Utils.validateToast($scope.translations.QUOTATION_CREATED_MESSAGE);
               $scope.calculations = {};
               $scope.getCalculation();
               console.log(_response);
             },
             function(_error) {
-              Materialize.toast(
-                $scope.translations.QUOTATION_FAIL_MESSAGE,
-                4000
-              );
+              Utils.validateToast($scope.translations.QUOTATION_FAIL_MESSAGE);
               console.log(_error);
             }
           );
@@ -110,10 +96,7 @@ CONTROLLER DEFINITION
               console.log(_response);
             },
             function(_error) {
-              Materialize.toast(
-                $scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO,
-                4000
-              );
+              Utils.validateToast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO);
               $scope.$broadcast("scroll.refreshComplete");
               console.error(_error);
             }

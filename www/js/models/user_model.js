@@ -12,10 +12,10 @@
         return user = $localStorage.user;
       },
       setCurrentUser: function(data) {
-
         $localStorage.user = data;
       },
       destroyCurrentUser: function() {
+        debugger;
         delete $localStorage.user;
         return true;
       }

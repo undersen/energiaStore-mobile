@@ -143,7 +143,7 @@ CONTROLLER DEFINITION
         $cordovaCamera.getPicture(options).then(function(_imageData) {
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
         }, function(_err) {
-          Materialize.toast($scope.ERROR_CAMERA,4000);
+          Utils.validateToast($scope.ERROR_CAMERA);
           console.log(_err);
         });
 
@@ -166,7 +166,8 @@ CONTROLLER DEFINITION
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
           // isPictureChanged=true;
         }, function(_err) {
-          Materialize.toast($scope.ERROR_GALLERY,4000);
+
+          Utils.validateToast($scope.ERROR_GALLERY);
           console.error(_err);
 
         });

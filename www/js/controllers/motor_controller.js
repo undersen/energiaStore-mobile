@@ -60,7 +60,7 @@ CONTROLLER DEFINITION
       $scope.$on('modalMotor.removed', function() {
         // Execute action
       });
-        
+
       $scope.back = function(){
         $state.go("calculation");
       };
@@ -69,42 +69,45 @@ CONTROLLER DEFINITION
       $scope.createMotor = function (){
 
         if($scope.motor.name === undefined || $scope.motor.name === '') {
-          Materialize.toast("Complete nombre del motor",4000);
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_NAME);
           return;
         }
 
         if($scope.motor.voltaje === undefined || $scope.motor.voltaje === 0) {
-          Materialize.toast("Complete voltaje del motor",4000);
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_VOLT);
           return;
         }
 
         if($scope.motor.amp === undefined || $scope.motor.amp === 0) {
-          Materialize.toast("Complete aperaje del motor",4000);
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_AMP);
           return;
         }
 
 
         if($scope.motor.power_factor === undefined || $scope.motor.power_factor === 0) {
-          Materialize.toast("Complete factor de potencia",4000);
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_FTP);
           return;
         }
 
         if($scope.motor.hours === undefined || $scope.motor.hours === 0) {
-          Materialize.toast("Complete horas al dia del motor",4000);
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_HOURS_DAY);
           return;
         }
 
         if($scope.motor.days === undefined || $scope.motor.days === 0) {
-          Materialize.toast("Complete dias del mes del motor",4000);
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_DAYS_MONTH);
           return;
         }
 
         Motors.create($scope.user,$scope.motor,$state.params.id_quotation).then(function(_response){
-          Materialize.toast("Motor agregado",4000);
+
+
+          Utils.validateToast($scope.translations.MOTOR_ADD_SUCCESS);
           console.log(_response);
           $scope.getMotors();
         },function(_error){
           Materialize.toast("Problemas al agregar motor",4000);
+          Utils.validateToast($scope.translations.MOTOR_ADD_FAIL);
             console.error(_error);
         })
       };
@@ -162,13 +165,10 @@ CONTROLLER DEFINITION
               _title = $scope.translations.MODAL_HELPER_DAYS_MONTH_TITLE;
               _body = $scope.translations.MODAL_HELPER_DAYS_MONTH_BODY;
           break;
-
-
           default:
           break;
 
           popUpService.showPopUpHelpMotor(_title,_body);
-
         }
       };
 
@@ -191,7 +191,7 @@ CONTROLLER DEFINITION
       }
 
       $scope.validateQuotation =  function (){
-        
+
         $scope.FinishQuotation();
       }
 

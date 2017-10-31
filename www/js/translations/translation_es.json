@@ -176,7 +176,20 @@
   "MODAL_CREATE_MOTOR_HEADER":"Creacion de motor",
 
   "MODAL_WELCOME_LANGUAGUE_TITLE" : "Español",
-  "MODAL_WELCOME_LANGUAGUE_BODY" : "Bienvenido a EnergiaStore"
+  "MODAL_WELCOME_LANGUAGUE_BODY" : "Bienvenido a EnergiaStore",
 
+
+
+
+"_commnent":"**************************",
+
+  "MOTOR_COMPLETE_DAYS_MONTH":"Complete dias del mes del motor",
+  "MOTOR_ADD_SUCCESS":"Motor agregado",
+  "MOTOR_COMPLETE_HOURS_DAY":"Complete horas al dia del motor",
+  "MOTOR_COMPLETE_FTP":"Complete factor de potencia",
+  "MOTOR_COMPLETE_AMP":"Complete amperaje del motor",
+  "MOTOR_COMPLETE_VOLT":"Complete voltaje del motor",
+  "MOTOR_COMPLETE_NAME":"Complete nombre del motor",
+  "MOTOR_ADD_FAIL":"Problemas al agregar motor",
 
 }

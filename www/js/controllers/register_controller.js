@@ -93,22 +93,22 @@ CONTROLLER DEFINITION
       $scope.validateSlider1 =function(){
 
         if ($scope.user.email === undefined || $scope.user.email === ''){
-          Materialize.toast($scope.translations.REGISTER_EMAIL_EMPTY_ERROR,4000);
+          Utils.validateToast($scope.translations.REGISTER_EMAIL_EMPTY_ERROR);
           return;
         }
 
         if ($scope.user.password === undefined || $scope.user.password === ''){
-          Materialize.toast($scope.translations.REGISTER_PASSWORD_EMPTY_ERROR,4000);
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_EMPTY_ERROR);
           return;
         }
 
         if ($scope.user.password_confirmation === undefined || $scope.user.password_confirmation === ''){
-          Materialize.toast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR,4000);
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR);
           return;
         }
 
         if ($scope.user.password_confirmation !== $scope.user.password){
-          Materialize.toast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR,4000);
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR);
           return;
         }
 
@@ -136,15 +136,14 @@ CONTROLLER DEFINITION
         },function(_error){
 
           $ionicLoading.hide();
-          Materialize.toast($scope.translations.REGISTER_SLIDER_1_ERROR,4000)
+          // Materialize.toast($scope.translations.REGISTER_SLIDER_1_ERROR,4000)
           console.error(_error)
 
         })
       };
 
 
-      $scope.finish= function(){
-      debugger;
+      $scope.finish= function(){;
         $state.go("dashboard")
       };
 
@@ -158,9 +157,7 @@ CONTROLLER DEFINITION
 
 
       $scope.onBack = function (){
-
       if ($ionicSlideBoxDelegate.currentIndex() === 0 ){ $state.go("login")}
-
       }
 
 

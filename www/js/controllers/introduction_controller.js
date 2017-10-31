@@ -12,7 +12,6 @@ CONTROLLER DEFINITION
 
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function (data) {
-          debugger;
           $scope.translations = data;
       });
 
