@@ -10,28 +10,45 @@
       <i class="ion-ios-help-outline" style="    margin: auto;font-size: 25px;"></i>
     </div>
   </ion-header-bar>
-  <ion-content>
+    <ion-content>
 
-    <ion-refresher  on-refresh="doRefresh()">
-        </ion-refresher>
 
-    <div class="row">
-      <div class="col s12 m6">
-        <div class="card special-color">
-          <div class="card-content white-text">
-            <span class="card-title">{{translations.FMP_PRE_TEXT}}  <strong style="font-weight:600">{{translatiosn.FMP_PRE_TEXT_STRONG}}</strong></span>
-          </div>
-          <div class="card-action">
-            <a  style="    text-align: center;width: 100%;font-size: 19px;display: block;color:white;" ng-click="openModalFactor();">{{translations.FMP_BUTTON}}</a>
+       <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
-          </div>
+
+      <div class="input-field col s12">
+         <input id="input-penalty" type="text" class="validate" ng-model="factorType.power_factor" >
+         <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
+       </div>
+
+
+       <div class="input-field col s12">
+          <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.power_factor" >
+          <label for="input-penalty-text">Comentarios</label>
+        </div>
+
+        <div class="row">
+          <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">AGREGAR FOTO</a>
         </div>
 
 
+<a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
+
+
       </div>
-    </div>
 
 
 
-</ion-content>
+    </ion-content>
 </ion-view>
+
+
+<style media="screen">
+.android-content{
+  height:calc(100vh - 77px)
+}
+
+.ios-content{
+  height:calc(100vh - 97px)
+}
+</style>

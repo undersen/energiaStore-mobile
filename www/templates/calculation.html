@@ -10,49 +10,43 @@
   <ion-content>
 
     <ion-refresher  on-refresh="doRefreshQuotation()">
-    		</ion-refresher>
+    </ion-refresher>
 
 
-      <h6 ng-hide="calculations.length != 0" style="text-align: center;margin: 30px;font-size: 20px;">
-        {{translations.QUOTATION_CARD_TITLE}} <strong style="font-weight:600">{{translations.QUOTATION_CARD_TITLE_STRONG}}...</strong>
-      </h6>
+    <h6 ng-hide="calculations.length != 0" style="text-align: center;margin: 30px;font-size: 20px;">
+      {{translations.QUOTATION_CARD_TITLE}} <strong style="font-weight:600">{{translations.QUOTATION_CARD_TITLE_STRONG}}...</strong>
+    </h6>
 
+    <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+      <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="goToCalculation({{calculation.id}})">
 
-
-
-
-
-
-  <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-    <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="goToCalculation({{calculation.id}})">
-
-      <div style="width:50px;position:relative;">
-        <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
-        <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+        <div style="width:50px;position:relative;">
+          <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
+          <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
         </div>
 
-<div class="">
+        <div class="">
 
-      <h2>aaaa{{calculation.name}}</h2>
-      <p>{{calculation.energy_cost}}</p>
-      <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
-      <ion-option-button class="button-positive" ng-click="edit(calculation.id)">
-        Editar
-      </ion-option-button>
-      <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
-        Eliminar
-      </ion-option-button>
+          <h2>aaaa{{calculation.name}}</h2>
+          <p>{{calculation.energy_cost}}</p>
+          <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+          <ion-option-button class="button-positive" ng-click="edit(calculation.id)">
+            Editar
+          </ion-option-button>
+          <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
+            Eliminar
+          </ion-option-button>
 
-</div>
-    </ion-item>
-  </ion-list>
+        </div>
+      </ion-item>
+    </ion-list>
 
 
 
-</ion-content>
-<a ng-click="addQuotationPopUp();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
-    left: 75vw;
-    top: 85vh;">
+  </ion-content>
+  <a ng-click="addQuotationPopUp();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
+  left: 75vw;
+  top: 85vh;">
   <i style="font-size:40px;line-height: 60px;" class="ion-ios-plus-empty"></i>
 </a>
 </ion-view>
@@ -61,25 +55,25 @@
 
 <style>
 .item-content{
-display:-webkit-flex
+  display:-webkit-flex
 }
 
 .item-content-dot{
-      margin: auto;
-    display: block;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
+  margin: auto;
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .popup-head{
   height:85px;
 }
 .popup-body {
-    padding: 10px;
-    overflow: visible;
-    height:35vh;
+  padding: 10px;
+  overflow: visible;
+  height:35vh;
 }
 
 </style>

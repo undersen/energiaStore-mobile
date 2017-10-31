@@ -9,6 +9,7 @@ html, body ,h1, h2, h3, h4, h5, h6, p{
 .special-color{
 background-color: #8bcb71 !important;
 border-color:#8bcb71 !important;
+background-image: linear-gradient(0deg, #8bcb71, #8bcb71 50%, transparent 50%);
 }
 
 .background-tutorial{

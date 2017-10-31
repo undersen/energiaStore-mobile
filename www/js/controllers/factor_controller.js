@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet) {
 
     $ionicPlatform.ready(function() {
 
@@ -23,6 +23,8 @@ CONTROLLER DEFINITION
           $cordovaStatusbar.show();
         }
 
+        $scope.os = ionic.Platform.platform();
+        
         const _input_penalty = $('#input-penalty');
         const _button_camera = $('#button-camera');
         const _button_galley = $('#button-gallery');
@@ -176,6 +178,17 @@ CONTROLLER DEFINITION
 
       $scope.createFactorPenalty =  function (){
 
+        if($scope.factorType.type="manual"){
+
+          debugger;
+
+        }else{
+
+          debugger;
+
+        }
+
+
       if($scope.factorType.photo !== undefined){
         $scope.factorType.power_factor = '';
       }
@@ -187,9 +200,30 @@ CONTROLLER DEFINITION
             console.log(_response)
         },function(_error){
           console.error(_error);
-            popUpService.showPopUpFailCreateFactor($scope.translations);
+          popUpService.showPopUpFailCreateFactor($scope.translations);
         })
       };
+
+
+
+      var options = { title: "Agregar foto", buttonLabels: ["Camara", "Galeria"], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
+
+
+      if (window.cordova){
+        $scope.showPopUpImage = function(){
+          $cordovaActionSheet
+          .show(options)
+          .then(function(btnIndex) {
+            if(btnIndex === 1 ){
+              $scope.openCamera();
+            }else{
+              $scope.openGallery();
+            }
+
+          });
+        }
+      }
+
 
 
 
