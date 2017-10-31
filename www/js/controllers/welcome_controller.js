@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("WelcomeController", ["$scope", "$state","$ionicPlatform","$rootScope","translationService","$resource","popUpService","StorageLanguageModel","$cordovaStatusbar",
-  function($scope, $state,$ionicPlatform,$rootScope,translationService,$resource,popUpService,StorageLanguageModel,$cordovaStatusbar) {
+  this.app.controller("WelcomeController", ["$scope", "$state","$ionicPlatform","$rootScope","translationService","$resource","popUpService","StorageLanguageModel","$cordovaStatusbar","Utils",
+  function($scope, $state,$ionicPlatform,$rootScope,translationService,$resource,popUpService,StorageLanguageModel,$cordovaStatusbar,Utils) {
   $ionicPlatform.ready(function() {
 
     $scope.translations = {};

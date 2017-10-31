@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User","$resource","translationService","popUpService","$cordovaStatusbar",
-  function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$resource,translationService,popUpService,$cordovaStatusbar) {
+  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User","$resource","translationService","popUpService","$cordovaStatusbar","Utils",
+  function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$resource,translationService,popUpService,$cordovaStatusbar,Utils) {
 
     $ionicPlatform.ready(function() {
 

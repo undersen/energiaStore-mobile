@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("CalculationController", ["$scope","$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService",
-    function($scope,$state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService) {
+  this.app.controller("CalculationController", ["$scope","$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils",
+    function($scope,$state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils) {
       $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
@@ -106,7 +106,6 @@ CONTROLLER DEFINITION
         $scope.goToCalculation = function(_index) {
           $state.go("motors", { id_quotation: _index }, { reload: true });
         };
-
 
          $scope.shouldShowDelete = false;
          $scope.shouldShowReorder = false;
