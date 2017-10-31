@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar",
-  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar) {
+  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading",
+  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading) {
 
     $ionicPlatform.ready(function() {
 
@@ -29,6 +29,10 @@ CONTROLLER DEFINITION
 
       $scope.login= function (){
 
+        $ionicLoading.show({
+          templateUrl:"loading.html",
+        });
+
         if($scope.user.email === undefined || $scope.user.email === ""){
           Materialize.toast($scope.translations.LOGIN_EMAIL_EMPTY_ERROR,4000);
           return;
@@ -42,13 +46,13 @@ CONTROLLER DEFINITION
         Session.login($scope.user).then(function(_response){
           StorageUserModel.setCurrentUser(_response.data);
           $state.go("dashboard");
-          console.log(_response)
+          console.log(_response);
+          $ionicLoading.hide();
         },function(_error){
           Materialize.toast($scope.translations.LOGIN_ERROR,4000);
-          console.log(_error)
-
+          console.error(_error);
+          $ionicLoading.hide();
         })
-
       };
 
       $ionicPlatform.registerBackButtonAction(function () {

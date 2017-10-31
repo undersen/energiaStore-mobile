@@ -37,20 +37,30 @@ CONTROLLER DEFINITION
 
       $scope.goToFactor = function(){$state.go("factor");};
 
-      $scope.goToSettings = 
-
-
-
-
-
-
-
-
-
+      // $scope.goToSettings =
 
       $ionicPlatform.registerBackButtonAction(function () {
         // ionic.Platform.exitApp();
       }, 100);
+
+
+      $scope.logOut = function (){
+          popUpService.showpopUpLogOut($scope.translations).then(function(_response){
+              if(_response){
+                  try{
+                      Session.logout().then(function(){
+                          $scope.deleteData();
+
+                      },function(_error){
+                          $scope.deleteData();
+
+                      })
+                  }catch(_error){
+                      $scope.deleteData();
+                  }
+              }
+          });
+      };
 
 
  $ionicPopover
@@ -92,13 +102,13 @@ CONTROLLER DEFINITION
 
   var options = { title: "Seleccione idioma", buttonLabels: ["Ingles", "Español"], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
 
-   if (window.cordova){ 
+   if (window.cordova){
      $scope.showLanguageOptions = function(){
      $cordovaActionSheet
        .show(options)
        .then(function(btnIndex) {
          var index = btnIndex;
-         
+
          switch (index) {
            case 1:
           StorageLanguageModel.setCurrentLanguage('es');
@@ -115,11 +125,11 @@ CONTROLLER DEFINITION
           $resource(languageFilePath).get(function(data) {
             $scope.translations = data;
           });
-         
+
        });
       }
     }
-     
+
 
 
     });

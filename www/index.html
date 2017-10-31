@@ -148,17 +148,20 @@
   <ion-popover-view>
    <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
     <ion-item ng-click="settings();">
-      Configuraciones
-    </ion-item> 
+      Mi perfil
+    </ion-item>
     <ion-item ng-click="chooseLanguage();">
       Cambiar Idioma
-    </ion-item> 
-    </ion-list> 
+    </ion-item>
+    <ion-item ng-click="logOut();">
+      Cerrar Sesion
+    </ion-item>
+    </ion-list>
   </ion-popover-view>
 </script>
 
 <script id="modal-quotation" type="text/ng-template">
-  
+
   <ion-modal-view>
     <ion-header-bar class="special-color">
       <h1 class="title header-title">Solicitar Cotización</h1>
@@ -206,7 +209,7 @@
   </ion-content>
 </ion-modal-view>
 
-</script>      
+</script>
 
 
 <script id="modal-factor" type="text/ng-template">

@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation) {
 
     $ionicPlatform.ready(function() {
 
@@ -23,7 +23,6 @@ CONTROLLER DEFINITION
           $cordovaStatusbar.show();
         }
 
-        
         const _input_penalty = $('#input-penalty');
         const _button_camera = $('#button-camera');
         const _button_galley = $('#button-gallery');
@@ -40,6 +39,21 @@ CONTROLLER DEFINITION
       $scope.help = function(){
         $state.go("dashboard");
       };
+
+      $scope.doRefresh = function(){
+        Quotation.index($scope.user).then(function(_response){
+
+          // _respose.data
+
+          for (var i = 0; i < array.length; i++) {
+            array[i]
+          }
+
+        },function(_error){
+          debugger;
+
+        })
+      }
 
 
       $ionicModal.fromTemplateUrl('modal-help', {

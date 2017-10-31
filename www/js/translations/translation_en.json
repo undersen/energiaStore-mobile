@@ -1,85 +1,172 @@
 {
 
-"POPUP_WELCOME_LANGUAGE":"WELCOME TO ENERGIASTORE",
+  "APP_NAME":"EnergiaStore",
+
+  "SPINNER_REGISTER":"Register Account…",
+
+  "SLIDER_1":"Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
+  "SLIDER_2":"El cambio está en ti ¡comienza a hacer la diferencia y ahorra energia eléctrica!",
+  "SLIDER_3":"! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
+  "SLIDER_BUTTON":"Comenzar con el cambio",
+
+
+  "LOGIN_HEADER":"Get Started EnergiaStore",
+  "LOGIN_EMAIL_PLACEHOLDER":"Email",
+  "LOGIN_PASSWORD_PLACEHOLDER":"Password",
+  "LOGIN_BUTTON":"Log in",
+  "LOGIN_SIGNUP_TEXT":"¿You need an Account?",
+  "LOGIN_SIGNUP_BUTTON":"Sign up",
+  "LOGIN_EMAIL_EMPTY_ERROR":"Complete email",
+  "LOGIN_PASSWORD_EMPTY_ERROR":"Complete password",
+  "LOGIN_ERROR":"Wrong user.",
 
 
 
-"SLIDER_1":"Los recursos naturales se estan terminando ¡la eficiencia energetica es el camino para un mundo mejor!",
-"SLIDER_2":"El cambio esta en ti ¡comienza a hacer la diferencia y ahorra energia electrica!",
-"SLIDER_3":"! Comienza hoy & contagia la eficiencia energetica ¡nuestro planeta lo agradecera",
-"SLIDER_BUTTON":"Comenzar con el cambio",
+  "REGISTER_SLIDER_1_HEADER":"Register your account…",
+  "REGISTER_SLIDER_1_PLACEHOLDER_EMAIL":"Email",
+  "REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD":"Password",
+  "REGISTER_SLIDER_1_CONFIRMATION_PASSWORD":"Confirmation Password",
+  "REGISTER_EMAIL_EMPTY_ERROR":"Complete Email",
+  "REGISTER_PASSWORD_EMPTY_ERROR":"Complete Password",
+  "REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR":"Confirm Password",
+  "REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR":"Password does not match",
 
-
-"LOGIN_HEADER":"Iniciar en EnergiaStore",
-"LOGIN_EMAIL_PLACEHOLDER":"Correo",
-"LOGIN_PASSWORD_PLACEHOLDER":"Contraseña",
-"LOGIN_BUTTON":"Inicia sesión",
-"LOGIN_SIGNUP_TEXT":"Aún no tienes una cuenta?",
-"LOGIN_SIGNUP_BUTTON":"Registrate",
-"LOGIN_EMAIL_EMPTY_ERROR":"Complete Correo",
-"LOGIN_PASSWORD_EMPTY_ERROR":"Complete contraseña",
-"LOGIN_ERROR":"Usuario incorrecto.",
-
-
-
-"REGISTER_SLIDER_1_HEADER":"Registremos tu cuenta...",
-"REGISTER_SLIDER_1_PLACEHOLDER_EMAIL":"Correo",
-"REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD":"Contraseña",
-"REGISTER_SLIDER_1_CONFIRMATION_PASSWORD":"Confirmación contraseña",
-"REGISTER_EMAIL_EMPTY_ERROR":"Complete Correo",
-"REGISTER_PASSWORD_EMPTY_ERROR":"Complete contraseña",
-"REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR":"Complete confirmación contraseña",
-"REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR":"Password no coinciden",
-
-"REGISTER_SLIDER_1_SPINNER":"Registrando cuenta",
-"REGISTER_SLIDER_1_ERROR":"Intente con otra cuenta",
-"REGISTER_SLIDER_2_HEADER":"! Felicitaciones ¡",
-"REGISTER_SLIDER_2_SUBTITLE":"! Ya eres parte de EnergiaStore¡",
+  "REGISTER_SLIDER_1_SPINNER":"Register Account",
+  "REGISTER_SLIDER_1_ERROR":"Try another account",
+  "REGISTER_SLIDER_2_HEADER":"! Congratulations ¡",
+  "REGISTER_SLIDER_2_SUBTITLE":"! You Joined Energia Store",
 
 
 
+  "QUOTATION_HEADER":"Cotizaciones",
 
+
+  "QUOTATION_POPUP_CANCEL_BUTTON":"Cancel",
+  "QUOTATION_POPUP_ACCEPT_BUTTON":"Create",
+
+  "ADD_QUOTATION_POPUP_TITLE":"Create Quote",
+  "ADD_QUOTATION_POPUP_FIRST_INPUT":"Quote Name",
+  "ADD_QUOTATION_POPUP_SECOND_INPUT":"Kwh Cost (USd)",
+
+  "QUOTATION_ERROR_DOWNLOAD_INFO":"Error downloading Quotations",
+
+  "QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO":"Enter Quote Name",
+  "QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO":"Enter Cost of kWh",
+
+  "QUOTATION_CREATED_MESSAGE":"Quote Created",
+  "QUOTATION_FAIL_MESSAGE":"Error Creating Quote",
 
 
 
 
-"QUOTATION_HEADER":"Cotizaciones",
+  "QUOTATION_CARD_TITLE":"You do not have any",
+  "QUOTATION_CARD_TITLE_STRONG":"Quote",
+  "QUOTATION_CARD_BODY_PRE":"Click on  ",
+  "QUOTATION_CARD_BODY_POST":"To add your first Quote",
 
-"QUOTATION_POPUP_TITLE":"",
-"QUOTATION_POPUP_BODY":"",
-"QUOTATION_POPUP_CANCEL_BUTTON":"",
-"QUOTATION_POPUP_ACCEPT_BUTTON":"",
-
-"QUOTATION_CARD_TITLE":"",
-"QUOTATION_CARD_TITLE_STRONG":"",
-"QUOTATION_CARD_BODY_PRE":"",
-"QUOTATION_CARD_BODY_POST":"",
+  "QUOTATION_CARD_ELEMENT_COST_KW":"To add your first Quote",
+  "QUOTATION_CARD_ELEMENT_ID":"Id",
+  "QUOTATION_CARD_ELEMENT_CREATED_AT":"Creation Date",
 
 
-"FMP_HEADER":"Cotizaciones",
+  "FMP_HEADER":"Power Factor",
+  "FMP_PRE_TEXT":"Request evaluation Of",
+  "FMP_PRE_TEXT_STRONG":"Power Factor Penalty",
+  "FMP_BUTTON":"Enter Penalty",
 
-"FMP_MODAL_HEADER":"",
-"FMP_MODAL_FIRST_TEXT":"",
-"FMP_MODAL_SECOND_TEXT":"",
-
-  "SETTINGS_TITLE":"Configuración",
-  "SETTINGS_PLACEHOLDER_NAME":"Nombre",
-  "SETTINGS_PLACEHOLDER_LASTNAME":"Apellido",
-  "SETTINGS_PLACEHOLDER_PHONE":"Teléfono",
-  "SETTINGS_PLACEHOLDER_ADDRESS":"Dirección",
+  "ERROR_CAMERA":"Camara Problems",
+  "ERROR_GALLERY":"Problems with the Photo Gallery",
 
 
 
-  "MODAL_WELCOME_BUTTON":"Vamos alla",
-  "MODAL_WELCOME_TEXT":"Bienvendio a EnergiaStore, comencemos completando tu perfil con tu información basica.",
+  "FMP_MODAL_HEADER":"¿Power Factor?",
 
-  "MODAL_CREATE_FACTOR_BUTTON":"Entendido",
-  "MODAL_CREATE_FACTOR_TEXT":"Cotización realizada de manera exitosa, EnergiaStore se pondra en contacto con usted para enviar su cotización.",
+  "FMP_MODAL_FIRST_TEXT_HEADER":"¿Why electrical companies charge you for Power Factor ?",
+  "FMP_MODAL_FIRTS_TEXT_FIRST_LINE":"Chilean law allows electricity distribution companies to charge each customer a surcharge of 1% on energy billing for each hundredth (0,01) in which the Power Factor (FP) of an installation is less than 0.93."
+  "FMP_MODAL_FIRTS_TEXT_SECOND_LINE":"That means that if the power factor of a splice is 0.86, the distributor will charge an 8% surcharge (0.93-0.85 = 0.08 = 8/100).",
+  "FMP_MODAL_FIRTS_TEXT_THIRD_LINE":"¿Why I generate a Power Factor Penalty?",
+  "FMP_MODAL_FIRTS_TEXT_FORTH_LINE":"Electrical consumption of rotary machines (motors),",
+  "FMP_MODAL_FIRTS_TEXT_FIFTH_LINE":"Uncompensated discharge lamps",
+  "FMP_MODAL_FIRTS_TEXT_SIXT_LINE":"Non-compensated fluorescent lighting",
+  "FMP_MODAL_FIRTS_TEXT_SEVENTH_LINE":"Multiple other factors",
 
-  "MODAL_FAIL_CREATE_FACTOR_BUTTON":"Entendido",
-  "MODAL_FAIL_CREATE_FACTOR_TEXT":"Ups no hemos podido realizar tu cotizacion, porfavor intentalo mas tarde."
+
+  "FMP_MODAL_SECOND_TEXT_HEADER":"¿How to read the penalty for power factor?",
+  "FMP_MODAL_SECOND_TEXT_FIRST_LINE":"For example, in the electricity bill of a school, where the active and reactive energy are recorded through two energy meters, the following charges appear:",
+  "FMP_MODAL_SECOND_TEXT_SECOND_LINE":"The active energy consumption is 4238 kWh and the reactive power consumption is 3102 kVArh. Therefore, the monthly power factor is:",
+  "FMP_MODAL_SECOND_TEXT_THIRD_LINE":"Then, the power factor surcharge that appears on the receipt is obtained from: 0,93-0,8069 = 0,1231 x 358466 = $ 44,127.-",
+
+  "FMP_MODAL_THIRD_TEXT_HEADER":"¿How can you get help to avoid paying this power factor penalty anymore?",
+  "FMP_MODAL_THIRD_TEXT_SECOND_LINE":"In Energia Store, we conducted a STUDY OF POWER FACTOR AND IMPROVEMENT OF POWER FACTOR, OPTIMIZING THEIR ELECTRICAL INSTALLATION ". We invite you to quote your project HERE or send us an email to info@energiastore.cl or phone: + 569-90786921",
+
+  "FMP_MODAL_QUOTATION_HEADER":"Quote to remove your Power Factor Penalty today",
+  "FMP_MODAL_QUOTATION_OPTION_MANUAL":"Enter your yearly cost for Power Factor Penalty",
+  "FMP_MODAL_QUOTATION_AMOUNT":"Amount of Power Factor Penalty",
+  "FMP_MODAL_QUOTATION_USE_PHOTO":"Use Photo of your Power Factor Penalty",
+  "FMP_MODAL_QUOTATION_COMMENT":"If you wish, here you can add a comment",
+
+  "FMP_MODAL_QUOTATION_OPTION:CAMERA":"Camera",
+  "FMP_MODAL_QUOTATION_OPTION_GALLERY":"Photo Gallery",
+
+  "FMP_MODAL_QUOTATION_SEND_BUTTON":"Send",
 
 
 
+
+
+
+
+
+
+
+  "SETTINGS_TITLE":"Configuration",
+  "SETTINGS_PLACEHOLDER_NAME":"Name",
+  "SETTINGS_PLACEHOLDER_LASTNAME":"Last Name",
+  "SETTINGS_PLACEHOLDER_PHONE":"Telephone Number",
+  "SETTINGS_PLACEHOLDER_ADDRESS":"Address",
+
+
+
+
+
+
+  "MODAL_WELCOME_BUTTON":"Let`s go There",
+  "MODAL_WELCOME_TEXT":"Welcome to Energia Store, let's start by completing your profile with your basic information.",
+
+  "MODAL_CREATE_FACTOR_BUTTON":"Understood",
+  "MODAL_CREATE_FACTOR_TEXT":"Quotation made successfully, we will contact you soon to review your quotation.",
+
+  "MODAL_FAIL_CREATE_FACTOR_BUTTON":"Understood",
+  "MODAL_FAIL_CREATE_FACTOR_TEXT":"Oops, we were unable to complete your quote, please try again later.",
+
+  "MODAL_LOGOUT_TITLE": "Sign Off",
+  "MODAL_LOGOUT_TEXT": "¿Are you sure you want to log out?",
+
+  "MODAL_PROFILE_FAIL_BODY": "Problems completing your profile, please try again later",
+
+  "MODAL_PROFILE_UPDATE_TITLE": "Sign Off",
+  "MODAL_PROFILE_UPDATE_BODY": "¿You're sure to want to log out?",
+
+  "MODAL_HELPER_MOTOR_TITLE":"Name of equipment / motor",
+  "MODAL_HELPER_MOTOR_BODY":"",
+
+  "MODAL_HELPER_VOLTAJE_TITLE":"Voltage",
+  "MODAL_HELPER_VOLTAJE_BODY":"",
+
+  "MODAL_HELPER_AMP_TITLE":"Amperage",
+  "MODAL_HELPER_AMP_BODY":"",
+
+  "MODAL_HELPER_POWER_FACTOR_TITLE":"Power Factor",
+  "MODAL_HELPER_POWER_FACTOR_BODY":"",
+
+  "MODAL_HELPER_HOURS_DAY_TITLE":"Hours a Day",
+  "MODAL_HELPER_HOURS_DAY_BODY":"",
+
+  "MODAL_HELPER_DAYS_MONTH_TITLE":"Days a Month",
+  "MODAL_HELPER_DAYS_MONTH_BODY":"",
+
+
+  "MODAL_CREATE_MOTOR_BUTTON":"Create Motor",
+  "MODAL_CREATE_MOTOR_HEADER":"Motor Creation"
 
 }
