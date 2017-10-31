@@ -190,6 +190,6 @@
   "MOTOR_COMPLETE_AMP":"Complete amperaje del motor",
   "MOTOR_COMPLETE_VOLT":"Complete voltaje del motor",
   "MOTOR_COMPLETE_NAME":"Complete nombre del motor",
-  "MOTOR_ADD_FAIL":"Problemas al agregar motor",
+  "MOTOR_ADD_FAIL":"Problemas al agregar motor"
 
 }
