@@ -15,6 +15,13 @@ CONTROLLER DEFINITION
           $scope.translations = data;
       });
 
+      if (window.StatusBar) {
+        $cordovaStatusbar.overlaysWebView(false);
+        $cordovaStatusbar.style(1);
+        $cordovaStatusbar.styleHex("#1AA55E");
+        $cordovaStatusbar.show();
+      }
+
     $scope.goToLogin = function(){
 
       $state.go("login");
