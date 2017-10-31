@@ -6,136 +6,136 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-    this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User","$resource","translationService","popUpService","$cordovaStatusbar",
-        function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$resource,translationService,popUpService,$cordovaStatusbar) {
+  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$rootScope","Session","StorageUserModel","User","$resource","translationService","popUpService","$cordovaStatusbar",
+  function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$resource,translationService,popUpService,$cordovaStatusbar) {
 
-            $ionicPlatform.ready(function() {
+    $ionicPlatform.ready(function() {
 
-                const languageFilePath = translationService.getTranslation();
-                $resource(languageFilePath).get(function (data) {
-                    $scope.translations = data;
-                });
-
-
-                $scope.placeholder = {};
-                $scope.user = {};
-
-                $scope.init = function(){
-
-                    let user  = StorageUserModel.getCurrentUser();
-                    debugger;
-
-                    $scope.placeholder.name = "Nombre";
-                    $scope.placeholder.last_name = "Apellido";
-                    $scope.placeholder.phone = "Telefono";
-                    $scope.placeholder.address = "Direccion";
-
-                    if(user.name!== undefined){$scope.placeholder.name = user.name;}
-                    if(user.last_name!== undefined){$scope.placeholder.name = user.last_name;}
-                    if(user.phone!== undefined){$scope.placeholder.name = user.phone;}
-                    if(user.address!== undefined){$scope.placeholder.name = user.address;}
-
-                };
+      const languageFilePath = translationService.getTranslation();
+      $resource(languageFilePath).get(function (data) {
+        $scope.translations = data;
+      });
 
 
-                $scope.$on("$ionicView.beforeEnter", function(event) {
-                    let user = Object.assign({}, StorageUserModel.getCurrentUser());
+      $scope.placeholder = {};
+      $scope.user = {};
 
-                    if (user.name !== undefined)
-                        $scope.placeholder.name = user.name;
+      $scope.init = function(){
 
-                    if (user.last_name !== undefined)
-                        $scope.placeholder.last_name = user.last_name;
+        let user  = StorageUserModel.getCurrentUser();
+        debugger;
 
-                    if (user.phone !== undefined)
-                        $scope.placeholder.phone = user.phone;
+        $scope.placeholder.name = "Nombre";
+        $scope.placeholder.last_name = "Apellido";
+        $scope.placeholder.phone = "Telefono";
+        $scope.placeholder.address = "Direccion";
 
-                    if (user.address !== undefined)
-                        $scope.placeholder.address = user.address;
+        if(user.name!== undefined){$scope.placeholder.name = user.name;}
+        if(user.last_name!== undefined){$scope.placeholder.name = user.last_name;}
+        if(user.phone!== undefined){$scope.placeholder.name = user.phone;}
+        if(user.address!== undefined){$scope.placeholder.name = user.address;}
 
-                });
-
-
-                $scope.changeLanguage = function(){
-
-                };
-
-                $scope.backButton = function(){
-                    $state.go("dashboard");
-                };
-
-                $ionicPlatform.registerBackButtonAction(function () {
-                    $scope.backButton();
-                }, 100);
-
-                $scope.logOut = function (){
-debugger;
-                    popUpService.showpopUpLogOut($scope.translations).then(function(_response){
-                        if(_response){
-                            try{
-                                Session.logout().then(function(){
-                                    $scope.deleteData();
-
-                                },function(_error){
-                                    $scope.deleteData();
-
-                                })
-                            }catch(_error){
-                                $scope.deleteData();
-                            }
-                        }
-                    });
+      };
 
 
+      $scope.$on("$ionicView.beforeEnter", function(event) {
+        let user = Object.assign({}, StorageUserModel.getCurrentUser());
+
+        if (user.name !== undefined)
+        $scope.placeholder.name = user.name;
+
+        if (user.last_name !== undefined)
+        $scope.placeholder.last_name = user.last_name;
+
+        if (user.phone !== undefined)
+        $scope.placeholder.phone = user.phone;
+
+        if (user.address !== undefined)
+        $scope.placeholder.address = user.address;
+
+      });
 
 
+      $scope.changeLanguage = function(){
 
-                };
+      };
 
-                $scope.updateInfo = function(){
+      $scope.backButton = function(){
+        $state.go("dashboard");
+      };
 
-                    if($scope.user.name === undefined || $scope.user.name  === ''){
-                        Materialize.toast("Complete nombre",4000);
-                        return;
-                    }
+      $ionicPlatform.registerBackButtonAction(function () {
+        $scope.backButton();
+      }, 100);
 
-                    if($scope.user.last_name === undefined || $scope.user.last_name  === ''){
-                        Materialize.toast("Complete apellido",4000);
-                        return;
-                    }
-                    if($scope.user.phone === undefined || $scope.user.phone  === ''){
-                        Materialize.toast("Complete telefono",4000);
-                        return;
-                    }
-                    if($scope.user.address === undefined || $scope.user.address  === ''){
-                        Materialize.toast("Complete dirección",4000);
-                        return;
-                    }
+      $scope.logOut = function (){
+        debugger;
+        popUpService.showpopUpLogOut($scope.translations).then(function(_response){
+          if(_response){
+            try{
+              Session.logout().then(function(){
+                $scope.deleteData();
 
+              },function(_error){
+                $scope.deleteData();
 
-
-                    User.updateUser(StorageUserModel.getCurrentUser(),$scope.user).then(function(_response){
-                        StorageUserModel.setCurrentUser(_response.data);
-                        popUpService.showpopUpProfileCreate($scope.translations);
-                        console.log(_response);
-                    },function(_error){
-                        popUpService.showpopUpProfileFail($scope.translations);
-                        console.error(_error);
-
-                    })
-
-
-
-                };
-
-                $scope.deleteData= function (){
-                    StorageUserModel.destroyCurrentUser();
-                    $state.go("login")
-                };
+              })
+            }catch(_error){
+              $scope.deleteData();
+            }
+          }
+        });
 
 
 
 
-            });
-        }]);
+
+      };
+
+      $scope.updateInfo = function(){
+
+        if($scope.user.name === undefined || $scope.user.name  === ''){
+          Materialize.toast("Complete nombre",4000);
+          return;
+        }
+
+        if($scope.user.last_name === undefined || $scope.user.last_name  === ''){
+          Materialize.toast("Complete apellido",4000);
+          return;
+        }
+        if($scope.user.phone === undefined || $scope.user.phone  === ''){
+          Materialize.toast("Complete telefono",4000);
+          return;
+        }
+        if($scope.user.address === undefined || $scope.user.address  === ''){
+          Materialize.toast("Complete dirección",4000);
+          return;
+        }
+
+
+
+        User.updateUser(StorageUserModel.getCurrentUser(),$scope.user).then(function(_response){
+          StorageUserModel.setCurrentUser(_response.data);
+          popUpService.showpopUpProfileCreate($scope.translations);
+          console.log(_response);
+        },function(_error){
+          popUpService.showpopUpProfileFail($scope.translations);
+          console.error(_error);
+
+        })
+
+
+
+      };
+
+      $scope.deleteData= function (){
+        StorageUserModel.destroyCurrentUser();
+        $state.go("login")
+      };
+
+
+
+
+    });
+  }]);
 }).call(this);

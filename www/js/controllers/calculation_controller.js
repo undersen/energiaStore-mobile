@@ -6,37 +6,14 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("CalculationController", [
-    "$scope",
-    "$state",
-    "$ionicPlatform",
-    "$ionicSlideBoxDelegate",
-    "$ionicPopup",
-    "StorageUserModel",
-    "Calculation",
-    "translationService",
-    "$resource",
-    "IonicClosePopupService",
-    function(
-      $scope,
-      $state,
-      $ionicPlatform,
-      $ionicSlideBoxDelegate,
-      $ionicPopup,
-      StorageUserModel,
-      Calculation,
-      translationService,
-      $resource,
-      IonicClosePopupService
-    ) {
+  this.app.controller("CalculationController", ["$scope","$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService",
+    function($scope,$state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService) {
       $ionicPlatform.ready(function() {
+
         const languageFilePath = translationService.getTranslation();
         $resource(languageFilePath).get(function(data) {
           $scope.translations = data;
         });
-
-
-        
 
         $scope.has_quotation = false;
         $scope.calculations = {};
@@ -100,11 +77,8 @@ CONTROLLER DEFINITION
             ]
           });
 
-          
 
               IonicClosePopupService.register(popup);
-
-
         };
 
         $scope.craeteCalculation = function(data) {
@@ -155,7 +129,7 @@ CONTROLLER DEFINITION
          $scope.shouldShowReorder = false;
          $scope.listCanSwipe = true;
 
-         
+
       });
     }
   ]);
