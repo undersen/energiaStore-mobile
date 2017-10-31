@@ -32,7 +32,7 @@ CONTROLLER DEFINITION
 
       $scope.slideHasChanged= function(index){
 
-        let _content_register = ("#content-register");
+        let _content_register = $("#content-register");
 
         switch (index) {
           case 0:

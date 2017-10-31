@@ -235,3 +235,6 @@ margin: 5vw !important;
 .popover{
   height:0px;
 }
+.popup-container .popup {
+  background-color: white;
+}
