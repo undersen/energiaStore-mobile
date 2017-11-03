@@ -6,13 +6,15 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("CalculationController", ["$scope","$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils",
-    function($scope,$state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils) {
+  this.app.controller("CalculationController", ["$scope","$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading",
+    function($scope,$state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading) {
       $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
         $resource(languageFilePath).get(function(data) {
+          debugger;
           $scope.translations = data;
+          $scope.init();
         });
 
         $scope.has_quotation = false;
@@ -23,7 +25,11 @@ CONTROLLER DEFINITION
         };
 
         $scope.init = function() {
+          $ionicLoading.show({
+          template: `${$scope.translations.LOADING}...`
+        }).then(function () {
           $scope.getCalculation();
+        });
         };
 
         $scope.doRefreshQuotation = function() {
@@ -36,7 +42,7 @@ CONTROLLER DEFINITION
           // Custom popup
           let popup = $ionicPopup.show({
             title: '<div class="congrats"></div><img src="img/special_icons/rsz_settings.png" class="modal-img-config">',
-            template: ` <div class="modal-body-config"><h5>Creacion de Cotizacion</h5><div class="input-field col s12">
+            template: ` <div class="modal-body-config"><h5>${$scope.translations.}</h5><div class="input-field col s12">
           <input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope
             .translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
           <div class="input-field col s12">
@@ -44,7 +50,6 @@ CONTROLLER DEFINITION
             .translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label></div></div>`,
             // subTitle: 'Subtitle',
             scope: $scope,
-
 
             buttons: [
               {
@@ -94,11 +99,13 @@ CONTROLLER DEFINITION
               $scope.calculations = _response.data;
               $scope.$broadcast("scroll.refreshComplete");
               console.log(_response);
+              $ionicLoading.hide()
             },
             function(_error) {
               Utils.validateToast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO);
               $scope.$broadcast("scroll.refreshComplete");
               console.error(_error);
+              $ionicLoading.hide()
             }
           );
         };

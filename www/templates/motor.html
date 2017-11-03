@@ -5,8 +5,8 @@
         <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
       </div>
     </div>
-    <h1 class="title">Motores</h1>
-    <div class="buttons" style="width: 30px;height: 30px;" >
+    <h1 class="title">{{translations.MOTORS_HEADER}}</h1>
+    <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalMotor()">
       <i class="ion-ios-plus-outline" style="    margin: auto;font-size: 25px;"></i>
     </div>
   </ion-header-bar>
@@ -17,7 +17,7 @@
     <ion-refresher  on-refresh="doRefreshMotors()">
         </ion-refresher>
 
- 
+
 
 
       <!-- <div class="col s12 m6" ng-repeat="motor in motors" >
@@ -32,40 +32,43 @@
 
 
       <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-    <ion-item ng-repeat="motor in motors"  ng-click="goToCalculation({{calculation.id}})">
-  
+    <ion-item ng-repeat="motor in motors"  ng-click="openModalMotor()">
+
 
 
 <div class="">
-      
-      <h2>Nombre motor :{{motor.name}}</h2>
-      <p>Amperaje: {{motor.amp}}</p>
-      <p>Horas encendido: {{motor.average_time}}</p>
-      <p>Voltios: {{motor.volts}}</p>
-      <p>Power Factor: {{motor.efficiency}}</p>
+
+      <h2>{{translation.MOTOR_NAME_LIST}} :{{motor.name}}</h2>
+      <p>{{translation.AMP_NAME_LIST}}: {{motor.amp}}</p>
+      <p>{{translation.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
+      <p>{{translation.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
+      <p>{{translation.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
       <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
+
+
       <!-- <ion-option-button class="button-positive" ng-click="edit(motor.id)">
         Editar
       </ion-option-button>
       <ion-option-button class="button-danger" ng-click="delete(motor.id)">
         Eliminar
       </ion-option-button> -->
-     
+
 </div>
     </ion-item>
   </ion-list>
 
 
 
+
+
 </ion-content>
 
+  <a ng-click="goToQuotation();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
+  left: 75vw;
+  top: 85vh;">
+  <!-- <i style="font-size:40px;line-height: 60px;" class="ion-ios-plus-empty"></i> -->
+  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 
-  <a ng-click="validateQuotation()" class="btn-floating btn-large waves-effect waves-light red" style="position: absolute;
-      left: 75vw;
-      top: 55vh;">
-    <i class="material-icons">add</i>
-  </a>
+</a>
 
 </ion-view>
-
-

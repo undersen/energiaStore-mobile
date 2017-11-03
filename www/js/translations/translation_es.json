@@ -190,6 +190,28 @@
   "MOTOR_COMPLETE_AMP":"Complete amperaje del motor",
   "MOTOR_COMPLETE_VOLT":"Complete voltaje del motor",
   "MOTOR_COMPLETE_NAME":"Complete nombre del motor",
-  "MOTOR_ADD_FAIL":"Problemas al agregar motor"
+  "MOTOR_ADD_FAIL":"Problemas al agregar motor",
 
+  "MENU_PROFILE":"Mi perfil",
+  "MENU_SWITCH_LANGUAGE":"Cambiar lenguaje",
+  "MENU_LOG_OUT":"Cerrar sesión",
+
+  "ADD_PHOTO_BUTTON_TEXT":"AGREGAR FOTO",
+  "FINALIZE_QUOTATION_HEADER":"Finalizar Cotización",
+
+
+  "INPUT_COMMENTS_TEXTBOX":"Comentarios",
+
+  "MOTORS_HEADER":"Motores",
+
+
+  "MOTOR_NAME_LIST":"Nombre motor",
+  "AMP_NAME_LIST":"Amperaje",
+  "HOURS_NAME_LIST":"Horas encendido",
+  "VOLTS_NAME_LIST":"Voltios",
+  "POWER_FACTOR_NAME_LIST":"Power Factor",
+  "UPDATE_BUTTON":"Actualizar",
+
+
+  "CREATE_QUOTATION_POPUP_TEXT":"Creacion de Cotizacion"
 }

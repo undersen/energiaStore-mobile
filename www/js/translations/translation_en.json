@@ -4,6 +4,8 @@
 
   "SPINNER_REGISTER":"Register Account…",
 
+  "LOADING":"Loading",
+
   "SLIDER_1":"Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
   "SLIDER_2":"El cambio está en ti ¡comienza a hacer la diferencia y ahorra energia eléctrica!",
   "SLIDER_3":"! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
@@ -82,7 +84,7 @@
   "FMP_MODAL_HEADER":"¿Power Factor?",
 
   "FMP_MODAL_FIRST_TEXT_HEADER":"¿Why electrical companies charge you for Power Factor ?",
-  "FMP_MODAL_FIRTS_TEXT_FIRST_LINE":"Chilean law allows electricity distribution companies to charge each customer a surcharge of 1% on energy billing for each hundredth (0,01) in which the Power Factor (FP) of an installation is less than 0.93."
+  "FMP_MODAL_FIRTS_TEXT_FIRST_LINE":"Chilean law allows electricity distribution companies to charge each customer a surcharge of 1% on energy billing for each hundredth (0,01) in which the Power Factor (FP) of an installation is less than 0.93.",
   "FMP_MODAL_FIRTS_TEXT_SECOND_LINE":"That means that if the power factor of a splice is 0.86, the distributor will charge an 8% surcharge (0.93-0.85 = 0.08 = 8/100).",
   "FMP_MODAL_FIRTS_TEXT_THIRD_LINE":"¿Why I generate a Power Factor Penalty?",
   "FMP_MODAL_FIRTS_TEXT_FORTH_LINE":"Electrical consumption of rotary machines (motors),",
@@ -97,7 +99,7 @@
   "FMP_MODAL_SECOND_TEXT_THIRD_LINE":"Then, the power factor surcharge that appears on the receipt is obtained from: 0,93-0,8069 = 0,1231 x 358466 = $ 44,127.-",
 
   "FMP_MODAL_THIRD_TEXT_HEADER":"¿How can you get help to avoid paying this power factor penalty anymore?",
-  "FMP_MODAL_THIRD_TEXT_SECOND_LINE":"In Energia Store, we conducted a STUDY OF POWER FACTOR AND IMPROVEMENT OF POWER FACTOR, OPTIMIZING THEIR ELECTRICAL INSTALLATION ". We invite you to quote your project HERE or send us an email to info@energiastore.cl or phone: + 569-90786921",
+  "FMP_MODAL_THIRD_TEXT_SECOND_LINE":"In Energia Store, we conducted a STUDY OF POWER FACTOR AND IMPROVEMENT OF POWER FACTOR, OPTIMIZING THEIR ELECTRICAL INSTALLATION . We invite you to quote your project HERE or send us an email to info@energiastore.cl or phone: + 569-90786921",
 
   "FMP_MODAL_QUOTATION_HEADER":"Quote to remove your Power Factor Penalty today",
   "FMP_MODAL_QUOTATION_OPTION_MANUAL":"Enter your yearly cost for Power Factor Penalty",
@@ -167,6 +169,11 @@
 
 
   "MODAL_CREATE_MOTOR_BUTTON":"Create Motor",
-  "MODAL_CREATE_MOTOR_HEADER":"Motor Creation"
+  "MODAL_CREATE_MOTOR_HEADER":"Motor Creation",
+
+
+  "MENU_PROFILE":"My profile",
+  "MENU_SWITCH_LANGUAGE":"Change language",
+  "MENU_LOG_OUT":"Log out"
 
 }

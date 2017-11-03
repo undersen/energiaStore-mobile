@@ -1,0 +1,39 @@
+<ion-header-bar align-title="center" class="bar-positive special-color">
+  <div class="buttons">
+    <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
+      <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
+    </div>
+  </div>
+  <h1 class="title">{{translations.FINALIZE_QUOTATION_HEADER}}</h1>
+</ion-header-bar>
+
+<ion-content>
+
+
+   <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
+
+
+  <div class="input-field col s12">
+     <input id="input-penalty" type="text" class="validate" ng-model="factorType.power_factor" >
+     <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
+   </div>
+
+
+   <div class="input-field col s12">
+      <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.power_factor" >
+      <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
+    </div>
+
+    <div class="row">
+      <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+</ion-content>

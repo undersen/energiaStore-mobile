@@ -35,7 +35,7 @@ CONTROLLER DEFINITION
         }
 
         $ionicLoading.show({
-          templateUrl:"loading.html",
+          template: `${$scope.translations.LOADING}...`
         });
 
         Session.login($scope.user).then(function(_response){

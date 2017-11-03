@@ -191,40 +191,54 @@ CONTROLLER DEFINITION
       }
 
       $scope.validateQuotation =  function (){
-
         $scope.FinishQuotation();
       }
 
 
+      $scope.goToQuotation= function(){
 
-      $ionicModal
-        .fromTemplateUrl("modal-quotation", {
-          scope: $scope,
-          animation: "slide-in-up"
-        })
-        .then(function(modal_quotation) {
-          $scope.modalQuotation = modal_quotation;
-        });
+        $state.go('finalizeQuotation')
 
-      $scope.openModalMotor = function() {
-        $scope.modalQuotation.show();
-      };
-      $scope.closeModalMotor = function() {
-        $scope.modalQuotation.hide();
-      };
-      // Cleanup the modal when we're done with it!
-      $scope.$on("$destroy", function() {
-        $scope.modalQuotation.remove();
-      });
-      // Execute action on hide modal
-      $scope.$on("modalQuotation.hidden", function() {
-        // Execute action
-      });
-      // Execute action on remove modal
-      $scope.$on("modalQuotation.removed", function() {
-        // Execute action
-      });
+        // popUpService.showpopUpGoToQuotation().then(function(_response){
+        //   if(_response === 1){
+        //
+        //   }else{
+        //
+        //   }
+        //
+        // })
+      }
 
+      //
+      //
+      // $ionicModal
+      //   .fromTemplateUrl("modal-quotation", {
+      //     scope: $scope,
+      //     animation: "slide-in-up"
+      //   })
+      //   .then(function(modal_quotation) {
+      //     $scope.modalQuotation = modal_quotation;
+      //   });
+      //
+      // $scope.openModalMotor = function() {
+      //   $scope.modalQuotation.show();
+      // };
+      // $scope.closeModalMotor = function() {
+      //   $scope.modalQuotation.hide();
+      // };
+      // // Cleanup the modal when we're done with it!
+      // $scope.$on("$destroy", function() {
+      //   $scope.modalQuotation.remove();
+      // });
+      // // Execute action on hide modal
+      // $scope.$on("modalQuotation.hidden", function() {
+      //   // Execute action
+      // });
+      // // Execute action on remove modal
+      // $scope.$on("modalQuotation.removed", function() {
+      //   // Execute action
+      // });
+      //
 
 
 

@@ -67,6 +67,7 @@
 <script src="js/controllers/factor_controller.js"></script>
 <script src="js/controllers/settings_controller.js"></script>
 <script src="js/controllers/calculation_controller.js"></script>
+<script src="js/controllers/finalize_quotation_controller.js"></script>
 
 
 <!-- Utilities -->
@@ -149,17 +150,18 @@
   <ion-popover-view>
    <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
     <ion-item ng-click="settings();">
-      Mi perfil
+      {{translations.MENU_PROFILE}}
     </ion-item>
     <ion-item ng-click="chooseLanguage();">
-      Cambiar Idioma
+      {{translations.MENU_SWITCH_LANGUAGE}}
     </ion-item>
     <ion-item ng-click="logOut();">
-      Cerrar Sesion
+      {{translations.MENU_LOG_OUT}}
     </ion-item>
     </ion-list>
   </ion-popover-view>
 </script>
+
 
 <!-- <script id="modal-quotation" type="text/ng-template">
 

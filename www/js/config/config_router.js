@@ -82,6 +82,15 @@ ROUTES CONFIGURATION
         templateUrl: "templates/motor.html",
         controller: "MotorsController"
       })
+
+      .state("finalizeQuotation", {
+        url: "/quotation/:id_quotation/motors/finalize",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/finalize_quotation.html",
+        controller: "FinalizedQuotationController"
+      })
+
       .state("factor", {
         url: "/factor",
         cache: false,
