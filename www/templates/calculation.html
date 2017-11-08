@@ -27,8 +27,8 @@
 
         <div class="">
 
-          <h2>aaaa{{calculation.name}}</h2>
-          <p>{{calculation.energy_cost}}</p>
+          <h2>{{calculation.name}}</h2>
+          <p>{{calculation.energy_cost}} clp</p>
           <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
           <ion-option-button class="button-positive" ng-click="edit(calculation.id)">
             Editar

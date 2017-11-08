@@ -174,30 +174,17 @@ CONTROLLER DEFINITION
 
 
 
-      $scope.FinishQuotation = function(){
-
-        var quote={
-         calculation_id:2,
-         user_id:3,
-         comment:'efwefwef',
-         reference:''
-      }
-
-          Quotation.Create(user, quote).then(function(_response) {
-              debugger;
-            }, function(_error) {
-              debugger;
-            });
-      }
-
-      $scope.validateQuotation =  function (){
-        $scope.FinishQuotation();
-      }
-
 
       $scope.goToQuotation= function(){
+        debugger;
+        if($scope.motors.length === 0 ){
+          Utils.validateToast($scope.translations.EMPTY_MOTORS_FINALIZE_QUOTATION);
 
-        $state.go('finalizeQuotation')
+        }else{
+          $state.go('finalizeQuotation',{id_quotation: $state.params.id_quotation})
+        }
+
+
 
         // popUpService.showpopUpGoToQuotation().then(function(_response){
         //   if(_response === 1){

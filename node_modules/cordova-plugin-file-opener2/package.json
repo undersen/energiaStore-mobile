@@ -7,10 +7,8 @@
   "_phantomChildren": {},
   "_requested": {
     "type": "git",
-    "raw": "cordova-plugin-file-opener2@git+https://github.com/pwlin/cordova-plugin-file-opener2.git",
-    "name": "cordova-plugin-file-opener2",
-    "escapedName": "cordova-plugin-file-opener2",
-    "rawSpec": "git+https://github.com/pwlin/cordova-plugin-file-opener2.git",
+    "raw": "https://github.com/pwlin/cordova-plugin-file-opener2.git",
+    "rawSpec": "https://github.com/pwlin/cordova-plugin-file-opener2.git",
     "saveSpec": "git+https://github.com/pwlin/cordova-plugin-file-opener2.git",
     "fetchSpec": "https://github.com/pwlin/cordova-plugin-file-opener2.git",
     "gitCommittish": "master"
@@ -20,7 +18,7 @@
     "/"
   ],
   "_resolved": "git+https://github.com/pwlin/cordova-plugin-file-opener2.git#021a0ac73db220fba16286d06fb8d6e8c0ce8345",
-  "_spec": "cordova-plugin-file-opener2@git+https://github.com/pwlin/cordova-plugin-file-opener2.git",
+  "_spec": "https://github.com/pwlin/cordova-plugin-file-opener2.git",
   "_where": "/Users/tomasdiaz/workspace/freelances/energiaStore/energiaStore-mobile/node_modules",
   "author": {
     "name": "pwlin05@gmail.com"

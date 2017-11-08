@@ -2,7 +2,7 @@
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-whitelist@1.3.1"
+            "id": "cordova-plugin-team@https://github.com/apache/cordova-plugin-whitelist.git"
         },
         "is_top_level": true,
         "variables": {}
@@ -82,7 +82,7 @@
     "cordova-plugin-file-opener2": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-file-opener2@git+https://github.com/pwlin/cordova-plugin-file-opener2.git"
+            "id": "https://github.com/pwlin/cordova-plugin-file-opener2.git"
         },
         "is_top_level": true,
         "variables": {}

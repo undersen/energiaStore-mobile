@@ -213,5 +213,16 @@
   "UPDATE_BUTTON":"Actualizar",
 
 
-  "CREATE_QUOTATION_POPUP_TEXT":"Creacion de Cotizacion"
+  "CREATE_QUOTATION_POPUP_TEXT":"Creacion de Cotizacion",
+  "LOADING":"Cargando",
+
+  "ACTION_SHEET_PHOTO_TITLE":"Agregar foto",
+  "ACTION_SHEET_PHOTO_CAMERA":"Camara",
+  "ACTION_SHEET_PHOTO_GALERY":"Galeria",
+
+
+
+  "MOTOR_CARD_TITLE_EMPTY":"Aún no tienes ningun motor agregado.",
+  "EMPTY_MOTORS_FINALIZE_QUOTATION":"Debe agregar al menos 1 motor para finalizar la cotización."
+
 }

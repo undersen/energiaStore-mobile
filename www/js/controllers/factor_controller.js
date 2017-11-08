@@ -14,6 +14,7 @@ CONTROLLER DEFINITION
         const languageFilePath = translationService.getTranslation();
         $resource(languageFilePath).get(function (data) {
             $scope.translations = data;
+            var options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
         });
 
         if (window.StatusBar) {
@@ -23,8 +24,10 @@ CONTROLLER DEFINITION
           $cordovaStatusbar.show();
         }
 
+        $scope.image = "img/placeholder.png";
+
         $scope.os = ionic.Platform.platform();
-        
+
         const _input_penalty = $('#input-penalty');
         const _button_camera = $('#button-camera');
         const _button_galley = $('#button-gallery');
@@ -113,19 +116,6 @@ CONTROLLER DEFINITION
         // Execute action
       });
 
-      $scope.chooseManual = function(){
-          _input_penalty.attr('disabled', false);
-          _button_camera.attr('disabled', true);
-          _button_galley.attr('disabled', true);
-        $scope.factorType.type="manual";
-      };
-      $scope.chooseImage = function(){
-          _button_camera.attr('disabled', false);
-          _button_galley.attr('disabled', false);
-          _input_penalty.attr('disabled', true);
-        $scope.factorType.type="image";
-      };
-
 
       $scope.openCamera = function (){
 
@@ -144,6 +134,7 @@ CONTROLLER DEFINITION
 
         $cordovaCamera.getPicture(options).then(function(_imageData) {
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
+          $scope.image = $scope.factorType.photo;
         }, function(_err) {
           Utils.validateToast($scope.ERROR_CAMERA);
           console.log(_err);
@@ -166,6 +157,7 @@ CONTROLLER DEFINITION
 
         $cordovaCamera.getPicture(options).then(function(_imageData) {
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
+          $scope.image = $scope.factorType.photo;
           // isPictureChanged=true;
         }, function(_err) {
 
@@ -178,20 +170,7 @@ CONTROLLER DEFINITION
 
       $scope.createFactorPenalty =  function (){
 
-        if($scope.factorType.type="manual"){
 
-          debugger;
-
-        }else{
-
-          debugger;
-
-        }
-
-
-      if($scope.factorType.photo !== undefined){
-        $scope.factorType.power_factor = '';
-      }
 
         let calculation = $scope.factorType;
 
@@ -205,8 +184,6 @@ CONTROLLER DEFINITION
       };
 
 
-
-      var options = { title: "Agregar foto", buttonLabels: ["Camara", "Galeria"], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
 
 
       if (window.cordova){

@@ -1,3 +1,5 @@
+<ion-view>
+
 <ion-header-bar align-title="center" class="bar-positive special-color">
   <div class="buttons">
     <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
@@ -13,22 +15,24 @@
    <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
 
-  <div class="input-field col s12">
-     <input id="input-penalty" type="text" class="validate" ng-model="factorType.power_factor" >
-     <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
-   </div>
-
 
    <div class="input-field col s12">
-      <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.power_factor" >
+      <input id="input-penalty-text" type="text" class="validate" ng-model="quote.comments" >
       <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
-    </div>
+    </div> -->
+
+    <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();">
+
+    <!-- <div class="row">
+      <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
+    </div> -->
 
 
+    <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="validateQuotation();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
 
 
 
@@ -37,3 +41,13 @@
 
 
 </ion-content>
+</ion-view>
+<style media="screen">
+.android-content{
+  height:calc(100vh - 77px)
+}
+
+.ios-content{
+  height:calc(100vh - 97px)
+}
+</style>

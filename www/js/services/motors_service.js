@@ -19,7 +19,7 @@
           data:{
             motor:{
                 calculation_id:calculation_id,
-                motor_name:_calculation.name,
+                name:_calculation.name,
                 rated_power:_calculation.rated_power, //potencia
                 average_time:_calculation.hours,
                 volts:_calculation.voltaje,

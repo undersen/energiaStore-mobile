@@ -42,7 +42,7 @@ CONTROLLER DEFINITION
           // Custom popup
           let popup = $ionicPopup.show({
             title: '<div class="congrats"></div><img src="img/special_icons/rsz_settings.png" class="modal-img-config">',
-            template: ` <div class="modal-body-config"><h5>${$scope.translations.}</h5><div class="input-field col s12">
+            template: ` <div class="modal-body-config"><h5>${$scope.translations.CREATE_QUOTATION_POPUP_TEXT}</h5><div class="input-field col s12">
           <input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope
             .translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
           <div class="input-field col s12">

@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a14894e3-5692-413f-a296-29de8dbdcf09" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/calculation_controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/calculation_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/factor_controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/factor_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/finalize_quotation_controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/finalize_quotation_controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/motor_controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/motor_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/utilities/popUpUtilities.js" afterPath="$PROJECT_DIR$/www/js/utilities/popUpUtilities.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/calculation.html" afterPath="$PROJECT_DIR$/www/templates/calculation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translations/translation_en.json" afterPath="$PROJECT_DIR$/www/js/translations/translation_en.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translations/translation_es.json" afterPath="$PROJECT_DIR$/www/js/translations/translation_es.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/factor.html" afterPath="$PROJECT_DIR$/www/templates/factor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/finalize_quotation.html" afterPath="$PROJECT_DIR$/www/templates/finalize_quotation.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/motor.html" afterPath="$PROJECT_DIR$/www/templates/motor.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -33,10 +38,10 @@
       <file leaf-file-name="login_controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers/login_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="0">
               <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
               <folding>
-                <marker date="1509411515000" expanded="true" signature="1731:1739" ph="{...}" />
+                <marker date="1509664807000" expanded="true" signature="1749:1757" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -47,7 +52,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-              <folding />
+              <folding>
+                <marker date="1509673332000" expanded="true" signature="1638:1892" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,8 +82,8 @@
       <file leaf-file-name="motor_controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers/motor_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            <state relative-caret-position="108">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -107,16 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="595">
               <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="introduction_controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers/introduction_controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -312,6 +309,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -388,7 +386,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -459,11 +456,15 @@
       <workItem from="1508254482262" duration="5427000" />
       <workItem from="1509573466007" duration="39000" />
       <workItem from="1509655164730" duration="548000" />
+      <workItem from="1509710931831" duration="583000" />
+      <workItem from="1509995942094" duration="591000" />
+      <workItem from="1509997943272" duration="1200000" />
+      <workItem from="1510064418240" duration="1290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41904000" />
+    <option name="totallyTimeSpent" value="45568000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -476,7 +477,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2048" height="1280" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29255056" sideWeight="0.49656945" order="0" side_tool="false" content_ui="combo" />
@@ -485,7 +485,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294606" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294606" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962999" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3195021" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3195021" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28613713" sideWeight="0.50343055" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -535,13 +535,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/js/controllers/dashboard_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3913">
@@ -785,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,10 +835,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers/login_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="0">
           <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
           <folding>
-            <marker date="1509411515000" expanded="true" signature="1731:1739" ph="{...}" />
+            <marker date="1509664807000" expanded="true" signature="1749:1757" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -855,7 +847,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-          <folding />
+          <folding>
+            <marker date="1509673332000" expanded="true" signature="1638:1892" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -890,10 +884,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers/motor_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        <state relative-caret-position="108">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>

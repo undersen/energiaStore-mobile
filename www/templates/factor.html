@@ -24,12 +24,15 @@
 
        <div class="input-field col s12">
           <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.power_factor" >
-          <label for="input-penalty-text">{{TRNALSATIONS.INPUT_COMMENTS_TEXTBOX}}</label>
+          <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
         </div>
 
-        <div class="row">
+
+        <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();">
+
+        <!-- <div class="row">
           <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
-        </div>
+        </div> -->
 
 
 <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
