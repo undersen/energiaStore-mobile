@@ -1,4 +1,4 @@
-<ion-view ng-init="init();">
+<ion-view>
   <ion-header-bar align-title="center" class="bar-positive special-color">
     <div class="buttons">
       <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
@@ -6,9 +6,9 @@
       </div>
     </div>
     <h1 class="title">{{translations.MOTORS_HEADER}}</h1>
-    <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalMotor()">
+    <!-- <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalMotor()">
       <i class="ion-ios-plus-outline" style="    margin: auto;font-size: 25px;"></i>
-    </div>
+    </div> -->
   </ion-header-bar>
 
 
@@ -18,10 +18,12 @@
         </ion-refresher>
 
 
-        <h6 ng-hide="motors.length != 0" style="text-align: center;margin: 30px;font-size: 20px;">
+        <h6 ng-hide="motors.length != 0" style="text-align: center;margin: 30px 50px 0 50px;font-size: 15px;">
           {{translations.MOTOR_CARD_TITLE_EMPTY}}
         </h6>
 
+
+<button class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="openModalMotor()">{{motorButtonText}} </button>
 
       <!-- <div class="col s12 m6" ng-repeat="motor in motors" >
         <div class="card special-color">
@@ -35,7 +37,7 @@
 
 
       <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-    <ion-item ng-repeat="motor in motors"  ng-click="openModalMotor()">
+    <ion-item ng-repeat="motor in motors" >
 
 
 
@@ -45,8 +47,9 @@
       <p>{{translations.AMP_NAME_LIST}}: {{motor.amp}}</p>
       <p>{{translations.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
       <p>{{translations.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
+      <p>{{translations.KW_NAME_LIST}}: {{motor.rated_power}}</p>
       <p>{{translations.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
-      <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
+      <p ng-if="user.type_user === undefined">{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
 
 
       <!-- <ion-option-button class="button-positive" ng-click="edit(motor.id)">
@@ -65,6 +68,37 @@
 
 
 </ion-content>
+<ion-footer-bar>
+  <div class="" style="width: 100%;display: flex;">
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;" ng-click="goToProjects()">
+<i class="fa fa-bookmark"></i>
+
+Projectos
+      </button>
+
+
+    </div>
+    <!-- <h1 class="title">Title!</h1> -->
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
+
+        <i class="fa fa-user"></i>
+
+        Perfil
+      </button>
+    </div>
+
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+
+        <i class="fa fa-money"></i>
+
+        Cotizaciones
+      </button>
+    </div>
+  </div>
+</ion-footer-bar>
 
   <a ng-click="goToQuotation();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
   left: 75vw;
@@ -75,3 +109,11 @@
 </a>
 
 </ion-view>
+
+
+<style media="screen">
+.bar-footer {
+    height: 50px !important;
+    background-color: #8bcb71;
+}
+</style>

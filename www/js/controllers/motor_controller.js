@@ -6,33 +6,40 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("MotorsController", ["$scope", "$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService","Quotation","$cordovaStatusbar","Utils",
-  function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils) {
+  this.app.controller("MotorsController", ["$scope", "$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService","Quotation","$cordovaStatusbar","Utils","StorageMotor",
+  function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils,StorageMotor) {
     $ionicPlatform.ready(function() {
 
-        const languageFilePath = translationService.getTranslation();
-        $resource(languageFilePath).get(function (data) {
-            $scope.translations = data;
-        });
+      const languageFilePath = translationService.getTranslation();
+      $resource(languageFilePath).get(function (data) {
+        $scope.translations = data;
+        $scope.init();
+      });
 
-        var user = StorageUserModel.getCurrentUser();
+      var user = StorageUserModel.getCurrentUser();
+      $scope.user = StorageUserModel.getCurrentUser();
 
 
       $scope.motors =[];
       $scope.motor = {};
+      $scope.motor.voltaje=380;
       $scope.user = StorageUserModel.getCurrentUser();
       $scope.quote={
-         calculation_id:'',
-         user_id:'',
-         comment:'',
-         reference:''
+        calculation_id:'',
+        user_id:'',
+        comment:'',
+        reference:''
       }
 
 
       $scope.init = function(){
+
         $scope.getMotors();
 
+
+
       };
+
 
       $ionicModal.fromTemplateUrl('modal-motor', {
         scope: $scope,
@@ -44,6 +51,10 @@ CONTROLLER DEFINITION
 
       $scope.openModalMotor = function() {
         $scope.modalMotor.show();
+        setTimeout(function () {
+          $('#voltaje-id').addClass('active')
+          $scope.motor.voltaje=380;
+        }, 1);
       };
       $scope.closeModalMotor = function() {
         $scope.modalMotor.hide();
@@ -62,8 +73,13 @@ CONTROLLER DEFINITION
       });
 
       $scope.back = function(){
-        $state.go("calculation");
+        $state.go("project");
       };
+
+      $ionicPlatform.registerBackButtonAction(function () {
+        $scope.back();
+      }, 100);
+
 
 
       $scope.createMotor = function (){
@@ -78,8 +94,20 @@ CONTROLLER DEFINITION
           return;
         }
 
+        if($scope.motor.voltaje <= 0) {
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_VOLTAJE_MINIMUN);
+          // El voltaje debe ser mayor a 0
+          return;
+        }
+
         if($scope.motor.amp === undefined || $scope.motor.amp === 0) {
           Utils.validateToast($scope.translations.MOTOR_COMPLETE_AMP);
+          return;
+        }
+
+        if($scope.motor.amp <= 0) {
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_AMP_MINIMUN);
+          // El amperaje debe ser mayor a 0
           return;
         }
 
@@ -88,6 +116,37 @@ CONTROLLER DEFINITION
           Utils.validateToast($scope.translations.MOTOR_COMPLETE_FTP);
           return;
         }
+
+
+        if($scope.motor.power_factor > 1) {
+          Utils.validateToast("Factor de potencia debe varia entre 0.0 y 1");
+          return;
+        }
+
+        if($scope.motor.power_factor < 0) {
+          Utils.validateToast("Factor de potencia debe varia entre 0.0 y 1");
+          return;
+        }
+
+        if(validator.isDecimal($scope.motor.power_factor+'',{force_decimal: true, decimal_digits: '1,', locale: 'en-US'})){
+
+        }else{
+
+        }
+
+
+        if($scope.motor.rated_power === undefined || $scope.motor.rated_power === 0) {
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_KW_EMPTY);
+          // Los KW deben ser mayor a 0
+          return;
+        }
+
+        if($scope.motor.rated_power <= 0) {
+          Utils.validateToast($scope.translations.MOTOR_COMPLETE_KW_MINIMUN);
+          // El amperaje debe ser mayor a 0
+          return;
+        }
+
 
         if($scope.motor.hours === undefined || $scope.motor.hours === 0) {
           Utils.validateToast($scope.translations.MOTOR_COMPLETE_HOURS_DAY);
@@ -99,29 +158,78 @@ CONTROLLER DEFINITION
           return;
         }
 
-        Motors.create($scope.user,$scope.motor,$state.params.id_quotation).then(function(_response){
+        if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
+
+          var motors = StorageMotor.getMotor()
 
 
-          Utils.validateToast($scope.translations.MOTOR_ADD_SUCCESS);
-          console.log(_response);
+          if(motors == undefined){
+            motors = [];
+          }
+
+
+          var motor={
+            name:$scope.motor.name,
+            amp:$scope.motor.amp,
+            average_time:$scope.motor.hours,
+            volts:$scope.motor.voltaje,
+            efficiency:$scope.motor.power_factor,
+            rated_power:$scope.motor.rated_power,
+          }
+
+          motors.push(motor);
+          StorageMotor.addMotor(motors);
+          $scope.modalMotor.hide();
+
           $scope.getMotors();
-        },function(_error){
-          Materialize.toast("Problemas al agregar motor",4000);
-          Utils.validateToast($scope.translations.MOTOR_ADD_FAIL);
+
+
+
+
+        }else{
+
+          Motors.create($scope.user,$scope.motor,$state.params.id_quotation).then(function(_response){
+            $scope.modalMotor.hide();
+            Utils.validateToast($scope.translations.MOTOR_ADD_SUCCESS);
+            console.log(_response);
+            $scope.getMotors();
+          },function(_error){
+            // Materialize.toast("Problemas al agregar motor",4000);
+            // $scope.modalMotor.hide();
+            Utils.validateToast($scope.translations.MOTOR_ADD_FAIL);
             console.error(_error);
-        })
+          })
+        }
       };
 
 
       $scope.getMotors = function(){
-        Motors.getByCalculation($state.params.id_quotation,StorageUserModel.getCurrentUser()).then(function(_response){
-          $scope.motors = _response.data;
-          console.log($scope.motors);
+        if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
+          $scope.motor =[];
+          $scope.motors = StorageMotor.getMotor();
+
+          if($scope.motors === undefined){
+            $scope.motorButtonText=$scope.translations.BUTTON_ADD_MOTOR
+          }else{
+            $scope.motorButtonText=$scope.translations.BUTTON_ADD_MORE_MOTORS;
+          }
           $scope.$broadcast('scroll.refreshComplete');
-        },function(_error){
-          console.log(_error);
-          $scope.$broadcast('scroll.refreshComplete');
-        })
+        }else{
+          Motors.getByCalculation($state.params.id_quotation,StorageUserModel.getCurrentUser()).then(function(_response){
+            $scope.motors = _response.data;
+            $scope.$broadcast('scroll.refreshComplete');
+
+            if($scope.motors === undefined){
+              $scope.motorButtonText=$scope.translations.BUTTON_ADD_MOTOR
+            }else{
+              $scope.motorButtonText=$scope.translations.BUTTON_ADD_MORE_MOTORS;
+            }
+
+          },function(_error){
+            console.log(_error);
+            $scope.$broadcast('scroll.refreshComplete');
+          })
+        }
       };
 
       $scope.doRefreshMotors = function(){
@@ -135,35 +243,35 @@ CONTROLLER DEFINITION
 
         switch (_index) {
           case 1:
-              _title = $scope.translations.MODAL_HELPER_MOTOR_TITLE;
-              _body = $scope.translations.MODAL_HELPER_MOTOR_body;
+          _title = $scope.translations.MODAL_HELPER_MOTOR_TITLE;
+          _body = $scope.translations.MODAL_HELPER_MOTOR_body;
           break;
 
           case 2:
-              _title = $scope.translations.MODAL_HELPER_AMP_TITLE;
-              _body = $scope.translations.MODAL_HELPER_AMP_BODY;
+          _title = $scope.translations.MODAL_HELPER_AMP_TITLE;
+          _body = $scope.translations.MODAL_HELPER_AMP_BODY;
 
           break;
 
           case 3:
-              _title = $scope.translations.MODAL_HELPER_VOLTAJE_TITLE;
-              _body = $scope.translations.MODAL_HELPER_VOLTAJE_BODY;
+          _title = $scope.translations.MODAL_HELPER_VOLTAJE_TITLE;
+          _body = $scope.translations.MODAL_HELPER_VOLTAJE_BODY;
           break;
 
 
           case 4:
-              _title = $scope.translations.MODAL_HELPER_POWER_FACTOR_TITLE;
-              _body = $scope.translations.MODAL_HELPER_POWER_FACTOR_BODY;
-              break;
+          _title = $scope.translations.MODAL_HELPER_POWER_FACTOR_TITLE;
+          _body = $scope.translations.MODAL_HELPER_POWER_FACTOR_BODY;
+          break;
 
           case 5:
-              _title = $scope.translations.MODAL_HELPER_HOURS_DAY_TITLE;
-              _body = $scope.translations.MODAL_HELPER_HOURS_DAY_BODY;
+          _title = $scope.translations.MODAL_HELPER_HOURS_DAY_TITLE;
+          _body = $scope.translations.MODAL_HELPER_HOURS_DAY_BODY;
           break;
 
           case 6:
-              _title = $scope.translations.MODAL_HELPER_DAYS_MONTH_TITLE;
-              _body = $scope.translations.MODAL_HELPER_DAYS_MONTH_BODY;
+          _title = $scope.translations.MODAL_HELPER_DAYS_MONTH_TITLE;
+          _body = $scope.translations.MODAL_HELPER_DAYS_MONTH_BODY;
           break;
           default:
           break;
@@ -176,24 +284,21 @@ CONTROLLER DEFINITION
 
 
       $scope.goToQuotation= function(){
-        debugger;
-        if($scope.motors.length === 0 ){
-          Utils.validateToast($scope.translations.EMPTY_MOTORS_FINALIZE_QUOTATION);
+        if(StorageUserModel.getCurrentUser().type_user === "explorer"){
 
+          if(StorageMotor.getMotor() === undefined){
+            Utils.validateToast($scope.translations.EMPTY_MOTORS_FINALIZE_QUOTATION);
+          }else{
+            $state.go('finalizeQuotation',{id_quotation: 0})
+          }
         }else{
-          $state.go('finalizeQuotation',{id_quotation: $state.params.id_quotation})
+          if($scope.motors.length === 0 ){
+
+
+          }else{
+            $state.go('finalizeQuotation',{id_quotation: $state.params.id_quotation})
+          }
         }
-
-
-
-        // popUpService.showpopUpGoToQuotation().then(function(_response){
-        //   if(_response === 1){
-        //
-        //   }else{
-        //
-        //   }
-        //
-        // })
       }
 
       //
@@ -226,6 +331,18 @@ CONTROLLER DEFINITION
       //   // Execute action
       // });
       //
+
+
+    $scope.goToProjects= function(){
+      $state.go('project');
+    }
+    $scope.goToProfile= function(){
+      $state.go('settings');
+    }
+    $scope.goToQuotes= function(){
+
+      $state.go('factor');
+    }
 
 
 

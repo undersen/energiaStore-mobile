@@ -2,7 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+
+  <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+
   <title></title>
 
   <link rel="manifest" href="manifest.json">
@@ -27,6 +30,9 @@
 <link href="css/ionic.app.css" rel="stylesheet">
 -->
 
+
+
+<script type="text/javascript" src="lib/validator.min.js"></script>
 
 
 <!-- ionic/angularjs js -->
@@ -66,8 +72,9 @@
 <script src="js/controllers/motor_controller.js"></script>
 <script src="js/controllers/factor_controller.js"></script>
 <script src="js/controllers/settings_controller.js"></script>
-<script src="js/controllers/calculation_controller.js"></script>
+<script src="js/controllers/project_controller.js"></script>
 <script src="js/controllers/finalize_quotation_controller.js"></script>
+<script src="js/controllers/tab_controller.js"></script>
 
 
 
@@ -75,6 +82,7 @@
   <script src="js/utilities/translateUtilities.js"></script>
   <script src="js/utilities/popUpUtilities.js"></script>
   <script src="js/utilities/utilities.js"></script>
+  <script src="js/utilities/httpUtilities.js"></script>
 
 
 
@@ -89,11 +97,14 @@
 
 
 
-  <script src="js/models/language_model.js"></script>
-
 <!-- models -->
 <script src="js/models/user_model.js"></script>
+<script src="js/models/project_model.js"></script>
 <script src="js/models/quotation_model.js"></script>
+<script src="js/models/country_model.js"></script>
+<script src="js/models/status_model.js"></script>
+<script src="js/models/motor_model.js"></script>
+<script src="js/models/language_model.js"></script>
 
 
 
@@ -151,14 +162,18 @@
 <script id="my-popover.html" type="text/ng-template">
   <ion-popover-view>
    <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-    <ion-item ng-click="settings();">
+    <ion-item ng-click="settings();" ng-if="user.type_user !== 'explorer'">
       {{translations.MENU_PROFILE}}
     </ion-item>
+
     <ion-item ng-click="chooseLanguage();">
       {{translations.MENU_SWITCH_LANGUAGE}}
     </ion-item>
-    <ion-item ng-click="logOut();">
+    <ion-item ng-click="logOut();" ng-if="user.type_user !== 'explorer'">
       {{translations.MENU_LOG_OUT}}
+    </ion-item>
+    <ion-item ng-click="exitExplorer();" ng-if="user.type_user === 'explorer'">
+      {{translations.LOGOUT_EXPLORER}}
     </ion-item>
     </ion-list>
   </ion-popover-view>
@@ -272,6 +287,70 @@
 </script>
 
 
+
+<script id="modal-register" type="text/ng-template">
+  <ion-modal-view>
+
+    <  <ion-content class="back-color1" id="content-register">
+
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
+          <ion-slide>
+
+            <div class="row" style="margin-top: 10vw;">
+              <div class="col s12 m6">
+                <div class="card card-register" style="padding:0">
+                  <div class="card-content white-text">
+                    <span class="card-title login-title">{{translations.REGISTER_SLIDER_1_HEADER}}</span>
+
+                    <div class="input-field col s12">
+                      <input id="email" type="text" class="validate" ng-model="register.email">
+                      <label for="email">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="password" type="password" class="validate" ng-model="register.password">
+                      <label for="password">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="password_confirmation" type="password" class="validate" ng-model="register.password_confirmation">
+                      <label for="password_confirmation">{{translations.REGISTER_SLIDER_1_CONFIRMATION_PASSWORD}}</label>
+                    </div>
+                  </div>
+                </div>
+                <a class="btn-floating btn-large waves-effect waves-light register-float-button" ng-click="validateSlider1();"><i class="ion-android-arrow-forward"></i></a>
+              </div>
+            </div>
+
+          </ion-slide>
+
+          <ion-slide>
+            <div class="row" style="margin-top: 10vw;">
+              <div class="col s12 m6">
+                <div class="card card-register">
+                  <div class="card-content white-text">
+                    <span class="card-title login-title">{{translations.REGISTER_SLIDER_2_HEADER}}</span>
+                    <br>
+                    <img class="logo-register" src="img/logo_white.png" alt="">
+                    <br>
+                    <span class="card-title login-subtitle">{{translations.REGISTER_SLIDER_2_SUBTITLE}}</span>
+
+
+                  </div>
+
+                </div>
+                <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward" ng-click="finish()"></i></a>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+
+
+
+      </ion-content>
+</ion-modal-view>
+</script>
+
+
+
 <script id="modal-motor" type="text/ng-template">
   <ion-modal-view>
     <ion-header-bar class="special-color">
@@ -288,45 +367,112 @@
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
           <input id="motor-name"  type="text" class="validate" ng-model="motor.name">
-          <label for="motor-name">{{translations.MODAL_HELPER_MOTOR_TITLE}}</label>
+          <label class="" for="motor-name">{{translations.MODAL_HELPER_MOTOR_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(1)"></i>
         </div>
 
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="motor-voltaje"  type="number" class="validate" ng-model="motor.voltaje">
-          <label for="motor-voltaje">{{translations.MODAL_HELPER_VOLTAJE_TITLE}}</label>
+          <input id="motor-voltaje"  type="number" step="0.01" class="validate" ng-model="motor.voltaje">
+          <label for="motor-voltaje" id="voltaje-id">{{translations.MODAL_HELPER_VOLTAJE_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(2)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="motor-amp"  type="number" class="validate" ng-model="motor.amp">
+          <input id="motor-amp"  type="number" step="0.01" class="validate" ng-model="motor.amp">
           <label for="motor-amp">{{translations.MODAL_HELPER_AMP_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(3)"></i>
         </div>
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="power-factory" type="number" step="0.01"class="validate" ng-model="motor.power_factor">
+          <input id="power-factory" type="number" step="0.01" min="0.01" max="1" class="validate" ng-model="motor.power_factor">
           <label for="power-factory">{{translations.MODAL_HELPER_POWER_FACTOR_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
         </div>
 
 
         <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="rated-power" type="number" class="validate" ng-model="motor.rated_power">
-          <label for="rated-power">{{translations.MODAL_HELPER_POWER_FACTOR_TITLE}}</label>
+          <input id="rated-power" type="number" step="0.01" class="validate" ng-model="motor.rated_power">
+          <label for="rated-power">{{translations.MODAL_HELPER_RATED_POWER_TITLE}}</label>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
         </div>
 
-        <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="hours-day" type="number" min="1" max="24" class="validate" ng-model="motor.hours">
+        <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
+          <!-- <input id="hours-day" type="number" min="1" max="24" class="validate" ng-model="motor.hours"> -->
           <label for="hours-day">{{translations.MODAL_HELPER_HOURS_DAY_TITLE}}</label>
-          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
-        </div>
+<div  style="width:80%; display: -webkit-box;">
+  <select name="singleSelect" ng-model="motor.hours" style="display:block;-webkit-appearance:none;">
+    <option value="" disabled>{{translations.MOTOR_SELECT_HOURS}}</option>
+<option value="1">1 hora</option>
+<option value="2">2 horas</option>
+<option value="3">3 horas</option>
+<option value="4">4 horas</option>
+<option value="5">5 horas</option>
+<option value="6">6 horas</option>
+<option value="7">7 horas</option>
+<option value="8">8 horas</option>
+<option value="9">9 horas</option>
+<option value="10">10 horas</option>
+<option value="11">11 horas</option>
+<option value="12">12 horas</option>
+<option value="13">13 horas</option>
+<option value="14">14 horas</option>
+<option value="15">15 horas</option>
+<option value="16">16 horas</option>
+<option value="17">17 horas</option>
+<option value="18">18 horas</option>
+<option value="19">19 horas</option>
+<option value="20">20 horas</option>
+<option value="21">21 horas</option>
+<option value="22">22 horas</option>
+<option value="23">23 horas</option>
+<option value="24">24 horas</option>
 
-        <div class="input-field" style="width:80%; display: -webkit-box;">
-          <input id="days-month" type="number" min="1" max="31" class="validate" ng-model="motor.days">
+</select>
+  <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
+</div>
+
+        <!-- </div> -->
+
+        <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
+          <!-- <input id="days-month" type="number" min="1" max="31" class="validate" ng-model="motor.days"> -->
           <label for="days-month">{{translations.MODAL_HELPER_DAYS_MONTH_TITLE}}</label>
+          <div  style="width:80%; display: -webkit-box;">
+          <select name="singleSelect" ng-model="motor.days" style="display:block;-webkit-appearance:none;">
+            <option value="" disabled>{{translations.MOTOR_SELECT_DAYS}}</option>
+     <option value="1">1 dia</option>
+     <option value="2">2 dias</option>
+     <option value="3">3 dias</option>
+     <option value="4">4 dias</option>
+     <option value="5">5 dias</option>
+     <option value="6">6 dias</option>
+     <option value="7">7 dias</option>
+     <option value="8">8 dias</option>
+     <option value="9">9 dias</option>
+     <option value="10">10 dias</option>
+     <option value="11">11 dias</option>
+     <option value="12">12 dias</option>
+     <option value="13">13 dias</option>
+     <option value="14">14 dias</option>
+     <option value="15">15 dias</option>
+     <option value="16">16 dias</option>
+     <option value="17">17 dias</option>
+     <option value="18">18 dias</option>
+     <option value="19">19 dias</option>
+     <option value="20">20 dias</option>
+     <option value="21">21 dias</option>
+     <option value="22">22 dias</option>
+     <option value="23">23 dias</option>
+     <option value="25">25 dias</option>
+     <option value="26">26 dias</option>
+     <option value="27">27 dias</option>
+     <option value="28">28 dias</option>
+     <option value="29">29 dias</option>
+     <option value="30">30 dias</option>
+     <option value="31">31 dias</option>
+
+
+   </select>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(6)"></i>
         </div>
 

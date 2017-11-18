@@ -7,7 +7,7 @@
 
     return {
       create: function(_user_info,_calculation,calculation_id) {
-        debugger;
+        
         let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.CREATE_CALCULATION+ "/"+calculation_id+"/motors",

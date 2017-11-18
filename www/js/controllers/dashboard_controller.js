@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","Session","StorageUserModel","popUpService","translationService","$resource","$ionicPopover","$cordovaActionSheet","$cordovaStatusbar","StorageLanguageModel","$ionicPopup","IonicClosePopupService",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,Session,StorageUserModel,popUpService,translationService,$resource,$ionicPopover,$cordovaActionSheet,$cordovaStatusbar,StorageLanguageModel,$ionicPopup,IonicClosePopupService) {
+  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","Session","StorageUserModel","popUpService","translationService","$resource","$ionicPopover","$cordovaActionSheet","$cordovaStatusbar","StorageLanguageModel","$ionicPopup","IonicClosePopupService","StorageStatus","StorageProject","StorageMotor","StorageQuotation",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,Session,StorageUserModel,popUpService,translationService,$resource,$ionicPopover,$cordovaActionSheet,$cordovaStatusbar,StorageLanguageModel,$ionicPopup,IonicClosePopupService,StorageStatus,StorageProject,StorageMotor,StorageQuotation) {
 
     $ionicPlatform.ready(function() {
 
@@ -15,6 +15,8 @@ CONTROLLER DEFINITION
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function (data) {
         $scope.translations = data;
+        $scope.options = { title: $scope.translations.CHOOSE_LANGUAGE_TEXT, buttonLabels: [$scope.translations.CHOOSE_LANGUAGE_ENGLISH,$scope.translations.CHOOSE_LANGUAGE_SPANISH], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
+        $scope.init();
       });
       if (window.StatusBar) {
         $cordovaStatusbar.overlaysWebView(false);
@@ -26,14 +28,28 @@ CONTROLLER DEFINITION
 
       let user = StorageUserModel.getCurrentUser();
 
+      $scope.user = StorageUserModel.getCurrentUser();
+
       $scope.init = function (){
 
-        if(user.email === undefined){
-          popUpService.showPopUpWelcome();
+        if(user.type_user === 'explorer'){
+
+          if(StorageStatus.getStatus() === undefined){
+          popUpService.showPopUpExplorer($scope.translations).then(function(_response){
+
+            StorageStatus.setStatus({status:true});
+
+          });
+        }
+        }else{
+          if(user.email === undefined){
+
+            popUpService.showPopUpWelcome($scope.translations);
+          }
         }
       };
 
-      $scope.goToQuotation = function(){$state.go("calculation");};
+      $scope.goToQuotation = function(){$state.go("project");};
 
       $scope.goToFactor = function(){$state.go("factor");};
 
@@ -41,26 +57,22 @@ CONTROLLER DEFINITION
 
       $ionicPlatform.registerBackButtonAction(function () {
 
-        if($ionicPopover.isShown()){
-          $ionicPopover.hide()
-        }else{
-          ionic.Platform.exitApp();
-        }
 
+        ionic.Platform.exitApp();
       }, 100);
 
 
       $scope.logOut = function (){
-
+        $scope.popover.hide();
         let button_exit_lesson = [{ text: $scope.translations.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
-            $scope.deleteData()
+          $scope.deleteData()
         }}];
 
         let logoutPopUp = $ionicPopup.show({
-            title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-            subTitle: `<br><span class="modal-title-config">${$scope.translations.MODAL_LOGOUT_TITLE}</span><br><span class="modal-body-config">${$scope.translations.MODAL_LOGOUT_TEXT}</span>`,
-            cssClass: 'successClass',
-            buttons:button_exit_lesson,
+          title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+          subTitle: `<br><span class="modal-title-config">${$scope.translations.MODAL_LOGOUT_TITLE}</span><br><span class="modal-body-config">${$scope.translations.MODAL_LOGOUT_TEXT}</span>`,
+          cssClass: 'successClass',
+          buttons:button_exit_lesson,
         })
         IonicClosePopupService.register(logoutPopUp);
       };
@@ -97,28 +109,24 @@ CONTROLLER DEFINITION
       }
 
       $scope.settings = function() {
-        $scope.closePopover();
-        $state.go("settings");
+        $scope.popover.hide();
+        setTimeout(function () {
+          $state.go("settings")
+        }, 100);
       };
-
-
-
-      var options = { title: "Seleccione idioma", buttonLabels: ["Ingles", "Español"], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
 
       if (window.cordova){
         $scope.showLanguageOptions = function(){
           $cordovaActionSheet
-          .show(options)
+          .show($scope.options)
           .then(function(btnIndex) {
-            var index = btnIndex;
-
-            switch (index) {
+            switch (btnIndex) {
               case 1:
-              StorageLanguageModel.setCurrentLanguage('es');
+              StorageLanguageModel.setCurrentLanguage('en');
               break;
 
               case 2:
-              StorageLanguageModel.setCurrentLanguage('en');
+              StorageLanguageModel.setCurrentLanguage('es');
               break;
             }
 
@@ -127,15 +135,46 @@ CONTROLLER DEFINITION
             const languageFilePath = translationService.getTranslation();
             $resource(languageFilePath).get(function(data) {
               $scope.translations = data;
+              $scope.options = { title: $scope.translations.CHOOSE_LANGUAGE_TEXT, buttonLabels: [$scope.translations.CHOOSE_LANGUAGE_ENGLISH,$scope.translations.CHOOSE_LANGUAGE_SPANISH], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
             });
           });
         }
       }
 
       $scope.deleteData= function (){
-          StorageUserModel.destroyCurrentUser();
+        StorageUserModel.destroyCurrentUser();
+
+
+        setTimeout(function () {
           $state.go("login")
+        }, 100);
+
       };
+
+
+      $scope.exitExplorer = function(){
+
+        popUpService.showPopUpExitExplorer($scope.translations).then(function(_response){
+
+          StorageStatus.destroyStatus();
+          StorageProject.destroyProjects();
+          StorageMotor.destroyMotors();
+          StorageQuotation.destroyQuotation();
+          StorageUserModel.destroyCurrentUser();
+
+          $scope.popover.hide();
+
+          setTimeout(function () {
+            $state.go("login");
+          }, 100);
+
+        },function(_error){
+          $scope.popover.hide();
+        })
+
+
+
+      }
 
     });
   }]);

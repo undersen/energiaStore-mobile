@@ -17,8 +17,10 @@
       {{translations.QUOTATION_CARD_TITLE}} <strong style="font-weight:600">{{translations.QUOTATION_CARD_TITLE_STRONG}}...</strong>
     </h6>
 
+    <button  class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="addQuotationPopUp()()">{{translations.BUTTON_ADD_PROJECT}} </button>
+
     <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-      <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="goToCalculation({{calculation.id}})">
+      <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="goToCalculation({{calculation.id}})" >
 
         <div style="width:50px;position:relative;">
           <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
@@ -28,7 +30,7 @@
         <div class="">
 
           <h2>{{calculation.name}}</h2>
-          <p>{{calculation.energy_cost}} clp</p>
+          <p>{{calculation.energy_cost | number : fractionSize}} clp</p>
           <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
           <ion-option-button class="button-positive" ng-click="edit(calculation.id)">
             Editar
@@ -44,11 +46,39 @@
 
 
   </ion-content>
-  <a ng-click="addQuotationPopUp();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
-  left: 75vw;
-  top: 85vh;">
-  <i style="font-size:40px;line-height: 60px;" class="ion-ios-plus-empty"></i>
-</a>
+
+
+  <ion-footer-bar>
+    <div class="" style="width: 100%;display: flex;">
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;"  ng-click="goToProjects()">
+<i class="fa fa-bookmark"></i>
+
+Projectos
+        </button>
+
+
+      </div>
+      <!-- <h1 class="title">Title!</h1> -->
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
+
+          <i class="fa fa-user"></i>
+
+          Perfil
+        </button>
+      </div>
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+
+          <i class="fa fa-money"></i>
+
+          Cotizaciones
+        </button>
+      </div>
+    </div>
+</ion-footer-bar>
 </ion-view>
 
 
@@ -68,12 +98,21 @@
 }
 
 .popup-head{
-  height:85px;
+  min-height: 40px;
 }
 .popup-body {
   padding: 10px;
   overflow: visible;
   height:30vh;
+}
+
+.bar-footer {
+    height: 50px !important;
+    background-color: #8bcb71;
+}
+
+h5{
+  text-align: center;
 }
 
 </style>

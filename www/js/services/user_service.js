@@ -28,7 +28,7 @@
       },
 
       updateUser: function(_user,_info) {
-debugger;
+
         let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,

@@ -10,20 +10,18 @@
       <i class="ion-ios-help-outline" style="    margin: auto;font-size: 25px;"></i>
     </div>
   </ion-header-bar>
-    <ion-content>
-
-
+    <ion-content scroll="false">
        <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
 
       <div class="input-field col s12">
-         <input id="input-penalty" type="text" class="validate" ng-model="factorType.power_factor" >
+         <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor">
          <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
        </div>
 
 
        <div class="input-field col s12">
-          <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.power_factor" >
+          <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.comment" >
           <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
         </div>
 
@@ -43,6 +41,38 @@
 
 
     </ion-content>
+
+    <ion-footer-bar>
+      <div class="" style="width: 100%;display: flex;">
+        <div class="buttons" style="margin:0 auto;">
+          <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProjects()">
+  <i class="fa fa-bookmark"></i>
+
+  Projectos
+          </button>
+
+
+        </div>
+        <!-- <h1 class="title">Title!</h1> -->
+        <div class="buttons" style="margin:0 auto;">
+          <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
+
+            <i class="fa fa-user"></i>
+
+            Perfil
+          </button>
+        </div>
+
+        <div class="buttons" style="margin:0 auto;">
+          <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;"  ng-click="goToQuotes()">
+
+            <i class="fa fa-money"></i>
+
+            Cotizaciones
+          </button>
+        </div>
+      </div>
+  </ion-footer-bar>
 </ion-view>
 
 
@@ -53,5 +83,10 @@
 
 .ios-content{
   height:calc(100vh - 97px)
+}
+
+.bar-footer {
+    height: 50px !important;
+    background-color: #8bcb71;
 }
 </style>

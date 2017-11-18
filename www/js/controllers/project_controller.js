@@ -6,19 +6,20 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("CalculationController", ["$scope","$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading",
-    function($scope,$state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading) {
+  this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject",
+    function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject) {
       $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
         $resource(languageFilePath).get(function(data) {
-          debugger;
           $scope.translations = data;
           $scope.init();
         });
 
         $scope.has_quotation = false;
         $scope.calculations = {};
+        var user = StorageUserModel.getCurrentUser();
+        $scope.user = StorageUserModel.getCurrentUser();
 
         $scope.back = function() {
           $state.go("dashboard");
@@ -28,12 +29,38 @@ CONTROLLER DEFINITION
           $ionicLoading.show({
           template: `${$scope.translations.LOADING}...`
         }).then(function () {
-          $scope.getCalculation();
+
+          if(user.type_user === 'explorer'){
+            $scope.getExplorerCalulation();
+          }else{
+              $scope.getCalculation();
+          }
+
+
         });
         };
 
+        $scope.getExplorerCalulation = function(){
+
+          if(StorageProject.getProjects()=== undefined){
+
+          }else{
+            $scope.calculations[0] = StorageProject.getProjects();
+          }
+
+          $ionicLoading.hide();
+          $scope.$broadcast("scroll.refreshComplete");
+
+        }
+
+
         $scope.doRefreshQuotation = function() {
-          $scope.getCalculation();
+          if(user.type_user === 'explorer'){
+            $scope.getExplorerCalulation();
+          }else{
+              $scope.getCalculation();
+          }
+          // $scope.getCalculation();
         };
 
         $scope.addQuotationPopUp = function() {
@@ -66,7 +93,26 @@ CONTROLLER DEFINITION
                     Utils.validateToast($scope.translations.QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO);
                     e.preventDefault();
                   } else {
-                    $scope.craeteCalculation($scope.data);
+                    if(user.type_user === 'explorer'){
+                      if(StorageProject.getProjects() === undefined){
+
+                        var project={
+                          name:$scope.data.name,
+                          energy_cost:$scope.data.price
+                        }
+
+
+                      StorageProject.addProjects(project);
+                      $scope.getExplorerCalulation();
+
+                    }else{
+                      console.log('PopUp solo 1 proyecto en modo explorer');
+                      //PopUp solo 1 proyecto en modo explorer
+                    }
+                    }else{
+                      $scope.craeteCalculation($scope.data);
+                    }
+
                     // return $scope.data.model;
                   }
                 }
@@ -102,10 +148,13 @@ CONTROLLER DEFINITION
               $ionicLoading.hide()
             },
             function(_error) {
-              Utils.validateToast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO);
+              $ionicLoading.hide()
+              httpUtilities.validateHTTPResponse(_error,popUpService,$scope.translations);
+
+              // Utils.validateToast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO);
               $scope.$broadcast("scroll.refreshComplete");
               console.error(_error);
-              $ionicLoading.hide()
+
             }
           );
         };
@@ -114,9 +163,29 @@ CONTROLLER DEFINITION
           $state.go("motors", { id_quotation: _index }, { reload: true });
         };
 
+
+        $scope.goToProjects= function(){
+          $state.go('project');
+        }
+        $scope.goToProfile= function(){
+          $state.go('settings');
+        }
+        $scope.goToQuotes= function(){
+
+          $state.go('factor');
+        }
+
+
+
          $scope.shouldShowDelete = false;
          $scope.shouldShowReorder = false;
          $scope.listCanSwipe = true;
+
+
+
+         $ionicPlatform.registerBackButtonAction(function () {
+             $state.go("dashboard");
+         }, 100);
 
 
       });

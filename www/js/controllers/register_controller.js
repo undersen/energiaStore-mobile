@@ -6,15 +6,15 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("RegisterController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","User","$ionicLoading","StorageUserModel","$resource","translationService","$cordovaStatusbar","Utils",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,User,$ionicLoading,StorageUserModel,$resource,translationService,$cordovaStatusbar,Utils) {
+  this.app.controller("RegisterController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","User","$ionicLoading","StorageUserModel","$resource","translationService","$cordovaStatusbar","Utils","popUpService",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,User,$ionicLoading,StorageUserModel,$resource,translationService,$cordovaStatusbar,Utils,popUpService) {
 
     $ionicPlatform.ready(function() {
 
-        const languageFilePath = translationService.getTranslation();
-        $resource(languageFilePath).get(function (data) {
-            $scope.translations = data;
-        });
+      const languageFilePath = translationService.getTranslation();
+      $resource(languageFilePath).get(function (data) {
+        $scope.translations = data;
+      });
 
       $scope.user={};
 
@@ -37,25 +37,25 @@ CONTROLLER DEFINITION
         switch (index) {
           case 0:
 
-              _content_register.addClass("back-color1");
-              _content_register.removeClass("back-color2");
+          _content_register.addClass("back-color1");
+          _content_register.removeClass("back-color2");
           break;
           case 1:
 
-              _content_register.removeClass("back-color3");
-              _content_register.removeClass("back-color1");
-              _content_register.addClass("back-color2");
+          _content_register.removeClass("back-color3");
+          _content_register.removeClass("back-color1");
+          _content_register.addClass("back-color2");
 
           break;
           case 2:
-              _content_register.removeClass("back-color2");
-              _content_register.removeClass("back-color4");
-              _content_register.addClass("back-color3");
+          _content_register.removeClass("back-color2");
+          _content_register.removeClass("back-color4");
+          _content_register.addClass("back-color3");
 
           break;
           case 3:
-              _content_register.addClass("welcome-background-4");
-              _content_register.removeClass("welcome-background-3");
+          _content_register.addClass("welcome-background-4");
+          _content_register.removeClass("welcome-background-3");
           break;
 
           default:
@@ -66,7 +66,7 @@ CONTROLLER DEFINITION
       $scope.nextButton = function(index){
         switch (index) {
           case 0:
-          debugger;
+          
           $scope.validateSlider1();
 
           // $ionicSlideBoxDelegate.slide(2)
@@ -157,10 +157,18 @@ CONTROLLER DEFINITION
 
 
       $scope.onBack = function (){
-      if ($ionicSlideBoxDelegate.currentIndex() === 0 ){ $state.go("login")}
+        if ($ionicSlideBoxDelegate.currentIndex() === 0 ){
+
+          popUpService.showPopupLeaveRegister($scope.translations).then(function(_response){
+            if(_response === 2){
+              $state.go("login")
+            }
+          });
+        }
       }
 
-
     });
+
+
   }]);
 }).call(this);

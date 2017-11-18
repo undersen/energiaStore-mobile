@@ -23,7 +23,7 @@ CONTROLLER DEFINITION
       $scope.init = function(){
 
         let user  = StorageUserModel.getCurrentUser();
-        debugger;
+
 
         $scope.placeholder.name = "Nombre";
         $scope.placeholder.last_name = "Apellido";
@@ -69,7 +69,7 @@ CONTROLLER DEFINITION
       }, 100);
 
       $scope.logOut = function (){
-        debugger;
+
         popUpService.showpopUpLogOut($scope.translations).then(function(_response){
           if(_response){
             try{
@@ -133,6 +133,17 @@ CONTROLLER DEFINITION
         $state.go("login")
       };
 
+
+              $scope.goToProjects= function(){
+                $state.go('project');
+              }
+              $scope.goToProfile= function(){
+                $state.go('settings');
+              }
+              $scope.goToQuotes= function(){
+
+                $state.go('factor');
+              }
 
 
 

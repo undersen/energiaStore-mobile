@@ -7,7 +7,7 @@
 
     return {
       getPDF: function(_user_info,_calculation_id,_quotation_id) {
-        debugger;
+        
         let defer = $q.defer();
         $http({
           url: ENV.LOCAL + `api/calculations/${_calculation_id}/quotations/${_quotation_id}/pdf`,

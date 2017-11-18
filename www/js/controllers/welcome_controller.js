@@ -34,12 +34,7 @@ CONTROLLER DEFINITION
 
 
     $scope.popUpLanguage = function(){
-        // popUpService.showPopUpWelcomeLanguage($scope.translations).then(function(_response){
             $state.go('introduction');
-
-        // })
-
-
     };
 
 

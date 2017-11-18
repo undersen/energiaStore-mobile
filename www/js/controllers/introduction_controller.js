@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar) {
+  this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate) {
   $ionicPlatform.ready(function() {
 
       const languageFilePath = translationService.getTranslation();
@@ -29,6 +29,19 @@ CONTROLLER DEFINITION
     };
 
     $ionicPlatform.registerBackButtonAction(function () {
+
+      switch($ionicSlideBoxDelegate.currentIndex()){
+        case 0:
+        ionic.Platform.exitApp();
+        break
+        case 1 :
+        $ionicSlideBoxDelegate.previous();
+        break
+        case 2 :
+        $ionicSlideBoxDelegate.previous();
+        break
+      }
+
     }, 100);
 
 

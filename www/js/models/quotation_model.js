@@ -11,11 +11,11 @@
       getQuotations: function() {
         return quotation = $localStorage.quotation;
       },
-      addQuotation: function(data) {
+      setQuotation: function(data) {
 
         $localStorage.quotation=data;
       },
-      destroyCurrentUser: function() {
+      destroyQuotation: function() {
         delete $localStorage.quotation;
         return true;
       }

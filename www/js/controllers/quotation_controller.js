@@ -25,7 +25,7 @@ CONTROLLER DEFINITION
         var options = {};
 
         $scope.checkFile = function(_file_name, _url) {
-          debugger;
+
 
           const file_path = _file_name;
 
@@ -37,6 +37,7 @@ CONTROLLER DEFINITION
               $("#btn-play-pdf").removeClass("disabled");
             },
             function(error) {
+
               console.error(error);
               $scope.downloadFile(_url, _file_name);
             }
@@ -52,7 +53,7 @@ CONTROLLER DEFINITION
           .open(path, "application/pdf")
           .then(
             function() {
-              debugger;
+
               $scope.hide();
               $scope.lesson.status = "ok";
               $("#quiz-button-id").removeClass("disabled");
@@ -82,7 +83,7 @@ CONTROLLER DEFINITION
             },
             function(err) {
               console.error(err);
-              debugger;
+
               // An error occurred. Show a message to the user
             }
           );

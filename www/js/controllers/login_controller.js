@@ -51,8 +51,17 @@ CONTROLLER DEFINITION
       };
 
       $ionicPlatform.registerBackButtonAction(function () {
-
+          ionic.Platform.exitApp();
       }, 100);
+
+      $scope.goExplorer = function(){
+        
+        StorageUserModel.setCurrentUser({
+          type_user:'explorer'
+        });
+
+        $state.go("dashboard");
+      }
 
 
     });

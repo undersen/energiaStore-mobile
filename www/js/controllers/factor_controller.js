@@ -6,31 +6,33 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer) {
 
     $ionicPlatform.ready(function() {
 
-        const languageFilePath = translationService.getTranslation();
-        $resource(languageFilePath).get(function (data) {
-            $scope.translations = data;
-            var options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
-        });
+      const languageFilePath = translationService.getTranslation();
+      $resource(languageFilePath).get(function (data) {
+        $scope.translations = data;
+        $scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
+      });
 
-        if (window.StatusBar) {
-          $cordovaStatusbar.overlaysWebView(false);
-          $cordovaStatusbar.style(1);
-          $cordovaStatusbar.styleHex("#1AA55E");
-          $cordovaStatusbar.show();
-        }
+      if (window.StatusBar) {
+        $cordovaStatusbar.overlaysWebView(false);
+        $cordovaStatusbar.style(1);
+        $cordovaStatusbar.styleHex("#1AA55E");
+        $cordovaStatusbar.show();
+      }
 
-        $scope.image = "img/placeholder.png";
+      $scope.image = "img/placeholder.png";
 
-        $scope.os = ionic.Platform.platform();
+      $scope.os = ionic.Platform.platform();
+      $scope.user = StorageUserModel.getCurrentUser();
 
-        const _input_penalty = $('#input-penalty');
-        const _button_camera = $('#button-camera');
-        const _button_galley = $('#button-gallery');
+
+      const _input_penalty = $('#input-penalty');
+      const _button_camera = $('#button-camera');
+      const _button_galley = $('#button-gallery');
 
 
       $scope.user =  StorageUserModel.getCurrentUser();
@@ -55,7 +57,7 @@ CONTROLLER DEFINITION
           }
 
         },function(_error){
-          debugger;
+
 
         })
       }
@@ -169,39 +171,188 @@ CONTROLLER DEFINITION
 
 
       $scope.createFactorPenalty =  function (){
+        if($scope.factorType.power_factor === undefined || $scope.factorType.power_factor === 0){
+          Utils.validateToast($scope.translations.QUOTATION_AMOUNT_EMPTY);
+          return;
+        }
+
+        if($scope.factorType.power_factor < 1000 ){
+          Utils.validateToast($scope.translations.QUOTATION_AMOUNT_MINIMUM);
+          return;
+        }
+
+let calculation = $scope.factorType;
+
+if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
+
+  popUpService.showPopUpRegister($scope.translations).then(function(_response){
+
+  },function(_error){
+
+  })
+
+  StorageQuotation.setQuotation(calculation);
+
+}else{
+        $ionicLoading.show({
+          template: `${$scope.translations.LOADING}...`
+        }).then(function () {
+
+
+            $scope.CreateQuoate(calculation);
+          });
+        }
+    }
 
 
 
-        let calculation = $scope.factorType;
+    $scope.CreateQuoate = function(calculation){
 
-        FactorPenalty.create(calculation,$scope.user).then(function(_response){
-            popUpService.showPopUpCreateFactor($scope.translations);
-            console.log(_response)
-        },function(_error){
-          console.error(_error);
-          popUpService.showPopUpFailCreateFactor($scope.translations);
-        })
-      };
+      FactorPenalty.create(calculation,$scope.user).then(function(_response){
 
+        $scope.getPDF(_response.data.calculation,_response.data.id);
+        // $ionicLoading.hide();
+        // popUpService.showPopUpCreateFactor($scope.translations).then(function(_response){
+        //
+        //   $state.go("dashboard");
+        //
+        // },function(error){
+        //
+        // });
+        console.log(_response)
+      },function(_error){
+
+        console.error(_error);
+        $ionicLoading.hide();
+        popUpService.showPopUpFailCreateFactor($scope.translations).then(function(_response){
+          $state.go("dashboard");
+        });
+      })
+    }
 
 
 
       if (window.cordova){
         $scope.showPopUpImage = function(){
           $cordovaActionSheet
-          .show(options)
+          .show($scope.options)
           .then(function(btnIndex) {
-            if(btnIndex === 1 ){
-              $scope.openCamera();
-            }else{
-              $scope.openGallery();
+
+
+            switch (btnIndex) {
+              case 1:
+                $scope.openCamera();
+                break;
+                case 2:
+                  $scope.openGallery();
+                  break;
+              default:
+              break;
+
             }
 
           });
         }
       }
 
+      $ionicPlatform.registerBackButtonAction(function () {
+          $state.go("dashboard");
+      }, 100);
 
+      $scope.goToProjects= function(){
+        $state.go('project');
+      }
+      $scope.goToProfile= function(){
+        $state.go('settings');
+      }
+      $scope.goToQuotes= function(){
+
+        $state.go('factor');
+      }
+
+
+
+
+      $scope.getPDF = function(param1,_quotation_id){
+        // PDF.getPDF(user,$state.params.id_quotation,_quotation_id).then(function(_response){
+        //
+        //
+        // },function(_error){
+        //
+        // })
+
+        var url = `http://kvar.herokuapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`;
+
+        $scope.downloadFile(url);
+
+
+
+
+      }
+  $scope.downloadFile = function(_url, _file_name) {
+
+        var targetPath = cordova.file.dataDirectory;
+        var trustHosts = true;
+        var params= {};
+        params.headers={
+          token: StorageUserModel.getCurrentUser().authentication_token,
+          username: StorageUserModel.getCurrentUser().username
+        };
+
+
+        var path = targetPath + _file_name;
+
+        $cordovaFileTransfer.download(_url, targetPath+'pdf.js', params, trustHosts).then(
+          function(result) {
+            $ionicLoading.hide();
+            console.log(result);
+            $scope.openFile(targetPath+'pdf.js')
+
+
+          },
+          function(err) {
+
+            // $scope.openFile(_file_name);
+            console.log(err);
+            // Error
+          },
+          function(progress) {
+            // Materialize.toast("Descargando PDF",4000);
+            $timeout(function() {
+              $scope.downloadProgress =
+              progress.loaded / progress.total * 100;
+              if ($scope.downloadProgress === 100) {
+                $("#btn-play-pdf").removeClass("disabled");
+              }
+            });
+          }
+        );
+      };
+
+
+      $scope.openFile = function(_path_file) {
+        // // let path = targetPath +'/'+ _file_name;
+        // var path = targetPath + _file_name;
+        // console.log(path);
+
+        $cordovaFileOpener2
+        .open(_path_file, "application/pdf").then(
+          function(_response) {
+            console.log(_response);
+
+            setTimeout(function () {
+
+              $state.go("dashboard");
+            }, 1000);
+
+          },
+          function(err) {
+            console.error(err);
+
+            // An error occurred. Show a message to the user
+          }
+        );
+      };
 
 
     });

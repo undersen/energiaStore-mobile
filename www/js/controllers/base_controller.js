@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("BaseController", ["$scope", "$state","$ionicPlatform","StorageUserModel","$resource","translationService",
-  function($scope, $state,$ionicPlatform,StorageUserModel,$resource,translationService) {
+  this.app.controller("BaseController", ["$scope", "$state","$ionicPlatform","StorageUserModel","$resource","translationService","StorageLanguageModel","StorageStatus",
+  function($scope, $state,$ionicPlatform,StorageUserModel,$resource,translationService,StorageLanguageModel,StorageStatus) {
 
     $ionicPlatform.ready(function() {
 
@@ -19,12 +19,55 @@ CONTROLLER DEFINITION
 
       if(StorageUserModel.getCurrentUser()){
         if(StorageUserModel.getCurrentUser().authentication_token === undefined){
-          $state.go("introduction",{},{ reload: true })
+
+
+          if(StorageStatus.getStatus() !== undefined){
+            if(StorageStatus.getStatus().status == true){
+              $state.go('dashboard');
+            }else{
+              if(StorageLanguageModel.getCurrentLanguage() === undefined){
+                $state.go("welcome",{},{ reload: true })
+              }else{
+                $state.go("login",{},{ reload: true })
+              }
+            }
+          }else{
+
+          if(StorageLanguageModel.getCurrentLanguage() === undefined){
+            $state.go("welcome",{},{ reload: true })
+          }else{
+            $state.go("login",{},{ reload: true })
+          }
+
+        }
         }else{
-          $state.go("dashboard",{},{ reload: true })
+
+          if(StorageLanguageModel.getCurrentLanguage() === undefined){
+            $state.go("welcome",{},{ reload: true })
+          }else{
+            $state.go("dashboard",{},{ reload: true })
+          }
         }
       }else{
-        $state.go("welcome",{},{ reload: true })
+        
+        if(StorageStatus.getStatus() !== undefined){
+          if(StorageStatus.getStatus().status == true){
+            $state.go('dashboard');
+          }else{
+            if(StorageLanguageModel.getCurrentLanguage() === undefined){
+              $state.go("welcome",{},{ reload: true })
+            }else{
+              $state.go("login",{},{ reload: true })
+            }
+          }
+        }else{
+        if(StorageLanguageModel.getCurrentLanguage() === undefined){
+          $state.go("welcome",{},{ reload: true })
+        }else{
+          $state.go("login",{},{ reload: true })
+        }
+      }
+
       }
     });
   }]);

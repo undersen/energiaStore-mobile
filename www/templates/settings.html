@@ -35,11 +35,50 @@
               <label for="address">{{placeholder.address}}</label>
             </div>
 
-            <a class="waves-effect waves-light btn" style="width:100%;" ng-click="updateInfo()">{{translation.UPDATE_BUTTON}}</a>
+            <a class="waves-effect waves-light btn" style="width:100%;" ng-click="updateInfo()">{{translations.UPDATE_BUTTON}}</a>
 
 
         </div>
       </div>
 
   </ion-content>
+  <ion-footer-bar>
+    <div class="" style="width: 100%;display: flex;">
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+  <i class="fa fa-bookmark"></i>
+
+  Projectos
+        </button>
+
+
+      </div>
+      <!-- <h1 class="title">Title!</h1> -->
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
+
+          <i class="fa fa-user"></i>
+
+          Perfil
+        </button>
+      </div>
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+
+          <i class="fa fa-money"></i>
+
+          Cotizaciones
+        </button>
+      </div>
+    </div>
+  </ion-footer-bar>
 </ion-view>
+
+<style media="screen">
+.bar-footer {
+    height: 50px !important;
+    background-color: #8bcb71;
+}
+
+</style>

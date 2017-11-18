@@ -9,8 +9,21 @@ ROUTES CONFIGURATION
   this.app.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConfigProvider) {
 
 
-    $ionicConfigProvider.navBar.alignTitle('center');
-    $ionicConfigProvider.platform.android.scrolling.jsScrolling(false);
+    // $ionicConfigProvider.navBar.alignTitle('center');
+    // $ionicConfigProvider.tabs.position('bottom');
+    //
+    // $ionicConfigProvider.platform.android.scrolling.jsScrolling(false);
+    // $ionicConfigProvider.views.transition('none');
+    // $ionicConfigProvider.views.swipeBackEnabled(false);
+
+    $ionicConfigProvider.tabs.position('bottom');
+        $ionicConfigProvider.navBar.alignTitle('center');
+        $ionicConfigProvider.backButton.previousTitleText(true).text('&emsp;&emsp;');
+        $ionicConfigProvider.scrolling.jsScrolling(false);
+        $ionicConfigProvider.backButton.previousTitleText(false).text('&emsp;&emsp;');
+        $ionicConfigProvider.views.transition('none');
+        $ionicConfigProvider.platform.android.scrolling.jsScrolling(false);
+        $ionicConfigProvider.views.swipeBackEnabled(false);
 
     // $httpProvider.defaults.headers.put["Content-Type"] = "application/json; charset=UTF-8";
     // $httpProvider.defaults.headers.post["Content-Type"] = "application/json; charset=UTF-8";
@@ -61,13 +74,37 @@ ROUTES CONFIGURATION
         templateUrl: "templates/dashboard.html",
         controller: "DashboardController"
       })
-      .state("calculation", {
-        url: "/calculation",
+
+
+    // .state('tab', {
+    //     url: '/tab',
+    //     abstract: true,
+    //     cache: false,
+    //     templateUrl: 'templates/common/tabs.html',
+    //     controller: "TabController"
+    // })
+
+
+    // .state('tab.project', {
+    //             url: '/projects',
+    //             // abstract: true,
+    //             views: {
+    //                 'tab-project': {
+    //                   templateUrl: "templates/project.html",
+    //                   controller: "ProjectController"
+    //                 }
+    //             }
+    //         })
+
+
+      .state("project", {
+        url: "/projects",
         cache: false,
         abstract: false,
-        templateUrl: "templates/calculation.html",
-        controller: "CalculationController"
+        templateUrl: "templates/project.html",
+        controller: "ProjectController"
       })
+
       .state("quotation", {
         url: "/quotation",
         cache: false,
@@ -75,6 +112,21 @@ ROUTES CONFIGURATION
         templateUrl: "templates/quotation.html",
         controller: "quotation"
       })
+
+
+      // .state('tab.motors', {
+      //             url: '/quotation/:id_quotation/motors',
+      //             // abstract: true,
+      //             views: {
+      //                 'tab-motor': {
+      //                   templateUrl: "templates/motor.html",
+      //                   controller: "MotorsController"
+      //                 }
+      //             }
+      //         })
+
+
+
       .state("motors", {
         url: "/quotation/:id_quotation/motors",
         cache: false,
@@ -91,6 +143,18 @@ ROUTES CONFIGURATION
         controller: "FinalizedQuotationController"
       })
 
+      // .state('tab.finalizeProject', {
+      //             url: '/quotation/:id_quotation/motors/finalize',
+      //             // abstract: true,
+      //             views: {
+      //                 'tab-finalize-Project': {
+      //                   templateUrl: "templates/finalize_quotation.html",
+      //                   controller: "FinalizedQuotationController"
+      //                 }
+      //             }
+      //         })
+
+
       .state("factor", {
         url: "/factor",
         cache: false,
@@ -98,6 +162,20 @@ ROUTES CONFIGURATION
         templateUrl: "templates/factor.html",
         controller: "FactorController"
       })
+
+      //
+      // .state('tab.factor', {
+      //             url: 'factor',
+      //             // abstract: true,
+      //             views: {
+      //                 'tab-factor': {
+      //                   templateUrl: "templates/factor.html",
+      //                   controller: "FactorController"
+      //                 }
+      //             }
+      //         })
+
+
       .state("settings", {
         url: "/settings",
         cache: false,
@@ -105,6 +183,18 @@ ROUTES CONFIGURATION
         templateUrl: "templates/settings.html",
         controller: "SettingsController"
       });
+
+      //
+      // .state('tab.settings', {
+      //             url: '/quotation/:id_quotation/motors/finaliz',
+      //             // abstract: true,
+      //             views: {
+      //                 'tab-settings': {
+      //                   templateUrl: "templates/settings.html",
+      //                   controller: "SettingsController"
+      //                 }
+      //             }
+      //         })
 
 
     // if none of the above states are matched, use this as the fallback
