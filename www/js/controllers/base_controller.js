@@ -11,10 +11,6 @@ CONTROLLER DEFINITION
 
     $ionicPlatform.ready(function() {
 
-        const languageFilePath = translationService.getTranslation();
-        $resource(languageFilePath).get(function (data) {
-            $scope.translations = data;
-        });
 
 
       if(StorageUserModel.getCurrentUser()){
@@ -49,7 +45,7 @@ CONTROLLER DEFINITION
           }
         }
       }else{
-        
+
         if(StorageStatus.getStatus() !== undefined){
           if(StorageStatus.getStatus().status == true){
             $state.go('dashboard');

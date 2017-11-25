@@ -39,20 +39,49 @@ ROUTES CONFIGURATION
         abstract: false,
         controller: "BaseController"
       })
+      // .state("welcome", {
+      //   url: "/welcome",
+      //   cache: false,
+      //   abstract: false,
+      //   templateUrl: "templates/welcome.html",
+      //   controller: "WelcomeController"
+      // })
+
+
       .state("welcome", {
         url: "/welcome",
         cache: false,
         abstract: false,
-        templateUrl: "templates/welcome.html",
+        templateUrl: "templates/common/welcome.html",
         controller: "WelcomeController"
       })
+
       .state("introduction", {
         url: "/introduction",
         cache: false,
         abstract: false,
-        templateUrl: "templates/introduction.html",
+        templateUrl: "templates/common/introduction.html",
         controller: "IntroductionController"
       })
+
+      .state("middleware", {
+        url: "/middleware",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/common/middleware.html",
+        controller: "MiddlewareController"
+      })
+
+
+      .state("tutorialTypeUser", {
+        url: "/tutorials/type_user",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/tutorials/tutorial_type_user.html",
+        controller: "TutorialTypeUserController"
+      })
+
+
       .state("login", {
         url: "/login",
         cache: false,
