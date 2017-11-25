@@ -62,8 +62,8 @@
 
 
 
-  "QUOTATION_CARD_TITLE":"Aún no tienes ninguna",
-  "QUOTATION_CARD_TITLE_STRONG":"cotización",
+  "QUOTATION_CARD_TITLE":"Aún no tienes ningun",
+  "QUOTATION_CARD_TITLE_STRONG":"proyecto",
   "QUOTATION_CARD_BODY_PRE":"Haz click en  ",
   "QUOTATION_CARD_BODY_POST":"para agregar tu primera cotización",
 
@@ -182,7 +182,7 @@
   "ADD_PHOTO_BUTTON_TEXT":"AGREGAR FOTO",
   "FINALIZE_QUOTATION_HEADER":"Finalizar Proyecto",
 
-  "INPUT_COMMENTS_TEXTBOX":"Comentarios",
+  "INPUT_COMMENTS_TEXTBOX":"Comentarios (opcional)",
 
   "MOTORS_HEADER":"Motores",
 
@@ -250,17 +250,33 @@
 
 
   "MOTOR_COMPLETE_KW_EMPTY":"Complete KW del motor",
-"MOTOR_COMPLETE_KW_MINIMUN":"La cantidad de KW debe ser mayor a 0",
-
 
 "KW_NAME_LIST":"KW",
 
 "MOTOR_SELECT_HOURS":"Seleccione las horas",
 "MOTOR_SELECT_DAYS":"Seleccione los dias",
 
-"BUTTON_ADD_MORE_MOTORS":"agregar mas motores "
+"BUTTON_ADD_MORE_MOTORS":"agregar mas motores ",
+
+"FACTOR_HEADER":"Cotizaciones",
+"FACTOR_CARD_TITLE":"aun no tienes ninguna ",
+"FACTOR_CARD_TITLE_STRONG":" cotización ",
+"FACTOR_CARD_TITLE_POST":"agregada.",
+"BUTTON_ADD_FACTOR":"Agregar Cotización",
+
+"REGISTER_EXPLORER_TITLE":"Cuenta explorer",
+"REGISTER_EXPLORER_TEXT":"Para crear la cotizacion es necesario que te registres, ¿Deseas registrarte?",
 
 
+"REGISTER_EXPLORER_BUTTON_NO":"Cancelar",
+"REGISTER_EXPLORER_BUTTON_YES":"Registrarme",
+
+
+"SEND_QUOTATION_BUTTON_BOTTOM":"Enviar cotización",
+
+"FOOTER_PROJECT":"Projectos",
+"FOOTER_PROFILE":"Perfil",
+"FOOTER_QUOTE":"Cotizaciones"
 
 
 }

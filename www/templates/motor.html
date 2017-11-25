@@ -5,7 +5,7 @@
         <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
       </div>
     </div>
-    <h1 class="title">{{translations.MOTORS_HEADER}}</h1>
+    <h1 class="title">{{project_name}}</h1>
     <!-- <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalMotor()">
       <i class="ion-ios-plus-outline" style="    margin: auto;font-size: 25px;"></i>
     </div> -->
@@ -36,8 +36,8 @@
     </div> -->
 
 
-      <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-    <ion-item ng-repeat="motor in motors" >
+      <ion-list  show-delete="shouldShowDelete" style="margin-bottom:20px;">
+    <ion-item ng-repeat="motor in motors | orderBy: 'created_at'" >
 
 
 
@@ -74,7 +74,7 @@
       <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;" ng-click="goToProjects()">
 <i class="fa fa-bookmark"></i>
 
-Projectos
+{{translations.FOOTER_PROJECT}}
       </button>
 
 
@@ -85,7 +85,8 @@ Projectos
 
         <i class="fa fa-user"></i>
 
-        Perfil
+        {{translations.FOOTER_PROFILE}}
+
       </button>
     </div>
 
@@ -94,19 +95,32 @@ Projectos
 
         <i class="fa fa-money"></i>
 
-        Cotizaciones
+        {{translations.FOOTER_QUOTE}}
+
       </button>
     </div>
   </div>
 </ion-footer-bar>
 
-  <a ng-click="goToQuotation();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
+
+
+
+
+
+  <!-- <a ng-click="goToQuotation();" class="btn-floating btn-large waves-effect waves-light red" style="    position: absolute;
   left: 75vw;
   top: 85vh;">
-  <!-- <i style="font-size:40px;line-height: 60px;" class="ion-ios-plus-empty"></i> -->
+  <i style="font-size:40px;line-height: 60px;" class="ion-ios-plus-empty"></i>
   <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 
-</a>
+</a> -->
+
+
+<a class="waves-effect waves-light btn factor-send-button" style="    BOTTOM: 38PX;
+    POSITION: absolute;
+    TRANSFORM: TRANSLATE(-50%,0);
+    LEFT: 50%;
+    width: 80%;" ng-click="goToQuotation();" >{{translations.SEND_QUOTATION_BUTTON_BOTTOM}}</a>
 
 </ion-view>
 
@@ -115,5 +129,18 @@ Projectos
 .bar-footer {
     height: 50px !important;
     background-color: #8bcb71;
+}
+
+.list{
+  margin-bottom:50px !important;
+}
+
+.overflow-scroll{
+  overflow-x:hidden !important;
+ overflow-y: visible !important;
+}
+
+.scroll-content{
+  overflow:visible !important;
 }
 </style>

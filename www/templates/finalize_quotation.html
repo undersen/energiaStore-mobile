@@ -1,42 +1,42 @@
 <ion-view>
 
-<ion-header-bar align-title="center" class="bar-positive special-color">
-  <div class="buttons">
-    <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
-      <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
+  <ion-header-bar align-title="center" class="bar-positive special-color">
+    <div class="buttons">
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
+        <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
+      </div>
     </div>
-  </div>
-  <h1 class="title">{{translations.FINALIZE_QUOTATION_HEADER}}</h1>
-</ion-header-bar>
+    <h1 class="title">{{translations.FINALIZE_QUOTATION_HEADER}}</h1>
+  </ion-header-bar>
 
-<ion-content>
-
-
-   <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
+  <ion-content>
 
 
+    <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
-   <div class="input-field col s12">
-      <input id="input-penalty-text" type="text" class="validate" ng-model="quote.comments" >
-      <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
-    </div>
 
-    <!-- <div class="row">
+
+      <div class="input-field col s12">
+        <input id="input-penalty-text" type="text" class="validate" ng-model="quote.comments" >
+        <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
+      </div>
+
+      <!-- <div class="row">
       <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
     </div> -->
 
     <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();">
 
     <!-- <div class="row">
-      <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
-    </div> -->
+    <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
+  </div> -->
 
 
-    <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="validateQuotation();" style="">{{translations.CREATE_PDF_BUTTON}}</a>
+  <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="validateQuotation();" style="">{{translations.CREATE_PDF_BUTTON}}</a>
 
 
 
-  </div>
+</div>
 
 
 
@@ -45,34 +45,30 @@
   <div class="" style="width: 100%;display: flex;">
     <div class="buttons" style="margin:0 auto;">
       <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;"  ng-click="goToProjects()">
-<i class="fa fa-bookmark"></i>
-
-Projectos
+        <i class="fa fa-bookmark"></i>
+        {{translations.FOOTER_PROJECT}}
       </button>
-
-
     </div>
-    <!-- <h1 class="title">Title!</h1> -->
     <div class="buttons" style="margin:0 auto;">
       <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
-
         <i class="fa fa-user"></i>
-
-        Perfil
+        {{translations.FOOTER_PROFILE}}
       </button>
     </div>
-
     <div class="buttons" style="margin:0 auto;">
       <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
-
         <i class="fa fa-money"></i>
-
-        Cotizaciones
+        {{translations.FOOTER_QUOTE}}
       </button>
     </div>
   </div>
 </ion-footer-bar>
 </ion-view>
+
+
+
+
+
 <style media="screen">
 .android-content{
   height:calc(100vh - 77px)
@@ -83,7 +79,7 @@ Projectos
 }
 
 .bar-footer {
-    height: 50px !important;
-    background-color: #8bcb71;
+  height: 50px !important;
+  background-color: #8bcb71;
 }
 </style>

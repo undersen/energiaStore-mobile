@@ -110,7 +110,16 @@ ROUTES CONFIGURATION
         cache: false,
         abstract: false,
         templateUrl: "templates/quotation.html",
-        controller: "quotation"
+        controller: "QuotationController"
+      })
+
+
+      .state("factor", {
+        url: "/factor",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/factor.html",
+        controller: "FactorController"
       })
 
 
@@ -128,7 +137,7 @@ ROUTES CONFIGURATION
 
 
       .state("motors", {
-        url: "/quotation/:id_quotation/motors",
+        url: "/quotation/:id_quotation/motors/:project_name",
         cache: false,
         abstract: false,
         templateUrl: "templates/motor.html",
@@ -155,7 +164,7 @@ ROUTES CONFIGURATION
       //         })
 
 
-      .state("factor", {
+      .state("createFactor", {
         url: "/factor",
         cache: false,
         abstract: false,

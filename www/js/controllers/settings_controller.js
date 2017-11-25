@@ -142,7 +142,7 @@ CONTROLLER DEFINITION
               }
               $scope.goToQuotes= function(){
 
-                $state.go('factor');
+                $state.go('quotation');
               }
 
 

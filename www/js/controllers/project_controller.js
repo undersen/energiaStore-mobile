@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject",
-    function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject) {
+  this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject","Quotation",
+    function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,Quotation) {
       $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
@@ -73,7 +73,7 @@ CONTROLLER DEFINITION
           <input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope
             .translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
           <div class="input-field col s12">
-          <input id="quotation_kwh_price" type="number" min="0" class="validate" ng-model="data.price"><label for="quotation_kw_price">${$scope
+          <input id="quotation_kwh_price" type="number" min="0"  pattern="[0-9]*" class="validate" ng-model="data.price"><label for="quotation_kw_price">${$scope
             .translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label></div></div>`,
             // subTitle: 'Subtitle',
             scope: $scope,
@@ -160,7 +160,12 @@ CONTROLLER DEFINITION
         };
 
         $scope.goToCalculation = function(_index) {
-          $state.go("motors", { id_quotation: _index }, { reload: true });
+          var queries = {
+            id_quotation: _index,
+            project_name: "Hola"
+          }
+
+          $state.go("motors", queries, { reload: true });
         };
 
 
@@ -172,10 +177,28 @@ CONTROLLER DEFINITION
         }
         $scope.goToQuotes= function(){
 
-          $state.go('factor');
+          $state.go('quotation');
         }
 
 
+
+        $scope.showPDF = function(values){
+          if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
+
+          }else{
+            debugger;
+            $scope.getAvaliablePDF(values);
+          }
+        }
+
+
+        $scope.getAvaliablePDF = function(value){
+          Quotation.getAvaliablesPDFById(StorageUserModel.getCurrentUser(),value.id).then(function(_response){
+            debugger;
+          },function(_error){
+
+          })
+        }
 
          $scope.shouldShowDelete = false;
          $scope.shouldShowReorder = false;

@@ -115,8 +115,8 @@
         },
         "is_top_level": true,
         "variables": {
-            "CAMERA_USAGE_DESCRIPTION": "Closelly desea acceder a tu camara.",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": "Closelly desea acceder a tus fotos.",
+            "CAMERA_USAGE_DESCRIPTION": "EnergiaStore desea acceder a tu camara.",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": "EnergiaStore desea acceder a tus fotos.",
             "MICROPHONE_USAGE_DESCRIPTION": " "
         }
     },
@@ -132,6 +132,14 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-x-toast@git+https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "onesignal-cordova-plugin": {
+        "source": {
+            "type": "registry",
+            "id": "onesignal-cordova-plugin"
         },
         "is_top_level": true,
         "variables": {}

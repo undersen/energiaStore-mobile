@@ -50,9 +50,9 @@
             "PACKAGE_NAME": "com.energia.store"
         },
         "cordova-plugin-media-capture": {
-            "CAMERA_USAGE_DESCRIPTION": "Closelly desea acceder a tu camara.",
+            "CAMERA_USAGE_DESCRIPTION": "EnergiaStore desea acceder a tu camara.",
             "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": "Closelly desea acceder a tus fotos.",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": "EnergiaStore desea acceder a tus fotos.",
             "PACKAGE_NAME": "com.energia.store"
         },
         "cordova-plugin-actionsheet": {

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.energia.store" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.energia.store" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>energiaStore</name>
     <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <author email="tomas.diaz06.p@gmail.com" href="http://developmind.cl/">Developmind Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -103,8 +103,8 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs read/write-access photo library access" />
     </plugin>
     <plugin name="cordova-plugin-media-capture" spec="^1.4.3">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="Closelly desea acceder a tu camara." />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Closelly desea acceder a tus fotos." />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tu camara." />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tus fotos." />
     </plugin>
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
@@ -112,4 +112,5 @@
     <plugin name="cordova-plugin-whitelist" spec="git+https://github.com/apache/cordova-plugin-whitelist.git" />
     <plugin name="cordova-plugin-x-toast" spec="git+https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.2.2" />
 </widget>

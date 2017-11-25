@@ -187,6 +187,8 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
   popUpService.showPopUpRegister($scope.translations).then(function(_response){
 
+
+
   },function(_error){
 
   })
@@ -302,11 +304,11 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
         var path = targetPath + _file_name;
 
-        $cordovaFileTransfer.download(_url, targetPath+'pdf.js', params, trustHosts).then(
+        $cordovaFileTransfer.download(_url, targetPath+'pdf.pdf', params, trustHosts).then(
           function(result) {
             $ionicLoading.hide();
             console.log(result);
-            $scope.openFile(targetPath+'pdf.js')
+            $scope.openFile(targetPath+'pdf.pdf')
 
 
           },
@@ -353,6 +355,7 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
           }
         );
       };
+
 
 
     });

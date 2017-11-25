@@ -5,80 +5,78 @@
     </div>
     <h1 class="title">{{translations.MENU_PROFILE}}</h1>
     <!-- <div class="buttons" style="width: 30px;height: 30px;" ng-click="logOut();">
-      <i class="ion-log-out" style="    margin: auto;font-size: 25px;"></i>
-    </div> -->
+    <i class="ion-log-out" style="    margin: auto;font-size: 25px;"></i>
+  </div> -->
 
-  </ion-header-bar>
-  <ion-content >
+</ion-header-bar>
+<ion-content >
 
-    <div class="" style="margin: 0 5vw 0 5vw;top :10vw; position:relative;">
-      <div class="col s12 ">
-
-
-
-            <div class="input-field col s12">
-              <input id="name" type="text" class="validate" ng-model="user.name">
-              <label for="name">{{placeholder.name}}</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="last_name" type="text" class="validate" ng-model="user.last_name">
-              <label for="last_name">{{placeholder.last_name}}</label>
-            </div>
-
-            <div class="input-field col s12">
-              <input id="phone" type="tel" class="validate" ng-model="user.phone">
-              <label for="phone">{{placeholder.phone}}</label>
-            </div>
-
-            <div class="input-field col s12">
-              <input id="address" type="text" class="validate" ng-model="user.address">
-              <label for="address">{{placeholder.address}}</label>
-            </div>
-
-            <a class="waves-effect waves-light btn" style="width:100%;" ng-click="updateInfo()">{{translations.UPDATE_BUTTON}}</a>
+  <div class="" style="margin: 0 5vw 0 5vw;top :10vw; position:relative;">
+    <div class="col s12 ">
 
 
-        </div>
+
+      <div class="input-field col s12">
+        <input id="name" type="text" class="validate" ng-model="user.name">
+        <label for="name">{{placeholder.name}}</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="last_name" type="text" class="validate" ng-model="user.last_name">
+        <label for="last_name">{{placeholder.last_name}}</label>
       </div>
 
-  </ion-content>
-  <ion-footer-bar>
-    <div class="" style="width: 100%;display: flex;">
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
-  <i class="fa fa-bookmark"></i>
-
-  Projectos
-        </button>
-
-
-      </div>
-      <!-- <h1 class="title">Title!</h1> -->
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
-
-          <i class="fa fa-user"></i>
-
-          Perfil
-        </button>
+      <div class="input-field col s12">
+        <input id="phone" type="tel" class="validate" ng-model="user.phone">
+        <label for="phone">{{placeholder.phone}}</label>
       </div>
 
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
-
-          <i class="fa fa-money"></i>
-
-          Cotizaciones
-        </button>
+      <div class="input-field col s12">
+        <input id="address" type="text" class="validate" ng-model="user.address">
+        <label for="address">{{placeholder.address}}</label>
       </div>
+
+      <a class="waves-effect waves-light btn" style="width:100%;" ng-click="updateInfo()">{{translations.UPDATE_BUTTON}}</a>
+
+
     </div>
-  </ion-footer-bar>
+  </div>
+
+</ion-content>
+<ion-footer-bar>
+  <div class="" style="width: 100%;display: flex;">
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+        <i class="fa fa-bookmark"></i>
+        {{translations.FOOTER_PROJECT}}
+      </button>
+    </div>
+    <!-- <h1 class="title">Title!</h1> -->
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
+        <i class="fa fa-user"></i>
+        {{translations.FOOTER_PROFILE}}
+      </button>
+    </div>
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+        <i class="fa fa-money"></i>
+        {{translations.FOOTER_QUOTE}}
+      </button>
+    </div>
+  </div>
+</ion-footer-bar>
 </ion-view>
+
+
+
+
+
+
 
 <style media="screen">
 .bar-footer {
-    height: 50px !important;
-    background-color: #8bcb71;
+  height: 50px !important;
+  background-color: #8bcb71;
 }
 
 </style>

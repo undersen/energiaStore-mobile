@@ -1,6 +1,4 @@
-{
-
-  "APP_NAME":"EnergiaStore",
+{ "APP_NAME":"EnergiaStore",
 
   "SPINNER_REGISTER":"Register Account…",
 
@@ -9,7 +7,7 @@
   "SLIDER_1": "Natural resources are ending, energy efficiency is the way to a better world!",
   "SLIDER_2": "The change is in you, start to make a difference and save electric energy!",
   "SLIDER_3": "Start today & transmit energy efficiency, our planet will thank you",
-  "SLIDER_BUTTON":"Comenzar con el cambio",
+  "SLIDER_BUTTON":"begins with the change",
 
 
   "LOGIN_HEADER":"Get Started EnergiaStore",
@@ -40,7 +38,7 @@
 
 
 
-  "QUOTATION_HEADER":"Cotizaciones",
+  "QUOTATION_HEADER":"Quotes",
 
 
   "QUOTATION_POPUP_CANCEL_BUTTON":"Cancel",
@@ -158,9 +156,6 @@
   "MODAL_HELPER_AMP_TITLE":"Amperage",
   "MODAL_HELPER_AMP_BODY":"",
 
-  "MODAL_HELPER_RATED_POWER_TITLE":"KW",
-  "MODAL_HELPER_RATED_POWER_BODY":"",
-
   "MODAL_HELPER_POWER_FACTOR_TITLE":"Power Factor",
   "MODAL_HELPER_POWER_FACTOR_BODY":"",
 
@@ -193,10 +188,10 @@
 
 
   "ADD_PHOTO_BUTTON_TEXT":"ADD PHOTO",
-  "FINALIZE_QUOTATION_HEADER":"Finalizar Cotización",
+  "FINALIZE_QUOTATION_HEADER":"End Quote",
 
 
-  "INPUT_COMMENTS_TEXTBOX":"comments",
+  "INPUT_COMMENTS_TEXTBOX":"comments (optionals)",
 
   "MOTORS_HEADER":"Motors",
 
@@ -235,7 +230,7 @@
   "CHOOSE_LANGUAGE_CANCEL":"Cancel",
 
 
-  "QUOTATION_AMOUNT_EMPTY": "You must enter the amount of the pwnalty fee",
+  "QUOTATION_AMOUNT_EMPTY": "You must enter the amount of the power factor penalty",
   "QUOTATION_AMOUNT_MINIMUM": "The amount of the penalty fee must be more than 1,000",
 
   "REGISTER_POPUP_CONTINUE_BUTTON":"Stay",
@@ -247,9 +242,64 @@
   "TOKEN_PROBLEM_TEXT":"This account is in use from another device, sign-in again.",
 
   "BUTTON_ADD_PROJECT":"Add project",
-  "BUTTON_ADD_MOTOR":"Add engine",
-
+  "BUTTON_ADD_MOTOR":"Add motor",
 
   "QUOTATION_AMOUNT_EMPTY":"Debe ingresar como minimo el valor de la multa",
   "QUOTATION_AMOUNT_MINIMUM":"El valor minimo de la multa es de 1.000 clp",
+
+
+
+
+  "EXPLORER_TITLE":"Welcome explorer",
+  "EXPLORER_TEXT":"You have selected the explore profile, this profile allows you to explore the application and use it without a registration.",
+
+  "MOTOR_COMPLETE_VOLTAJE_MINIMUN":"The voltage must be greater than 0",
+  "MOTOR_COMPLETE_AMP_MINIMUN":"The amperage must be greater than 0",
+
+  "MOTOR_COMPLETE_KW_MINIMUN":"The KW must be greater than 0",
+
+  "EXPLORER_FIRST":"Not wanting to register",
+
+  "EXPLORER_SECOND":"Enter as an explorer",
+
+  "LOGOUT_EXPLORER":"Exit explorer mode",
+  "LOG_OUT_EXPLORER_TITLE":"Exit explorer mode",
+  "LOG_OUT_EXPLORER_TEXT":"When you exit explorer mode all your changes will be lost. Are you sure you want to exit?",
+
+
+  "LOGOUT_EXPLORER_BUTTON_STAY":"Stay",
+  "LOGOUT_EXPLORER_BUTTON_LEAVE":"Leave",
+
+
+  "MOTOR_COMPLETE_KW_EMPTY":"Complete KW of the engine",
+
+  "KW_NAME_LIST":"KW",
+
+  "MOTOR_SELECT_HOURS":"Select hours",
+  "MOTOR_SELECT_DAYS":"Select days",
+
+  "BUTTON_ADD_MORE_MOTORS":"add more engines",
+
+  "FACTOR_HEADER":"Quotes",
+  "FACTOR_CARD_TITLE":"you do not have any",
+  "FACTOR_CARD_TITLE_STRONG":" quotation ",
+  "FACTOR_CARD_TITLE_POST":"agregada.",
+  "BUTTON_ADD_FACTOR":"added",
+
+  "REGISTER_EXPLORER_TITLE":"Explorer account",
+  "REGISTER_EXPLORER_TEXT":"To create the quote you need to register, do you want to register?",
+
+
+  "REGISTER_EXPLORER_BUTTON_NO":"Cancel",
+  "REGISTER_EXPLORER_BUTTON_YES":"Register",
+
+
+  "SEND_QUOTATION_BUTTON_BOTTOM":"Send quote",
+
+
+
+  "FOOTER_PROJECT":"Projects",
+  "FOOTER_PROFILE":"Profile",
+  "FOOTER_QUOTE":"Quotes"
+
 }

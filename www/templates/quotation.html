@@ -1,0 +1,153 @@
+<ion-view ng-init="init();" >
+  <ion-header-bar align-title="center" class="bar-positive special-color">
+    <div class="buttons">
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="goBack();">
+        <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
+      </div>
+    </div>
+    <h1 class="title">{{translations.QUOTATION_HEADER}}</h1>
+  </ion-header-bar>
+
+
+  <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    <ion-tab title="Proyectos" ng-click="left();">
+    </ion-tab>
+
+    <ion-tab title="Mal factor de potencia" ng-click="right();">
+    </ion-tab>
+  </ion-tabs>
+
+  <div id="tabulator" ng-class="platform == 'ios' ? 'tabulator-ios' : 'tabulator-android'"></div>
+
+  <ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)">
+    <ion-slide>
+      <ion-content overflow-scroll="false">
+        <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+          <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="viewPdfProject({{calculation}})" ng-if="calculation.energy_cost != null" >
+
+            <div style="width:50px;position:relative;">
+              <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
+              <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+            </div>
+
+            <div class="">
+
+              <h2>{{calculation.name}}</h2>
+              <p>{{calculation.energy_cost | number : fractionSize}} clp</p>
+              <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+              <ion-option-button class="button-positive" ng-click="edit(calculation.id)">
+                Editar
+              </ion-option-button>
+              <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
+                Eliminar
+              </ion-option-button>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-content>
+        <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+          <ion-item ng-repeat="factor in factors" style="height:100px;display: -webkit-box;" ng-click="viewPdf({{factor}})" >
+
+            <div style="width:50px;position:relative;">
+              <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
+              <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+            </div>
+
+            <div class="">
+
+              <p>Id: {{factor.id}}</p>
+              <p>Fecha de cotización: {{factor.created_at | date: 'dd-MM-yyyy'}}</p>
+              <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
+                Eliminar
+              </ion-option-button>
+
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-slide>
+  </ion-slide-box>
+
+
+  <ion-footer-bar>
+    <div class="" style="width: 100%;display: flex;">
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+          <i class="fa fa-bookmark"></i>
+          {{translations.FOOTER_PROJECT}}
+        </button>
+      </div>
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" >
+          <i class="fa fa-user"></i>
+          {{translations.FOOTER_PROFILE}}
+        </button>
+      </div>
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;"  ng-click="goToQuotes()">
+          <i class="fa fa-money"></i>
+          {{translations.FOOTER_QUOTE}}
+        </button>
+      </div>
+    </div>
+  </ion-footer-bar>
+
+</ion-view>
+
+
+<style media="screen">
+
+
+
+.tabs-background-positive .tabs, .tabs-background-positive > .tabs {
+border-color: #FFC107;
+}
+
+.tabs-striped.tabs-background-positive .tabs {
+background-color: #8bcb71;
+background-image: none;
+}
+
+.tabs-color-light .tab-item.tab-item-active, .tabs-color-light .tab-item.active, .tabs-color-light .tab-item.activated {
+color: #fff;
+border: 0 solid rgba(255, 255, 255, 0) !important;
+}
+
+.total-left{
+transition: all 4s cubic-bezier(0, 1.15, 0.32, 1.01);;
+left: 50vw !important; */
+}
+
+.tabs-striped.tabs-color-light .tab-item {
+color: rgb(255, 255, 255);
+opacity: 1;
+}
+
+.tabulator-ios{
+      background-color: white;
+      height: 4px;
+      width: 50vw;
+      top: 60px !important;
+      z-index: 9;
+      -webkit-transition: 0.3s cubic-bezier(.21, 0, .13, .99);
+      position: relative;left:0px;
+  }
+  .tabulator-android{
+      background-color: white;
+      height: 4px;
+      width: 50vw;
+      top: 41px;
+      z-index: 9;
+      -webkit-transition: 0.3s cubic-bezier(.21, 0, .13, .99);
+      position: relative;left:0px;
+  }
+
+  .bar-footer {
+    height: 50px !important;
+    background-color: #8bcb71;
+  }
+</style>

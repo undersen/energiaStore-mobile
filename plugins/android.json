@@ -48,6 +48,9 @@
         },
         "cordova-plugin-actionsheet": {
             "PACKAGE_NAME": "com.energia.store"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.energia.store"
         }
     },
     "dependent_plugins": {

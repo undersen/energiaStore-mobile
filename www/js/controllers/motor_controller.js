@@ -20,6 +20,10 @@ CONTROLLER DEFINITION
       $scope.user = StorageUserModel.getCurrentUser();
 
 
+      if(window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+      }
+
       $scope.motors =[];
       $scope.motor = {};
       $scope.motor.voltaje=380;
@@ -34,6 +38,7 @@ CONTROLLER DEFINITION
 
       $scope.init = function(){
 
+        $scope.project_name = $state.params.project_name || ''; 
         $scope.getMotors();
 
 
@@ -52,7 +57,8 @@ CONTROLLER DEFINITION
       $scope.openModalMotor = function() {
         $scope.modalMotor.show();
         setTimeout(function () {
-          $('#voltaje-id').addClass('active')
+          $('#voltaje-id').addClass('active');
+          $('#rated-power-label').addClass('active')
           $scope.motor.voltaje=380;
         }, 1);
       };
@@ -208,7 +214,9 @@ CONTROLLER DEFINITION
           $scope.motor =[];
           $scope.motors = StorageMotor.getMotor();
 
-          if($scope.motors === undefined){
+debugger;
+
+          if($scope.motors == undefined){
             $scope.motorButtonText=$scope.translations.BUTTON_ADD_MOTOR
           }else{
             $scope.motorButtonText=$scope.translations.BUTTON_ADD_MORE_MOTORS;
@@ -219,7 +227,7 @@ CONTROLLER DEFINITION
             $scope.motors = _response.data;
             $scope.$broadcast('scroll.refreshComplete');
 
-            if($scope.motors === undefined){
+            if($scope.motors == undefined){
               $scope.motorButtonText=$scope.translations.BUTTON_ADD_MOTOR
             }else{
               $scope.motorButtonText=$scope.translations.BUTTON_ADD_MORE_MOTORS;
@@ -341,7 +349,7 @@ CONTROLLER DEFINITION
     }
     $scope.goToQuotes= function(){
 
-      $state.go('factor');
+      $state.go('quotation');
     }
 
 

@@ -15,9 +15,44 @@
   </ion-header-bar>
 
   <ion-content>
-    <img src="./img/quotation.jpeg" style="display:inline-block; width: 100%;height: calc((100vh - 44px ) / 3 );" alt="" ng-click="goToQuotation()">
-    <img src="./img/factory.jpeg" style="display:inline-block;width: 100%;height: calc((100vh - 44px ) / 3 );    top: -10px;position: relative;" alt="" ng-click="goToFactor()">
+    <img src="./img/quotation.jpeg" style="display:inline-block; width: 100%;height: calc((100vh - 44px ) / 3 );" alt="" ng-click="goToProjects()">
+    <img src="./img/factory.jpeg" style="display:inline-block;width: 100%;height: calc((100vh - 44px ) / 3 );    top: -10px;position: relative;" alt="" ng-click="goToPenaltyEnergyEffiency()">
 
   </ion-content>
+  <ion-footer-bar>
+    <div class="" style="width: 100%;display: flex;">
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+          <i class="fa fa-bookmark"></i>
+          {{translations.FOOTER_PROJECT}}
+        </button>
+      </div>
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()">
+          <i class="fa fa-user"></i>
+          {{translations.FOOTER_PROFILE}}
+        </button>
+      </div>
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+          <i class="fa fa-money"></i>
+          {{translations.FOOTER_QUOTE}}
+        </button>
+      </div>
+
+    </div>
+  </ion-footer-bar>
+
 
 </ion-view>
+
+
+<style media="screen">
+.bar-footer {
+  height: 50px !important;
+  background-color: #8bcb71;
+}
+</style>

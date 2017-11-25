@@ -19,6 +19,7 @@ CONTROLLER DEFINITION
 
       $scope.image = "img/placeholder.png";
       var user = StorageUserModel.getCurrentUser();
+      $scope.user = StorageUserModel.getCurrentUser();
       $scope.register = {};
       $scope.quote={};
       $scope.project ={};
@@ -30,7 +31,11 @@ CONTROLLER DEFINITION
         if(user.type_user === 'explorer'){
 
           popUpService.showPopUpRegister($scope.translations).then(function(_response){
-            $scope.showModalRegister();
+            if(!_response){
+              $scope.showModalRegister();
+
+            }
+
           },function(_response){
 
           })
@@ -221,11 +226,11 @@ CONTROLLER DEFINITION
 
         var path = targetPath + _file_name;
 
-        $cordovaFileTransfer.download(_url, targetPath+'pdf.js', params, trustHosts).then(
+        $cordovaFileTransfer.download(_url, targetPath+'pdf.pdf', params, trustHosts).then(
           function(result) {
             $ionicLoading.hide();
             console.log(result);
-            $scope.openFile(targetPath+'pdf.js')
+            $scope.openFile(targetPath+'pdf.pdf')
 
 
           },

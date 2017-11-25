@@ -11,7 +11,7 @@
 
     LOCAL : "http://kvar.herokuapp.com/",
     //  LOCAL : "http://localhost:3000/",
-     
+
 
     //////////////////////////////////////////
     //**************+EndPoinst**************//
@@ -33,7 +33,7 @@
     // INDEX_MOTORS_BY_CALCULATION: "api/calculations/",
     DESTROY_CALCULATION: "api/calculations",
 
-    CREATE_PF_QUOATATION : "/api/pf_quotation"
+    CREATE_PF_QUOATATION : "api/pf_quotation"
 
 
 
