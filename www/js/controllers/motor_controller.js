@@ -8,6 +8,31 @@ CONTROLLER DEFINITION
 (function() {
   this.app.controller("MotorsController", ["$scope", "$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService","Quotation","$cordovaStatusbar","Utils","StorageMotor",
   function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils,StorageMotor) {
+
+    $scope.design = {};
+    switch (StorageUserModel.getCurrentUser().type_user) {
+      case 'user':
+      debugger;
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      break;
+
+      case 'partner':
+      $scope.design.header = 'partner-color'
+      $scope.design.footer = 'partner-color'
+      break;
+
+      case 'explorer':
+      $scope.design.header = 'explorer-color'
+      $scope.design.footer = 'explorer-color'
+      break;
+      default:
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      break;
+    }
+
+
     $ionicPlatform.ready(function() {
 
       const languageFilePath = translationService.getTranslation();
@@ -38,7 +63,7 @@ CONTROLLER DEFINITION
 
       $scope.init = function(){
 
-        $scope.project_name = $state.params.project_name || ''; 
+        $scope.project_name = $state.params.project_name || '';
         $scope.getMotors();
 
 
@@ -352,6 +377,9 @@ debugger;
       $state.go('quotation');
     }
 
+    $scope.goToDashboard= function(){
+      $state.go("dashboard");
+    }
 
 
 

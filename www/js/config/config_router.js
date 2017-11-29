@@ -74,11 +74,20 @@ ROUTES CONFIGURATION
 
 
       .state("tutorialTypeUser", {
-        url: "/tutorials/type_user",
+        url: "/tutorials/type_user/:flag",
         cache: false,
         abstract: false,
         templateUrl: "templates/tutorials/tutorial_type_user.html",
         controller: "TutorialTypeUserController"
+      })
+
+
+      .state("tutorialFactor", {
+        url: "/tutorials/factor/:flag",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/tutorials/tutorial_penalty_factor.html",
+        controller: "TutorialPenaltyController"
       })
 
 
@@ -102,6 +111,14 @@ ROUTES CONFIGURATION
         abstract: false,
         templateUrl: "templates/dashboard.html",
         controller: "DashboardController"
+      })
+
+      .state("settings", {
+        url: "/settings",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/common/settings.html",
+        controller: "SettingsController"
       })
 
 
@@ -150,6 +167,15 @@ ROUTES CONFIGURATION
         templateUrl: "templates/factor.html",
         controller: "FactorController"
       })
+
+      .state("profile", {
+        url: "/profile",
+        cache: false,
+        abstract: false,
+        templateUrl: "templates/profile.html",
+        controller: "ProfileController"
+      })
+
 
 
       // .state('tab.motors', {
@@ -214,13 +240,16 @@ ROUTES CONFIGURATION
       //         })
 
 
-      .state("settings", {
-        url: "/settings",
+
+
+
+      .state("tutorials", {
+        url: "/tutorials",
         cache: false,
         abstract: false,
-        templateUrl: "templates/settings.html",
-        controller: "SettingsController"
-      });
+        templateUrl: "templates/common/tutorials.html",
+        controller: "TutorialsController"
+      })
 
       //
       // .state('tab.settings', {

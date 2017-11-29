@@ -1,11 +1,7 @@
 <ion-view>
 
-  <ion-header-bar align-title="center" class="bar-positive special-color">
-    <div class="buttons">
-      <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
-        <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
-      </div>
-    </div>
+  <ion-header-bar align-title="center" class="bar-positive" ng-class="design.header">
+<h5 ng-click="back()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
     <h1 class="title">{{translations.FINALIZE_QUOTATION_HEADER}}</h1>
   </ion-header-bar>
 
@@ -25,14 +21,28 @@
       <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
     </div> -->
 
-    <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();">
+    <!-- <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();"> -->
+    <img ng-src="{{image}}" style="width: 35%;margin:0px auto 20px auto;display: block;" alt="" ng-click="showPopUpImage();">
+    <p style="text-align: center;color: grey;">Puedes agregar una foto a tu cotizacion haciendo clic en la imagen de arriba . . .</p>
 
     <!-- <div class="row">
     <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
   </div> -->
 
 
-  <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="validateQuotation();" style="">{{translations.CREATE_PDF_BUTTON}}</a>
+  <!-- <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="();" style="">{{translations.}}</a> -->
+
+
+  <div class="" ng-click="validateQuotation();" style="    width: 60vw;
+      border: 3px solid #61d485;
+      text-align: center;
+      margin: 20px auto;
+      padding: 10px 20px;
+      color: #61d485;
+      text-transform: uppercase;
+      font-size: 16px;">
+    {{translations.CREATE_PDF_BUTTON}}
+  </div>
 
 
 
@@ -41,26 +51,27 @@
 
 
 </ion-content>
-<ion-footer-bar>
+<ion-footer-bar ng-class="design.footer">
   <div class="" style="width: 100%;display: flex;">
+
     <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;"  ng-click="goToProjects()">
+      <button class="button tab-not-selected"  ng-click="goToProjects()">
         <i class="fa fa-bookmark"></i>
         {{translations.FOOTER_PROJECT}}
       </button>
     </div>
-    <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
-        <i class="fa fa-user"></i>
-        {{translations.FOOTER_PROFILE}}
-      </button>
+
+    <div  style="margin:0 auto;" ng-click="goToDashboard()">
+      <img src="./img/logo.png" style="position: relative;width: 65px;bottom: 22px;" alt="">
     </div>
+
     <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+      <button class="button tab-not-selected"  ng-click="goToQuotes()">
         <i class="fa fa-money"></i>
         {{translations.FOOTER_QUOTE}}
       </button>
     </div>
+
   </div>
 </ion-footer-bar>
 </ion-view>

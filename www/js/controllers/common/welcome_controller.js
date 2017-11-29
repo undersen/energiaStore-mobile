@@ -16,15 +16,19 @@ CONTROLLER DEFINITION
         StorageLanguageModel.setCurrentLanguage(_language);
         $resource(translationService.getTranslation()).get(function (data) {
             $scope.translations = data;
-            $ionicSlideBoxDelegate.next();
+            $ionicSlideBoxDelegate.slide(1);
         });
 
+        $ionicSlideBoxDelegate.enableSlide(false);
 
       }
       $scope.chooseCountry = function(country){
-        debugger;
         $state.go('introduction')
       }
+
+      $scope.stop = function () {
+        $ionicSlideBoxDelegate.enableSlide(false);
+      };
 
 
 

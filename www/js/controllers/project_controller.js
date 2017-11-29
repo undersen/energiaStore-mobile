@@ -8,6 +8,31 @@ CONTROLLER DEFINITION
 (function() {
   this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject","Quotation",
     function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,Quotation) {
+
+      $scope.design = {};
+      switch (StorageUserModel.getCurrentUser().type_user) {
+        case 'user':
+        debugger;
+        $scope.design.header = 'user-color'
+        $scope.design.footer = 'user-color'
+        break;
+
+        case 'partner':
+        $scope.design.header = 'partner-color'
+        $scope.design.footer = 'partner-color'
+        break;
+
+        case 'explorer':
+        $scope.design.header = 'explorer-color'
+        $scope.design.footer = 'explorer-color'
+        break;
+        default:
+        $scope.design.header = 'user-color'
+        $scope.design.footer = 'user-color'
+        break;
+      }
+
+
       $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
@@ -178,6 +203,9 @@ CONTROLLER DEFINITION
         $scope.goToQuotes= function(){
 
           $state.go('quotation');
+        }
+        $scope.goToDashboard= function(){
+          $state.go("dashboard");
         }
 
 

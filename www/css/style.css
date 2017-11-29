@@ -6,15 +6,123 @@ html, body ,h1, h2, h3, h4, h5, h6, p{
 }
 
 
+h1,h5{
+  color:white;
+}
+
+.ion-ios-settings{
+  color:white;
+}
+  .popup{
+    background-color:white;
+  }
+  .popup-head{
+    background-color:white;
+    border-bottom:0px;
+  }
+  .background-welcome{
+
+    width: 60%;
+    position: absolute;
+    left:50%;
+    transform:translate(-50%);
+  }
+
+
+  .popup-body{
+    background-color:white;
+  }
+
+  .popup-buttons{
+    background-color:white;
+  }
+
+
+  .button-cancel{
+    background-color:white;
+    color:rgb(185, 185, 185);
+    text-transform: uppercase;
+  }
+  .button-afirmative{
+    background-color:white;
+    color:#62D485;
+    text-transform: uppercase;
+  }
+
+
+  .popup-title{
+    font-size:22px;
+    color:#656565;
+  }
+
+  .popup-subtitle{
+    font-size:16px;
+    color:#8c8c8c;
+    font-color:rgb(147, 147, 147);
+    text-align: center;
+  }
+  .popup{
+    width:70vw !important;
+    max-width: 500px !important;
+  }
+
+
+.tab-not-selected{
+  display:grid;
+  background-color:transparent
+}
+
+.bar-footer {
+  height: 50px !important;
+}
+
+.tab-selected{
+  display:grid;
+  background-color:transparent;
+  font-size:15px;
+  color:white;
+}
+
 .button-john{
       margin: 15px auto !important;
       bottom:0px !important;
 }
 
-.special-color{
-  border-color:#8bcb71 !important;
-  background: #8bcb71 linear-gradient(0deg, #8bcb71, #8bcb71 50%, transparent 50%) !important;
+
+
+.user-color{
+  border-color:#62D485 !important;
+  background: #62D485 linear-gradient(0deg, #62D485, #62D485 50%, transparent 50%) !important;
 }
+
+.explorer-color{
+  border-color:#62BED4 !important;
+  background: #62BED4 linear-gradient(0deg, #62BED4, #62BED4 50%, transparent 50%) !important;
+}
+
+.partner-color{
+  border-color:#F5A623 !important;
+  background: #F5A623 linear-gradient(0deg, #F5A623, #F5A623 50%, transparent 50%) !important;
+}
+
+
+
+.user-color-font{
+  color:#62D485 !important;
+}
+
+.explorer-color-font{
+  color:#62BED4 !important;
+}
+
+.partner-color-font{
+  color:#F5A623 !important;
+}
+
+.img-about-us{
+  width:100px;
+}
+
 
 .background-introduction{
   width: 100%;

@@ -8,6 +8,37 @@ CONTROLLER DEFINITION
 (function() {
   app.controller("QuotationController", ["$scope","$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService","Quotation","$cordovaStatusbar","Utils","$ionicSlideBoxDelegate","Factor","$cordovaFileTransfer","$cordovaFileOpener2","$ionicLoading",
   function($scope,$state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils,$ionicSlideBoxDelegate,Factor,$cordovaFileTransfer,$cordovaFileOpener2,$ionicLoading) {
+    $scope.design = {};
+    switch (StorageUserModel.getCurrentUser().type_user) {
+      case 'user':
+      debugger;
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      $scope.design.color = '#62D485'
+      break;
+
+      case 'partner':
+      $scope.design.header = 'partner-color'
+      $scope.design.footer = 'partner-color'
+      $scope.design.color = '#62BED4'
+      break;
+
+      case 'explorer':
+      $scope.design.header = 'explorer-color'
+      $scope.design.footer = 'explorer-color'
+      $scope.design.color = '#F5A623'
+      break;
+      default:
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      $scope.design.color = '#62D485'
+      break;
+    }
+
+
+
+
+
 
     $ionicPlatform.ready(function() {
 
@@ -177,6 +208,10 @@ CONTROLLER DEFINITION
       $scope.goToProfile= function(){
         $state.go("settings");
 
+      }
+
+      $scope.goToDashboard= function(){
+        $state.go("dashboard");
       }
 
 

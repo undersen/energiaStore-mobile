@@ -9,6 +9,31 @@ CONTROLLER DEFINITION
   this.app.controller("FinalizedQuotationController", ["$scope", "$state","$ionicPlatform","StorageUserModel","translationService","$resource","$cordovaStatusbar","$ionicLoading","Utils","Quotation","$cordovaActionSheet","$cordovaCamera","PDF","$cordovaFileTransfer","$cordovaFileOpener2","$timeout","$ionicModal","popUpService","$ionicSlideBoxDelegate","Calculation","User","Motors","StorageProject","StorageMotor",
   function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,Quotation,$cordovaActionSheet,$cordovaCamera,PDF,$cordovaFileTransfer,$cordovaFileOpener2,$timeout,$ionicModal,popUpService,$ionicSlideBoxDelegate,Calculation,User,Motors,StorageProject,StorageMotor) {
 
+    $scope.design = {};
+    switch (StorageUserModel.getCurrentUser().type_user) {
+      case 'user':
+      debugger;
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      break;
+
+      case 'partner':
+      $scope.design.header = 'partner-color'
+      $scope.design.footer = 'partner-color'
+      break;
+
+      case 'explorer':
+      $scope.design.header = 'explorer-color'
+      $scope.design.footer = 'explorer-color'
+      break;
+      default:
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      break;
+    }
+
+
+
     $ionicPlatform.ready(function() {
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function (data) {
@@ -17,7 +42,7 @@ CONTROLLER DEFINITION
       });
 
 
-      $scope.image = "img/placeholder.png";
+      $scope.image = "img/photo.png";
       var user = StorageUserModel.getCurrentUser();
       $scope.user = StorageUserModel.getCurrentUser();
       $scope.register = {};

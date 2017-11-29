@@ -1,6 +1,13 @@
 <ion-view>
-  <ion-content style="background-color: rgba(58, 167, 13, 0.59)">
+  <ion-content ng-class="design.header">
 
+
+<img src="./img/logo.png" alt="" style="    position: absolute;
+    width: 70px;
+    z-index: 99;
+    transform: translate(-50%);
+    left: 50%;
+    top: -15px;">
     <div class="row" style="margin-top: 10vw;">
       <div class="col s12 m6">
         <div class="card card-login">
@@ -22,13 +29,13 @@
 
             <br />
 
-            <a class="waves-effect waves-light btn" ng-click="login()" style="width: 100%;">{{translations.LOGIN_BUTTON}}</a>
+            <a class="waves-effect waves-light btn" ng-click="login()" ng-class="design.header" style="width: 100%;">{{translations.LOGIN_BUTTON}}</a>
 
-</br>
-</br>
-            <a class="waves-effect waves-light btn" ng-click="goExplorer()" style="width: 100%;">{{translations.EXPLORER_SECOND}}</a>
+            </br>
+            </br>
+            <!-- <a class="waves-effect waves-light btn" ng-click="goExplorer()" style="width: 100%;">{{translations.EXPLORER_SECOND}}</a> -->
 
-            <p ng-click="goToRegister();" style="color:black;margin-top:30px;"> {{translations.LOGIN_SIGNUP_TEXT}} <strong style="font-weight:600;color:#8bcb71">{{translations.LOGIN_SIGNUP_BUTTON}}</strong></p>
+            <p ng-click="goToRegister();" style="color:black"> {{translations.LOGIN_SIGNUP_TEXT}} <strong style="font-weight:600;" ng-class="design.color">{{translations.LOGIN_SIGNUP_BUTTON}}</strong></p>
 
 
 

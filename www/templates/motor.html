@@ -1,18 +1,12 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-positive special-color">
-    <div class="buttons">
-      <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
-        <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
-      </div>
-    </div>
+  <ion-header-bar align-title="center" class="bar-positive" ng-class="design.header">
+
+    <h5 ng-click="back()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
     <h1 class="title">{{project_name}}</h1>
-    <!-- <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalMotor()">
-      <i class="ion-ios-plus-outline" style="    margin: auto;font-size: 25px;"></i>
-    </div> -->
   </ion-header-bar>
 
 
-  <ion-content>
+  <ion-content style="overflow:scroll">
 
     <ion-refresher  on-refresh="doRefreshMotors()">
         </ion-refresher>
@@ -23,18 +17,18 @@
         </h6>
 
 
-<button class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="openModalMotor()">{{motorButtonText}} </button>
+<!-- <button class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="openModalMotor()">{{motorButtonText}} </button> -->
 
-      <!-- <div class="col s12 m6" ng-repeat="motor in motors" >
-        <div class="card special-color">
-          <div class="card-content white-text">
-            <span class="card-title">{{motor.energy_cost}}<strong style="font-weight:600"></strong></span>
-            <p>a  </p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
+<div class="" ng-click="openModalMotor();" style="    width: 75vw;
+    border: 3px solid #61d485;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 20px;
+    color: #61d485;
+    text-transform: uppercase;
+    font-size: 16px;">
+  {{motorButtonText}}
+</div>
 
       <ion-list  show-delete="shouldShowDelete" style="margin-bottom:20px;">
     <ion-item ng-repeat="motor in motors | orderBy: 'created_at'" >
@@ -50,59 +44,36 @@
       <p>{{translations.KW_NAME_LIST}}: {{motor.rated_power}}</p>
       <p>{{translations.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
       <p ng-if="user.type_user === undefined">{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
-
-
-      <!-- <ion-option-button class="button-positive" ng-click="edit(motor.id)">
-        Editar
-      </ion-option-button>
-      <ion-option-button class="button-danger" ng-click="delete(motor.id)">
-        Eliminar
-      </ion-option-button> -->
-
 </div>
     </ion-item>
   </ion-list>
 
 
-
-
-
 </ion-content>
-<ion-footer-bar>
+
+<ion-footer-bar ng-class="design.footer">
   <div class="" style="width: 100%;display: flex;">
+
     <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;" ng-click="goToProjects()">
-<i class="fa fa-bookmark"></i>
-
-{{translations.FOOTER_PROJECT}}
-      </button>
-
-
-    </div>
-    <!-- <h1 class="title">Title!</h1> -->
-    <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
-
-        <i class="fa fa-user"></i>
-
-        {{translations.FOOTER_PROFILE}}
-
+      <button class="button tab-not-selected"  ng-click="goToProjects()">
+        <i class="fa fa-bookmark"></i>
+        {{translations.FOOTER_PROJECT}}
       </button>
     </div>
 
-    <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+    <div  style="margin:0 auto;" ng-click="goToDashboard()">
+      <img src="./img/logo.png" style="position: relative;width: 65px;bottom: 22px;" alt="">
+    </div>
 
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button tab-not-selected"  ng-click="goToQuotes()">
         <i class="fa fa-money"></i>
-
         {{translations.FOOTER_QUOTE}}
-
       </button>
     </div>
+
   </div>
 </ion-footer-bar>
-
-
 
 
 
@@ -126,10 +97,6 @@
 
 
 <style media="screen">
-.bar-footer {
-    height: 50px !important;
-    background-color: #8bcb71;
-}
 
 .list{
   margin-bottom:50px !important;

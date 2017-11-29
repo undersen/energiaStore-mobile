@@ -9,6 +9,30 @@ CONTROLLER DEFINITION
   this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer",
   function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer) {
 
+    $scope.design = {};
+    switch (StorageUserModel.getCurrentUser().type_user) {
+      case 'user':
+      debugger;
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      break;
+
+      case 'partner':
+      $scope.design.header = 'partner-color'
+      $scope.design.footer = 'partner-color'
+      break;
+
+      case 'explorer':
+      $scope.design.header = 'explorer-color'
+      $scope.design.footer = 'explorer-color'
+      break;
+      default:
+      $scope.design.header = 'user-color'
+      $scope.design.footer = 'user-color'
+      break;
+    }
+
+
     $ionicPlatform.ready(function() {
 
       const languageFilePath = translationService.getTranslation();
@@ -24,7 +48,7 @@ CONTROLLER DEFINITION
         $cordovaStatusbar.show();
       }
 
-      $scope.image = "img/placeholder.png";
+      $scope.image = "img/photo.png";
 
       $scope.os = ionic.Platform.platform();
       $scope.user = StorageUserModel.getCurrentUser();
@@ -61,63 +85,6 @@ CONTROLLER DEFINITION
 
         })
       }
-
-
-      $ionicModal.fromTemplateUrl('modal-help', {
-        scope: $scope,
-        animation: 'slide-in-up'
-      }).then(function(modal) {
-        $scope.modalHelp = modal;
-      });
-
-
-      $scope.openModalHelp = function() {
-        $scope.modalHelp.show();
-      };
-      $scope.closeModalHelp = function() {
-        $scope.modalHelp.hide();
-      };
-      // Cleanup the modal when we're done with it!
-      $scope.$on('$destroy', function() {
-        $scope.modalHelp.remove();
-      });
-      // Execute action on hide modal
-      $scope.$on('modalHelp.hidden', function() {
-        // Execute action
-      });
-      // Execute action on remove modal
-      $scope.$on('modalHelp.removed', function() {
-        // Execute action
-      });
-
-
-      $ionicModal.fromTemplateUrl('modal-factor', {
-        scope: $scope,
-        animation: 'slide-in-up'
-      }).then(function(modal) {
-        $scope.modalFactor = modal;
-      });
-
-
-      $scope.openModalFactor = function() {
-        $scope.modalFactor.show();
-      };
-      $scope.closeModalFactor = function() {
-        $scope.modalFactor.hide();
-      };
-      // Cleanup the modal when we're done with it!
-      $scope.$on('$destroy', function() {
-        $scope.modalFactor.remove();
-      });
-      // Execute action on hide modal
-      $scope.$on('modalFactor.hidden', function() {
-        // Execute action
-      });
-      // Execute action on remove modal
-      $scope.$on('modalFactor.removed', function() {
-        // Execute action
-      });
-
 
       $scope.openCamera = function (){
 
@@ -270,6 +237,9 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
       $scope.goToQuotes= function(){
 
         $state.go('factor');
+      }
+      $scope.goToDashboard= function(){
+        $state.go("dashboard");
       }
 
 

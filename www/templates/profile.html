@@ -1,13 +1,7 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-positive special-color" ng-init="init()">
-    <div class="buttons">
-      <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;" ng-click="backButton();"></i>
-    </div>
+  <ion-header-bar align-title="center" ng-class="design.header" ng-init="init()">
+    <h5 ng-click="backButton()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
     <h1 class="title">{{translations.MENU_PROFILE}}</h1>
-    <!-- <div class="buttons" style="width: 30px;height: 30px;" ng-click="logOut();">
-    <i class="ion-log-out" style="    margin: auto;font-size: 25px;"></i>
-  </div> -->
-
 </ion-header-bar>
 <ion-content >
 
@@ -42,27 +36,27 @@
   </div>
 
 </ion-content>
-<ion-footer-bar>
+<ion-footer-bar ng-class="design.footer">
   <div class="" style="width: 100%;display: flex;">
+
     <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+      <button class="button tab-not-selected"  ng-click="goToProjects()">
         <i class="fa fa-bookmark"></i>
         {{translations.FOOTER_PROJECT}}
       </button>
     </div>
-    <!-- <h1 class="title">Title!</h1> -->
-    <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
-        <i class="fa fa-user"></i>
-        {{translations.FOOTER_PROFILE}}
-      </button>
+
+    <div  style="margin:0 auto;" ng-click="goToDashboard()">
+      <img src="./img/logo.png" style="position: relative;width: 65px;bottom: 22px;" alt="">
     </div>
+
     <div class="buttons" style="margin:0 auto;">
-      <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+      <button class="button tab-not-selected"  ng-click="goToQuotes()">
         <i class="fa fa-money"></i>
         {{translations.FOOTER_QUOTE}}
       </button>
     </div>
+
   </div>
 </ion-footer-bar>
 </ion-view>

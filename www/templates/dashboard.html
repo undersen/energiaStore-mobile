@@ -1,14 +1,11 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-positive special-color">
+  <ion-header-bar align-title="center" ng-class="design.header">
     <div class="buttons">
 
     </div>
     <h1 class="title">{{translations.APP_NAME}}</h1>
-    <!-- <div class="buttons" style="width: 30px;height: 30px;" ng-click="logOut();">
-      <i class="ion-log-out" style="    margin: auto;font-size: 25px;"></i>
-    </div> -->
 
-    <div class="buttons" style="width: 30px;height: 30px;" ng-click="openPopover($event)">
+    <div class="buttons" style="width: 30px;height: 30px;" ng-click="goToSettings();">
       <i class="ion-ios-settings" style="    margin: auto;font-size: 25px;"></i>
     </div>
 
@@ -19,25 +16,22 @@
     <img src="./img/factory.jpeg" style="display:inline-block;width: 100%;height: calc((100vh - 44px ) / 3 );    top: -10px;position: relative;" alt="" ng-click="goToPenaltyEnergyEffiency()">
 
   </ion-content>
-  <ion-footer-bar>
+  <ion-footer-bar ng-class="design.footer">
     <div class="" style="width: 100%;display: flex;">
 
       <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+        <button class="button tab-not-selected"  ng-click="goToProjects()">
           <i class="fa fa-bookmark"></i>
           {{translations.FOOTER_PROJECT}}
         </button>
       </div>
 
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()">
-          <i class="fa fa-user"></i>
-          {{translations.FOOTER_PROFILE}}
-        </button>
+      <div  style="margin:0 auto;">
+        <img src="./img/logo.png" style="position: relative;width: 65px;bottom: 22px;" alt="">
       </div>
 
       <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToQuotes()">
+        <button class="button tab-not-selected"  ng-click="goToQuotes()">
           <i class="fa fa-money"></i>
           {{translations.FOOTER_QUOTE}}
         </button>
@@ -45,14 +39,4 @@
 
     </div>
   </ion-footer-bar>
-
-
 </ion-view>
-
-
-<style media="screen">
-.bar-footer {
-  height: 50px !important;
-  background-color: #8bcb71;
-}
-</style>

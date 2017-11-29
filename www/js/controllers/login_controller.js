@@ -9,6 +9,28 @@ CONTROLLER DEFINITION
   this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading","Utils",
   function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils) {
 
+    $scope.design = {};
+    switch (StorageUserModel.getCurrentUser().type_user) {
+      case 'user':
+      debugger;
+      $scope.design.header = 'user-color'
+      $scope.design.color = 'user-color-font'
+      break;
+
+      case 'partner':
+      $scope.design.header = 'partner-color'
+      $scope.design.color = 'partner-color-font'
+      break;
+
+      case 'explorer':
+      $scope.design.header = 'explorer-color'
+      $scope.design.color = 'explorer-color-font'
+      break;
+      default:
+      $scope.design.header = 'user-color'
+      $scope.design.color = 'user-color-font'
+      break;
+    }
     $ionicPlatform.ready(function() {
 
         const languageFilePath = translationService.getTranslation();
@@ -54,14 +76,12 @@ CONTROLLER DEFINITION
           ionic.Platform.exitApp();
       }, 100);
 
-      $scope.goExplorer = function(){
-        
-        StorageUserModel.setCurrentUser({
-          type_user:'explorer'
-        });
-
-        $state.go("dashboard");
-      }
+      // $scope.goExplorer = function(){
+      //
+      //
+      //
+      //   $state.go("dashboard");
+      // }
 
 
     });

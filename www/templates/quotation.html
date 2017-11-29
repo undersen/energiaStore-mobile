@@ -1,9 +1,6 @@
 <ion-view ng-init="init();" >
-  <ion-header-bar align-title="center" class="bar-positive special-color">
-    <div class="buttons">
-      <div class="buttons" style="width: 30px;height: 30px;" ng-click="goBack();">
-        <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
-      </div>
+  <ion-header-bar align-title="center" ng-class="design.header">
+<h5 ng-click="goBack()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
     </div>
     <h1 class="title">{{translations.QUOTATION_HEADER}}</h1>
   </ion-header-bar>
@@ -73,26 +70,27 @@
   </ion-slide-box>
 
 
-  <ion-footer-bar>
+  <ion-footer-bar ng-class="design.footer">
     <div class="" style="width: 100%;display: flex;">
+
       <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+        <button class="button tab-not-selected"  ng-click="goToProjects()">
           <i class="fa fa-bookmark"></i>
           {{translations.FOOTER_PROJECT}}
         </button>
       </div>
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" >
-          <i class="fa fa-user"></i>
-          {{translations.FOOTER_PROFILE}}
-        </button>
+
+      <div  style="margin:0 auto;" ng-click="goToDashboard()">
+        <img src="./img/logo.png" style="position: relative;width: 65px;bottom: 22px;" alt="">
       </div>
+
       <div class="buttons" style="margin:0 auto;">
-        <button class="button" style="display:grid;background-color:transparent;font-size:15px;color:white;"  ng-click="goToQuotes()">
+        <button class="button tab-not-selected"  ng-click="goToQuotes()">
           <i class="fa fa-money"></i>
           {{translations.FOOTER_QUOTE}}
         </button>
       </div>
+
     </div>
   </ion-footer-bar>
 
@@ -108,7 +106,7 @@ border-color: #FFC107;
 }
 
 .tabs-striped.tabs-background-positive .tabs {
-background-color: #8bcb71;
+background-color: {{design.color}};
 background-image: none;
 }
 

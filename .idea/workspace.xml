@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a14894e3-5692-413f-a296-29de8dbdcf09" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/introduction/phone.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/controllers/common/introduction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/controllers/common/middleware.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/img/map.svg" afterPath="$PROJECT_DIR$/www/img/introduction/map.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/config/config_router.js" afterPath="$PROJECT_DIR$/www/js/config/config_router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/base_controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/base_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,33 +26,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="introduction_controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers/common/introduction_controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="81" column="43" lean-forward="false" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
-              <folding>
-                <marker date="1511587128000" expanded="true" signature="261:745" ph="[...]" />
-                <marker date="1511587128000" expanded="true" signature="509:745" ph="{...}" />
-                <marker date="1511587128000" expanded="true" signature="547:745" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="introduction.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/templates/common/introduction.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-              <folding>
-                <marker date="1511579955000" expanded="true" signature="18534:18541" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -477,12 +444,12 @@
       <workItem from="1509995942094" duration="591000" />
       <workItem from="1509997943272" duration="1200000" />
       <workItem from="1510064418240" duration="1290000" />
-      <workItem from="1511572853875" duration="4240000" />
+      <workItem from="1511572853875" duration="4538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49808000" />
+    <option name="totallyTimeSpent" value="50106000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -888,26 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers/common/introduction_controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="81" column="43" lean-forward="false" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
-          <folding>
-            <marker date="1511587128000" expanded="true" signature="261:745" ph="[...]" />
-            <marker date="1511587128000" expanded="true" signature="509:745" ph="{...}" />
-            <marker date="1511587128000" expanded="true" signature="547:745" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -921,11 +868,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/common/introduction.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+        <state relative-caret-position="51">
+          <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
           <folding>
-            <marker date="1511579955000" expanded="true" signature="18534:18541" ph="..." />
+            <element signature="n#style#0;n#span#0;n#ion-content#0;n#ion-view#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#STYLE#0;n#div#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-content#0;n#ion-view#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers/common/introduction_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="812">
+          <caret line="93" column="43" lean-forward="false" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

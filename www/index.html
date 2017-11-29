@@ -51,7 +51,7 @@
 <script src="cordova.js"></script>
 
 
-  <script src="lib/angular-resource.js"></script>
+<script src="lib/angular-resource.js"></script>
 
 <!-- your app's js -->
 <script src="js/app.js"></script>
@@ -71,8 +71,11 @@
 
 <script src="js/controllers/common/introduction_controller.js"></script>
 <script src="js/controllers/common/midleware_controller.js"></script>
-<script src="js/controllers/tutorials/tutorial_type_user_controller.js"></script>
+<script src="js/controllers/common/settings_controller.js"></script>
+<script src="js/controllers/common/tutorials_controller.js"></script>
 
+<script src="js/controllers/tutorials/tutorial_type_user_controller.js"></script>
+<script src="js/controllers/tutorials/tutorial_penalty_factor.js"></script>
 
 
 <script src="js/controllers/login_controller.js"></script>
@@ -81,18 +84,20 @@
 <script src="js/controllers/quotation_controller.js"></script>
 <script src="js/controllers/motor_controller.js"></script>
 <script src="js/controllers/factor_controller.js"></script>
-<script src="js/controllers/settings_controller.js"></script>
+
 <script src="js/controllers/project_controller.js"></script>
 <script src="js/controllers/finalize_quotation_controller.js"></script>
 <script src="js/controllers/factors_controller.js"></script>
 
+<script src="js/controllers/profile_controller.js"></script>
+
 
 
 <!-- Utilities -->
-  <script src="js/utilities/translateUtilities.js"></script>
-  <script src="js/utilities/popUpUtilities.js"></script>
-  <script src="js/utilities/utilities.js"></script>
-  <script src="js/utilities/httpUtilities.js"></script>
+<script src="js/utilities/translateUtilities.js"></script>
+<script src="js/utilities/popUpUtilities.js"></script>
+<script src="js/utilities/utilities.js"></script>
+<script src="js/utilities/httpUtilities.js"></script>
 
 
 
@@ -130,49 +135,6 @@
 
 </body>
 
-<script id="modal-help" type="text/ng-template">
-  <ion-modal-view>
-    <ion-header-bar class="special-color">
-      <h1 class="title" style="color:white;">{{translations.FMP_MODAL_HEADER}}</h1>
-      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalHelp();">
-        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
-      </div>
-    </ion-header-bar>
-    <ion-content>
-      <div style="padding:20px;">
-
-
-        <h5> {{translations.FMP_MODAL_FIRST_TEXT_HEADER}}</h5>
-
-        {{translations.FMP_MODAL_FIRTS_TEXT_FIRST_LINE}}
-        {{translations.FMP_MODAL_FIRTS_TEXT_SECOND_LINE}}
-        {{translations.FMP_MODAL_FIRTS_TEXT_THIRD_LINE}}
-        {{translations.FMP_MODAL_FIRTS_TEXT_FOURTH_LINE}}
-        {{translations.FMP_MODAL_FIRTS_TEXT_FIFTH_LINE}}
-        {{translations.FMP_MODAL_FIRTS_TEXT_SIXTH_LINE}}
-        {{translations.FMP_MODAL_FIRTS_TEXT_SEVENTH_LINE}}
-        <br />
-
-        <h5>{{translations.FMP_MODAL_SECOND_TEXT_HEADER}}</h5>
-        {{translations.FMP_MODAL_SECOND_TEXT_FIRST_LINE}}
-
-        <img src="./img/factura.png" style="width:100%;" />
-        {{translations.FMP_MODAL_SECOND_TEXT_SECOND_LINE}}
-        {{translations.FMP_MODAL_SECOND_TEXT_THIRD_LINE}}
-
-        <br />
-
-        <h5>{{translations.FMP_MODAL_THIRD_TEXT_HEADER}}</h5>
-        {{translations.FMP_MODAL_THIRD_TEXT_SECOND_LINE}}
-      </div>
-
-    </ion-content>
-  </ion-modal-view>
-</script>
-
-
-
-
 
 
 <script id="modal-add-quote" type="text/ng-template">
@@ -186,231 +148,140 @@
       <h1 class="title">{{translations.FMP_HEADER}}</h1>
 
     </ion-header-bar>
-      <ion-content scroll="false">
-         <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
+    <ion-content scroll="false">
+      <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
 
         <div class="input-field col s12">
-           <input id="input-penalty" type="text" min="1000" class="validate" ng-model="factorType.power_factor" ng-change="format(this)" pattern="[0-9]*">
-           <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
-         </div>
-
-
-         <div class="input-field col s12">
-            <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.comment" >
-            <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
-          </div>
-
-
-          <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();">
-
-          <!-- <div class="row">
-            <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
-          </div> -->
-
-
-  <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
-
-
+          <input id="input-penalty" type="text" min="1000" class="validate" ng-model="factorType.power_factor" ng-change="format(this)" pattern="[0-9]*">
+          <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
         </div>
 
 
+        <div class="input-field col s12">
+          <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.comment" >
+          <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
+        </div>
 
-      </ion-content>
-  </ion-view>
 
+        <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();">
+
+        <!-- <div class="row">
+        <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
+      </div> -->
+
+
+      <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
+
+
+    </div>
+
+
+
+  </ion-content>
+</ion-view>
+
+</ion-modal-view>
+</script>
+
+
+
+<script id="modal-choose-country" type="text/ng-template">
+  <ion-modal-view>
+    <ion-content>
+
+      <img id="image-logo" src="img/introduction/map.svg"  class="background-welcome " >
+
+        <h5 style="    top: 22vh;
+        position: relative;
+        text-align: center;">
+        Selecciona tu pais</h5>
+
+
+        <div class="" style="    display: flex;top: 30vh;position: relative;">
+
+
+          <div class="" style="margin: 0 auto;">
+          <img src="./img/flag/CL.png" alt="" ng-click="chooseCountry('chile')" />
+          <p style="text-align:center">Chile</p>
+        </div>
+
+        <div class="" style="margin: 0 auto;">
+        <img src="./img/flag/AR.png" alt="" ng-click="chooseCountry('argentina')" />
+        <p style="text-align:center">Argentina</p>
+      </div>
+
+      <div class="" style="margin: 0 auto;">
+      <img src="./img/flag/CO.png" alt="" ng-click="chooseCountry('colombia')"/>
+      <p style="text-align:center">Colombia</p>
+      </div>
+
+
+
+      </div>
+    </ion-content>
   </ion-modal-view>
 </script>
 
-
-<script id="my-popover.html" type="text/ng-template">
-  <ion-popover-view>
-   <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-    <ion-item ng-click="settings();" ng-if="user.type_user !== 'explorer'">
-      {{translations.MENU_PROFILE}}
-    </ion-item>
-
-    <ion-item ng-click="chooseLanguage();">
-      {{translations.MENU_SWITCH_LANGUAGE}}
-    </ion-item>
-    <ion-item ng-click="logOut();" ng-if="user.type_user !== 'explorer'">
-      {{translations.MENU_LOG_OUT}}
-    </ion-item>
-    <ion-item ng-click="exitExplorer();" ng-if="user.type_user === 'explorer'">
-      {{translations.LOGOUT_EXPLORER}}
-    </ion-item>
-    </ion-list>
-  </ion-popover-view>
-</script>
-
-
-<!-- <script id="modal-quotation" type="text/ng-template">
-
-  <ion-modal-view>
-    <ion-header-bar class="special-color">
-      <h1 class="title header-title">Solicitar Cotización</h1>
-      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalFactor();">
-        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
-      </div>
-    </ion-header-bar>
-    <ion-content style="height:calc(100vh - 44px);">
-
-
-      <div style="margin-top:30px;padding:15px;">
-        <p>
-          <input type="radio" name="group1" class="filled-in" id="manual-checkbox" ng-click="chooseManual();"/>
-          <label for="manual-checkbox">{{translations.FMP_MODAL_QUOTATION_OPTION_MANUAL}}</label>
-        </p>
-
-        <div class="input-field col s6">
-          <input id="input-penalty" disabled="true" type="text" class="validate" ng-model="factorType.power_factor">
-          <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
-        </div>
-
-
-        <p>
-          <input type="radio" name="group1" class="filled-in" id="image-checkbox"  ng-click="chooseImage();"/>
-          <label for="image-checkbox">{{translations.FMP_MODAL_QUOTATION_USE_PHOTO}}</label>
-        </p>
-
-
-      <br>
-      <p>
-        <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="{{translations.FMP_MODAL_QUOTATION_COMMENT}}">
-        </textarea>
-      </p>
-
-      <div class="row">
-        <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION}}</a>
-        <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION_GALLERY}}</a>
-      </div>
-      <div style="width:100%;">
-        <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
-      </div>
-
-      <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
-    </div>
-  </ion-content>
-</ion-modal-view>
-
-</script> -->
-
-
-<script id="modal-factor" type="text/ng-template">
-  <ion-modal-view>
-    <ion-header-bar class="special-color">
-      <h1 class="title" style="color:white;">{{translations.FMP_MODAL_QUOTATION_HEADER}}</h1>
-      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalFactor();">
-        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
-      </div>
-    </ion-header-bar>
-    <ion-content style="height:calc(100vh - 44px);">
-
-
-      <div style="margin-top:30px;padding:15px;">
-        <p>
-          <input type="radio" name="group1" class="filled-in" id="manual-checkbox" ng-click="chooseManual();"/>
-          <label for="manual-checkbox">{{translations.FMP_MODAL_QUOTATION_OPTION_MANUAL}}</label>
-        </p>
-
-        <div class="input-field col s6">
-          <input id="input-penalty" type="number" step="1.000" ng-model="factorType.power_factor" pattern="[0-9]*">
-          <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
-        </div>
-
-
-        <p>
-          <input type="radio" name="group1" class="filled-in" id="image-checkbox"  ng-click="chooseImage();"/>
-          <label for="image-checkbox">{{translations.FMP_MODAL_QUOTATION_USE_PHOTO}}</label>
-        </p>
-
-
-      <br>
-      <p>
-        <textarea rows="4" cols="50" class="" ng-model="factorType.comment" placeholder="{{translations.FMP_MODAL_QUOTATION_COMMENT}}">
-        </textarea>
-      </p>
-
-
-
-
-      <div class="row">
-        <a class="waves-effect waves-light btn" id="button-camera" disabled="true" ng-click="openCamera();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION}}</a>
-        <a class="waves-effect waves-light btn" id="button-gallery" disabled="true" ng-click="openGallery();" style="margin:auto;">{{translations.FMP_MODAL_QUOTATION_OPTION_GALLERY}}</a>
-      </div>
-
-      <div style="width:100%;">
-        <img ng-src="{{image}}" style="width:30vh;margin: auto;display: block;"/>
-      </div>
-
-      <a class="waves-effect waves-light btn factor-send-button" ng-click="createFactorPenalty();" style="">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</a>
-    </div>
-
-  </ion-content>
-</ion-modal-view>
-</script>
 
 
 
 <script id="modal-register" type="text/ng-template">
   <ion-modal-view>
+    <ion-content class="back-color1" id="content-register">
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
+        <ion-slide>
+          <div class="row" style="margin-top: 10vw;">
+            <div class="col s12 m6">
+              <div class="card card-register" style="padding:0">
+                <div class="card-content white-text">
+                  <span class="card-title login-title">{{translations.REGISTER_SLIDER_1_HEADER}}</span>
 
-    <  <ion-content class="back-color1" id="content-register">
-
-        <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
-          <ion-slide>
-
-            <div class="row" style="margin-top: 10vw;">
-              <div class="col s12 m6">
-                <div class="card card-register" style="padding:0">
-                  <div class="card-content white-text">
-                    <span class="card-title login-title">{{translations.REGISTER_SLIDER_1_HEADER}}</span>
-
-                    <div class="input-field col s12">
-                      <input id="email" type="text" class="validate" ng-model="register.email">
-                      <label for="email">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input id="password" type="password" class="validate" ng-model="register.password">
-                      <label for="password">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input id="password_confirmation" type="password" class="validate" ng-model="register.password_confirmation">
-                      <label for="password_confirmation">{{translations.REGISTER_SLIDER_1_CONFIRMATION_PASSWORD}}</label>
-                    </div>
+                  <div class="input-field col s12">
+                    <input id="email" type="text" class="validate" ng-model="register.email">
+                    <label for="email">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" ng-model="register.password">
+                    <label for="password">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input id="password_confirmation" type="password" class="validate" ng-model="register.password_confirmation">
+                    <label for="password_confirmation">{{translations.REGISTER_SLIDER_1_CONFIRMATION_PASSWORD}}</label>
                   </div>
                 </div>
-                <a class="btn-floating btn-large waves-effect waves-light register-float-button" ng-click="validateSlider1();"><i class="ion-android-arrow-forward"></i></a>
               </div>
+              <a class="btn-floating btn-large waves-effect waves-light register-float-button" ng-click="validateSlider1();"><i class="ion-android-arrow-forward"></i></a>
             </div>
+          </div>
 
-          </ion-slide>
+        </ion-slide>
 
-          <ion-slide>
-            <div class="row" style="margin-top: 10vw;">
-              <div class="col s12 m6">
-                <div class="card card-register">
-                  <div class="card-content white-text">
-                    <span class="card-title login-title">{{translations.REGISTER_SLIDER_2_HEADER}}</span>
-                    <br>
-                    <img class="logo-register" src="img/logo_white.png" alt="">
-                    <br>
-                    <span class="card-title login-subtitle">{{translations.REGISTER_SLIDER_2_SUBTITLE}}</span>
+        <ion-slide>
+          <div class="row" style="margin-top: 10vw;">
+            <div class="col s12 m6">
+              <div class="card card-register">
+                <div class="card-content white-text">
+                  <span class="card-title login-title">{{translations.REGISTER_SLIDER_2_HEADER}}</span>
+                  <br>
+                  <img class="logo-register" src="img/logo_white.png" alt="">
+                  <br>
+                  <span class="card-title login-subtitle">{{translations.REGISTER_SLIDER_2_SUBTITLE}}</span>
 
-
-                  </div>
 
                 </div>
-                <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward" ng-click="finish()"></i></a>
+
               </div>
+              <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward" ng-click="finish()"></i></a>
             </div>
-          </ion-slide>
-        </ion-slide-box>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
 
 
 
-      </ion-content>
-</ion-modal-view>
+    </ion-content>
+  </ion-modal-view>
 </script>
 
 
@@ -464,81 +335,81 @@
         </div>
 
         <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
-          <!-- <input id="hours-day" type="number" min="1" max="24" class="validate" ng-model="motor.hours"> -->
-          <label for="hours-day">{{translations.MODAL_HELPER_HOURS_DAY_TITLE}}</label>
-<div  style="width:80%; display: -webkit-box;">
-  <select name="singleSelect" ng-model="motor.hours" style="display:block;-webkit-appearance:none;">
-    <option value="" disabled>{{translations.MOTOR_SELECT_HOURS}}</option>
-<option value="1">1 hora</option>
-<option value="2">2 horas</option>
-<option value="3">3 horas</option>
-<option value="4">4 horas</option>
-<option value="5">5 horas</option>
-<option value="6">6 horas</option>
-<option value="7">7 horas</option>
-<option value="8">8 horas</option>
-<option value="9">9 horas</option>
-<option value="10">10 horas</option>
-<option value="11">11 horas</option>
-<option value="12">12 horas</option>
-<option value="13">13 horas</option>
-<option value="14">14 horas</option>
-<option value="15">15 horas</option>
-<option value="16">16 horas</option>
-<option value="17">17 horas</option>
-<option value="18">18 horas</option>
-<option value="19">19 horas</option>
-<option value="20">20 horas</option>
-<option value="21">21 horas</option>
-<option value="22">22 horas</option>
-<option value="23">23 horas</option>
-<option value="24">24 horas</option>
+        <!-- <input id="hours-day" type="number" min="1" max="24" class="validate" ng-model="motor.hours"> -->
+        <label for="hours-day">{{translations.MODAL_HELPER_HOURS_DAY_TITLE}}</label>
+        <div  style="width:80%; display: -webkit-box;">
+          <select name="singleSelect" ng-model="motor.hours" style="display:block;-webkit-appearance:none;">
+            <option value="" disabled>{{translations.MOTOR_SELECT_HOURS}}</option>
+            <option value="1">1 hora</option>
+            <option value="2">2 horas</option>
+            <option value="3">3 horas</option>
+            <option value="4">4 horas</option>
+            <option value="5">5 horas</option>
+            <option value="6">6 horas</option>
+            <option value="7">7 horas</option>
+            <option value="8">8 horas</option>
+            <option value="9">9 horas</option>
+            <option value="10">10 horas</option>
+            <option value="11">11 horas</option>
+            <option value="12">12 horas</option>
+            <option value="13">13 horas</option>
+            <option value="14">14 horas</option>
+            <option value="15">15 horas</option>
+            <option value="16">16 horas</option>
+            <option value="17">17 horas</option>
+            <option value="18">18 horas</option>
+            <option value="19">19 horas</option>
+            <option value="20">20 horas</option>
+            <option value="21">21 horas</option>
+            <option value="22">22 horas</option>
+            <option value="23">23 horas</option>
+            <option value="24">24 horas</option>
 
-</select>
-  <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
-</div>
+          </select>
+          <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
+        </div>
 
         <!-- </div> -->
 
         <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
-          <!-- <input id="days-month" type="number" min="1" max="31" class="validate" ng-model="motor.days"> -->
-          <label for="days-month">{{translations.MODAL_HELPER_DAYS_MONTH_TITLE}}</label>
-          <div  style="width:80%; display: -webkit-box;">
+        <!-- <input id="days-month" type="number" min="1" max="31" class="validate" ng-model="motor.days"> -->
+        <label for="days-month">{{translations.MODAL_HELPER_DAYS_MONTH_TITLE}}</label>
+        <div  style="width:80%; display: -webkit-box;">
           <select name="singleSelect" ng-model="motor.days" style="display:block;-webkit-appearance:none;">
             <option value="" disabled>{{translations.MOTOR_SELECT_DAYS}}</option>
-     <option value="1">1 dia</option>
-     <option value="2">2 dias</option>
-     <option value="3">3 dias</option>
-     <option value="4">4 dias</option>
-     <option value="5">5 dias</option>
-     <option value="6">6 dias</option>
-     <option value="7">7 dias</option>
-     <option value="8">8 dias</option>
-     <option value="9">9 dias</option>
-     <option value="10">10 dias</option>
-     <option value="11">11 dias</option>
-     <option value="12">12 dias</option>
-     <option value="13">13 dias</option>
-     <option value="14">14 dias</option>
-     <option value="15">15 dias</option>
-     <option value="16">16 dias</option>
-     <option value="17">17 dias</option>
-     <option value="18">18 dias</option>
-     <option value="19">19 dias</option>
-     <option value="20">20 dias</option>
-     <option value="21">21 dias</option>
-     <option value="22">22 dias</option>
-     <option value="23">23 dias</option>
-     <option value="25">25 dias</option>
-     <option value="26">26 dias</option>
-     <option value="27">27 dias</option>
-     <option value="28">28 dias</option>
-     <option value="29">29 dias</option>
-     <option value="30">30 dias</option>
-     <option value="31">31 dias</option>
+            <option value="1">1 dia</option>
+            <option value="2">2 dias</option>
+            <option value="3">3 dias</option>
+            <option value="4">4 dias</option>
+            <option value="5">5 dias</option>
+            <option value="6">6 dias</option>
+            <option value="7">7 dias</option>
+            <option value="8">8 dias</option>
+            <option value="9">9 dias</option>
+            <option value="10">10 dias</option>
+            <option value="11">11 dias</option>
+            <option value="12">12 dias</option>
+            <option value="13">13 dias</option>
+            <option value="14">14 dias</option>
+            <option value="15">15 dias</option>
+            <option value="16">16 dias</option>
+            <option value="17">17 dias</option>
+            <option value="18">18 dias</option>
+            <option value="19">19 dias</option>
+            <option value="20">20 dias</option>
+            <option value="21">21 dias</option>
+            <option value="22">22 dias</option>
+            <option value="23">23 dias</option>
+            <option value="25">25 dias</option>
+            <option value="26">26 dias</option>
+            <option value="27">27 dias</option>
+            <option value="28">28 dias</option>
+            <option value="29">29 dias</option>
+            <option value="30">30 dias</option>
+            <option value="31">31 dias</option>
 
 
-   </select>
+          </select>
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(6)"></i>
         </div>
 
