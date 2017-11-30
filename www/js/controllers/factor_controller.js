@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer","StorageQuotation",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer,StorageQuotation) {
 
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
@@ -15,20 +15,24 @@ CONTROLLER DEFINITION
       debugger;
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
+      $scope.design.button = 'user-color-button'
       break;
 
       case 'partner':
       $scope.design.header = 'partner-color'
       $scope.design.footer = 'partner-color'
+      $scope.design.button = 'partner-color-button'
       break;
 
       case 'explorer':
       $scope.design.header = 'explorer-color'
       $scope.design.footer = 'explorer-color'
+      $scope.design.button = 'explorer-color-button'
       break;
       default:
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
+      $scope.design.button = 'user-color-button'
       break;
     }
 
@@ -44,7 +48,20 @@ CONTROLLER DEFINITION
       if (window.StatusBar) {
         $cordovaStatusbar.overlaysWebView(false);
         $cordovaStatusbar.style(1);
-        $cordovaStatusbar.styleHex("#1AA55E");
+        switch (StorageUserModel.getCurrentUser().type_user) {
+          case 'explorer':
+          $cordovaStatusbar.styleHex("#62BED4");
+          break;
+          case 'user':
+          $cordovaStatusbar.styleHex("#62D485");
+          break;
+
+          case 'partner':
+          $cordovaStatusbar.styleHex("#F5A623");
+          break;
+          default:
+
+        }
         $cordovaStatusbar.show();
       }
 
@@ -148,56 +165,56 @@ CONTROLLER DEFINITION
           return;
         }
 
-let calculation = $scope.factorType;
+        let calculation = $scope.factorType;
 
-if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
+        if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
-  popUpService.showPopUpRegister($scope.translations).then(function(_response){
+          popUpService.showPopUpRegister($scope.translations).then(function(_response){
 
 
 
-  },function(_error){
+          },function(_error){
 
-  })
+          })
 
-  StorageQuotation.setQuotation(calculation);
+          StorageQuotation.setQuotation(calculation);
 
-}else{
-        $ionicLoading.show({
-          template: `${$scope.translations.LOADING}...`
-        }).then(function () {
+        }else{
+          $ionicLoading.show({
+            templateUrl:"loading.html"
+          }).then(function () {
 
 
             $scope.CreateQuoate(calculation);
           });
         }
-    }
+      }
 
 
 
-    $scope.CreateQuoate = function(calculation){
+      $scope.CreateQuoate = function(calculation){
 
-      FactorPenalty.create(calculation,$scope.user).then(function(_response){
+        FactorPenalty.create(calculation,$scope.user).then(function(_response){
 
-        $scope.getPDF(_response.data.calculation,_response.data.id);
-        // $ionicLoading.hide();
-        // popUpService.showPopUpCreateFactor($scope.translations).then(function(_response){
-        //
-        //   $state.go("dashboard");
-        //
-        // },function(error){
-        //
-        // });
-        console.log(_response)
-      },function(_error){
+          $scope.getPDF(_response.data.calculation,_response.data.id);
+          // $ionicLoading.hide();
+          // popUpService.showPopUpCreateFactor($scope.translations).then(function(_response){
+          //
+          //   $state.go("dashboard");
+          //
+          // },function(error){
+          //
+          // });
+          console.log(_response)
+        },function(_error){
 
-        console.error(_error);
-        $ionicLoading.hide();
-        popUpService.showPopUpFailCreateFactor($scope.translations).then(function(_response){
-          $state.go("dashboard");
-        });
-      })
-    }
+          console.error(_error);
+          $ionicLoading.hide();
+          popUpService.showPopUpFailCreateFactor($scope.translations).then(function(_response){
+            $state.go("dashboard");
+          });
+        })
+      }
 
 
 
@@ -210,11 +227,11 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
             switch (btnIndex) {
               case 1:
-                $scope.openCamera();
-                break;
-                case 2:
-                  $scope.openGallery();
-                  break;
+              $scope.openCamera();
+              break;
+              case 2:
+              $scope.openGallery();
+              break;
               default:
               break;
 
@@ -225,7 +242,7 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
       }
 
       $ionicPlatform.registerBackButtonAction(function () {
-          $state.go("dashboard");
+        $state.go("dashboard");
       }, 100);
 
       $scope.goToProjects= function(){
@@ -261,7 +278,7 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
 
       }
-  $scope.downloadFile = function(_url, _file_name) {
+      $scope.downloadFile = function(_url, _file_name) {
 
         var targetPath = cordova.file.dataDirectory;
         var trustHosts = true;

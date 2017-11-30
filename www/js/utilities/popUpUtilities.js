@@ -204,18 +204,17 @@
 
 
         showPopupTokenProblem : function(_translation){
-
           let deferred = $q.defer();
           let buttons = [
-            { text: `${_translation.TOKEN_PROBLEM_BUTTON}`,  type: 'button-special',onTap: function(e) {
+            { text: `${_translation.TOKEN_PROBLEM_BUTTON}`,  type: 'button-afirmative',onTap: function(e) {
               return true;
             }}];
 
             $ionicPopup.show({
-              title: '<div class="congrats"></div><img src="img/special_icons/pulgar1_bad.png" class="modal-img-config">',
-              subTitle: `<br><span class="modal-body-config">${_translation.TOKEN_PROBLEM_TEXT}</span>`,
-              cssClass: 'successClass',
+              title: '<img src="./img/error.png" class="img-about-us">',
+              template: `<p class="popup-subtitle">${_translation.TOKEN_PROBLEM_TEXT}`,
               buttons:buttons,
+              animation: 'fade-in',
             },).then(function(_res){
               deferred.resolve(_res);
 
@@ -223,26 +222,26 @@
             return deferred.promise;
           },
 
-          showPopUpExplorer: function(_translation){
-
-            let deferred = $q.defer();
-            let buttons = [
-              { text: `${_translation.TOKEN_PROBLEM_BUTTON}`,  type: 'button-special',onTap: function(e) {
-                return true;
-              }}];
-
-              $ionicPopup.show({
-                title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
-                subTitle: `<br><span class="modal-body-config">${_translation.EXPLORER_TITLE}</span></br>
-                <span class="modal-body-subtitle">${_translation.EXPLORER_TEXT}</span>`,
-                cssClass: 'successClass',
-                buttons:buttons,
-              },).then(function(_res){
-                deferred.resolve(_res);
-
-              });
-              return deferred.promise;
-            },
+          // showPopUpExplorer: function(_translation){
+          //
+          //   let deferred = $q.defer();
+          //   let buttons = [
+          //     { text: `${_translation.TOKEN_PROBLEM_BUTTON}`,  type: 'button-special',onTap: function(e) {
+          //       return true;
+          //     }}];
+          //
+          //     $ionicPopup.show({
+          //       title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
+          //       subTitle: `<br><span class="modal-body-config">${_translation.EXPLORER_TITLE}</span></br>
+          //       <span class="modal-body-subtitle">${_translation.EXPLORER_TEXT}</span>`,
+          //       cssClass: 'successClass',
+          //       buttons:buttons,
+          //     },).then(function(_res){
+          //       deferred.resolve(_res);
+          //
+          //     });
+          //     return deferred.promise;
+          //   },
 
             showPopUpRegister: function(_translation){
 
@@ -250,16 +249,16 @@
               let buttons = [
                 { text: `${_translation.REGISTER_EXPLORER_BUTTON_NO}`,  type: 'button-special',onTap: function(e) {
                   return true;
-                }},{ text: `${_translation.REGISTER_EXPLORER_BUTTON_YES}`,  type: 'button-special',onTap: function(e) {
+                }},{ text: `${_translation.REGISTER_EXPLORER_BUTTON_YES}`,  type: 'button-afirmative',onTap: function(e) {
                   return false;
                 }}];
 
                 $ionicPopup.show({
-                  title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
-                  subTitle: `<br><span class="modal-body-config">${_translation.REGISTER_EXPLORER_TITLE}</span></br>
-                  <span class="modal-body-subtitle">${_translation.REGISTER_EXPLORER_TEXT}</span>`,
-                  cssClass: 'successClass',
+                  title: '<img src="img/common/stars.png" class="img-about-us">',
+                  subTitle: `<span class="popup-title">${_translation.REGISTER_EXPLORER_TITLE}</span>`,
+                  template: `<p class="popup-subtitle">${_translation.REGISTER_EXPLORER_TEXT}`,
                   buttons:buttons,
+                  animation: 'fade-in'
                 },).then(function(_res){
                   deferred.resolve(_res);
 

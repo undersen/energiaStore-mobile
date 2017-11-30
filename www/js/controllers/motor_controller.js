@@ -15,25 +15,49 @@ CONTROLLER DEFINITION
       debugger;
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
+      $scope.design.button = 'user-color-button'
       break;
 
       case 'partner':
       $scope.design.header = 'partner-color'
       $scope.design.footer = 'partner-color'
+      $scope.design.button = 'partner-color-button'
       break;
 
       case 'explorer':
       $scope.design.header = 'explorer-color'
       $scope.design.footer = 'explorer-color'
+      $scope.design.button = 'explorer-color-button'
       break;
       default:
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
+      $scope.design.button = 'user-color-button'
       break;
     }
 
 
     $ionicPlatform.ready(function() {
+
+      if (window.StatusBar) {
+        $cordovaStatusbar.overlaysWebView(false);
+        $cordovaStatusbar.style(1);
+        switch (StorageUserModel.getCurrentUser().type_user) {
+          case 'explorer':
+          $cordovaStatusbar.styleHex("#62BED4");
+          break;
+          case 'user':
+          $cordovaStatusbar.styleHex("#62D485");
+          break;
+
+          case 'partner':
+          $cordovaStatusbar.styleHex("#F5A623");
+          break;
+          default:
+
+        }
+        $cordovaStatusbar.show();
+      }
 
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function (data) {
@@ -239,7 +263,7 @@ CONTROLLER DEFINITION
           $scope.motor =[];
           $scope.motors = StorageMotor.getMotor();
 
-debugger;
+          debugger;
 
           if($scope.motors == undefined){
             $scope.motorButtonText=$scope.translations.BUTTON_ADD_MOTOR
@@ -366,20 +390,20 @@ debugger;
       //
 
 
-    $scope.goToProjects= function(){
-      $state.go('project');
-    }
-    $scope.goToProfile= function(){
-      $state.go('settings');
-    }
-    $scope.goToQuotes= function(){
+      $scope.goToProjects= function(){
+        $state.go('project');
+      }
+      $scope.goToProfile= function(){
+        $state.go('settings');
+      }
+      $scope.goToQuotes= function(){
 
-      $state.go('quotation');
-    }
+        $state.go('quotation');
+      }
 
-    $scope.goToDashboard= function(){
-      $state.go("dashboard");
-    }
+      $scope.goToDashboard= function(){
+        $state.go("dashboard");
+      }
 
 
 

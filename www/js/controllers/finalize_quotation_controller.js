@@ -41,6 +41,26 @@ CONTROLLER DEFINITION
         $scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
       });
 
+      if (window.StatusBar) {
+        $cordovaStatusbar.overlaysWebView(false);
+        $cordovaStatusbar.style(1);
+        switch (StorageUserModel.getCurrentUser().type_user) {
+          case 'explorer':
+          $cordovaStatusbar.styleHex("#62BED4");
+          break;
+          case 'user':
+          $cordovaStatusbar.styleHex("#62D485");
+          break;
+
+          case 'partner':
+          $cordovaStatusbar.styleHex("#F5A623");
+          break;
+          default:
+
+        }
+        $cordovaStatusbar.show();
+      }
+
 
       $scope.image = "img/photo.png";
       var user = StorageUserModel.getCurrentUser();
@@ -75,7 +95,7 @@ CONTROLLER DEFINITION
           }
 
           $ionicLoading.show({
-            template: `${$scope.translations.LOADING}...`
+            templateUrl:"loading.html"
           }).then(function () {
 
 
@@ -164,7 +184,7 @@ CONTROLLER DEFINITION
         }
 
         $ionicLoading.show({
-          template: `${$scope.translations.LOADING}...`
+          templateUrl:"loading.html"
         }).then(function () {
 
 
@@ -409,7 +429,7 @@ CONTROLLER DEFINITION
       $scope.registerUser = function (){
 
         $ionicLoading.show({
-          template: `${$scope.translations.LOADING}...`
+          templateUrl:"loading.html"
         });
         User.registerUser($scope.register).then(function(_response){
 

@@ -29,7 +29,10 @@
         <label for="address">{{placeholder.address}}</label>
       </div>
 
-      <a class="waves-effect waves-light btn" style="width:100%;" ng-click="updateInfo()">{{translations.UPDATE_BUTTON}}</a>
+
+      <div ng-class="design.button" ng-click="updateInfo();" class="button-traslucid">
+        {{translations.UPDATE_BUTTON}}
+      </div>
 
 
     </div>
@@ -46,8 +49,8 @@
       </button>
     </div>
 
-    <div  style="margin:0 auto;" ng-click="goToDashboard()">
-      <img src="./img/logo.png" style="position: relative;width: 65px;bottom: 22px;" alt="">
+    <div  class="dashboard-button" ng-click="goToDashboard()">
+      <img src="./img/logo.png" class="dashboard-button-img" alt="">
     </div>
 
     <div class="buttons" style="margin:0 auto;">

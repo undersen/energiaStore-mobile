@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  app.controller("QuotationController", ["$scope","$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService","Quotation","$cordovaStatusbar","Utils","$ionicSlideBoxDelegate","Factor","$cordovaFileTransfer","$cordovaFileOpener2","$ionicLoading",
-  function($scope,$state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils,$ionicSlideBoxDelegate,Factor,$cordovaFileTransfer,$cordovaFileOpener2,$ionicLoading) {
+  app.controller("QuotationController", ["$scope","$state","$ionicPlatform","Calculation","StorageUserModel","Motors","$ionicModal","popUpService","$resource","translationService","Quotation","$cordovaStatusbar","Utils","$ionicSlideBoxDelegate","Factor","$cordovaFileTransfer","$cordovaFileOpener2","$ionicLoading","httpUtilities",
+  function($scope,$state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils,$ionicSlideBoxDelegate,Factor,$cordovaFileTransfer,$cordovaFileOpener2,$ionicLoading,httpUtilities) {
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
       case 'user':
@@ -15,32 +15,51 @@ CONTROLLER DEFINITION
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       $scope.design.color = '#62D485'
+      $scope.design.button = 'user-color-button'
       break;
 
       case 'partner':
       $scope.design.header = 'partner-color'
       $scope.design.footer = 'partner-color'
       $scope.design.color = '#62BED4'
+      $scope.design.button = 'partner-color-button'
       break;
 
       case 'explorer':
       $scope.design.header = 'explorer-color'
       $scope.design.footer = 'explorer-color'
       $scope.design.color = '#F5A623'
+      $scope.design.button = 'explorer-color-button'
       break;
       default:
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       $scope.design.color = '#62D485'
+      $scope.design.button = 'user-color-button'
       break;
     }
 
-
-
-
-
-
     $ionicPlatform.ready(function() {
+
+      if (window.StatusBar) {
+        $cordovaStatusbar.overlaysWebView(false);
+        $cordovaStatusbar.style(1);
+        switch (StorageUserModel.getCurrentUser().type_user) {
+          case 'explorer':
+          $cordovaStatusbar.styleHex("#62BED4");
+          break;
+          case 'user':
+          $cordovaStatusbar.styleHex("#62D485");
+          break;
+
+          case 'partner':
+          $cordovaStatusbar.styleHex("#F5A623");
+          break;
+          default:
+
+        }
+        $cordovaStatusbar.show();
+      }
 
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function(data) {
@@ -49,9 +68,13 @@ CONTROLLER DEFINITION
       $scope.platform = ionic.Platform.platform()
 
       $scope.init = function(){
-        debugger;
-        $scope.getFactors();
-        $scope.getCalculation();
+
+        if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
+
+        }else{
+          $scope.getFactors();
+          $scope.getCalculation();
+        }
       }
 
       $scope.right = function(){
@@ -67,12 +90,7 @@ CONTROLLER DEFINITION
 
 
       $scope.viewPdfProject = function(project_id){
-
         console.log(project_id);
-
-
-
-
       }
 
 
@@ -107,7 +125,7 @@ CONTROLLER DEFINITION
       $scope.viewPdf = function(calculation){
 
         $ionicLoading.show({
-          template: `${$scope.translations.LOADING}...`
+          templateUrl:"loading.html"
         }).then(function () {
           var url = `http://kvar.herokuapp.com/api/calculations/${calculation.calculation_id}/quotations/${calculation.id}/pdf`;
           $scope.downloadFile(url);

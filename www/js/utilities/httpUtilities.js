@@ -36,7 +36,7 @@
 
     this.deleteStorageData = function () {
       StorageUserModel.destroyCurrentUser();
-      $state.go("login");
+      $state.go("welcome");
     };
 
     this.configCameraOption = function (_quality, _width, _height) {

@@ -66,7 +66,7 @@ CONTROLLER DEFINITION
       $scope.nextButton = function(index){
         switch (index) {
           case 0:
-          
+
           $scope.validateSlider1();
 
           // $ionicSlideBoxDelegate.slide(2)
@@ -121,7 +121,6 @@ CONTROLLER DEFINITION
 
         $ionicLoading.show({
           templateUrl:"loading.html",
-          noBackdrop: true
         });
         User.registerUser($scope.user).then(function(_response){
 

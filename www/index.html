@@ -23,6 +23,7 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="css/materialize.css" rel="stylesheet">
 <link href="css/animate.css" rel="stylesheet">
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -188,6 +189,12 @@
 
 <script id="modal-choose-country" type="text/ng-template">
   <ion-modal-view>
+    <ion-header-bar ng-class="design.header">
+      <h1 class="title" style="color:white"></h1>
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalMotor();">
+        <i class="ion-android-close" style="color:white;margin: auto;font-size: 30px;"></i>
+      </div>
+    </ion-header-bar>
     <ion-content>
 
       <img id="image-logo" src="img/introduction/map.svg"  class="background-welcome " >
@@ -288,10 +295,10 @@
 
 <script id="modal-motor" type="text/ng-template">
   <ion-modal-view>
-    <ion-header-bar class="special-color">
+    <ion-header-bar ng-class="design.header">
       <h1 class="title" style="color:white">{{translations.MODAL_CREATE_MOTOR_HEADER}}</h1>
       <div class="buttons" style="width: 30px;height: 30px;" ng-click="closeModalMotor();">
-        <i class="ion-ios-close-outline" style="color:white;margin: auto;font-size: 25px;"></i>
+        <i class="ion-android-close" style="color:white;margin: auto;font-size: 30px;"></i>
       </div>
     </ion-header-bar>
     <ion-content style="height:calc(100vh - 44px);">
@@ -413,7 +420,11 @@
           <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(6)"></i>
         </div>
 
-        <a class="waves-effect waves-light btn factor-send-button" ng-click="createMotor();" style="">{{translations.MODAL_CREATE_MOTOR_BUTTON}}</a>
+
+
+        <div ng-class="design.button" ng-click="createMotor();" class="button-traslucid">
+          {{translations.MODAL_CREATE_MOTOR_BUTTON}}
+        </div>
       </div>
 
 
@@ -424,9 +435,9 @@
 </script>
 
 <script id="loading.html" type="text/ng-template">
-  <img  src="./img/logo_transparent.png" class="rotating" style="width:80px;" />
+  <img  src="./img/logo.png" class="rotating" style="width:80px;" />
   <br />
-  <span>{{translaions.SPINNER_REGISTER}}</span>
+  <span>{{translations.LOADING}}</span>
 </script>
 
 </html>

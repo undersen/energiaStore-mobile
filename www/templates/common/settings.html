@@ -11,28 +11,28 @@
 
 
   <ion-list>
-    <ion-item ng-click="goToProfile()">
+    <ion-item ng-click="goToProfile()" ng-if="user.type_user != 'explorer'">
       <span>Mi perfil</span>
 
-      <i style="    right: 25px;
-    position: absolute;
-" class="ion-chevron-right"></i>
+      <i class="ion-chevron-right button-right"></i>
+    </ion-item>
+
+    <ion-item ng-click="goToProfile()" ng-if="user.type_user == 'explorer'">
+      <span>Registrar mi cuenta</span>
+
+      <i class="ion-chevron-right button-right"></i>
     </ion-item>
 
     <ion-item ng-click="chooseLanguaje()">
       <span>Cambiar lenguaje</span>
 
-      <i style="    right: 25px;
-    position: absolute;
-" class="ion-chevron-right"></i>
+      <i class="ion-chevron-right button-right"></i>
     </ion-item>
 
     <ion-item ng-click="openModalChooseCountry()">
       <span>Seleccionar Pais</span>
 
-      <i style="    right: 25px;
-    position: absolute;
-" class="ion-chevron-right"></i>
+      <i class="ion-chevron-right button-right"></i>
     </ion-item>
 
   </ion-list>
@@ -45,9 +45,7 @@
   <ion-item ng-click="goToTutorials()">
     <span>Tutoriales</span>
 
-    <i style="    right: 25px;
-  position: absolute;
-" class="ion-chevron-right"></i>
+    <i class="ion-chevron-right button-right"></i>
   </ion-item>
 </ion-list>
 
@@ -60,16 +58,12 @@
   <ion-item ng-click="FAQ()">
     <span>FAQ</span>
 
-    <i style="    right: 25px;
-  position: absolute;
-" class="ion-chevron-right"></i>
+    <i class="ion-chevron-right button-right"></i>
   </ion-item>
   <ion-item ng-click="aboutUs()">
     <span>Sobre nosotros</span>
 
-    <i style="    right: 25px;
-  position: absolute;
-" class="ion-chevron-right"></i>
+    <i class="ion-chevron-right button-right"></i>
   </ion-item>
 </ion-list>
 
@@ -81,9 +75,7 @@
   <ion-item ng-click="logOut()">
     <span>Cerrar sesión</span>
 
-    <i style="    right: 25px;
-  position: absolute;
-" class="ion-chevron-right"></i>
+    <i class="ion-chevron-right button-right"></i>
   </ion-item>
 </ion-list>
 </ion-content>
@@ -95,4 +87,10 @@
 h1,h5{
   color:black;
 }
+
+.button-right{
+  right: 25px;
+  position: absolute;
+}
+
 </style>

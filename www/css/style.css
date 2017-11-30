@@ -6,6 +6,19 @@ html, body ,h1, h2, h3, h4, h5, h6, p{
 }
 
 
+.dashboard-button{
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+.dashboard-button-img{
+  position: relative;
+  width: 65px;
+  bottom: 22px;
+}
+
 h1,h5{
   color:white;
 }
@@ -13,63 +26,66 @@ h1,h5{
 .ion-ios-settings{
   color:white;
 }
-  .popup{
-    background-color:white;
-  }
-  .popup-head{
-    background-color:white;
-    border-bottom:0px;
-  }
-  .background-welcome{
+.popup{
+  background-color:white;
+}
 
-    width: 60%;
-    position: absolute;
-    left:50%;
-    transform:translate(-50%);
-  }
+.popup-head{
+  background-color:white;
+  border-bottom:0px;
+}
 
-
-  .popup-body{
-    background-color:white;
-  }
-
-  .popup-buttons{
-    background-color:white;
-  }
+.background-welcome{
+  width: 60%;
+  position: absolute;
+  left:50%;
+  transform:translate(-50%);
+}
 
 
-  .button-cancel{
-    background-color:white;
-    color:rgb(185, 185, 185);
-    text-transform: uppercase;
-  }
-  .button-afirmative{
-    background-color:white;
-    color:#62D485;
-    text-transform: uppercase;
-  }
+.popup-body{
+  background-color:white;
+}
+
+.popup-buttons{
+  background-color:white;
+}
 
 
-  .popup-title{
-    font-size:22px;
-    color:#656565;
-  }
+.button-cancel{
+  background-color:white;
+  color:rgb(185, 185, 185);
+  text-transform: uppercase;
+}
+.button-afirmative{
+  background-color:white;
+  color:#62D485;
+  text-transform: uppercase;
+}
 
-  .popup-subtitle{
-    font-size:16px;
-    color:#8c8c8c;
-    font-color:rgb(147, 147, 147);
-    text-align: center;
-  }
-  .popup{
-    width:70vw !important;
-    max-width: 500px !important;
-  }
+
+.popup-title{
+  font-size:22px;
+  color:#656565;
+}
+
+.popup-subtitle{
+  font-size:16px;
+  color:#8c8c8c;
+  font-color:rgb(147, 147, 147);
+  text-align: center;
+}
+.popup{
+  width:70vw !important;
+  max-width: 500px !important;
+}
 
 
 .tab-not-selected{
   display:grid;
-  background-color:transparent
+  background-color:transparent;
+  color: white;
+  font-size: 15px;
 }
 
 .bar-footer {
@@ -83,11 +99,36 @@ h1,h5{
   color:white;
 }
 
-.button-john{
-      margin: 15px auto !important;
-      bottom:0px !important;
+.button-traslucid{
+  width: 60vw;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 16px;"
 }
 
+.button-john{
+  margin: 15px auto !important;
+  bottom:0px !important;
+}
+
+
+.user-color-button{
+  border: 3px solid #62bed4;
+  color:#62bed4;
+}
+
+.explorer-color-button{
+  border: 3px solid #62BED4;
+  color:#62BED4;
+}
+
+
+.partner-color-button{
+  border: 3px solid #F5A623;
+  color:#F5A623;
+}
 
 
 .user-color{
@@ -143,11 +184,11 @@ h1,h5{
   position:relative;
 }
 
- .login-subtitle{
-   color: rgb(150, 150, 150);
-   font-weight: 300;
-   text-align: center;
-   font-size:4.5vw !important;
+.login-subtitle{
+  color: rgb(150, 150, 150);
+  font-weight: 300;
+  text-align: center;
+  font-size:4.5vw !important;
 }
 
 .logo-register{
@@ -212,7 +253,7 @@ h1,h5{
   transition:1s;
 }
 .card-register{
-padding: 0 0 26px 0 !important;
+  padding: 0 0 26px 0 !important;
 }
 
 .register-float-button{
@@ -247,8 +288,8 @@ padding: 0 0 26px 0 !important;
 
 .loading-container .loading {
 
-    background-color: #ffffff !important;
-    color: #383838 !important;
+  background-color: #ffffff !important;
+  color: #383838 !important;
 
 }
 
@@ -289,7 +330,7 @@ padding: 0 0 26px 0 !important;
 }
 
 .hide{
-display:none;
+  display:none;
 }
 
 .logo-welcome{
@@ -300,7 +341,7 @@ display:none;
 }
 
 .welcome-button{
-margin: 5vw !important;
+  margin: 5vw !important;
 }
 
 
@@ -310,12 +351,12 @@ margin: 5vw !important;
 }
 
 /*.popup{
-    border-radius: 20px !important;
-    width: 75% !important;
+border-radius: 20px !important;
+width: 75% !important;
 }
 
 .popup-head{
-    margin-bottom: 0;
+margin-bottom: 0;
 }*/
 .modal-body-config{
   top:-60px;
@@ -358,5 +399,5 @@ margin: 5vw !important;
   height:0px;
 }
 /*.popup-container .popup {
-  background-color: white;
+background-color: white;
 }*/

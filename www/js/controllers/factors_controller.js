@@ -95,7 +95,7 @@ CONTROLLER DEFINITION
       $scope.viewPdf = function(calculation){
 
         $ionicLoading.show({
-          template: `${$scope.translations.LOADING}...`
+          templateUrl:"loading.html"
         }).then(function () {
           var url = `http://kvar.herokuapp.com/api/calculations/${calculation.calculation_id}/quotations/${calculation.id}/pdf`;
           $scope.downloadFile(url);
@@ -343,7 +343,7 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
 }else{
         $ionicLoading.show({
-          template: `${$scope.translations.LOADING}...`
+          templateUrl:"loading.html"
         }).then(function () {
 
 
@@ -441,7 +441,7 @@ debugger;
     $scope.registerUser = function (){
 
       $ionicLoading.show({
-        template: `${$scope.translations.LOADING}...`
+        templateUrl:"loading.html"
       });
       User.registerUser($scope.register).then(function(_response){
 
