@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer","StorageQuotation",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer,StorageQuotation) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer","StorageQuotation","StorageFactorModel","User",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer,StorageQuotation,StorageFactorModel,User) {
 
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
@@ -69,6 +69,7 @@ CONTROLLER DEFINITION
 
       $scope.os = ionic.Platform.platform();
       $scope.user = StorageUserModel.getCurrentUser();
+      $scope.register={};
 
 
       const _input_penalty = $('#input-penalty');
@@ -171,8 +172,10 @@ CONTROLLER DEFINITION
 
           popUpService.showPopUpRegister($scope.translations).then(function(_response){
 
-
-
+            if(!_response){
+              StorageFactorModel.setFactors(calculation);
+              $scope.openModalRegister();
+            }
           },function(_error){
 
           })
@@ -189,6 +192,36 @@ CONTROLLER DEFINITION
           });
         }
       }
+
+
+      $ionicModal.fromTemplateUrl('modal-register', {
+        scope: $scope,
+        animation: 'slide-in-up'
+
+      }).then(function(modal) {
+        $scope.modalRegister = modal;
+        $scope.modalRegister.hardwareBackButtonClose = false;
+      });
+
+
+      $scope.openModalRegister = function() {
+        $scope.modalRegister.show();
+      };
+      $scope.closeModalRegister = function() {
+        $scope.modalRegister.hide();
+      };
+      // Cleanup the modal when we're done with it!
+      $scope.$on('$destroy', function() {
+        $scope.modalRegister.remove();
+      });
+      // Execute action on hide modal
+      $scope.$on('modalRegister.hidden', function() {
+        // Execute action
+      });
+      // Execute action on remove modal
+      $scope.$on('modalRegister.removed', function() {
+        // Execute action
+      });
 
 
 
@@ -343,6 +376,82 @@ CONTROLLER DEFINITION
         );
       };
 
+
+      $scope.validateSlider1 =function(){
+
+        if ($scope.register.email === undefined || $scope.register.email === ''){
+          Utils.validateToast($scope.translations.REGISTER_EMAIL_EMPTY_ERROR);
+          return;
+        }
+
+        if ($scope.register.password === undefined || $scope.register.password === ''){
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_EMPTY_ERROR);
+          return;
+        }
+
+        if ($scope.register.password_confirmation === undefined || $scope.register.password_confirmation === ''){
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR);
+          return;
+        }
+
+        if ($scope.register.password_confirmation !== $scope.register.password){
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR);
+          return;
+        }
+
+        $scope.registerUser();
+
+      };
+
+
+      $scope.registerUser = function (){
+
+        $ionicLoading.show({
+          templateUrl:"loading.html"
+        });
+        User.registerUser($scope.register).then(function(_response){
+
+          StorageUserModel.setCurrentUser(_response.data);
+
+          setTimeout(function () {
+            $ionicLoading.hide();
+
+            $ionicSlideBoxDelegate.slide(1)
+          }, 2000);
+
+        },function(_error){
+
+          $ionicLoading.hide();
+          // Materialize.toast($scope.translations.REGISTER_SLIDER_1_ERROR,4000)
+          console.error(_error)
+
+        })
+      };
+      $scope.finish= function(){
+        $scope.closeModalRegister();
+        $ionicLoading.show({
+          template: `${$scope.translations.LOADING}...`
+        });
+        $scope.persistQuotation();
+
+      };
+      $scope.disableSwipe = function() {
+        $ionicSlideBoxDelegate.enableSlide(false);
+      };
+
+
+      $scope.persistQuotation = function(){
+
+        var factor = StorageFactorModel.getFactors();
+
+        $scope.CreateQuoate(factor);
+
+      }
+
+
+      $scope.Close = function(){
+        $scope.closeModalRegister();
+      }
 
 
     });

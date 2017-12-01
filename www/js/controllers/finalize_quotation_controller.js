@@ -15,20 +15,24 @@ CONTROLLER DEFINITION
       debugger;
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
+      $scope.design.buttonSolid = 'user-color-button-solid'
       break;
 
       case 'partner':
       $scope.design.header = 'partner-color'
       $scope.design.footer = 'partner-color'
+      $scope.design.buttonSolid = 'partner-color-button-solid'
       break;
 
       case 'explorer':
       $scope.design.header = 'explorer-color'
       $scope.design.footer = 'explorer-color'
+      $scope.design.buttonSolid = 'explorer-color-button-solid'
       break;
       default:
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
+      $scope.design.buttonSolid = 'user-color-button-solid'
       break;
     }
 
@@ -469,8 +473,11 @@ CONTROLLER DEFINITION
         $state.go('settings');
       }
       $scope.goToQuotes= function(){
-
         $state.go('factor');
+      }
+
+      $scope.Close = function(){
+        $scope.closeModalMotor();
       }
 
 

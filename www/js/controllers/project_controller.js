@@ -153,8 +153,8 @@ CONTROLLER DEFINITION
                       $scope.getExplorerCalulation();
 
                     }else{
-                      console.log('PopUp solo 1 proyecto en modo explorer');
-                      //PopUp solo 1 proyecto en modo explorer
+
+                      popUpService.showPopupOnlyOneProject($scope.translations).then();
                     }
                     }else{
                       $scope.craeteCalculation($scope.data);
@@ -233,6 +233,9 @@ CONTROLLER DEFINITION
               $scope.calculations = {};
               $scope.getCalculation();
               console.log(_response);
+              if(cordova.plugins){
+                cordova.plugins.Keyboard.close();
+              }
             },
             function(_error) {
               Utils.validateToast($scope.translations.QUOTATION_FAIL_MESSAGE);
@@ -360,6 +363,9 @@ CONTROLLER DEFINITION
 
 
         }
+
+
+
 
       });
     }

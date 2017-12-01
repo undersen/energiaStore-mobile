@@ -111,6 +111,6 @@
     <plugin name="cordova-plugin-team" spec="https://github.com/apache/cordova-plugin-whitelist.git" />
     <plugin name="cordova-plugin-whitelist" spec="git+https://github.com/apache/cordova-plugin-whitelist.git" />
     <plugin name="cordova-plugin-x-toast" spec="git+https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git" />
-    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="onesignal-cordova-plugin" spec="^2.2.2" />
+    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
 </widget>

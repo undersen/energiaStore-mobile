@@ -16,23 +16,27 @@ CONTROLLER DEFINITION
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       $scope.design.button = 'user-color-button'
+      $scope.design.buttonSolid = 'user-color-button-solid'
       break;
 
       case 'partner':
       $scope.design.header = 'partner-color'
       $scope.design.footer = 'partner-color'
       $scope.design.button = 'partner-color-button'
+      $scope.design.buttonSolid = 'partner-color-button-solid'
       break;
 
       case 'explorer':
       $scope.design.header = 'explorer-color'
       $scope.design.footer = 'explorer-color'
       $scope.design.button = 'explorer-color-button'
+      $scope.design.buttonSolid = 'explorer-color-button-solid'
       break;
       default:
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       $scope.design.button = 'user-color-button'
+      $scope.design.buttonSolid = 'user-color-button-solid'
       break;
     }
 
@@ -173,6 +177,12 @@ CONTROLLER DEFINITION
         }
 
 
+        if($scope.motor.power_factor >= 10){
+          $scope.motor.power_factor = ($scope.motor.power_factor /100);
+        }else{
+          $scope.motor.power_factor = ($scope.motor.power_factor /10);
+        }
+
         if($scope.motor.power_factor > 1) {
           Utils.validateToast("Factor de potencia debe varia entre 0.0 y 1");
           return;
@@ -183,11 +193,7 @@ CONTROLLER DEFINITION
           return;
         }
 
-        if(validator.isDecimal($scope.motor.power_factor+'',{force_decimal: true, decimal_digits: '1,', locale: 'en-US'})){
 
-        }else{
-
-        }
 
 
         if($scope.motor.rated_power === undefined || $scope.motor.rated_power === 0) {

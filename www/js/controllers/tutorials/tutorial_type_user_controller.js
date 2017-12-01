@@ -57,7 +57,7 @@ CONTROLLER DEFINITION
       if($state.params.flag == 'config'){
         $state.go('tutorials')
       }else{
-      
+
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
           title: '<img src="./img/common/flying_email.png">',
@@ -70,11 +70,11 @@ CONTROLLER DEFINITION
               type: 'button-afirmative',
               onTap: function(e) {
 
-                // if(!$state.params.flag == 'config'){
+                if(!$state.params.flag == 'config'){
                 $state.go('middleware')
-                // }else{
-                //   $state.go('tutorials')
-                // }
+                }else{
+                  $state.go('tutorials')
+                }
               }
             }
           ]

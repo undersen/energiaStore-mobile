@@ -29,47 +29,11 @@ CONTROLLER DEFINITION
 
         console.log($state);
 
-
-        var myPopup = $ionicPopup.show({
-          animation: 'fade-in',
-          title: '<img src="./img/common/stars.png">',
-          subTitle: '<span class="popup-title">Bienvenido</span>',
-          template: '<p class="popup-subtitle">A continuacion te explicaremos los distintos perfiles que existen en energiaStore</p>',
-          scope: $scope,
-          buttons: [
-            { text: 'Cancelar',
-            type: 'button-cancel'
-          },
-          {
-            text: 'Comenzar',
-            type: 'button-afirmative',
-            onTap: function(e) {
-
-            }
-          }
-        ]
-      });
     }
 
 
     $scope.finish = function(){
-
-      var myPopup = $ionicPopup.show({
-        animation: 'fade-in',
-        title: '<img src="./img/common/flying_email.png">',
-        subTitle: '<span class="popup-title">Fin Tutorial</span>',
-        template: '<p class="popup-subtitle">si aun tienes dudas puedes contactarnos en la seccion de configuracion."',
-        scope: $scope,
-        buttons: [
-        {
-          text: 'Entendido',
-          type: 'button-afirmative',
-          onTap: function(e) {
-            $state.go('middleware')
-          }
-        }
-      ]
-    });
+      $state.go("tutorials");
   }
 
 

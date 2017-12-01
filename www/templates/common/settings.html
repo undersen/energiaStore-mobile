@@ -3,7 +3,7 @@
   <ion-header-bar align-title="left" class="">
 
     <h5 ng-click="goBack()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
-    <h5>  Configuraciones</h5>
+    <h5>{{translations.SETTINGS_MENU_TITLE}}</h5>
 
   </ion-header-bar>
 
@@ -12,25 +12,25 @@
 
   <ion-list>
     <ion-item ng-click="goToProfile()" ng-if="user.type_user != 'explorer'">
-      <span>Mi perfil</span>
+      <span>{{translations.SETTINGS_MENU_PROFILE}}</span>
 
       <i class="ion-chevron-right button-right"></i>
     </ion-item>
 
-    <ion-item ng-click="goToProfile()" ng-if="user.type_user == 'explorer'">
-      <span>Registrar mi cuenta</span>
+    <ion-item ng-click="goToRegister()" ng-if="user.type_user == 'explorer'">
+      <span>{{translations.SETTINGS_MENU_SIGN_UP}}</span>
 
       <i class="ion-chevron-right button-right"></i>
     </ion-item>
 
     <ion-item ng-click="chooseLanguaje()">
-      <span>Cambiar lenguaje</span>
+      <span>{{translations.SETTINGS_MENU_CHANGE_LANGUAGE}}</span>
 
       <i class="ion-chevron-right button-right"></i>
     </ion-item>
 
     <ion-item ng-click="openModalChooseCountry()">
-      <span>Seleccionar Pais</span>
+      <span>{{translations.SETTINGS_MENU_CHOOSE_COUNTRY}}</span>
 
       <i class="ion-chevron-right button-right"></i>
     </ion-item>
@@ -43,7 +43,7 @@
 <br />
 <ion-list>
   <ion-item ng-click="goToTutorials()">
-    <span>Tutoriales</span>
+    <span>{{translations.SETTINGS_MENU_TUTORIAL}}</span>
 
     <i class="ion-chevron-right button-right"></i>
   </ion-item>
@@ -56,12 +56,12 @@
 <ion-list>
 
   <ion-item ng-click="FAQ()">
-    <span>FAQ</span>
+    <span>{{translations.SETTINGS_MENU_FAQ}}</span>
 
     <i class="ion-chevron-right button-right"></i>
   </ion-item>
   <ion-item ng-click="aboutUs()">
-    <span>Sobre nosotros</span>
+    <span>{{translations.SETTINGS_MENU_ABOUT_US}}</span>
 
     <i class="ion-chevron-right button-right"></i>
   </ion-item>
@@ -73,7 +73,7 @@
 
 <ion-list>
   <ion-item ng-click="logOut()">
-    <span>Cerrar sesión</span>
+    <span>{{translations.SETTINGS_MENU_LOG_OU}}</span>
 
     <i class="ion-chevron-right button-right"></i>
   </ion-item>

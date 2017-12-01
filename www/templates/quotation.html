@@ -6,7 +6,7 @@
   </ion-header-bar>
 
 
-  <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+  <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-class="">
     <ion-tab title="Proyectos" ng-click="left();">
     </ion-tab>
 
@@ -32,12 +32,7 @@
               <h2>{{calculation.name}}</h2>
               <p>{{calculation.energy_cost | number : fractionSize}} clp</p>
               <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
-              <ion-option-button class="button-positive" ng-click="edit(calculation.id)">
-                Editar
-              </ion-option-button>
-              <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
-                Eliminar
-              </ion-option-button>
+
             </div>
           </ion-item>
         </ion-list>
@@ -58,10 +53,6 @@
 
               <p>Id: {{factor.id}}</p>
               <p>Fecha de cotización: {{factor.created_at | date: 'dd-MM-yyyy'}}</p>
-              <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
-                Eliminar
-              </ion-option-button>
-
             </div>
           </ion-item>
         </ion-list>

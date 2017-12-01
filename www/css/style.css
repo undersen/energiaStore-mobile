@@ -100,13 +100,15 @@ h1,h5{
 }
 
 .button-traslucid{
-  width: 60vw;
+  width: 70vw;
   text-align: center;
   margin: 20px auto;
   padding: 10px 20px;
   text-transform: uppercase;
   font-size: 16px;"
 }
+
+
 
 .button-john{
   margin: 15px auto !important;
@@ -129,6 +131,23 @@ h1,h5{
   border: 3px solid #F5A623;
   color:#F5A623;
 }
+
+.user-color-button-solid{
+  background-color: #62bed4;
+  color:white;
+}
+
+.explorer-color-button-solid{
+  color:white;
+  background-color:#62BED4;
+}
+
+
+.partner-color-button-solid{
+  background-color:#F5A623;
+  color:white;
+}
+
 
 
 .user-color{

@@ -2,7 +2,7 @@
   <ion-header-bar align-title="left" class="">
 
     <h5 ng-click="goBack()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
-    <h5>  Tutoriales</h5>
+    <h5>{{translations.TUTORIALS_TITLE}}</h5>
 
   </ion-header-bar>
 
@@ -13,27 +13,24 @@
 
   <ion-list>
     <ion-item ng-click="chooseTutorial(1)">
-      <span>Tutorial perfiles</span> <i style="    right: 25px;
+      <span>{{translations.TUTORIALS_PROFILE}}</span> <i style="    right: 25px;
     position: absolute;
 " class="ion-chevron-right"></i>
     </ion-item>
 
     <ion-item ng-click="chooseTutorial(2)">
-      <span>Tutorial Cotizaciones</span> <i style="    right: 25px;
+      <span>{{translations.TUTORIALS_QUOTATIONS}}</span> <i style="    right: 25px;
     position: absolute;
 " class="ion-chevron-right"></i>
     </ion-item>
 
     <ion-item ng-click="chooseTutorial(3)"></span>
-      <span>Tutorial Mal Factor de potencia</span> <i style="    right: 25px;
+      <span>{{translations.TUTORIALS_FACTOR}}</span> <i style="    right: 25px;
     position: absolute;
 " class="ion-chevron-right"></i>
     </ion-item>
-
   </ion-list>
-
 </ion-content>
-
 </ion-view>
 
 <style>

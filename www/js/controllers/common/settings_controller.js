@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","StorageLanguageModel","$ionicPopup","$cordovaActionSheet","StorageStatus","StorageProject","StorageMotor","StorageQuotation","$ionicModal",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal) {
+  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","StorageLanguageModel","$ionicPopup","$cordovaActionSheet","StorageStatus","StorageProject","StorageMotor","StorageQuotation","$ionicModal","User","$ionicLoading",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading) {
 
     $scope.user = StorageUserModel.getCurrentUser();
 
@@ -56,6 +56,8 @@ CONTROLLER DEFINITION
       });
 
 
+$scope.register = {};
+
 
       $scope.chooseCountry = function(country){
         $state.go('introduction')
@@ -86,20 +88,127 @@ CONTROLLER DEFINITION
       //
       // }
 
+      $scope.goToRegister = function(){
+
+        $scope.openModalRegister();
+      }
+
+
+      $ionicModal.fromTemplateUrl('modal-register', {
+        scope: $scope,
+        animation: 'slide-in-up'
+
+      }).then(function(modal) {
+        $scope.modalRegister = modal;
+        $scope.modalRegister.hardwareBackButtonClose = false;
+      });
+
+
+      $scope.openModalRegister = function() {
+        $scope.modalRegister.show();
+      };
+      $scope.closeModalRegister = function() {
+        $scope.modalRegister.hide();
+      };
+      // Cleanup the modal when we're done with it!
+      $scope.$on('$destroy', function() {
+        $scope.modalRegister.remove();
+      });
+      // Execute action on hide modal
+      $scope.$on('modalRegister.hidden', function() {
+        // Execute action
+      });
+      // Execute action on remove modal
+      $scope.$on('modalRegister.removed', function() {
+        // Execute action
+      });
+
+
+      $scope.validateSlider1 =function(){
+
+        if ($scope.register.email === undefined || $scope.register.email === ''){
+          Utils.validateToast($scope.translations.REGISTER_EMAIL_EMPTY_ERROR);
+          return;
+        }
+
+        if ($scope.register.password === undefined || $scope.register.password === ''){
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_EMPTY_ERROR);
+          return;
+        }
+
+        if ($scope.register.password_confirmation === undefined || $scope.register.password_confirmation === ''){
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR);
+          return;
+        }
+
+        if ($scope.register.password_confirmation !== $scope.register.password){
+          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR);
+          return;
+        }
+
+        $scope.registerUser();
+
+      };
+
+
+      $scope.registerUser = function (){
+
+        $ionicLoading.show({
+          templateUrl:"loading.html"
+        });
+        User.registerUser($scope.register).then(function(_response){
+
+          _response.data.type_user = "user";
+
+          StorageUserModel.setCurrentUser(_response.data);
+
+          setTimeout(function () {
+            $ionicLoading.hide();
+
+            $ionicSlideBoxDelegate.slide(1)
+          }, 2000);
+
+        },function(_error){
+
+          $ionicLoading.hide();
+          // Materialize.toast($scope.translations.REGISTER_SLIDER_1_ERROR,4000)
+          console.error(_error)
+
+        })
+      };
+      $scope.finish= function(){
+        $state.go('dashboard')
+        $scope.closeModalRegister();
+        $ionicLoading.show({
+          template: `${$scope.translations.LOADING}...`
+        });
+
+
+      };
+
+      $scope.Close = function(){
+        $scope.closeModalRegister();
+      }
+
+
+
       $scope.logOut = function (){
+
+
+
 
           var myPopup = $ionicPopup.show({
             animation: 'fade-in',
             title: '<img src="./img/logout.png" class="img-about-us">',
-            subTitle: '<span class="popup-title">Salir de energiaStore</span>',
-            template: '<p class="popup-subtitle">¿Estas seguro que deseas cerrar sesión?',
+            subTitle: `<span class="popup-title">${$scope.translations.LOG_OUT_TITLE}</span>`,
+            template: `<p class="popup-subtitle">${$scope.translations.LOG_OUT_TEXT}</p>`,
             scope: $scope,
-            buttons: [
-              { text: 'Cancelar',
+            buttons: [{
+              text: `${$scope.translations.LOG_OUT_CANCEL_BUTTON}`,
               type: 'button-cancel'
             },
             {
-              text: 'Salir',
+              text: `${$scope.translations.LOG_OUT_LEAVE_BUTTON}`,
               type: 'button-afirmative',
               onTap: function(e) {
                 $scope.deleteData();
@@ -114,12 +223,12 @@ CONTROLLER DEFINITION
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
           title: '<img src="./img/working-on.png" class="img-about-us">',
-          subTitle: '<span class="popup-title">Ups!</span>',
-          template: '<p class="popup-subtitle">Esta sección aun esta en desarrollo, vuelve pronto',
+          subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TITLE}</span>`,
+          template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TEXT}</p>`,
           scope: $scope,
           buttons: [
             {
-              text: 'Entendido',
+              text: `${$scope.translations.WORKING_ON_BUTTON_TEXT}`,
               type: 'button-afirmative',
               onTap: function(e) {
                 // $state.go('middleware')
@@ -128,18 +237,17 @@ CONTROLLER DEFINITION
         });
       }
 
-
       $scope.aboutUs = function(){
 
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
           title: '<img src="./img/logo.png" class="img-about-us">',
-          subTitle: '<span class="popup-title">EnergiaStore</span>',
-          template: '<p class="popup-subtitle">Todos los derechos reservados 2017 ',
+          subTitle: `<span class="popup-title">${$scope.translations.ABOUT_US_TITLE}</span>`,
+          template: `<p class="popup-subtitle">${$scope.translations.ABOUT_US_TEXT}</p> `,
           scope: $scope,
           buttons: [
             {
-              text: 'Entendido',
+              text: `${$scope.translations.ABOUT_US_BUTTON_TEXT}`,
               type: 'button-afirmative',
               onTap: function(e) {
                 // $state.go('middleware')

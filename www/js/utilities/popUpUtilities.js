@@ -100,26 +100,6 @@
       },
 
 
-      showpopUpLogOut : function(_translation){
-        let deferred = $q.defer();
-        let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
-          return true;
-        }}];
-
-        $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-title-config">${_translation.MODAL_LOGOUT_TITLE}</span><br><span class="modal-body-subtitle">${_translation.MODAL_LOGOUT_TEXT}</span>`,
-          cssClass: 'successClass',
-          buttons:button_exit_lesson,
-        },).then(function(_res){
-          deferred.resolve(_res);
-
-        });
-        return deferred.promise;
-      },
-
-
-
       showpopUpProfileFail : function(_translation){
         let deferred = $q.defer();
         let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
@@ -212,7 +192,7 @@
 
             $ionicPopup.show({
               title: '<img src="./img/error.png" class="img-about-us">',
-              template: `<p class="popup-subtitle">${_translation.TOKEN_PROBLEM_TEXT}`,
+              template: `<p class="popup-subtitle">${_translation.TOKEN_PROBLEM_TEXT}</p>`,
               buttons:buttons,
               animation: 'fade-in',
             },).then(function(_res){
@@ -221,6 +201,48 @@
             });
             return deferred.promise;
           },
+
+          showPopupOnlyOneProject : function(_translation){
+            let deferred = $q.defer();
+            let buttons = [
+              { text: `${_translation.TOKEN_PROBLEM_BUTTON}`,  type: 'button-afirmative',onTap: function(e) {
+                return true;
+              }}];
+
+              $ionicPopup.show({
+                title: '<img src="./img/error.png" class="img-about-us">',
+                subTitle: `<span class="popup-title">Ups !</span>`,
+                template: `<p class="popup-subtitle">Puedes agregar solo 1 projecto en moo explorer</p>`,
+                buttons:buttons,
+                animation: 'fade-in',
+              },).then(function(_res){
+                deferred.resolve(_res);
+
+              });
+              return deferred.promise;
+            },
+
+            showPopupQuotationOnlyUser : function(_translation){
+              let deferred = $q.defer();
+              let buttons = [
+                { text: `Entendido`,  type: 'button-afirmative',onTap: function(e) {
+                  return true;
+                }}];
+
+                $ionicPopup.show({
+                  title: '<img src="./img/error.png" class="img-about-us">',
+                  subTitle: `<span class="popup-title">Ups !</span>`,
+                  template: `<p class="popup-subtitle">Esta seccion es solo para usuarios registrados</p>`,
+                  buttons:buttons,
+                  animation: 'fade-in',
+                },).then(function(_res){
+                  deferred.resolve(_res);
+
+                });
+                return deferred.promise;
+              },
+
+
 
           // showPopUpExplorer: function(_translation){
           //

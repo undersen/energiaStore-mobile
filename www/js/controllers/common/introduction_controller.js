@@ -10,6 +10,8 @@ CONTROLLER DEFINITION
   function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout) {
     $ionicPlatform.ready(function() {
 
+
+
       var containerId;
       var worldId;
       var notification_1;

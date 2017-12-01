@@ -236,6 +236,15 @@
 <script id="modal-register" type="text/ng-template">
   <ion-modal-view>
     <ion-content class="back-color1" id="content-register">
+
+      <i class="ion-android-close" style="margin-left: 15px;
+          font-size: 30px;
+          color: white;
+          top: 10px;
+          position: absolute;
+          width: 44px;
+          height: 44px;z-index:99" ng-click="Close();"></i>
+
       <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
         <ion-slide>
           <div class="row" style="margin-top: 10vw;">

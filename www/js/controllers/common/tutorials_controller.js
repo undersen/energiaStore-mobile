@@ -10,13 +10,12 @@ CONTROLLER DEFINITION
   function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup) {
     $ionicPlatform.ready(function() {
 
-      $scope.chooseLanguage = function(_language){
-        StorageLanguageModel.setCurrentLanguage(_language);
-        $resource(translationService.getTranslation()).get(function (data) {
-          $scope.translations = data;
-          // $ionicSlideBoxDelegate.next();
-        });
-      }
+          const languageFilePath = translationService.getTranslation();
+          $resource(languageFilePath).get(function (data) {
+            $scope.translations = data;
+            debugger;
+          });
+
 
 
 
@@ -43,12 +42,12 @@ CONTROLLER DEFINITION
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
           title: '<img src="./img/special_icons/lookfor.png">',
-          subTitle: '<span class="popup-title">Ups!</span>',
-          template: '<p class="popup-subtitle">Este tutorial aun esta e desarrollo, vuelve pronto."',
+          subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TUTORIAL_TITLE}</span>`,
+          template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TUTORIAL_TEXT}</p>`,
           scope: $scope,
           buttons: [
           {
-            text: 'Entendido',
+            text: `${$scope.translations.WORKING_ON_TUTORIAL_BUTTON_TEXT}`,
             type: 'button-afirmative',
             onTap: function(e) {
               // $state.go('middleware')

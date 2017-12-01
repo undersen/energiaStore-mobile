@@ -71,6 +71,16 @@ CONTROLLER DEFINITION
 
         if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
+          popUpService.showPopupQuotationOnlyUser($scope.translations).then(function(){
+
+            $state.go('dashboard');
+
+          },function(){
+
+            debugger;
+
+          })
+
         }else{
           $scope.getFactors();
           $scope.getCalculation();
