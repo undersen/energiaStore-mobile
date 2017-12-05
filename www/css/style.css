@@ -117,8 +117,8 @@ h1,h5{
 
 
 .user-color-button{
-  border: 3px solid #62bed4;
-  color:#62bed4;
+  border: 3px solid #62D485;
+  color:#62D485;
 }
 
 .explorer-color-button{
@@ -133,7 +133,7 @@ h1,h5{
 }
 
 .user-color-button-solid{
-  background-color: #62bed4;
+  background-color: #62D485;
   color:white;
 }
 

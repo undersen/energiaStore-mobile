@@ -7,9 +7,7 @@
   "_phantomChildren": {},
   "_requested": {
     "type": "git",
-    "raw": "cordova-plugin-team@https://github.com/apache/cordova-plugin-whitelist.git",
-    "name": "cordova-plugin-team",
-    "escapedName": "cordova-plugin-team",
+    "raw": "https://github.com/apache/cordova-plugin-whitelist.git",
     "rawSpec": "https://github.com/apache/cordova-plugin-whitelist.git",
     "saveSpec": "git+https://github.com/apache/cordova-plugin-whitelist.git",
     "fetchSpec": "https://github.com/apache/cordova-plugin-whitelist.git",
@@ -20,8 +18,8 @@
     "/"
   ],
   "_resolved": "git+https://github.com/apache/cordova-plugin-whitelist.git#aed9b33e69da6a444b3dbb82a61dd0a371c1699b",
-  "_spec": "cordova-plugin-team@https://github.com/apache/cordova-plugin-whitelist.git",
-  "_where": "/Users/tomasdiaz/workspace/freelances/energiaStore/energiaStore-mobile/node_modules",
+  "_spec": "https://github.com/apache/cordova-plugin-whitelist.git",
+  "_where": "/Users/tomasdiaz/workspace/freelances/energiaStore/energiaStore-mobile",
   "author": {
     "name": "Apache Software Foundation"
   },

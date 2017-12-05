@@ -15,8 +15,8 @@ CONTROLLER DEFINITION
     if(StorageUserModel.getCurrentUser()){
       if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
           $state.go('dashboard');
-      }else if (StorageUserModel.getCurrentUser().type_user === 'user'){
-          $state.go('login');
+      }else if (StorageUserModel.getCurrentUser().authentication_token !== undefined){
+          $state.go('dashboard');
       }
     }
 

@@ -45,6 +45,9 @@ CONTROLLER DEFINITION
         $scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: "Cancelar", androidEnableCancelButton: true, winphoneEnableCancelButton: true };
       });
 
+
+
+
       if (window.StatusBar) {
         $cordovaStatusbar.overlaysWebView(false);
         $cordovaStatusbar.style(1);
@@ -161,7 +164,7 @@ CONTROLLER DEFINITION
           return;
         }
 
-        if($scope.factorType.power_factor < 1000 ){
+        if($scope.factorType.power_factor < 100 ){
           Utils.validateToast($scope.translations.QUOTATION_AMOUNT_MINIMUM);
           return;
         }
@@ -231,13 +234,6 @@ CONTROLLER DEFINITION
 
           $scope.getPDF(_response.data.calculation,_response.data.id);
           // $ionicLoading.hide();
-          // popUpService.showPopUpCreateFactor($scope.translations).then(function(_response){
-          //
-          //   $state.go("dashboard");
-          //
-          // },function(error){
-          //
-          // });
           console.log(_response)
         },function(_error){
 

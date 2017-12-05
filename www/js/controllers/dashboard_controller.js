@@ -65,22 +65,9 @@ CONTROLLER DEFINITION
       $scope.user = StorageUserModel.getCurrentUser();
 
       $scope.init = function (){
-
         if(user.type_user === 'explorer'){
-
           if(StorageStatus.getStatus() === undefined){
-            // popUpService.showPopUpExplorer($scope.translations).then(function(_response){
-            //
-
-            //
-            // });
-
             $scope.showPopUpExplorer();
-          }
-        }else{
-          if(user.email === undefined){
-
-            popUpService.showPopUpWelcome($scope.translations);
           }
         }
       };

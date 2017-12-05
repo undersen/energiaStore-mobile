@@ -473,7 +473,7 @@ CONTROLLER DEFINITION
         $state.go('settings');
       }
       $scope.goToQuotes= function(){
-        $state.go('factor');
+        $state.go('quotation');
       }
 
       $scope.Close = function(){

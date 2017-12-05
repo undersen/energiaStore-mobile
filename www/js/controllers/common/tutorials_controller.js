@@ -41,7 +41,7 @@ CONTROLLER DEFINITION
 
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
-          title: '<img src="./img/special_icons/lookfor.png">',
+          title: '<img src="./img/working-on.png" class="img-about-us">',
           subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TUTORIAL_TITLE}</span>`,
           template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TUTORIAL_TEXT}</p>`,
           scope: $scope,

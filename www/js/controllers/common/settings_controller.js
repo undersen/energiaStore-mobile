@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","StorageLanguageModel","$ionicPopup","$cordovaActionSheet","StorageStatus","StorageProject","StorageMotor","StorageQuotation","$ionicModal","User","$ionicLoading",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading) {
+  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","StorageLanguageModel","$ionicPopup","$cordovaActionSheet","StorageStatus","StorageProject","StorageMotor","StorageQuotation","$ionicModal","User","$ionicLoading","popUpService",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading,popUpService) {
 
     $scope.user = StorageUserModel.getCurrentUser();
 
@@ -56,7 +56,7 @@ CONTROLLER DEFINITION
       });
 
 
-$scope.register = {};
+      $scope.register = {};
 
 
       $scope.chooseCountry = function(country){
@@ -195,6 +195,15 @@ $scope.register = {};
       $scope.logOut = function (){
 
 
+        if(StorageUserModel.getCurrentUser().type_user == 'explorer'){
+          popUpService.showPopUpExitExplorer($scope.translations).then(function(_response){
+            if(!_response){
+              $scope.deleteData();
+            }
+          })
+        }else{
+
+
 
 
           var myPopup = $ionicPopup.show({
@@ -215,25 +224,26 @@ $scope.register = {};
               }
             }
           ]
-          });
-        };
+        });
+      }
+    };
 
 
-      $scope.workingOnPopUp = function(){
-        var myPopup = $ionicPopup.show({
-          animation: 'fade-in',
-          title: '<img src="./img/working-on.png" class="img-about-us">',
-          subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TITLE}</span>`,
-          template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TEXT}</p>`,
-          scope: $scope,
-          buttons: [
-            {
-              text: `${$scope.translations.WORKING_ON_BUTTON_TEXT}`,
-              type: 'button-afirmative',
-              onTap: function(e) {
-                // $state.go('middleware')
-              }
-            }]
+    $scope.workingOnPopUp = function(){
+      var myPopup = $ionicPopup.show({
+        animation: 'fade-in',
+        title: '<img src="./img/working-on.png" class="img-about-us">',
+        subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TITLE}</span>`,
+        template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TEXT}</p>`,
+        scope: $scope,
+        buttons: [
+          {
+            text: `${$scope.translations.WORKING_ON_BUTTON_TEXT}`,
+            type: 'button-afirmative',
+            onTap: function(e) {
+              // $state.go('middleware')
+            }
+          }]
         });
       }
 

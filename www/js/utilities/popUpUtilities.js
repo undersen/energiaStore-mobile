@@ -6,63 +6,28 @@
 
     return{
 
-      showPopUpWelcome: function(_translation){
-
-        let deferred = $q.defer();
-        let button_exit_lesson = [{ text: _translation.MODAL_WELCOME_BUTTON,  type: 'button-special',onTap: function(e) {
-          return true;
-        }}];
-
-        $ionicPopup.show({
-          title: `<div class="congrats"></div><img src="img/special_icons/bandera1.png" class="modal-img-config">`,
-          subTitle: `<br><span class="modal-body-config">${_translation.MODAL_WELCOME_TEXT}</span>`,
-          cssClass: 'successClass',
-          buttons:button_exit_lesson,
-        },).then(function(_res){
-          deferred.resolve(_res);
-        });
-        return deferred.promise;
-      },
-
-
-
-      showPopUpCreateFactor : function(_translation){
-        let deferred = $q.defer();
-        let button_exit_lesson = [{ text: _translation.MODAL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
-          return true;
-        }}];
-
-        $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/check1.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-body-config">${_translation.MODAL_CREATE_FACTOR_TEXT}</span>`,
-          cssClass: 'successClass',
-          buttons:button_exit_lesson,
-        },).then(function(_res){
-          deferred.resolve(_res);
-        });
-        return deferred.promise;
-      },
-
-
       showPopUpFailCreateFactor : function(_translation){
         let deferred = $q.defer();
-        let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
+        let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-afirmative',onTap: function(e) {
           return true;
         }}];
 
         $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-body-config">${_translation.MODAL_FAIL_CREATE_FACTOR_TEXT}</span>`,
-          cssClass: 'successClass',
+          title: '<img src="./img/error.png" class="img-about-us">',
+          template: `<p class="popup-subtitle">${_translation.MODAL_FAIL_CREATE_FACTOR_TEXT}</p>`,
+          cssClass: '',
           buttons:button_exit_lesson,
         },).then(function(_res){
           deferred.resolve(_res);
 
         });
         return deferred.promise;
+
+
+
+
+
       },
-
-
       showPopUpHelpMotor : function(_title,_body,_translation){
         let deferred = $q.defer();
         let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
@@ -81,24 +46,6 @@
         return deferred.promise;
       },
 
-      showPopUpWelcomeLanguage : function(_translation){
-        let deferred = $q.defer();
-        let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
-          return true;
-        }}];
-
-        $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-title-config">${_translation.MODAL_WELCOME_LANGUAGUE_TITLE}</span><br><span class="modal-body-subtitle">${_translation.MODAL_WELCOME_LANGUAGUE_BODY}</span>`,
-          cssClass: 'successClass',
-          buttons:button_exit_lesson,
-        },).then(function(_res){
-          deferred.resolve(_res);
-
-        });
-        return deferred.promise;
-      },
-
 
       showpopUpProfileFail : function(_translation){
         let deferred = $q.defer();
@@ -107,8 +54,8 @@
         }}];
 
         $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-body-config">${_translation.MODAL_PROFILE_FAIL_BODY}</span>`,
+          title: '<img src="./img/error.png" class="img-about-us">',
+          template: `<p class="popup-subtitle">${_translation.MODAL_PROFILE_FAIL_BODY}</p>`,
           cssClass: 'successClass',
           buttons:button_exit_lesson,
         },).then(function(_res){
@@ -117,18 +64,17 @@
         });
         return deferred.promise;
       },
-
-
       showpopUpProfileCreate : function(_translation){
         let deferred = $q.defer();
         let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
           return true;
         }}];
+        debugger;
 
         $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-body-config">${_translation.PROFILE_COMPLETED}</span>`,
-          cssClass: 'successClass',
+          title: '<img src="./img/common/stars.png" class="img-about-us">',
+          template: `<p class="popup-subtitle">${_translation.PROFILE_COMPLETED}</p>`,
+          cssClass: '',
           buttons:button_exit_lesson,
         },).then(function(_res){
           deferred.resolve(_res);
@@ -136,44 +82,19 @@
         });
         return deferred.promise;
       },
-
-
-
-      showpopUpGoToQuotation : function(_translation,_motors){
-        let deferred = $q.defer();
-        let buttons = [{ text: "Completar cotizacion",  type: 'button-special',onTap: function(e) {
-          return 1;
-        }},
-        { text: "Cancelar",  type: 'button-special',onTap: function(e) {
-          return 2;
-        }}];
-
-        $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
-          subTitle: `<br><span class="modal-body-config">Finalizar cotizacion.</span>`,
-          cssClass: 'successClass',
-          buttons:buttons,
-        },).then(function(_res){
-          deferred.resolve(_res);
-
-        });
-        return deferred.promise;
-      },
-
-
       showPopupLeaveRegister : function(_translation){
         let deferred = $q.defer();
         let buttons = [
           { text: `${_translation.REGISTER_POPUP_LEAVE_BUTTON}`,  type: 'button-special',onTap: function(e) {
             return 2;
-          }},{ text: `${_translation.REGISTER_POPUP_CONTINUE_BUTTON}`,  type: 'button-special',onTap: function(e) {
+          }},{ text: `${_translation.REGISTER_POPUP_CONTINUE_BUTTON}`,  type: 'button-afirmative',onTap: function(e) {
             return 1;
           }}];
 
           $ionicPopup.show({
-            title: '<div class="congrats"></div><img src="img/special_icons/pulgar1_bad.png" class="modal-img-config">',
-            subTitle: `<br><span class="modal-body-config">${_translation.REGISTER_POPUP_LEAVE_TEXT}</span>`,
-            cssClass: 'successClass',
+            title: '<img src="./img/logout.png" class="img-about-us">',
+            template: `<p class="popup-subtitle">${_translation.REGISTER_POPUP_LEAVE_TEXT}</p>`,
+            cssClass: '',
             buttons:buttons,
           },).then(function(_res){
             deferred.resolve(_res);
@@ -211,8 +132,8 @@
 
               $ionicPopup.show({
                 title: '<img src="./img/error.png" class="img-about-us">',
-                subTitle: `<span class="popup-title">Ups !</span>`,
-                template: `<p class="popup-subtitle">Puedes agregar solo 1 projecto en moo explorer</p>`,
+                subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
+                template: `<p class="popup-subtitle">${_translation.EXPLORER_ONLY_ONE_PROJECT}</p>`,
                 buttons:buttons,
                 animation: 'fade-in',
               },).then(function(_res){
@@ -222,17 +143,20 @@
               return deferred.promise;
             },
 
+
+
+
             showPopupQuotationOnlyUser : function(_translation){
               let deferred = $q.defer();
               let buttons = [
-                { text: `Entendido`,  type: 'button-afirmative',onTap: function(e) {
+                { text: `${_translation.OK_BUTTON_QUOTE}`,  type: 'button-afirmative',onTap: function(e) {
                   return true;
                 }}];
 
                 $ionicPopup.show({
                   title: '<img src="./img/error.png" class="img-about-us">',
-                  subTitle: `<span class="popup-title">Ups !</span>`,
-                  template: `<p class="popup-subtitle">Esta seccion es solo para usuarios registrados</p>`,
+                  subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
+                  template: `<p class="popup-subtitle">${_translation.EXPLORER_ONLY_QUOTATIONS}</p>`,
                   buttons:buttons,
                   animation: 'fade-in',
                 },).then(function(_res){
@@ -242,28 +166,6 @@
                 return deferred.promise;
               },
 
-
-
-          // showPopUpExplorer: function(_translation){
-          //
-          //   let deferred = $q.defer();
-          //   let buttons = [
-          //     { text: `${_translation.TOKEN_PROBLEM_BUTTON}`,  type: 'button-special',onTap: function(e) {
-          //       return true;
-          //     }}];
-          //
-          //     $ionicPopup.show({
-          //       title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
-          //       subTitle: `<br><span class="modal-body-config">${_translation.EXPLORER_TITLE}</span></br>
-          //       <span class="modal-body-subtitle">${_translation.EXPLORER_TEXT}</span>`,
-          //       cssClass: 'successClass',
-          //       buttons:buttons,
-          //     },).then(function(_res){
-          //       deferred.resolve(_res);
-          //
-          //     });
-          //     return deferred.promise;
-          //   },
 
             showPopUpRegister: function(_translation){
 
@@ -293,17 +195,17 @@
 
                 let deferred = $q.defer();
                 let buttons = [
-                  { text: `${_translation.LOGOUT_EXPLORER_BUTTON_STAY}`,  type: 'button-special',onTap: function(e) {
+                  { text: `${_translation.LOGOUT_EXPLORER_BUTTON_STAY}`,  type: 'button-afirmative',onTap: function(e) {
                     return true;
                   }},{ text: `${_translation.LOGOUT_EXPLORER_BUTTON_LEAVE}`,  type: 'button-special',onTap: function(e) {
                     return false;
                   }}];
 
                   $ionicPopup.show({
-                    title: '<div class="congrats"></div><img src="img/special_icons/pulgar1.png" class="modal-img-config">',
-                    subTitle: `<br><span class="modal-body-config">${_translation.LOG_OUT_EXPLORER_TITLE}</span></br>
-                    <span class="modal-body-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}</span>`,
-                    cssClass: 'successClass',
+                    title: '<img src="img/logout.png" class="img-about-us">',
+                    subTitle: `<span class="popup-title">${_translation.LOG_OUT_EXPLORER_TITLE}</span>`,
+                    template: `<p class="popup-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}`,
+                    cssClass: '',
                     buttons:buttons,
                   },).then(function(_res){
                     deferred.resolve(_res);

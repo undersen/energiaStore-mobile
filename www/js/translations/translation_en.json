@@ -244,8 +244,8 @@
   "BUTTON_ADD_PROJECT":"Add project",
   "BUTTON_ADD_MOTOR":"Add motor",
 
-  "QUOTATION_AMOUNT_EMPTY":"Debe ingresar como minimo el valor de la multa",
-  "QUOTATION_AMOUNT_MINIMUM":"El valor minimo de la multa es de 1.000 clp",
+  "QUOTATION_AMOUNT_EMPTY":"You must enter at least the value of the fine",
+  "QUOTATION_AMOUNT_MINIMUM":"The minimum value of the fine is 100 USD",
 
 
 
@@ -283,7 +283,7 @@
   "FACTOR_HEADER":"Quotes",
   "FACTOR_CARD_TITLE":"you do not have any",
   "FACTOR_CARD_TITLE_STRONG":" quotation ",
-  "FACTOR_CARD_TITLE_POST":"agregada.",
+  "FACTOR_CARD_TITLE_POST":"added.",
   "BUTTON_ADD_FACTOR":"added",
 
   "REGISTER_EXPLORER_TITLE":"Explorer account",
@@ -300,6 +300,75 @@
 
   "FOOTER_PROJECT":"Projects",
   "FOOTER_PROFILE":"Profile",
-  "FOOTER_QUOTE":"Quotes"
+  "FOOTER_QUOTE":"Quotes",
+
+
+
+  "LOG_OUT_TITLE": "Log out energiaStore",
+  "LOG_OUT_TEXT": "¿You are sure you want to log out?",
+  "LOG_OUT_CANCEL_BUTTON": "Cancel",
+  "LOG_OUT_LEAVE_BUTTON": "Get out",
+
+  "WORKING_ON_TITLE": "Ups!",
+  "WORKING_ON_TEXT": "This section is still in development, come back soon",
+  "WORKING_ON_BUTTON_TEXT": "It is understood",
+
+
+  "WORKING_ON_TUTORIAL_TITLE": "Ups!",
+  "WORKING_ON_TUTORIAL_TEXT": "This tutorial is still in development, come back soon.",
+  "WORKING_ON_TUTORIAL_BUTTON_TEXT": "It is understood",
+
+
+  "ABOUT_US_TITLE": "EnergiaStore",
+  "ABOUT_US_TEXT": "All rights reserved 2017 ",
+  "ABOUT_US_BUTTON_TEXT": "It is understood",
+
+  "SETTINGS_MENU_TITLE": "Configurations",
+  "SETTINGS_MENU_PROFILE": "My profile",
+  "SETTINGS_MENU_SIGN_UP": "Register my account",
+  "SETTINGS_MENU_CHANGE_LANGUAGE": "Change language",
+  "SETTINGS_MENU_CHOOSE_COUNTRY":"Select Country",
+  "SETTINGS_MENU_TUTORIAL":"Tutorials",
+  "SETTINGS_MENU_FAQ":"FAQ",
+  "SETTINGS_MENU_ABOUT_US":"About us",
+  "SETTINGS_MENU_LOG_OU":"Sign off",
+
+
+  "MIDDLEWARE_TITLE":"How would you like to use energiaStore ?",
+
+  "MIDDLEWARE_USER_BODY":"Register and use all the functionalities",
+  "MIDDLEWARE_PARTNER_BODY":"Enter with an authorized account by energiaStore",
+  "MIDDLEWARE_EXPLORER_BODY":"Enter without register & learn about energiaStore",
+  "MIDDLEWARE_HELP":"Help",
+
+  "TUTORIALS_TITLE":"Tutorials",
+  "TUTORIALS_PROFILE":"Tutorial profiles",
+  "TUTORIALS_QUOTATIONS":"Tutorial Quotes",
+  "TUTORIALS_FACTOR":"Power Factor Penalty Tutorial",
+
+  "TUTORIALS_TYPEUSER_USER":"Corresponds to that user who already owns an account or wishes to register directly at energiaStore for their personal use",
+  "TUTORIALS_TYPEUSER_PARTNER":"Corresponds to that user who already has an energy accountStore for business use.",
+  "TUTORIALS_TYPEUSER_EXPLORER":"It corresponds to the user who wants to use the app without registration, his account is limited",
+
+  "UPLOAD_PHOTO_TEXT":"You can add a photo to your quote by clicking on the image above . . .",
+
+  "DUPLICATE_OPTION":"duplicate",
+
+  "CHOOSE_YOUR_COUNTRY":"Select your country",
+
+
+  "TAB_PROYECTS":"Proyects",
+  "TAB_PFP":"Power Factor",
+
+  "EXPLORER_ONLY_ONE_PROJECT":"You can add only 1 project in explorer mode",
+  "EXPLORER_ONLY_QUOTATIONS":"This section is only for registered users",
+  "PROFILE_COMPLETED":"Profile updated successfully.",
+
+
+  "NEXT":"Next",
+  "BACK":"Back",
+  "SKIP":"Skip",
+
+  "OK_BUTTON_QUOTE":"Ok"
 
 }

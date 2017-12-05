@@ -12,13 +12,14 @@ CONTROLLER DEFINITION
 
       const containerId = $('#content-id');
       $scope.shouldShowBackButton=false;
-      $scope.RightButtonText = 'Siguiente';
-      $scope.LeftButtonText = 'Atras';
       $scope.translations = {};
 
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function (data) {
         $scope.translations = data;
+        $scope.RightButtonText = $scope.translations.NEXT;
+        $scope.LeftButtonText =  $scope.translations.BACK;
+        $scope.SkipButton = $scope.translations.SKIP;
       });
 
 

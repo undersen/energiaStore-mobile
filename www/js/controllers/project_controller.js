@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject","Quotation","$cordovaActionSheet","$cordovaStatusbar",
-    function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,Quotation,$cordovaActionSheet,$cordovaStatusbar) {
+  this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject","Quotation","$cordovaActionSheet","$cordovaStatusbar","Motors",
+    function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,Quotation,$cordovaActionSheet,$cordovaStatusbar,Motors) {
 
       $scope.design = {};
       switch (StorageUserModel.getCurrentUser().type_user) {
@@ -329,7 +329,8 @@ CONTROLLER DEFINITION
               debugger;
            Calculation.create(calculation, StorageUserModel.getCurrentUser()).then(
              function(_response) {
-               $scope.getMotors();
+               debugger;
+               $scope.getMotors(calculation.id,_response.data.id);
              },
              function(_error) {
                Utils.validateToast($scope.translations.QUOTATION_FAIL_MESSAGE);
@@ -340,9 +341,10 @@ CONTROLLER DEFINITION
         }
 
         $scope.getMotors = function(old_calculation_id,new_calculation_id){
-          Motors.getByCalculation(calculation.id,StorageUserModel.getCurrentUser()).then(function(_response){
 
-            $scope.insertMotors(_response.data);
+debugger;
+          Motors.getByCalculation(old_calculation_id,StorageUserModel.getCurrentUser()).then(function(_response){
+            $scope.insertMotors(_response.data,new_calculation_id);
 
           },function(_error){
             console.log(_error);
@@ -350,13 +352,26 @@ CONTROLLER DEFINITION
           })
         }
 
-        $scope.insertMotors = function(motors){
+        $scope.insertMotors = function(motors,old_calculation_id){
 
-          for (var i = 0; i < motors.length; i++) {
-            Motors.create($scope.user,$scope.motor,$state.params.id_quotation).then(function(_response){
+          for (var i = 0; i <= motors.length-1 ; i++) {
+            debugger;
+            var motor = motors[i];
+            var _motor= {
+              calculation_id:old_calculation_id,
+              name:motor.name,
+              rated_power:motor.rated_power, //potencia
+              hours:motor.hours,
+              volatje:motor.volts,
+              amp:motor.amp,
+              power_factor:motor.fdp
+            }
 
+            Motors.create(StorageUserModel.getCurrentUser(),_motor,old_calculation_id).then(function(_response){
+              debugger;
+              $ionicLoading.hide();
             },function(_error){
-
+debugger;
             })
           }
 

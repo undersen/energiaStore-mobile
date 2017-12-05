@@ -34,10 +34,10 @@
 
 
           <h2>{{calculation.name}}</h2>
-          <p>{{calculation.energy_cost | number : fractionSize}} clp</p>
+          <p>{{calculation.energy_cost | number : fractionSize}} USD</p>
           <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
 
-          <ion-option-button class="button-positive" ng-click="duplicateProject(calculation)">
+          <ion-option-button ng-if="calculation.estimated_cost != null" class="button-positive" ng-click="duplicateProject(calculation)">
             {{translations.DUPLICATE_OPTION}}
           </ion-option-button>
           <!-- <ion-option-button class="button-danger" ng-click="delete(calculation.id)">

@@ -20,17 +20,15 @@
     <ion-slide>
       <ion-content overflow-scroll="false">
         <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-          <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="viewPdfProject({{calculation}})" ng-if="calculation.energy_cost != null" >
-
+          <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="viewPdfProject({{calculation}})">
             <div style="width:50px;position:relative;">
-              <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
-              <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+              <i  class="ion-document" aria-hidden="true" style="color:#a82d2d !important;font-size:40px;"></i>
             </div>
 
             <div class="">
 
               <h2>{{calculation.name}}</h2>
-              <p>{{calculation.energy_cost | number : fractionSize}} clp</p>
+              <p>{{calculation.energy_cost | number : fractionSize}} USD</p>
               <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
 
             </div>
@@ -42,11 +40,10 @@
     <ion-slide>
       <ion-content>
         <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-          <ion-item ng-repeat="factor in factors" style="height:100px;display: -webkit-box;" ng-click="viewPdf({{factor}})" >
+          <ion-item ng-repeat="factor in factors" style="height:100px;display: -webkit-box;" ng-class="{'extra-margin-bottom':$last}" ng-click="viewPdf({{factor}})" >
 
             <div style="width:50px;position:relative;">
-              <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
-              <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+              <i  class="ion-document" aria-hidden="true" style="color:#a82d2d !important;font-size:40px;"></i>
             </div>
 
             <div class="">
@@ -138,5 +135,9 @@ opacity: 1;
   .bar-footer {
     height: 50px !important;
     background-color: #8bcb71;
+  }
+
+  .extra-margin-bottom{
+    margin-bottom:45px;
   }
 </style>

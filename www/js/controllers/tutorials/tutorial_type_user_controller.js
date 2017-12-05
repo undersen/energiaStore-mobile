@@ -8,6 +8,16 @@ CONTROLLER DEFINITION
 (function() {
   this.app.controller("TutorialTypeUserController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","$ionicPopup",
   function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,$ionicPopup) {
+
+    const languageFilePath = translationService.getTranslation();
+    $resource(languageFilePath).get(function (data) {
+      $scope.translations = data;
+      $scope.RightButtonText = $scope.translations.NEXT;
+      $scope.LeftButtonText =  $scope.translations.BACK;
+      $scope.SkipButton = $scope.translations.SKIP;
+    });
+
+
     $ionicPlatform.ready(function() {
 
 
@@ -21,8 +31,7 @@ CONTROLLER DEFINITION
 
 
       $scope.shouldShowBackButton=false;
-      $scope.RightButtonText = 'Siguiente';
-      $scope.LeftButtonText = 'Atras';
+
 
 
       $scope.init = function(){
@@ -97,12 +106,13 @@ CONTROLLER DEFINITION
         containerId.addClass('slider-two');
         containerId.removeClass('slider-three');
         $scope.shouldShowBackButton=true;
-
+        $scope.RightButtonText = $scope.translations.NEXT;
         break;
         case 2:
         containerId.addClass('slider-three');
         containerId.removeClass('slider-two');
-        $scope.RightButtonText = 'Finalizar';
+        $scope.RightButtonText = $scope.translations.SKIP;
+
 
 
         break;

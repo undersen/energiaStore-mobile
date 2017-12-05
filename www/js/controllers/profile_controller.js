@@ -69,6 +69,7 @@ CONTROLLER DEFINITION
 
       $scope.init = function(){
 
+
         let user  = StorageUserModel.getCurrentUser();
 
 
@@ -115,30 +116,6 @@ CONTROLLER DEFINITION
         $scope.backButton();
       }, 100);
 
-      $scope.logOut = function (){
-
-        popUpService.showpopUpLogOut($scope.translations).then(function(_response){
-          if(_response){
-            try{
-              Session.logout().then(function(){
-                $scope.deleteData();
-
-              },function(_error){
-                $scope.deleteData();
-
-              })
-            }catch(_error){
-              $scope.deleteData();
-            }
-          }
-        });
-
-
-
-
-
-      };
-
       $scope.updateInfo = function(){
 
         if($scope.user.name === undefined || $scope.user.name  === ''){
@@ -163,11 +140,16 @@ CONTROLLER DEFINITION
 
         User.updateUser(StorageUserModel.getCurrentUser(),$scope.user).then(function(_response){
           StorageUserModel.setCurrentUser(_response.data);
-          popUpService.showpopUpProfileCreate($scope.translations);
+          popUpService.showpopUpProfileCreate($scope.translations).then(function(){
+            $state.go("dashboard");
+          });
           console.log(_response);
         },function(_error){
-          popUpService.showpopUpProfileFail($scope.translations);
-          console.error(_error);
+          popUpService.showpopUpProfileFail($scope.translations).then(function(){
+            console.error(_error);
+            $state.go("settings");
+          });
+
 
         })
 

@@ -49,7 +49,7 @@
 
   "ADD_QUOTATION_POPUP_TITLE":"Crear Proyecto",
   "ADD_QUOTATION_POPUP_FIRST_INPUT":"Nombre Proyecto",
-  "ADD_QUOTATION_POPUP_SECOND_INPUT":"Precio KW (clp)",
+  "ADD_QUOTATION_POPUP_SECOND_INPUT":"Precio KW (USD)",
 
   "QUOTATION_ERROR_DOWNLOAD_INFO":"Error al descargar los proyectos",
 
@@ -227,7 +227,7 @@
   "EXPLORER_TEXT":"Has seleccionado el perfil explorar, este perfil te permite explorar la aplicación y utilizarla sin un registro.",
 
   "QUOTATION_AMOUNT_EMPTY":"Debe ingresar como minimo el valor de la multa",
-  "QUOTATION_AMOUNT_MINIMUM":"El valor minimo de la multa es de 1.000 clp",
+  "QUOTATION_AMOUNT_MINIMUM":"El valor minimo de la multa es de 100 usd",
 
 
   "MOTOR_COMPLETE_VOLTAJE_MINIMUN":"El voltaje debe ser mayor a 0",
@@ -338,8 +338,21 @@
 
  "DUPLICATE_OPTION":"Duplicar",
 
- "CHOOSE_YOUR_COUNTRY":"Selecciona tu pais"
+ "CHOOSE_YOUR_COUNTRY":"Selecciona tu pais",
 
+ "TAB_PROYECTS":"Proyectos",
+ "TAB_PFP":"Factor de potencia",
+
+
+"EXPLORER_ONLY_ONE_PROJECT":"Puedes agregar solo 1 projecto en modo explorer.",
+"EXPLORER_ONLY_QUOTATIONS":"Esta seccion es solo para usuarios registrados.",
+"PROFILE_COMPLETED":"Perfil actualizado satisfactoriamente.",
+
+"NEXT":"Siguiente",
+"BACK":"Atras",
+"SKIP":"Saltar",
+
+"OK_BUTTON_QUOTE":"Entendido"
 
 
 }

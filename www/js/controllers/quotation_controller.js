@@ -41,6 +41,9 @@ CONTROLLER DEFINITION
 
     $ionicPlatform.ready(function() {
 
+
+      $scope.calculations = [];
+
       if (window.StatusBar) {
         $cordovaStatusbar.overlaysWebView(false);
         $cordovaStatusbar.style(1);
@@ -64,11 +67,6 @@ CONTROLLER DEFINITION
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function(data) {
         $scope.translations = data;
-      });
-      $scope.platform = ionic.Platform.platform()
-
-      $scope.init = function(){
-
         if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
           popUpService.showPopupQuotationOnlyUser($scope.translations).then(function(){
@@ -85,6 +83,12 @@ CONTROLLER DEFINITION
           $scope.getFactors();
           $scope.getCalculation();
         }
+      });
+      $scope.platform = ionic.Platform.platform()
+
+      $scope.init = function(){
+
+
       }
 
       $scope.right = function(){
@@ -100,21 +104,22 @@ CONTROLLER DEFINITION
 
 
       $scope.viewPdfProject = function(project_id){
-        console.log(project_id);
+
+        $scope.getQuotations(project_id.id)
       }
 
 
 
       $scope.getFactors = function(){
         // debugger;
-        // if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
-        //   // debugger;
-        //
-        //   // $scope.factors[0] = StorageFactorModel.getFactors();
-        //   $scope.$broadcast("scroll.refreshComplete");
-        //
-        //
-        // }else{
+        if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
+          // debugger;
+
+          // $scope.factors[0] = StorageFactorModel.getFactors();
+          $scope.$broadcast("scroll.refreshComplete");
+        
+
+        }else{
         Factor.getAllFactors(StorageUserModel.getCurrentUser()).then(function(_response){
 
           $scope.factors = _response.data;
@@ -125,7 +130,7 @@ CONTROLLER DEFINITION
         },function(_error){
 
         })
-        // }
+        }
 
       }
 
@@ -207,9 +212,15 @@ CONTROLLER DEFINITION
       $scope.getCalculation = function() {
         Calculation.getAll(StorageUserModel.getCurrentUser()).then(
           function(_response) {
+
+
+
             $scope.calculations = _response.data;
-            $scope.$broadcast("scroll.refreshComplete");
-            console.log(_response);
+            // $scope.getQuotations();
+            // debugger;
+            // $scope.calculations = _response.data;
+            // $scope.$broadcast("scroll.refreshComplete");
+            // console.log(_response);
             $ionicLoading.hide()
           },
           function(_error) {
@@ -223,6 +234,23 @@ CONTROLLER DEFINITION
           }
         );
       };
+
+
+      $scope.getQuotations = function(_calculation_id){
+        Quotation.getAvaliablesPDFById(StorageUserModel.getCurrentUser(),_calculation_id).then(function(_response){
+          if(!_response.data.length == 0){
+              $scope.viewPdfProject_(_response.data[0]);
+          }
+        })
+      }
+
+      $scope.viewPdfProject_ = function (url){
+        debugger;
+        var url = `http://kvar.herokuapp.com${url.pdf_url}`
+
+        debugger;
+        $scope.downloadFile(url);
+      }
 
       $scope.goBack = function(){
         $state.go("dashboard");
@@ -241,6 +269,9 @@ CONTROLLER DEFINITION
       $scope.goToDashboard= function(){
         $state.go("dashboard");
       }
+
+
+
 
 
     });
