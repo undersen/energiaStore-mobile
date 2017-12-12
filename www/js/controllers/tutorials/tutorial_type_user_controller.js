@@ -35,21 +35,19 @@ CONTROLLER DEFINITION
 
 
       $scope.init = function(){
-        debugger;
-
         if($state.params.flag == 'config'){}else{
           var myPopup = $ionicPopup.show({
             animation: 'fade-in',
             title: '<img src="./img/common/stars.png">',
-            subTitle: '<span class="popup-title">Bienvenido</span>',
-            template: '<p class="popup-subtitle">A continuacion te explicaremos los distintos perfiles que existen en energiaStore</p>',
+            subTitle: `<span class="popup-title">${$scope.translations.TUTORIAL_WELCOME_TITLE}</span>`,
+            template: `<p class="popup-subtitle">${$scope.translations.TUTORIAL_WELCOME_TEXT}</p>`,
             scope: $scope,
             buttons: [
-              { text: 'Cancelar',
+              { text: `${$scope.translations.QUOTATION_POPUP_CANCEL_BUTTON}`,
               type: 'button-cancel'
             },
             {
-              text: 'Comenzar',
+              text: `${$scope.translations.MODAL_CREATE_FACTOR_BUTTON}`,
               type: 'button-afirmative',
               onTap: function(e) {
 
@@ -63,6 +61,7 @@ CONTROLLER DEFINITION
 
     $scope.finish = function(){
 
+
       if($state.params.flag == 'config'){
         $state.go('tutorials')
       }else{
@@ -70,19 +69,20 @@ CONTROLLER DEFINITION
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
           title: '<img src="./img/common/flying_email.png">',
-          subTitle: '<span class="popup-title">Fin Tutorial</span>',
-          template: '<p class="popup-subtitle">si aun tienes dudas puedes contactarnos en la seccion de configuracion."',
+          subTitle: `<span class="popup-title">${$scope.translations.TUTORIAL_TYPE_USER_TITLE}</span>`,
+          template: `<p class="popup-subtitle">${$scope.translations.TUTORIAL_TYPE_USER_TEXT}</p>`,
           scope: $scope,
           buttons: [
             {
-              text: 'Entendido',
+              text: `${$scope.translations.MODAL_CREATE_FACTOR_BUTTON}`,
               type: 'button-afirmative',
               onTap: function(e) {
 
-                if(!$state.params.flag == 'config'){
-                $state.go('middleware')
+
+                if($state.params.flag == 'config'){
+                  $state.go('tutorials');
                 }else{
-                  $state.go('tutorials')
+                $state.go('middleware');
                 }
               }
             }

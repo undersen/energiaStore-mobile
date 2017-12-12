@@ -8,6 +8,8 @@ CONTROLLER DEFINITION
 (function() {
   this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout",
   function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout) {
+
+
     $ionicPlatform.ready(function() {
 
 
@@ -20,14 +22,14 @@ CONTROLLER DEFINITION
 
 
       $scope.shouldShowBackButton=false;
-      $scope.RightButtonText = 'Siguiente';
-      $scope.LeftButtonText = 'Atras';
+
+
 
 
       $scope.init= function(){
 
 
-        debugger;
+
 
         $timeout(function(){
             containerId = $('#content-id');
@@ -45,6 +47,9 @@ CONTROLLER DEFINITION
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function (data) {
         $scope.translations = data;
+        $scope.RightButtonText = $scope.translations.NEXT;
+        $scope.LeftButtonText = $scope.translations.BACK;
+        $scope.SkipButtonText = $scope.translations.SKIP;
       });
 
       if (window.StatusBar) {
@@ -86,7 +91,7 @@ CONTROLLER DEFINITION
             containerId.addClass('slider-two');
             containerId.removeClass('slider-three');
             $scope.shouldShowBackButton=true;
-            $scope.RightButtonText = 'Siguiente';
+            $scope.RightButtonText = $scope.translations.NEXT;
 
             $timeout( function() {
               notification_1.addClass('notification-div-left-active');
@@ -101,7 +106,7 @@ CONTROLLER DEFINITION
             containerId.addClass('slider-three');
             containerId.removeClass('slider-two');
             $scope.shouldShowBackButton=true;
-            $scope.RightButtonText = 'Finalizar';
+            $scope.RightButtonText = $scope.translations.SKIP;
 
             if(!hasChangeSlide3){
               var tl = new TimelineMax({});

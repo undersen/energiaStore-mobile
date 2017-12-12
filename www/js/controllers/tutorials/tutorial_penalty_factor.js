@@ -36,13 +36,13 @@ CONTROLLER DEFINITION
     //         { text: 'Cancelar',
     //         type: 'button-cancel',
     //         onTap: function(e) {
-    //           debugger;
+    //           
     //           if($state.params.param === 'config'){
     //             $state.go('tutorials')
     //           }else{
     //             $state.go('middleware')
     //           }
-    //           debugger;
+    //           
     //         }
     //       },
     //       {
@@ -96,7 +96,7 @@ CONTROLLER DEFINITION
   }
 
   $scope.goAhead = function(){
-    debugger;
+    
     if(($ionicSlideBoxDelegate.currentIndex()+1) === $ionicSlideBoxDelegate.slidesCount()){
       $scope.finish();
     }else{

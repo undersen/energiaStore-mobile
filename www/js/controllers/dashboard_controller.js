@@ -12,7 +12,7 @@ CONTROLLER DEFINITION
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
       case 'user':
-      debugger;
+
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       break;
@@ -83,7 +83,7 @@ CONTROLLER DEFINITION
           scope: $scope,
           buttons: [
             {
-              text: 'Entendido',
+              text: `${$scope.translations.MODAL_CREATE_FACTOR_BUTTON}`,
               type: 'button-afirmative',
               onTap: function(e) {
                 StorageStatus.setStatus({status:true});

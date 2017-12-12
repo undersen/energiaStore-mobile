@@ -8,7 +8,7 @@
     return {
       create: function(_user_info,_calculation,calculation_id) {
 
-        debugger;
+        
 
         let defer = $q.defer();
         $http({

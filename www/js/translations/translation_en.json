@@ -133,7 +133,7 @@
   "MODAL_WELCOME_BUTTON":"Let`s go There",
   "MODAL_WELCOME_TEXT":"Welcome to Energia Store, let's start by completing your profile with your basic information.",
 
-  "MODAL_CREATE_FACTOR_BUTTON":"Understood",
+  "MODAL_CREATE_FACTOR_BUTTON":"OK",
   "MODAL_CREATE_FACTOR_TEXT":"Quotation made successfully, we will contact you soon to review your quotation.",
 
   "MODAL_FAIL_CREATE_FACTOR_BUTTON":"Understood",
@@ -369,6 +369,12 @@
   "BACK":"Back",
   "SKIP":"Skip",
 
-  "OK_BUTTON_QUOTE":"Ok"
+  "OK_BUTTON_QUOTE":"Ok",
+
+  "TUTORIAL_TYPE_USER_TITLE":"End of Tutorial",
+  "TUTORIAL_TYPE_USER_TEXT":"If you still have doubts you can contact us in the configuration section.",
+
+  "TUTORIAL_WELCOME_TITLE":"Welcome",
+  "TUTORIAL_WELCOME_TEXT":"Below we will explain the different profiles that exist in energiaStore."
 
 }

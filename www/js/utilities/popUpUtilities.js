@@ -69,7 +69,7 @@
         let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
           return true;
         }}];
-        debugger;
+        
 
         $ionicPopup.show({
           title: '<img src="./img/common/stars.png" class="img-about-us">',

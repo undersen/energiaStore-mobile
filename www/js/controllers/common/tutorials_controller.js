@@ -13,14 +13,14 @@ CONTROLLER DEFINITION
           const languageFilePath = translationService.getTranslation();
           $resource(languageFilePath).get(function (data) {
             $scope.translations = data;
-            debugger;
+            
           });
 
 
 
 
       $scope.chooseTutorial = function (_index){
-        debugger;
+        
         switch (_index) {
           case 1:
           $state.go('tutorialTypeUser',{flag:'config'})

@@ -11,7 +11,7 @@ CONTROLLER DEFINITION
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
       case 'user':
-      debugger;
+      
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       $scope.design.color = '#62D485'
@@ -75,7 +75,7 @@ CONTROLLER DEFINITION
 
           },function(){
 
-            debugger;
+            
 
           })
 
@@ -111,9 +111,9 @@ CONTROLLER DEFINITION
 
 
       $scope.getFactors = function(){
-        // debugger;
+        // 
         if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
-          // debugger;
+          // 
 
           // $scope.factors[0] = StorageFactorModel.getFactors();
           $scope.$broadcast("scroll.refreshComplete");
@@ -123,7 +123,7 @@ CONTROLLER DEFINITION
         Factor.getAllFactors(StorageUserModel.getCurrentUser()).then(function(_response){
 
           $scope.factors = _response.data;
-          debugger;
+          
           $scope.$broadcast("scroll.refreshComplete");
 
 
@@ -217,7 +217,7 @@ CONTROLLER DEFINITION
 
             $scope.calculations = _response.data;
             // $scope.getQuotations();
-            // debugger;
+            // 
             // $scope.calculations = _response.data;
             // $scope.$broadcast("scroll.refreshComplete");
             // console.log(_response);
@@ -245,10 +245,10 @@ CONTROLLER DEFINITION
       }
 
       $scope.viewPdfProject_ = function (url){
-        debugger;
+        
         var url = `http://kvar.herokuapp.com${url.pdf_url}`
 
-        debugger;
+        
         $scope.downloadFile(url);
       }
 

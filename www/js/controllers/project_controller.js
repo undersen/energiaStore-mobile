@@ -12,7 +12,7 @@ CONTROLLER DEFINITION
       $scope.design = {};
       switch (StorageUserModel.getCurrentUser().type_user) {
         case 'user':
-        debugger;
+        
         $scope.design.header = 'user-color'
         $scope.design.footer = 'user-color'
         $scope.design.button = 'user-color-button'
@@ -294,7 +294,7 @@ CONTROLLER DEFINITION
           if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
           }else{
-            debugger;
+            
             $scope.getAvaliablePDF(values);
           }
         }
@@ -302,7 +302,7 @@ CONTROLLER DEFINITION
 
         $scope.getAvaliablePDF = function(value){
           Quotation.getAvaliablesPDFById(StorageUserModel.getCurrentUser(),value.id).then(function(_response){
-            debugger;
+            
           },function(_error){
 
           })
@@ -320,16 +320,16 @@ CONTROLLER DEFINITION
 
 
          $scope.duplicateProject = function(calculation){
-           debugger;
+           
            $ionicLoading.show({
            templateUrl:"loading.html"
          }).then(function () {
 
               calculation.name = calculation.name + '_duplicated';
-              debugger;
+              
            Calculation.create(calculation, StorageUserModel.getCurrentUser()).then(
              function(_response) {
-               debugger;
+               
                $scope.getMotors(calculation.id,_response.data.id);
              },
              function(_error) {
@@ -342,7 +342,7 @@ CONTROLLER DEFINITION
 
         $scope.getMotors = function(old_calculation_id,new_calculation_id){
 
-debugger;
+
           Motors.getByCalculation(old_calculation_id,StorageUserModel.getCurrentUser()).then(function(_response){
             $scope.insertMotors(_response.data,new_calculation_id);
 
@@ -355,7 +355,7 @@ debugger;
         $scope.insertMotors = function(motors,old_calculation_id){
 
           for (var i = 0; i <= motors.length-1 ; i++) {
-            debugger;
+            
             var motor = motors[i];
             var _motor= {
               calculation_id:old_calculation_id,
@@ -368,10 +368,10 @@ debugger;
             }
 
             Motors.create(StorageUserModel.getCurrentUser(),_motor,old_calculation_id).then(function(_response){
-              debugger;
+              
               $ionicLoading.hide();
             },function(_error){
-debugger;
+
             })
           }
 

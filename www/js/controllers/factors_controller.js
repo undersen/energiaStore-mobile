@@ -64,14 +64,14 @@ CONTROLLER DEFINITION
       }
 
       $scope.doRefreshFactor= function(){
-        debugger;
+        
         $scope.getFactors();
       }
 
       $scope.getFactors = function(){
-        // debugger;
+        // 
         if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
-          // debugger;
+          // 
 
           // $scope.factors[0] = StorageFactorModel.getFactors();
           $scope.$broadcast("scroll.refreshComplete");
@@ -81,7 +81,7 @@ CONTROLLER DEFINITION
           Factor.getAllFactors(StorageUserModel.getCurrentUser()).then(function(_response){
 
             $scope.factors = _response.data;
-            debugger;
+            
             $scope.$broadcast("scroll.refreshComplete");
 
 
@@ -289,7 +289,7 @@ CONTROLLER DEFINITION
 
       // if (window.cordova){
         $scope.showPopUpImage = function(){
-          debugger;
+          
           $cordovaActionSheet
           .show($scope.options)
           .then(function(btnIndex) {
@@ -355,10 +355,10 @@ if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
 
     $scope.CreateQuoate = function(calculation){
-debugger;
+
       FactorPenalty.create(calculation,StorageUserModel.getCurrentUser()).then(function(_response){
 
-        debugger;
+        
         StorageFactorModel.destroyFactor();
         $scope.viewPdf(_response.data);
 

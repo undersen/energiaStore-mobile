@@ -12,7 +12,7 @@ CONTROLLER DEFINITION
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
       case 'user':
-      debugger;
+
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       $scope.design.button = 'user-color-button'

@@ -12,7 +12,7 @@ CONTROLLER DEFINITION
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
       case 'user':
-      debugger;
+
       $scope.design.header = 'user-color'
       $scope.design.footer = 'user-color'
       $scope.design.button = 'user-color-button'
@@ -269,7 +269,7 @@ CONTROLLER DEFINITION
           $scope.motor =[];
           $scope.motors = StorageMotor.getMotor();
 
-          debugger;
+
 
           if($scope.motors == undefined){
             $scope.motorButtonText=$scope.translations.BUTTON_ADD_MOTOR

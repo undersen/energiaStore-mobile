@@ -352,7 +352,12 @@
 "BACK":"Atras",
 "SKIP":"Saltar",
 
-"OK_BUTTON_QUOTE":"Entendido"
+"OK_BUTTON_QUOTE":"Entendido",
 
+"TUTORIAL_TYPE_USER_TITLE":"Fin Tutorial",
+"TUTORIAL_TYPE_USER_TEXT":"si aun tienes dudas puedes contactarnos en la seccion de configuracion.",
+
+"TUTORIAL_WELCOME_TITLE":"Bienvenido",
+"TUTORIAL_WELCOME_TEXT":"A continuación te explicaremos los distintos perfiles que existen en energiaStore"
 
 }
